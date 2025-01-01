@@ -15,10 +15,12 @@ sitemap: false
 
 # NOT YET!!
 
+Lots of things have changed in the world of social media since the last release. To bring Hydejack up to date, the default logo for Twitter has changed:
+
 <span class="icon-twitter-old"></span> → <span class="icon-twitter"></span>
 {:.larger}
 
-<!-- more
+more
 
 * toc
 {:toc .large-only}
@@ -74,4 +76,4 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 On a related note, I've also decided against updating the included Google Analytics script, in part because the upgrade path is incomprehensible, but also due the the same privacy concerns that make Google Fonts a bad default option. I recommend independent analytics services like 
 [Plausible](https://plausible.io), [Matomo](https://matomo.org/) or maybe even [Counterscale](https://counterscale.dev) (if you are a Cloudflare customer).
 You can include the tracking scripts by [adding them as custom HTML](../../docs/basics.md#adding-custom-html-to-the-head).
- -->
+
