@@ -13,6 +13,8 @@ redirect_from:
 
 <!--author-->
 
+## Education
+  2020 ~ : BS. in Electrical Engineering, Yonsei University
 ## Hydejack
 
 A boutique Jekyll theme for hackers, nerds, and academics.  
