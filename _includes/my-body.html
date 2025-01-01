@@ -6,10 +6,11 @@ Code for integrating CloudFlare's email protection with Hydejack's single page a
     function e(e){
       (console.error?console.error:console.log).call(console,e)
     }
-
+    
     function t(e){
       return l.innerHTML='<a href="'+e.replace(/"/g,"&quot;")+'"></a>',l.childNodes[0].getAttribute("href")
-    }
+    } 
+    
 
     function r(e,t){
       var r=e.substr(t,2);return parseInt(r,16)
