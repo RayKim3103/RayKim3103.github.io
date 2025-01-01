@@ -1,8 +1,8 @@
 ---
-layout: home
-title: Home
+layout: blog
+title: BLOG
 description: >
-  Home doing nothing
+  BLOG doing nothing
 
 menu:
   - title:             About
