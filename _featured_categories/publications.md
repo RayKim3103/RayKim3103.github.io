@@ -14,7 +14,7 @@ slug: publications
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  This page provides a brief introduction to papers published which I have published
+  This page provides a brief introduction to papers which I have published
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true
