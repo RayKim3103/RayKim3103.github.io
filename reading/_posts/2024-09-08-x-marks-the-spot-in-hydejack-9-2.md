@@ -1,5 +1,5 @@
 ---
-layout: blog # post
+layout: post
 description: > 
   This feature release adds new social media icons for 2024 and makes dark mode available to everyone.
 image: 
