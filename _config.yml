@@ -55,8 +55,8 @@ author:
 menu:
   - title:             About
     url:               /about/
-  - title:             Travel
-    url:               /travel/
+  - title:             Reading Paper
+    url:               /reading/
   - title:             Documentation
     url:               /docs/
 
