@@ -26,7 +26,7 @@ redirect_from:
 ## Projects
   2024 Fall
 
-    Computer System         : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
+    Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
 
     Artificial Intelligence : Implementing a DNN with a ResNet architecture, a tree-structured classifier, and a regression model from scratch
 
