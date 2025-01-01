@@ -4,6 +4,6 @@ title: Home
 description: >
   Home doing nothing
 # hide_description: true
-sitemap: false
+# sitemap: false
 # permalink: /home/
 ---
