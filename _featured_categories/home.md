@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Home
-slug: home
+slug: /
 description: >
   Home doing nothing
 # hide_description: true
