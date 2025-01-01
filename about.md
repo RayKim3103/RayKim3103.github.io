@@ -14,7 +14,7 @@ redirect_from:
 <!--author-->
 
 ## Education
-  2020 ~ : B.S. in Electrical Engineering, Yonsei University
+  2020 ~ : B.S. in Electrical & Electronic Engineering, Yonsei University
 
 ## Experience
   12/2023 to 04/2024 : Teaching High School Student about High School level math
@@ -23,7 +23,7 @@ redirect_from:
 
   06/2020 to 12/2020 : Teaching High School Students about High School level math
 
-## Projects
+## Undergraduate course Projects
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
