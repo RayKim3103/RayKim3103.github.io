@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Documentation
+title: Reading Paper
 description: >
   This page reviews papers published in the field of EE and Computer Engineering.
 hide_description: true
