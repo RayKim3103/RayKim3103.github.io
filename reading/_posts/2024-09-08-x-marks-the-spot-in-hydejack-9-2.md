@@ -18,8 +18,8 @@ sitemap: false
 
 Lots of things have changed in the world of social media since the last release. To bring Hydejack up to date, the default logo for Twitter has changed:
 
-<span class="icon-twitter-old"></span> → <span class="icon-twitter"></span>
-{:.larger}
+<!-- <span class="icon-twitter-old"></span> → <span class="icon-twitter"></span>
+{:.larger} -->
 
 <!--more-->
 
