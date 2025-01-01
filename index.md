@@ -10,8 +10,8 @@ menu:
   - title:             Reading Paper
     url:               /reading/
   - title:             Documentation
-    url:               /docs/ -->
+    url:               /docs/
 # hide_description: true
 # sitemap: false
 # permalink: /home/
----
+--- -->
