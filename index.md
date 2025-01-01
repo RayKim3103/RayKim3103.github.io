@@ -1,6 +1,6 @@
 ---
 layout: home
-# title: Home
+title: Home
 # description: >
 #   Home doing nothing
 # hide_description: true
