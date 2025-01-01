@@ -32,3 +32,5 @@ Inside, Lena found rows upon rows of ancient manuscripts, illuminated by the sof
 With trembling hands, she opened the book. The pages were filled with strange symbols and diagrams—symbols that seemed to shift and change before her eyes. As she read the first line, a deep voice echoed in her mind, “The secret you seek is not for the faint of heart.”
 
 Lena’s breath caught in her throat. She knew she had uncovered something much larger than she had ever imagined. This wasn’t just a library. It was a gateway to something far beyond the ordinary world. And now, she was part of its mystery, a mystery that would change her life forever.
+
+If you enjoyed it, I'd be happy to welcome you back anytime for more!
