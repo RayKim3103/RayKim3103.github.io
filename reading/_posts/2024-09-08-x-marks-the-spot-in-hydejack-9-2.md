@@ -4,12 +4,12 @@ description: >
   This feature release adds new social media icons for 2024 and makes dark mode available to everyone.
 image: 
   path: /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash.jpg
-#   srcset: 
-#     1920w: /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash.jpg
-#     960w:  /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash@0,5x.jpg
-#     480w:  /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash@0,25x.jpg
-# accent_image: /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash.jpg
-# excerpt_separator: <!--more-->
+  srcset: 
+    1920w: /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash.jpg
+    960w:  /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash@0,5x.jpg
+    480w:  /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash@0,25x.jpg
+accent_image: /assets/img/blog/pawel-czerwinski-848z7lbCjoo-unsplash.jpg
+excerpt_separator: <!--more-->
 sitemap: false
 ---
 
@@ -18,8 +18,8 @@ sitemap: false
 
 Lots of things have changed in the world of social media since the last release. To bring Hydejack up to date, the default logo for Twitter has changed:
 
-<!-- <span class="icon-twitter-old"></span> → <span class="icon-twitter"></span>
-{:.larger} -->
+<span class="icon-twitter-old"></span> → <span class="icon-twitter"></span>
+{:.larger}
 
 <!--more-->
 
