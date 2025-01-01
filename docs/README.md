@@ -15,10 +15,12 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 
 
 ## 2024
-* [Install]{:.heading.flip-title} --- How to install and run Hydejack.
+* [PIM]{:.heading.flip-title} --- Solution for bottleneck??
 {:.related-posts.faded}
 
 ## 2023 ~ 
 * None
 
-[install]: install.md
+[PIM]: Memory In Processor_A Novel Design Paradigm.md
+
+

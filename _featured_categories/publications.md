@@ -7,14 +7,14 @@
 layout: list
 
 # The title of the tag's page.
-title: Reading Paper
+title: Publications
 
 # The name of the tag, used in a post's front matter (e.g. tags: [<slug>]).
-slug: reading
+slug: publications
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  This page is for reviewing the papers related to electrical & electronics or computer science
+  This page provides a brief introduction to papers published in the field of EE
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true

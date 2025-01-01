@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Install
+title: Memory In Processor Introduction
 description: >
   Novel merged logic memory architectures such as the Processor In Memory (PIM)
   approach seek to delay the Von-Neumann bottleneck.
