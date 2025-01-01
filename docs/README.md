@@ -14,11 +14,11 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 {:.note} -->
 
 
-## 2024
+## 2025
 * [PIM]{:.heading.flip-title} --- Solution for bottleneck??
 {:.related-posts.faded}
 
-## 2023 ~ 
+## 2024 ~ 
 * None
 
 [PIM]: Memory In Processor_A Novel Design Paradigm.md
