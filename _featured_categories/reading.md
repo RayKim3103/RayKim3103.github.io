@@ -14,8 +14,7 @@ slug: reading
 
 # (Optional) Write a short (~150 characters) description of this featured tag.
 description: >
-  This is a featured category, which have their own page.
-  Check out `_featured_tags/example.md` to learn how to create your own.
+  This page is for reviewing the papers related to electrical & electronics or computer science
 
 # (Optional) You can disable grouping posts by date.
 # no_groups: true

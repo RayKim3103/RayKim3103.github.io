@@ -60,20 +60,6 @@ menu:
   - title:             Documentation
     url:               /docs/
 
-collections:
-  featured_categories:
-    permalink:         /about/
-    output:            true
-  featured_tags:
-    permalink:         /tag-:name/
-    output:            true
-  featured_categories:
-    permalink:         /reading/
-    output:            true
-  featured_tags:
-    permalink:         /tag-:name/
-    output:            true
-
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 legal:
