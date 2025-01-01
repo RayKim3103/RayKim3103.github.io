@@ -1,7 +1,7 @@
 ---
 layout: list
 title: Home
-slug: /.
+slug: https://raykim3103.github.io/
 description: >
   Home doing nothing
 # hide_description: true
