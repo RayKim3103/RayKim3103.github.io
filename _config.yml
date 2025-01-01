@@ -55,9 +55,9 @@ author:
 menu:
   - title:             About
     url:               /about/
-  - title:             Reading Paper
-    url:               /reading/
   - title:             Publications
+    url:               /publications/
+  - title:             Reading Paper
     url:               /docs/
 
 # Add links to the footer.
