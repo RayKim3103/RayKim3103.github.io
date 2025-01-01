@@ -184,6 +184,7 @@ kramdown:
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
 # These settings are specific to Hydejack.
+# 블로그 페이지, 프로젝트 페이지, 검색, 네비게이션 등을 어떻게 표시할지, 서드파티 서비스와의 통합 방법을 세부적으로 조정할 수 있음
 
 hydejack:
   # Configure the order of complementary content on blog posts
