@@ -1,10 +1,10 @@
 ---
-layout: page
+layout: list
 title: Documentation
 slug: docs
 description: >
   I haven't published anything yet
 hide_description: true
 sitemap: false
-permalink: /docs/
+# permalink: /docs/
 ---
