@@ -1,5 +1,5 @@
 # Ray's Blog
 
-It tells you about whay he learned and He does
+It tells you about what he learned and he does
 
 check: https://raykim3103.github.io
