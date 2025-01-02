@@ -59,6 +59,8 @@ menu:
     url:               /publications/
   - title:             Reading Paper
     url:               /docs/
+  - title:             Comming Soon
+    url:               /commingsoon/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
