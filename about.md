@@ -25,7 +25,7 @@ hide_description: true
   <div style="display: flex; align-items: center;">
     <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2; margin-bottom: 10px;">Undergraduate course Projects</h2>
     <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
-      <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
+      <img src="/assets/img/about/home.png" alt="GitHub" style="width: 20px; height: 20px; border-radius: 50%;">
     </a>
   </div>
 </div>
