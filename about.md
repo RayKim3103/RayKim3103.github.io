@@ -24,10 +24,16 @@ hide_description: true
 
   06/2020 to 12/2020 : Teaching High School Students about High School level math
 
-## Undergraduate course Projects 
+<!-- ## Undergraduate course Projects 
 <a href="https://github.com/RayKim3103/Undergraduate-Course">
-  <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: auto;">
-</a>
+  <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
+</a> -->
+<div style="display: flex; align-items: center;">
+  <h2 style="margin: 0; font-size: 1.5em;">Undergraduate course Projects</h2>
+  <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
+    <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
+  </a>
+</div>
 
   2024 Fall
 
