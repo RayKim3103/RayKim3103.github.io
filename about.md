@@ -23,7 +23,7 @@ redirect_from:
 
   06/2020 to 12/2020 : Teaching High School Students about High School level math
 
-## Undergraduate course Projects
+## Undergraduate course Projects [\assets\img\about\home.png]
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
@@ -46,3 +46,4 @@ redirect_from:
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
+[\assets\img\about\home.png]: https://github.com/RayKim3103/Undergraduate-Course
