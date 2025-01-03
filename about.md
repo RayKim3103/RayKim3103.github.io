@@ -26,7 +26,7 @@ hide_description: true
 
 ## Undergraduate course Projects 
 <a href="https://github.com/RayKim3103/Undergraduate-Course">
-  <img src="/assets/img/about/home@0,5x.png" alt="goto" style="width: 100px; height: auto;">
+  <img src="/assets/img/about/home.png" alt="GitHub" style="width: 100px; height: auto;">
 </a>
 
   2024 Fall
@@ -51,4 +51,4 @@ hide_description: true
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
-    <!-- [![goto](/assets/img/about/home@0,5x.png)](https://github.com/RayKim3103/Undergraduate-Course) -->
+    <!-- [![GitHub](/assets/img/about/home@0,5x.png)](https://github.com/RayKim3103/Undergraduate-Course) -->
