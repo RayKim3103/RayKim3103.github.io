@@ -21,15 +21,15 @@ hide_description: true
 
 ## Projects
 
-<div style="margin-top: 50px; margin-bottom: 10px;">
+<!-- <div style="margin-top: 50px; margin-bottom: 10px;">
   <div style="display: flex; align-items: center;">
     <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2; margin-bottom: 10px;">Undergraduate course Projects</h2>
     <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
       <img src="/assets/img/about/home.png" alt="GitHub" style="width: 20px; height: 20px; border-radius: 50%;">
     </a>
   </div>
-</div>
-
+</div> -->
+## Undergraduate course Projects [GitHub]
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
@@ -51,6 +51,8 @@ hide_description: true
     Digital Communications  : Restoring a distorted signal passed through 1-tap Rayleigh fading using 16-QAM, Hamming code, and a 1-tap equalizer in MATLAB
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
+
+[GitHub]: https://github.com/RayKim3103/Undergraduate-Course
 
 ## Part-Time jobs
   12/2023 to 04/2024 : Teaching High School Student about High School level math
