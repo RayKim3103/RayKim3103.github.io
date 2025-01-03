@@ -28,12 +28,15 @@ hide_description: true
 <a href="https://github.com/RayKim3103/Undergraduate-Course">
   <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
 </a> -->
-## <div style="margin-top: 20px; display: flex; align-items: center;">
-  <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2;">Undergraduate course Projects</h2>
-  <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
-    <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
-  </a>
+<div style="margin-top: 40px;">
+  <div style="display: flex; align-items: center;">
+    <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2;">Undergraduate course Projects</h2>
+    <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
+      <img src="/assets/img/about/home.png" alt="GitHub" style="width: 30px; height: 30px; border-radius: 50%;">
+    </a>
+  </div>
 </div>
+
 
   2024 Fall
 
