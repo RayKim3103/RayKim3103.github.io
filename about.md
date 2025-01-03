@@ -18,11 +18,6 @@ hide_description: true
   2020 ~ : B.S. in Electrical & Electronic Engineering, Yonsei University
 
 ## Experience
-  12/2023 to 04/2024 : Teaching High School Student about High School level math
-
-  04/2023 to 09/2023 : Making beverages and serving customers at a cafe
-
-  06/2020 to 12/2020 : Teaching High School Students about High School level math
 
 <div style="margin-top: 50px; margin-bottom: 10px;">
   <div style="display: flex; align-items: center;">
@@ -55,4 +50,9 @@ hide_description: true
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
-    <!-- [![GitHub](/assets/img/about/home@0,5x.png)](https://github.com/RayKim3103/Undergraduate-Course) -->
+## Part-Time jobs
+  12/2023 to 04/2024 : Teaching High School Student about High School level math
+
+  04/2023 to 09/2023 : Making beverages and serving customers at a cafe
+
+  06/2020 to 12/2020 : Teaching High School Students about High School level math
