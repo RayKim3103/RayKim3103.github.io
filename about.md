@@ -29,7 +29,7 @@ hide_description: true
     </a>
   </div>
 </div> -->
-## Undergraduate course Projects [GitHub]
+## Undergraduate course Projects [[GitHub]]
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
@@ -52,7 +52,7 @@ hide_description: true
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
-GitHub: https://github.com/RayKim3103/Undergraduate-Course
+[GitHub]: https://github.com/RayKim3103/Undergraduate-Course
 
 ## Part-Time jobs
   12/2023 to 04/2024 : Teaching High School Student about High School level math
