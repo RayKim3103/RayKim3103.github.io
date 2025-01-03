@@ -1,6 +1,7 @@
 ---
 layout: about
 image: /assets/img/blog/hydejack-9.jpg
+goto: \assets\img\about\home.png
 description: >
   A boutique Jekyll theme for hackers, nerds, and academics,
   with a focus on personal sites that are meant to impress.
@@ -46,5 +47,4 @@ redirect_from:
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
-goto: \assets\img\about\home.png
 [goto]: https://github.com/RayKim3103/Undergraduate-Course
