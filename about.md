@@ -19,6 +19,8 @@ hide_description: true
 
 ## Experience
 
+## Projects
+
 <div style="margin-top: 50px; margin-bottom: 10px;">
   <div style="display: flex; align-items: center;">
     <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2; margin-bottom: 10px;">Undergraduate course Projects</h2>
