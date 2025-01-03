@@ -1,7 +1,7 @@
 ---
 layout: about
-image: /assets/img/blog/hydejack-9.jpg
-goto: \assets\img\about\home.png
+image: \assets\img\about\home.png # /assets/img/blog/hydejack-9.jpg
+# goto: 
 description: >
   A boutique Jekyll theme for hackers, nerds, and academics,
   with a focus on personal sites that are meant to impress.
