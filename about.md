@@ -25,9 +25,12 @@ hide_description: true
   06/2020 to 12/2020 : Teaching High School Students about High School level math
 
 ## Undergraduate course Projects 
-<a href="https://github.com/RayKim3103/Undergraduate-Course">
-  <img src="/assets/img/about/home.png" alt="GitHub" style="width: 100px; height: auto;">
-</a>
+```yml
+image:
+  path:    /assets/img/about/home.png
+  srcset:
+    480w:  /assets/img/about/home@0,25x.jpg
+```
 
   2024 Fall
 
