@@ -22,9 +22,9 @@ author1:
   # Rearrange to change the order in which they appear
   # You can also provide an absolute URL (starting with https://) instead of usernames
   social:
-    twitter:         <username>
+    # twitter:         <username>
     github:          https://github.com/RayKim3103
-    # email:           <mail@domain.tld>
+    email:           minsungkim6704@yonsei.ac.kr
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
