@@ -1,6 +1,6 @@
 ---
 layout: page
-title: The MicroArchitecture of SuperScalar Processors(1995)
+title: The MicroArchitecture of SuperScalar Processors (1995)
 description: >
   This paper tells about the introduction to SuperScalar Processors
 hide_description: false
