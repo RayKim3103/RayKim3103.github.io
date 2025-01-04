@@ -15,12 +15,12 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 
 
 ## 2025
-* [The MicroArchitecture of SuperScalar Processors[1995]]{:.heading.flip-title} --- Solution for bottleneck??
+* [The MicroArchitecture of SuperScalar Processors(1995)]{:.heading.flip-title} --- Solution for bottleneck??
 {:.related-posts.faded}
 
 ## 2024 ~ 
 * None
 
-[The MicroArchitecture of SuperScalar Processors[1995]]: The MicroArchitecture of SuperScalar Processors[1995].md
+[The MicroArchitecture of SuperScalar Processors(1995)]: The MicroArchitecture of SuperScalar Processors(1995).md
 
 
