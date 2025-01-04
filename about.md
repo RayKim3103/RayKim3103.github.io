@@ -1,12 +1,13 @@
 ---
 layout: about
-image: /assets/img/blog/hydejack-9.jpg
+# image: \assets\img\about\home.png # /assets/img/blog/hydejack-9.jpg
+# goto: 
 description: >
   A boutique Jekyll theme for hackers, nerds, and academics,
   with a focus on personal sites that are meant to impress.
 hide_description: true
-redirect_from:
-  - /download/
+# redirect_from:
+#  - /download/
 ---
 
 # About
@@ -17,13 +18,18 @@ redirect_from:
   2020 ~ : B.S. in Electrical & Electronic Engineering, Yonsei University
 
 ## Experience
-  12/2023 to 04/2024 : Teaching High School Student about High School level math
 
-  04/2023 to 09/2023 : Making beverages and serving customers at a cafe
+## Projects
 
-  06/2020 to 12/2020 : Teaching High School Students about High School level math
-
-## Undergraduate course Projects
+<!-- <div style="margin-top: 50px; margin-bottom: 10px;">
+  <div style="display: flex; align-items: center;">
+    <h2 style="margin: 0; font-size: 1.5em; line-height: 1.2; margin-bottom: 10px;">Undergraduate course Projects</h2>
+    <a href="https://github.com/RayKim3103/Undergraduate-Course" style="margin-left: 10px;">
+      <img src="/assets/img/about/home.png" alt="GitHub" style="width: 20px; height: 20px; border-radius: 50%;">
+    </a>
+  </div>
+</div> -->
+## Undergraduate course Projects [[GitHub]]
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
@@ -46,3 +52,11 @@ redirect_from:
     
     Electric Circuits 2     : Enhancing the eye diagram of an optical signal through a feedback-structured TIA (Transimpedance Amplifier) and CTLE (Continuous-Time Linear Equalizer) while optimizing the Figure of Merit (FOM).
 
+[GitHub]: https://github.com/RayKim3103/Undergraduate-Course
+
+## Part-Time jobs
+  12/2023 to 04/2024 : Teaching High School Student about High School level math
+
+  04/2023 to 09/2023 : Making beverages and serving customers at a cafe
+
+  06/2020 to 12/2020 : Teaching High School Students about High School level math

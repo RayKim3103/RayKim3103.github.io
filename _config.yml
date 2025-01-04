@@ -16,7 +16,7 @@ baseurl:               '' # '/hydejack-starter-kit' # /RayKim3103.github.io
 # ---------------------------------------------------------------------------------------
 
 # The base icon which will be used to generate favicons and app icons.
-favicon: /assets/img/logo/logo.png
+favicon: /assets/img/logo/favicon.png
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
