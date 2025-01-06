@@ -16,7 +16,7 @@ baseurl:               '' # '/hydejack-starter-kit' # /RayKim3103.github.io
 # ---------------------------------------------------------------------------------------
 
 # The base icon which will be used to generate favicons and app icons.
-# favicon: /assets/img/logo/favicon.png
+# favicon: /assets/favicon.ico
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
@@ -41,7 +41,7 @@ keywords:              [Electrical & Electronic engineering, Computer science]
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/img/logo/logo.png
+logo:                  /assets/img/logo.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -98,7 +98,7 @@ remote_theme: hydecorp/hydejack@v9
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/logo/accent_image.png
+accent_image:          /assets/img/accent_image.png
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
