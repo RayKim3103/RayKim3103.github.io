@@ -16,7 +16,8 @@ baseurl:               '' # '/hydejack-starter-kit' # /RayKim3103.github.io
 # ---------------------------------------------------------------------------------------
 
 # The base icon which will be used to generate favicons and app icons.
-# favicon: /assets/icons/favicon.ico
+favicon: /assets/icons/favicon.ico
+apple_touch_icon: /assets/img/logo.png
 # apple_touch_icon: /assets/icons/icon-192x192.png
 
 # Language of your content in 2-letter code, e.g.: en, de.
@@ -59,19 +60,19 @@ menu:
   - title:             Publications
     url:               /publications/
   - title:             Reading Paper
-    url:               /docs/
+    url:               /papers/
   - title:             Comming Soon
     url:               /commingsoon/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
-legal:
-  - title:             LICENSE
-    url:               /LICENSE/
-  - title:             NOTICE
-    url:               /NOTICE/
-  - title:             NOTICE
-    url:               /NOTICE/
+# legal:
+#   - title:             LICENSE
+#     url:               /LICENSE/
+#   - title:             NOTICE
+#     url:               /NOTICE/
+#   - title:             NOTICE
+#     url:               /NOTICE/
 
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2024. All rights reserved.
