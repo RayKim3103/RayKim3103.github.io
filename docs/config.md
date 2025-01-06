@@ -484,8 +484,8 @@ You can either override these files, or override the path in the config file via
 
 ```yml
 # file: "_config.yml"
-favicon: /favicon.ico
-apple_touch_icon: /assets/img/icon-192x192.png
+favicon: favicon.ico
+apple_touch_icon: /assets/icons/icon-192x192.png
 # apple_touch_icon: /assets/img/logo.png
 ```
 
