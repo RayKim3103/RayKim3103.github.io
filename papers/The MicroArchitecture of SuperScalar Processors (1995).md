@@ -26,6 +26,7 @@ Table of contents
 
 ### 0. Terminology Definition
 :-----------------------------------------------------------------------------------------------------------------------------:
+
 1 - Instruction Level Parallelism (ILP)
 
   Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
