@@ -237,7 +237,8 @@ sitemap: false
     Reorder Buffer :  FIFO storage, implemented in hardware as a circular buffer with head and tail pointers.  
 
     As instructions complete execution, their result values are inserted into the reorder buffer.  
-    At the time an instruction reaches the head of the reorder buffer, if it has completed execution, its entry is removed from the buffer and its result value is placed in the register file.  
+    At the time an instruction reaches the head of the reorder buffer, if it has completed execution,  
+    its entry is removed from the buffer and its result value is placed in the register file.  
 
 
 
