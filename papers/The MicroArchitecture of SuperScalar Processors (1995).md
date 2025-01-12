@@ -116,4 +116,14 @@ sitemap: false
   
   2) Data dependences
 
+    As, the instructions may access the same storage location, *Data dependences* occur.  
+
+    *True dependences*  
+
+      read-after-write (RAW) : writing value into a register and reading value from the same register.
+
+    *Artificial dependences*  
+
+       write-after-read (WAR) : reading value from a register and writing the value in the same register.  
+       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
     
