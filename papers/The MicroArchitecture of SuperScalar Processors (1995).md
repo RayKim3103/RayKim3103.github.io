@@ -196,14 +196,14 @@ sitemap: false
   
   What is execution tuple?
 
-  1) It contains an operation to be executed.
-  2) the identities of storage elements where the input operands reside.
+  1) It contains an operation to be executed.  
+  2) the identities of storage elements where the input operands reside.  
   3) locations where the instruction's result must be placed.
 
   To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
   
   **SOLUTION**
-  
+
   physical storage elements that may differ from the logical storage elements
 
 
