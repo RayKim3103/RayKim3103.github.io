@@ -60,9 +60,9 @@ sitemap: false
   But, The pipeline initiation rate remained at one instruction per cycle for many years.  
   This was a serious bottleneck. Thus, High Performance Processing is required.  
 
-  2 ways for High Performance
-    1) reduce individual instruction latencies
-    2) execute more instructions in parallel.
+  2 ways for High Performance  
+    1) reduce individual instruction latencies.  
+    2) execute more instructions in parallel.  
 
   The way to 'execute more instructions in parallel' is **SuperScalar processing**.
 
