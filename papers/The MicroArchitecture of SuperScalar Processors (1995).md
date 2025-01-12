@@ -217,7 +217,7 @@ sitemap: false
   *2 register renaming methods*
 
 <!-- ![Execution Tuple](/assets/img/papers/1/1_1.png){: width="270" height="120" style="float: right; margin-left: 60px;"} -->
-![Execution Tuple](/assets/img/papers/1/1_1.png){: width="270" height="120"}
+![freelist](/assets/img/papers/1/1_1.png){: width="270" height="120"}
 
     1 -  Using a freelist  
     
@@ -233,7 +233,7 @@ sitemap: false
     Then, destination register is assigned another physical register from a freelist.  
     Free the physical register that was assigned to source register.   
 
-![Execution Tuple](/assets/img/papers/1/1_2.png){: width="360" height="180"}
+![reorder buffer](/assets/img/papers/1/1_2.png){: width="360" height="180"}
 
     2 - Using reorder buffer
 
@@ -246,6 +246,21 @@ sitemap: false
 
 #### C. Instruction Issuing and Parallel Execution 
 
-Once execution tuples are created and buffered, the next step is to determine which tuples can be issued for execution.  
+  In Instruction Decoding execution tuples are created and buffered.  
+  The next step is to determine which tuples can be *issued* for execution.  
 
-    
+  Instruction issue is defined as the run-time checking for availability of data and resources.  
+
+  Ideally an instruction is ready to execute as soon as its input operands are available.  
+  But, there are some constraints.  
+    1) execution units, interconnect, and register file (or reorder buffer) ports.  
+    2) organization of buffers.  
+  
+  The instruction issue buffer can be designed in various ways to keep instructions in an executable state and optimize parallel processing.  
+
+  Below are three main approaches to achieving this.  
+![issue queue](/assets/img/papers/1/1_3.png){: width="360" height="180"}
+    1) Single Queue Method  
+    2) Multiple Queue Method  
+    3) Reservation Stations  
+  
