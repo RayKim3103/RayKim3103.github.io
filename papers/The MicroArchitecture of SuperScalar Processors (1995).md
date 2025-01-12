@@ -166,7 +166,8 @@ Table of contents
   The number of instructions fetched per cycle should at least match the peak instruction decode and execution rate and is usually somewhat higher.  
 
     For example, there should be margin when Instruction Cache misses.  
-    For example, when branch Inst. transfers control to an instruction in the middle of a cache line, then only the remaining portion of the cache line contains useful instructions. So, loss of bandwidth occurs.  
+    For example, when branch Inst. transfers control to an instruction in the middle of a cache line, 
+      then only the remaining portion of the cache line contains useful instructions. So, loss of bandwidth occurs.  
 
   To smoothen this problems *Instruction Buffer* is used.  
   It stores Instruction and fetches this Instructions when stall occurs.  
