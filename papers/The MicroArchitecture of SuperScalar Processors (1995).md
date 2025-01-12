@@ -140,50 +140,50 @@ sitemap: false
 
 #### A. Instruction Fetching and Branch Prediction
 
-    **Instruction Fetch**
+  **Instruction Fetch**
 
-    The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
+  The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
 
-    *Instruction Cache* is used to contain instructions.  
-    Cache is used because it is faster than Memory.  
-    But, Hit and Miss is the problem. When, Cache misses, it have to search Memory to find content.  
-    Thus, Cache Miss increases latency.  
+  *Instruction Cache* is used to contain instructions.  
+  Cache is used because it is faster than Memory.  
+  But, Hit and Miss is the problem. When, Cache misses, it have to search Memory to find content.  
+  Thus, Cache Miss increases latency.  
 
-    For a superscalar implementation to sustain the execution of multiple instructions per cycle, the fetch phase must be able to fetch multiple instructions per cycle.  
-    The number of instructions fetched per cycle should at least match the peak instruction decode and execution rate and is usually somewhat higher.  
-    For example, there should be margin when Instruction Cache misses.
-    For example, when branch Inst.  transfers control to an instruction in the middle of a cache line, then only the remaining portion of the cache line contains useful instructions. So, loss of bandwidth occurs.  
+  For a superscalar implementation to sustain the execution of multiple instructions per cycle, the fetch phase must be able to fetch multiple instructions per cycle.  
+  The number of instructions fetched per cycle should at least match the peak instruction decode and execution rate and is usually somewhat higher.  
+  For example, there should be margin when Instruction Cache misses.
+  For example, when branch Inst.  transfers control to an instruction in the middle of a cache line, then only the remaining portion of the cache line contains useful instructions. So, loss of bandwidth occurs.  
 
-    To smoothen this problems *Instruction Buffer* is used. It stores Instruction and fetches this Instructions when stall occurs.
+  To smoothen this problems *Instruction Buffer* is used. It stores Instruction and fetches this Instructions when stall occurs.
 
-    **Branch Prediction**
+  **Branch Prediction**
 
-    In branch instructions, Delays occur because of redirecting the flow of control.  
-    Therefore predicting the Branch result is needed.  
-    
-    1) Recognizing Conditional Branches  
-      All instruction types information is held in the instruction cache along with the instructions.  
-      There is predecode logic prior to the instruction cache which generates predecode bits.  
+  In branch instructions, Delays occur because of redirecting the flow of control.  
+  Therefore predicting the Branch result is needed.  
+  
+  1) Recognizing Conditional Branches  
+    All instruction types information is held in the instruction cache along with the instructions.  
+    There is predecode logic prior to the instruction cache which generates predecode bits.  
 
-    2) Determining the Branch Outcome  
-      Conditional branch can be predicted using one of several types of branch prediction methods.  
+  2) Determining the Branch Outcome  
+    Conditional branch can be predicted using one of several types of branch prediction methods.  
 
-      1 - predictors using static information  
-        i.e. certain opcode types might more often result in taken branches than others
+    1 - predictors using static information  
+      i.e. certain opcode types might more often result in taken branches than others
 
-      2 - predictors using dynamic information ( information that becomes available as the program executes)  
-        It use information regarding the past history of branch outcomes.  
-        branch history is saved in a *branch history table* or *branch prediction table*.  
-        i.e. If Branch is taken increase counter, else decrease counter. Seeing the counter value, predict the Branch outcomes.  
+    2 - predictors using dynamic information ( information that becomes available as the program executes)  
+      It use information regarding the past history of branch outcomes.  
+      branch history is saved in a *branch history table* or *branch prediction table*.  
+      i.e. If Branch is taken increase counter, else decrease counter. Seeing the counter value, predict the Branch outcomes.  
 
-    3) Computing Branch Targets  
-      In most architectures, branch targets are relative to the program counter and use an offset value held in the instruction.  
-      Branch target buffer which holds the target address that was used the last time the branch was executed makes computing targets faster.
-    
-    4) Transferring Control
-      When there is a taken (or predicted taken) branch there is often at least a clock cycle delay in recognizing the branch.  
+  3) Computing Branch Targets  
+    In most architectures, branch targets are relative to the program counter and use an offset value held in the instruction.  
+    Branch target buffer which holds the target address that was used the last time the branch was executed makes computing targets faster.
+  
+  4) Transferring Control
+    When there is a taken (or predicted taken) branch there is often at least a clock cycle delay in recognizing the branch.  
 
-      Solutions  
-        1 - use the instruction buffer with its stockpiled instructions to mask the delay.  
-        2 - use *delayed branches* method (branch does not take effect until the instruction after the branch).  
+    Solutions  
+      1 - use the instruction buffer with its stockpiled instructions to mask the delay.  
+      2 - use *delayed branches* method (branch does not take effect until the instruction after the branch).  
     
