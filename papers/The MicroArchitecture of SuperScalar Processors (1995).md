@@ -26,15 +26,23 @@ sitemap: false
 
   ILP Implementation methods
     1) Pipelining: Divides instructions into multiple stages and processes each stage of different instructions concurrently.
+
     2) Superscalar Architecture: Uses multiple execution units to process multiple instructions in parallel.
+
     3) Out-of-Order Execution: Executes instructions that are ready first, regardless of their program order.
   
   ILP example
+
     a = b + c; // Instruction 1
+
     d = e + f; // Instruction 2
+    
     => we can execute Inst.1 & Inst.2 in parallel because they are independent.
 
 2. Dynamic instruction scheduling
+
+  Dynamic Instruction Scheduling is a technique where a processor dynamically adjusts the execution order of instructions at "runtime" to improve performance.
+
 3. Tomasulo's Algorithm
 4. Vector Processing
 5. Multi Processing
