@@ -252,6 +252,7 @@ sitemap: false
   Instruction issue is defined as the run-time checking for availability of data and resources.  
 
   Ideally an instruction is ready to execute as soon as its input operands are available.  
+
   But, there are some constraints.  
     1) execution units, interconnect, and register file (or reorder buffer) ports.  
     2) organization of buffers.  
@@ -286,3 +287,4 @@ sitemap: false
       When there is a match, the result value is putted into reservation station.  
       When all the operands are ready in the reservation station, the instruction may issue.  
 
+#### D. Handling Memory Operations 
