@@ -120,8 +120,9 @@ Table of contents
 
     Instructions is executed sequentially before the branch instruction appears.  
     Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
-    Instructions in the basic block will be executed eventually.  
-    Then we can execute them simultaneously if there is no *data dependences*.  
+    When Basic Block A is chosen to be executed.  
+    Instructions in the Basic Block A will be executed eventually.  
+    Then we can execute them(Block A) simultaneously if there is no *data dependences*.  
 
     Control dependences is caused by branch inst.  
     To get more parallelism the basic block should be larger.  
@@ -389,7 +390,7 @@ Table of contents
 
 #### F. The Role of Software 
   Software can assist creating a binary.
-  
+
     -> Make the instruction fetching process more efficient.   
     -> Make the instruction issuing and execution process more efficient.  
   
