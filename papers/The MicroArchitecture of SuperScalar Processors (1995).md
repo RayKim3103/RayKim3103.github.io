@@ -261,7 +261,7 @@ sitemap: false
 
   Below are three main approaches to achieving this.  
 
-![issue queue](/assets/img/papers/1/1_3.png){: width="360" height="180"}
+![issue queue](/assets/img/papers/1/1_3.png){: width="480" height="240"}
 
     1) Single Queue Method  
        No out-of-order issuing, register renaming is not required.  
