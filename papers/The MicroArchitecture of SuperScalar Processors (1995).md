@@ -139,4 +139,35 @@ sitemap: false
 ## THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
 
   #### A. Instruction Fetching and Branch Prediction
+
+    **Instruction Fetch**
+
     The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
+
+    *Instruction Cache* is used to contain instructions.  
+    Cache is used because it is faster than Memory.  
+    But, Hit and Miss is the problem. When, Cache misses, it have to search Memory to find content.  
+    Thus, Cache Miss increases latency.  
+
+    For a superscalar implementation to sustain the execution of multiple instructions per cycle, the fetch phase must be able to fetch multiple instructions per cycle.  
+    The number of instructions fetched per cycle should at least match the peak instruction decode and execution rate and is usually somewhat higher.  
+    For example, there should be margin when Instruction Cache misses.
+    For example, when branch Inst.  transfers control to an instruction in the middle of a cache line, then only the remaining portion of the cache line contains useful instructions. So, loss of bandwidth occurs.  
+
+    To smoothen this problems *Instruction Buffer* is used. It stores Instruction and fetches this Instructions when stall occurs.
+
+    **Branch Prediction**
+
+    In branch instructions, Delays occur because of redirecting the flow of control.  
+    Therefore predicting the Branch result is needed.  
+    
+    1) Recognizing Conditional Branches  
+      All instruction types information is held in the instruction cache along with the instructions.  
+      There is predecode logic prior to the instruction cache which generates predecode bits.  
+
+    2) Determining the Branch Outcome  
+       Conditional branch can be predicted using one of several types of branch prediction methods.  
+
+    3) Computing Branch Targets
+
+    4) Transferring Control
