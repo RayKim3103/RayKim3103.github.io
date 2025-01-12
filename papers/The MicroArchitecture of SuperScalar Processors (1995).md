@@ -106,7 +106,7 @@ sitemap: false
   Why should we care about *Dependences* to parallelize the instruction.  
   Because, Instructions that are independent can execute simultaneously.
 
-  **Dependences**
+  **[Dependences]**
 
   1) Control dependences
 
@@ -147,7 +147,7 @@ sitemap: false
 
 #### A. Instruction Fetching and Branch Prediction
 
-  **Instruction Fetch**
+  **[Instruction Fetch]**
 
   The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
 
@@ -165,7 +165,7 @@ sitemap: false
   To smoothen this problems *Instruction Buffer* is used.  
   It stores Instruction and fetches this Instructions when stall occurs.  
 
-  **Branch Prediction**
+  **[Branch Prediction]**
 
   In branch instructions, Delays occur because of redirecting the flow of control.  
   Therefore predicting the Branch result is needed.  
@@ -210,7 +210,7 @@ sitemap: false
 
   To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
   
-  **SOLUTION : Register Renaming**
+  **[SOLUTION : Register Renaming]**
 
   => physical storage elements are differ with logical storage elements  
 
@@ -289,12 +289,13 @@ sitemap: false
 
 #### D. Handling Memory Operations 
 
-  **Memory Hierarchy**
+  **[Memory Hierarchy]**
 
   To reduce the latency of memory operations, memory hierarchies are used.  
   All processors today contain a data cache, and it is rapidly becoming commonplace to have multiple levels of data caching.  
 
-  **Address Calculation**
+  **[Address Calculation]**
+
   It is not possible to identify the memory locations until after the issue phase.  
   Thus, address calculation & address translation is required after the issue phase.  
   (Translation lookaside buffer(TLB) is used to speed up address translation)  
@@ -310,7 +311,7 @@ sitemap: false
     3 - overlapping the execution of memory operations with nonmemory operations.  
     4 - possibly allowing memory operations to execute out-of-order.  
   
-  **SOLUTION to achieve above requirements**
+  **[SOLUTION to achieve above requirements]**
 
     1) keep information only for a currently active subset of the memory locations.  
     2) multiported memory hierarchy which allows multiple memory requests to be serviced simultaneously. 
