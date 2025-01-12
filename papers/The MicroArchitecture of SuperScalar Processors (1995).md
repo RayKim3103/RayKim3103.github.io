@@ -233,7 +233,7 @@ sitemap: false
     Then, destination register is assigned another physical register from a freelist.  
     Free the physical register that was assigned to source register.   
 
-![Execution Tuple](/assets/img/papers/1/1_2.png){: width="270" height="120" style="float: right; margin-left: 60px;"}
+![Execution Tuple](/assets/img/papers/1/1_2.png){: width="360" height="180"}
 
     2 - Using reorder buffer
 
@@ -243,6 +243,8 @@ sitemap: false
     As instructions complete execution, their result values are inserted into the reorder buffer using mapping table.  
     At the time an instruction reaches the head of the reorder buffer, if it has completed execution,  
     its entry is removed from the buffer and its result value is placed in the register file.  
+
+#### C. Instruction Issuing and Parallel Execution 
 
 
 
