@@ -389,10 +389,12 @@ Table of contents
 
 #### F. The Role of Software 
   Software can assist creating a binary.
+  
     -> Make the instruction fetching process more efficient.   
     -> Make the instruction issuing and execution process more efficient.  
   
   How?
+
     1) Increasing the likelihood that a group of instructions can be issued simultaneously.  
       -> By, Scheduling(arranging) instructions statically.  
         (Make group of instructions in the static program matches the parallel execution constraint.)  
