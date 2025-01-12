@@ -232,7 +232,7 @@ sitemap: false
     Then, destination register is assigned another physical register from a freelist.  
     Free the physical register that was assigned to source register.   
 
-
+![Execution Tuple](/assets/img/papers/1/1_2.png){: width="270" height="120" style="float: right; margin-left: 60px;"}
 
     2 - Using reorder buffer
 
