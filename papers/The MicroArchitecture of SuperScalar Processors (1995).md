@@ -229,5 +229,5 @@ sitemap: false
     These are the locations from which the source operand values will be read.  
     Then, destination register is assigned another physical register from a freelist.  
 
-![Execution Tuple](/assets/img/papers/1/1_1.png){:.lead width="150" height="75" style="float: right; margin-left: 15px;"}
+![Execution Tuple](/assets/img/papers/1/1_1.png){:.lead width="30" height="15" style="float: right; margin-left: 50px;"}
     
