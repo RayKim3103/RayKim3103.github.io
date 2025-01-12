@@ -70,7 +70,7 @@ sitemap: false
   However, most processor designs inherit a legacy from their predecessors. (Binary compatibility)  
 
   Sequential execution model : the way processors were implemented many years ago.  
-  In this model, one instruction is executed at a time in a sequential manner.
+  In this model, one instruction is executed at a time in a sequential manner.  
   Also, sequential model has a concept of precise state.
 
   Therefore, SuperScalar processing should maintain the feature of instruction set compatibility and a sequential execution model.
