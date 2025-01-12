@@ -61,6 +61,7 @@ sitemap: false
   This was a serious bottleneck. Thus, High Performance Processing is required.  
 
   2 ways for High Performance  
+
     1) reduce individual instruction latencies.  
     2) execute more instructions in parallel.  
 
@@ -76,6 +77,7 @@ sitemap: false
   Therefore, SuperScalar processing should maintain the feature of instruction set compatibility and a sequential execution model.
 
   The requirement of Parallel processing in perspective of Hardware
+  
     1) Instruction fetch strategies that simultaneously fetch multiple instructions.  
     2) Methods for determining true dependences & communicating register values.  
     3) Methods for initiating, or issuing, multiple instructions in parallel.  
