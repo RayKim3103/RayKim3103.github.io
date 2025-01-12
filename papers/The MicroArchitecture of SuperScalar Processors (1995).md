@@ -222,5 +222,12 @@ sitemap: false
     freelist : list of available physical register.  
     mapping table : mappes logical register and physical register.  
 
+    When an instruction is decoded, its logical result register is assigned a physical register from a free list.  
+    In the process, the physical register is removed from the free list.  
+
+    In rename operation, the instruction’s source register designators are used to look up their current physical register names in the mapping table.  
+    These are the locations from which the source operand values will be read.  
+    Then, destination register is assigned another physical register from a freelist.  
+
 ![Execution Tuple](assets/img/papers/1/1_1.png){:.lead width="150" height="75" style="float: right; margin-left: 15px;"}
     
