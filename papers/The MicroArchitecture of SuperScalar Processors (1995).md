@@ -8,9 +8,9 @@ sitemap: false
 ---
 
 0. this unordered seed list will be replaced by toc as unordered list
-{:toc}
+<!-- {:toc} -->
 
-### OverView
+### 0. OverView
 * Terminology Definition
 * Introduction
 * General problem solved by superscalar processors 
@@ -58,7 +58,7 @@ sitemap: false
 #### 7. Static Program
   Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
 
-### INTRODUCTION
+### 1. INTRODUCTION
   Instruction level parallelism was performed using pipelining.  
   But, The pipeline initiation rate remained at one instruction per cycle for many years.  
   This was a serious bottleneck. Thus, High Performance Processing is required.  
@@ -88,7 +88,7 @@ sitemap: false
     5) Methods for communicating data values through memory.  
     6) Methods for  maintain an outward appearance of sequential execution.  
   
-### PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
+### 2. PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
   Application begins as a high level language.  
   Then, compiled into static machine level program.  
   (high level language -> assembly code -> machine code)  
@@ -136,7 +136,7 @@ sitemap: false
   Eventually, when it is determined that the sequential model would have executed an instruction, its temporary results are made permanent by updating the architectural state.  
   This process is typically called *committing or retiring* the instruction.  
 
-### THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
+### 3. THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
 
 #### A. Instruction Fetching and Branch Prediction
 
