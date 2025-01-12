@@ -166,8 +166,16 @@ sitemap: false
       There is predecode logic prior to the instruction cache which generates predecode bits.  
 
     2) Determining the Branch Outcome  
-       Conditional branch can be predicted using one of several types of branch prediction methods.  
+      Conditional branch can be predicted using one of several types of branch prediction methods.  
 
+      1 - predictors using static information  
+        i.e. certain opcode types might more often result in taken branches than others
+
+      2 - predictors using dynamic information ( information that becomes available as the program executes)  
+        It use information regarding the past history of branch outcomes.  
+        branch history is saved in a *branch history table* or *branch prediction table*.  
+        i.e. If Branch is taken increase counter, else decrease counter. Seeing the counter value, predict the Branch outcomes.  
+        
     3) Computing Branch Targets
 
     4) Transferring Control
