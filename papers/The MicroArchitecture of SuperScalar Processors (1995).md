@@ -354,7 +354,31 @@ sitemap: false
 
 #### E. Committing State 
   Commit or the Retire phase
+  -> Effects of the instruction are allowed to modify the logical process state.  
 
-  -> effects of the instruction are allowed to modify the logical process state
+  The purpose of this phase is to implement the appearance of a sequential execution model.  
+  Thus, recovering *"Precise State"* is required.  
 
+  2 ways to recover precise state
+
+    1 - history buffer or a checkpoint  
+      When a precise state is needed, it is recovered from the history buffer.  
+      In commit phase, get ridding of history state that is no longer required is done.  
+    
+    2 - Using reorder buffer
+      Separate the state of the machine into two
+      1) implemented physical state.
+        -> physical state is updated immediately as the operations complete.  
+      2) logical (architectural) state.  
+        -> architectural state is updated in sequential program order as the speculative status of operations is cleared.  
+
+        Reorder buffer : stores the speculative state, control and interrupt information.
+
+        To commit an instruction, the result in the reorder buffer move into the architectural register file (and to memory in the case of a store).  
+        Then, Reorder buffer is freed.  
+
+        Control and interrupt information is used to adjust the logical-to-physical mapping table so that the mapping reflects the correct precise state.  
+
+#### F. The Role of Software 
+    
       
