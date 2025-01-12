@@ -15,8 +15,6 @@ sitemap: false
 * Introduction
 * General problem solved by superscalar processors 
 * Specific techniques used in typical superscalar microprocessors 
-* Recent superscalar processors 
-* Future directions for instruction level parallelism
 
 ### 0. Terminology Definition
 1 - Instruction Level Parallelism (ILP)
