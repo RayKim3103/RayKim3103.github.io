@@ -190,7 +190,7 @@ sitemap: false
     Branch target buffer which holds the target address that was used the last time the branch was executed makes computing targets faster.
   
   4) Transferring Control  
-    When there is a taken (or predicted taken) branch there is often at least a clock cycle delay in recognizing the branch.  
+    When there is a taken (or predicted taken) branch there is at least a clock cycle delay in recognizing the branch.  
 
     Solutions  
       1 - use the instruction buffer with its stockpiled instructions to mask the delay.  
