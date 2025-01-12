@@ -228,6 +228,12 @@ sitemap: false
     In rename operation, the instruction’s source register designators are used to look up their current physical register names in the mapping table.  
     These are the locations from which the source operand values will be read.  
     Then, destination register is assigned another physical register from a freelist.  
+    Free the physical register that was assigned to source register.   
 
-![Execution Tuple](/assets/img/papers/1/1_1.png){:.lead width="30" height="15" style="float: right; margin-left: 50px;"}
+![Execution Tuple](/assets/img/papers/1/1_1.png){: width="30" height="15" style="float: right; margin-left: 50px;"}
+
+    2 - Using reorder buffer
+
+    Reorder Buffer :  FIFO storage, implemented in hardware as a circular buffer with head and tail pointers.  
+
     
