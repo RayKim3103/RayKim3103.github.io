@@ -216,6 +216,8 @@ sitemap: false
 
   *2 register renaming methods*
 
+![Execution Tuple](/assets/img/papers/1/1_1.png){: width="360" height="180" style="float: right; margin-left: 50px;"}
+
     1 -  Using a freelist  
     
     Needs physical register file larger than the logical register file.  
@@ -230,7 +232,7 @@ sitemap: false
     Then, destination register is assigned another physical register from a freelist.  
     Free the physical register that was assigned to source register.   
 
-![Execution Tuple](/assets/img/papers/1/1_1.png){: width="180" height="90" style="float: right; margin-left: 50px;"}
+
 
     2 - Using reorder buffer
 
