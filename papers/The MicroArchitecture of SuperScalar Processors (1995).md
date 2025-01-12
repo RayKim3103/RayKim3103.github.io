@@ -138,7 +138,7 @@ sitemap: false
 
 ## THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
 
-  #### A. Instruction Fetching and Branch Prediction
+#### A. Instruction Fetching and Branch Prediction
 
     **Instruction Fetch**
 
