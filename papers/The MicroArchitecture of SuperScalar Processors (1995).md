@@ -175,7 +175,15 @@ sitemap: false
         It use information regarding the past history of branch outcomes.  
         branch history is saved in a *branch history table* or *branch prediction table*.  
         i.e. If Branch is taken increase counter, else decrease counter. Seeing the counter value, predict the Branch outcomes.  
-        
-    3) Computing Branch Targets
 
+    3) Computing Branch Targets  
+      In most architectures, branch targets are relative to the program counter and use an offset value held in the instruction.  
+      Branch target buffer which holds the target address that was used the last time the branch was executed makes computing targets faster.
+    
     4) Transferring Control
+      When there is a taken (or predicted taken) branch there is often at least a clock cycle delay in recognizing the branch.  
+
+      Solutions  
+        1 - use the instruction buffer with its stockpiled instructions to mask the delay.  
+        2 - use *delayed branches* method (branch does not take effect until the instruction after the branch).  
+    
