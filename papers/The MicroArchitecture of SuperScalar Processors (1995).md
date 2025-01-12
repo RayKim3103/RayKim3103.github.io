@@ -222,5 +222,5 @@ sitemap: false
     freelist : list of available physical register.  
     mapping table : mappes logical register and physical register.  
 
-![Full-width image](/assets/img/papers/1/1_1.png){:.lead width="200" height="100" loading="lazy"}
+![Execution Tuple](assets/img/papers/1/1_1.png){:.lead width="150" height="75" style="float: right; margin-left: 15px;"}
     
