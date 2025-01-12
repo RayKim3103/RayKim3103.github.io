@@ -288,3 +288,5 @@ sitemap: false
       When all the operands are ready in the reservation station, the instruction may issue.  
 
 #### D. Handling Memory Operations 
+
+  To reduce the latency of memory operations, memory hierarchies are used.  
