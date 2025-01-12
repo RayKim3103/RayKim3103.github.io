@@ -212,7 +212,7 @@ sitemap: false
   
   **SOLUTION : Register Renaming**
 
-  physical storage elements are differ with logical storage elements  
+  => physical storage elements are differ with logical storage elements  
 
   *2 register renaming methods*
 
@@ -246,6 +246,6 @@ sitemap: false
 
 #### C. Instruction Issuing and Parallel Execution 
 
-
+Once execution tuples are created and buffered, the next step is to determine which tuples can be issued for execution.  
 
     
