@@ -56,3 +56,12 @@ sitemap: false
   This allows the system to recover to a known state if an error or interruption occurs.
 
 ## Introduction
+  Instruction level parallelism was performed using pipelining.  
+  But, The pipeline initiation rate remained at one instruction per cycle for many years.  
+  This was a serious bottleneck. Thus, SuperScalar processing appears.
+
+  - SuperScalar processing : the ability to initiate multiple instructions during the same clock cycle.  
+  However, most processor designs inherit a legacy from their predecessors.  
+  
+
+
