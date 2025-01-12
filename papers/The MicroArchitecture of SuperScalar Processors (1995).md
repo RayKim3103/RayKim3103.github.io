@@ -322,8 +322,17 @@ sitemap: false
       3 - making multiple serial requests during the same cycle.  
 
     3) the memory hierarchy must be nonblocking.  
+
       The key to allowing memory operations to be overlapped :  
       -> it should ensure that hazards are properly resolved, sequential execution semantics are preserved.
+
+      How?  
+      -> Use Store address buffer  
+        store buffer contains addresses of all pending store operations.  
+        An operation is issued to the memory.  
+        Then the store buffer is checked to see if there is a pending store to the same address.  
+
+
 
 
 
