@@ -58,7 +58,13 @@ sitemap: false
 ## Introduction
   Instruction level parallelism was performed using pipelining.  
   But, The pipeline initiation rate remained at one instruction per cycle for many years.  
-  This was a serious bottleneck. Thus, SuperScalar processing appears.
+  This was a serious bottleneck. Thus, High Performance Processing is required.  
+
+  2 ways for High Performance
+    1) reduce individual instruction latencies
+    2) execute more instructions in parallel.
+
+  The way to 'execute more instructions in parallel' is **SuperScalar processing**.
 
   SuperScalar processing : the ability to initiate multiple instructions during the same clock cycle.  
   However, most processor designs inherit a legacy from their predecessors. (Binary compatibility)  
@@ -69,6 +75,6 @@ sitemap: false
 
   Therefore, SuperScalar processing should maintain the feature of instruction set compatibility and a sequential execution model.
 
-  
+
 
 
