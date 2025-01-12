@@ -10,7 +10,8 @@ sitemap: false
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-## OverView of this paper
+## OverView
+* Terminology Definition
 * Introduction
 * General problem solved by superscalar processors 
 * Specific techniques used in typical superscalar microprocessors 
@@ -40,26 +41,29 @@ sitemap: false
 
     => we can execute Inst.1 & Inst.2 in parallel because they are independent.
 
-2 Dynamic instruction scheduling
+### 2. Dynamic instruction scheduling
 
   Dynamic Instruction Scheduling is a technique where a processor dynamically adjusts the execution order of instructions at "runtime" to improve performance.
 
   It resolves bottlenecks caused by data or control dependencies between instructions.
 
-3 Tomasulo's Algorithm
+### 3. Tomasulo's Algorithm
 
   Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
 
-4 Vector Processing
+### 4. Vector Processing
 
   Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.
+
   Unlike scalar processing, where one data element is processed at a time, vector processing allows a single instruction to process multiple data elements at once.
 
 
-5 Multi Processing
 
-6 Binary compatibility
 
-7 Precise state
+### 5. Multi Processing
+
+### 6. Binary compatibility
+
+### 7. Precise state
 
 ## Introduction
