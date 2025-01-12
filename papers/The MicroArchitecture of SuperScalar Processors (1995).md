@@ -388,18 +388,18 @@ Table of contents
         Control and interrupt information is used to adjust the logical-to-physical mapping table so that the mapping reflects the correct precise state.  
 
 #### F. The Role of Software 
-    Software can assist creating a binary.
-      -> Make the instruction fetching process more efficient.   
-      -> Make the instruction issuing and execution process more efficient.  
+  Software can assist creating a binary.
+    -> Make the instruction fetching process more efficient.   
+    -> Make the instruction issuing and execution process more efficient.  
+  
+  How?
+    1) Increasing the likelihood that a group of instructions can be issued simultaneously.  
+      -> By, Scheduling(arranging) instructions statically.  
+        (Make group of instructions in the static program matches the parallel execution constraint.)  
+    2) Decreasing the likelihood that an instruction has to wait for a result of a previous instruction.
+      Need to Consider :  
+      1 - Dependence relationships.  
+      2 - Resource availability.  
+      -> By, arranging producer code to come first, and consumer code to come next.  
     
-    How?
-      1) Increasing the likelihood that a group of instructions can be issued simultaneously.  
-        -> By, Scheduling(arranging) instructions statically.  
-          (Make group of instructions in the static program matches the parallel execution constraint.)  
-      2) Decreasing the likelihood that an instruction has to wait for a result of a previous instruction.
-        Need to Consider :  
-        1 - Dependence relationships.  
-        2 - Resource availability.  
-        -> By, arranging producer code to come first, and consumer code to come next.  
-      
-      => Above 2 methods can be accomplished by static scheduling.
+    => Above 2 methods can be accomplished by static scheduling.
