@@ -18,9 +18,9 @@ sitemap: false
 * Future directions for instruction level parallelism
 
 ## Terminology Definition
-1. Instruction Level Parallelism (ILP)
+1 Instruction Level Parallelism (ILP)
 
-  Instruction Level Parallelism (ILP) refers to the degree to which a processor can execute multiple instructions in parallel.
+  Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.
 
   It aims to improve performance by executing independent instructions simultaneously.
 
@@ -40,7 +40,7 @@ sitemap: false
 
     => we can execute Inst.1 & Inst.2 in parallel because they are independent.
 
-2. Dynamic instruction scheduling
+2 Dynamic instruction scheduling
 
   Dynamic Instruction Scheduling is a technique where a processor dynamically adjusts the execution order of instructions at "runtime" to improve performance.
 
@@ -48,10 +48,10 @@ sitemap: false
 
 
 
-3. Tomasulo's Algorithm
-4. Vector Processing
-5. Multi Processing
-6. Binary compatibility
-7. Precise state
+3 Tomasulo's Algorithm
+4 Vector Processing
+5 Multi Processing
+6 Binary compatibility
+7 Precise state
 
 ## Introduction
