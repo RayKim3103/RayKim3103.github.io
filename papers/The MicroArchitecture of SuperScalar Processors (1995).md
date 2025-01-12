@@ -19,7 +19,8 @@ sitemap: false
 * Future directions for instruction level parallelism
 
 ### 0. Terminology Definition
-1. Instruction Level Parallelism (ILP)
+1 - Instruction Level Parallelism (ILP)
+
   Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
   It aims to improve performance by executing independent instructions simultaneously.
 
@@ -37,25 +38,31 @@ sitemap: false
 
     => we can execute Inst.1 & Inst.2 in parallel because they are independent.
 
-2. Dynamic instruction scheduling
+2 - Dynamic instruction scheduling
+
   Dynamic Instruction Scheduling : a processor dynamically adjusts the execution order of instructions at *"runtime"*.  
   It resolves bottlenecks caused by data or control dependencies between instructions.
 
-3. Tomasulo's Algorithm
+3 - Tomasulo's Algorithm
+
   Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
 
-4. Vector Processing
+4 - Vector Processing
+
   Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.  
   Unlike scalar processing, where one data element is processed at a time, vector processing allows a single instruction to process multiple data elements at once.
 
-5. Binary compatibility
+5 - Binary compatibility
+
   Binary compatibility : the ability to execute a machine program written for an earlier generation processor.  
 
-6. Precise state
+6 - Precise state
+
   Precise state : the ability of a computer system to accurately track and record the state of the instructions being executed.  
   This allows the system to recover to a known state if an error or interruption occurs.
 
-7. Static Program
+7 - Static Program
+
   Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
 
 ### 1. INTRODUCTION
