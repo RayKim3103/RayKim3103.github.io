@@ -129,4 +129,13 @@ sitemap: false
       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
   
   After resolving control dependences and artificial dependences, instructions are issued and begin execution in parallel.  
-  
+  But, instructions does not complete their execution in sequential order since they are parallelized.  
+  As a result, instruction must be held in a temporary status until the architectural state can be updated.  
+  Meanwhile, to maintain high performance, these results must be usable by dependent instructions.  
+
+  Eventually, when it is determined that the sequential model would have executed an instruction, its temporary results are made permanent by updating the architectural state.  
+  This process is typically called *committing or retiring* the instruction.  
+
+## THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
+
+
