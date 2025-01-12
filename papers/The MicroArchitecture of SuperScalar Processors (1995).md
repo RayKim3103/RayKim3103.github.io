@@ -23,13 +23,13 @@ sitemap: false
   Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
   It aims to improve performance by executing independent instructions simultaneously.
 
-  * ILP Implementation methods
+  **ILP Implementation methods**
 
     1) Pipelining: Divides instructions into multiple stages and processes each stage of different instructions concurrently.  
     2) Superscalar Architecture: Uses multiple execution units to process multiple instructions in parallel.  
     3) Out-of-Order Execution: Executes instructions that are ready first, regardless of their program order.  
   
-  * ILP example
+  **ILP example**
 
     a = b + c; // Instruction 1
 
@@ -191,3 +191,10 @@ sitemap: false
 #### B. Instruction Decoding, Renaming, and Dispatch 
   During this phase, instructions are removed from the instruction fetch buffers.  
   Then, Control and Data dependence linkages are set up.
+
+  Job of the decode phase : to set up one or more execution tuples for each instruction  
+  What is execution tuple?
+
+    1) 
+
+
