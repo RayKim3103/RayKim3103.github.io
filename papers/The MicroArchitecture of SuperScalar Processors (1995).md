@@ -210,8 +210,17 @@ sitemap: false
 
   To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
   
-  **SOLUTION**
+  **SOLUTION : Register Renaming**
 
-  physical storage elements that may differ from the logical storage elements
+  physical storage elements are differ with logical storage elements  
 
+  *2 register renaming methods*
 
+    1 -  Using a freelist  
+    
+    Needs physical register file larger than the logical register file.  
+    freelist : list of available physical register.  
+    mapping table : mappes logical register and physical register.  
+
+    ![Full-width image](/assets/img/papers/1/1_1.png){:.lead width="200" height="100" loading="lazy"}
+    
