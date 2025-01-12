@@ -237,8 +237,9 @@ sitemap: false
     2 - Using reorder buffer
 
     Reorder Buffer :  FIFO storage, implemented in hardware as a circular buffer with head and tail pointers.  
+    mapping table : mappes logical register and physical register.  
 
-    As instructions complete execution, their result values are inserted into the reorder buffer.  
+    As instructions complete execution, their result values are inserted into the reorder buffer using mapping table.  
     At the time an instruction reaches the head of the reorder buffer, if it has completed execution,  
     its entry is removed from the buffer and its result value is placed in the register file.  
 
