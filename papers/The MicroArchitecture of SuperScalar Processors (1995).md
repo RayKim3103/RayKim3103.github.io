@@ -25,7 +25,7 @@ sitemap: false
 
   It aims to improve performance by executing independent instructions simultaneously.
 
-  ILP Implementation methods
+  * ILP Implementation methods
 
     1) Pipelining: Divides instructions into multiple stages and processes each stage of different instructions concurrently.
 
@@ -33,7 +33,7 @@ sitemap: false
 
     3) Out-of-Order Execution: Executes instructions that are ready first, regardless of their program order.
   
-  ILP example
+  * ILP example
 
     a = b + c; // Instruction 1
 
