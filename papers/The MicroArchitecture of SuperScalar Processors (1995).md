@@ -100,7 +100,7 @@ sitemap: false
   Because, Instructions that are independent can execute simultaneously.
 
   **Dependences**
-  
+
   1) Control dependences
 
   why we should care about *control dependences*?
@@ -127,4 +127,6 @@ sitemap: false
 
       write-after-read (WAR) : reading value from a register and writing the value in the same register.  
       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
+  
+  After resolving control dependences and artificial dependences, instructions are issued and begin execution in parallel.  
   
