@@ -216,7 +216,8 @@ sitemap: false
 
   *2 register renaming methods*
 
-![Execution Tuple](/assets/img/papers/1/1_1.png){: width="270" height="120" style="float: right; margin-left: 60px;"}
+<!-- ![Execution Tuple](/assets/img/papers/1/1_1.png){: width="270" height="120" style="float: right; margin-left: 60px;"} -->
+![Execution Tuple](/assets/img/papers/1/1_1.png){: width="270" height="120"}
 
     1 -  Using a freelist  
     
