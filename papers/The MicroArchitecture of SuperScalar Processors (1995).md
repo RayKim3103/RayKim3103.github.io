@@ -328,13 +328,13 @@ sitemap: false
 
       How?  
       -> Use Store address buffer  
-        store buffer contains addresses of all pending store operations.  
+        Store buffer contains addresses of all pending store operations.  
         An operation is issued to the memory.  
         Then the store buffer is checked to see if there is a pending store to the same address.  
 
   Miss handling status registers (MHSR's)
 
-  MHSR is used to track the status of outstanding cache misses, and allow multiple requests to the memory hierarchy to be overlapped.  
+    MHSR is used to track the status of outstanding cache misses, and allow multiple requests to the memory hierarchy to be overlapped.  
 
     ① Tracking Cache Miss Requests  
     The Miss Handling Status Register (MHSR) stores the status of ongoing cache miss requests.
@@ -352,6 +352,9 @@ sitemap: false
     ④ Notifying Waiting Instructions  
       When the requested data becomes ready, the waiting instructions are notified, allowing them to resume execution.  
 
+#### E. Committing State 
+  Commit or the Retire phase
 
+  -> effects of the instruction are allowed to modify the logical process state
 
       
