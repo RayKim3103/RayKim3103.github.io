@@ -16,4 +16,7 @@ sitemap: false
 * recent superscalar processors 
 * future directions for instruction level parallelism
 
+## Terminology Definition
+1. ILP
+
 
