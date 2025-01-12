@@ -125,12 +125,12 @@ sitemap: false
 
     *Artificial dependences*  
 
-        write-after-read (WAR) : reading value from a register and writing the value in the same register.  
-        write-after-write (WAW) : writing value to a register and writing the value in the same register.  
+      write-after-read (WAR) : reading value from a register and writing the value in the same register.  
+      write-after-write (WAW) : writing value to a register and writing the value in the same register.  
   
   After resolving control dependences and artificial dependences, instructions are issued and begin execution in parallel.  
   But, instructions does not complete their execution in sequential order since they are parallelized.  
-  As a result, instruction must be held in a temporary status until the architectural state can be updated.  
+  As a result, instructions must be held in a temporary status until the architectural state can be updated.  
   Meanwhile, to maintain high performance, these results must be usable by dependent instructions.  
 
   Eventually, when it is determined that the sequential model would have executed an instruction, its temporary results are made permanent by updating the architectural state.  
@@ -138,4 +138,5 @@ sitemap: false
 
 ## THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
 
-
+  #### A. Instruction Fetching and Branch Prediction
+    The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
