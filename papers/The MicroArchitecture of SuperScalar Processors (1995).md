@@ -55,6 +55,9 @@ sitemap: false
   Precise state : the ability of a computer system to accurately track and record the state of the instructions being executed.  
   This allows the system to recover to a known state if an error or interruption occurs.
 
+#### 7. Static Program
+  Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
+
 ## Introduction
   Instruction level parallelism was performed using pipelining.  
   But, The pipeline initiation rate remained at one instruction per cycle for many years.  
@@ -77,7 +80,7 @@ sitemap: false
   Therefore, SuperScalar processing should maintain the feature of instruction set compatibility and a sequential execution model.
 
   The requirement of Parallel processing in perspective of Hardware
-  
+
     1) Instruction fetch strategies that simultaneously fetch multiple instructions.  
     2) Methods for determining true dependences & communicating register values.  
     3) Methods for initiating, or issuing, multiple instructions in parallel.  
@@ -86,4 +89,5 @@ sitemap: false
     5) Methods for communicating data values through memory.  
     6) Methods for  maintain an outward appearance of sequential execution.  
   
+## PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
 
