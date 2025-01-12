@@ -289,4 +289,42 @@ sitemap: false
 
 #### D. Handling Memory Operations 
 
+  **Memory Hierarchy**
+
   To reduce the latency of memory operations, memory hierarchies are used.  
+  All processors today contain a data cache, and it is rapidly becoming commonplace to have multiple levels of data caching.  
+
+  **Address Calculation**
+  It is not possible to identify the memory locations until after the issue phase.  
+  Thus, address calculation & address translation is required after the issue phase.  
+  (Translation lookaside buffer(TLB) is used to speed up address translation)  
+
+  Fortunately, Address translation and memory access can be parallelized.  
+
+  Memory operations also need to execute as fast as possible.  
+
+  This requires: 
+
+    1 - reducing the latency of memory operations.  
+    2 - executing multiple memory operations at the same time.  
+    3 - overlapping the execution of memory operations with nonmemory operations.  
+    4 - possibly allowing memory operations to execute out-of-order.  
+  
+  **SOLUTION to achieve above requirements**
+
+    1) keep information only for a currently active subset of the memory locations.  
+    2) multiported memory hierarchy which allows multiple memory requests to be serviced simultaneously. 
+
+      Multiporting can be achieved by having :  
+
+      1 - multiported storage cells.  
+      2 - multiple banks of memory.  
+      3 - making multiple serial requests during the same cycle.  
+
+    3) the memory hierarchy must be nonblocking.  
+      The key to allowing memory operations to be overlapped :  
+      -> it should ensure that hazards are properly resolved, sequential execution semantics are preserved.
+
+
+
+      
