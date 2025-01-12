@@ -261,6 +261,26 @@ sitemap: false
   Below are three main approaches to achieving this.  
 ![issue queue](/assets/img/papers/1/1_3.png){: width="360" height="180"}
     1) Single Queue Method  
+       No out-of-order issuing, register renaming is not required.  
+       Operand availability can be managed via simple reservation bits assigned to each register.  
+       A register is reserved when an instruction modifying the register issues. (Since, It should be not be inturrpted)  
+       The reservation is cleared when the instruction completes.  
+    
     2) Multiple Queue Method  
+      Instructions issue from each queue in order, but the queues may issue out of order.  
+      Register Renaming may be used in a restricted form. (i.e. Register Renaming only for store/load Inst.)  
+      
     3) Reservation Stations  
-  
+      Instructions may issue out of order; there is no strict FIFO ordering.  
+      Use Register Renaming.  
+
+      **Prcedure**
+
+      Instruction is dispatched to the reservation station.  
+      Available operand values are read from the register file and placed in the reservation station.  
+      The operand designators of unavailable data wait!  
+      When the result designators complete instructions reservation station logic compares the value.  
+      (value of result designators vs. value of operad designators)
+      When there is a match, the result value is putted into reservation station.  
+      When all the operands are ready in the reservation station, the instruction may issue.  
+
