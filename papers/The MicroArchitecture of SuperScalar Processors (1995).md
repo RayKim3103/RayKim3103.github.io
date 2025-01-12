@@ -77,7 +77,7 @@ sitemap: false
   In this model, one instruction is executed at a time in a sequential manner.  
   Also, sequential model has a concept of precise state.
 
-  Therefore, SuperScalar processing should maintain the feature of instruction set compatibility and a sequential execution model.
+  Therefore, SuperScalar processing should maintain the feature of *instruction set compatibility* and a *sequential execution model*.
 
   The requirement of Parallel processing in perspective of Hardware
 
@@ -89,4 +89,25 @@ sitemap: false
     6) Methods for  maintain an outward appearance of sequential execution.  
   
 ## PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
+  Application begins as a high level language.  
+  Then, compiled into static machine level program.  
+  (high level language -> assembly code -> machine code)  
 
+  Assembly code is executed sequentially by incrementing Program Counter (PC).  
+  As a result, *Dependences* between instruction occurs.  
+
+  Why we should care about *Dependences* is to parallelize the instruction.  
+  Because, Instructions that are independent can execute simultaneously.
+
+  **Dependences**  
+  1) control dependences
+
+    why we should care about *control dependences*?
+
+    Instructions is executed sequentially before the branch instruction appears.  
+    Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
+    Instructions in the basic block will be executed eventually.  
+    Then we can execute them simultaneously if there is no *data dependences*.  
+    
+    control dependences is caused by branch inst.  
+    
