@@ -332,7 +332,25 @@ sitemap: false
         An operation is issued to the memory.  
         Then the store buffer is checked to see if there is a pending store to the same address.  
 
+  Miss handling status registers (MHSR's)
 
+  MHSR is used to track the status of outstanding cache misses, and allow multiple requests to the memory hierarchy to be overlapped.  
+
+    ① Tracking Cache Miss Requests  
+    The Miss Handling Status Register (MHSR) stores the status of ongoing cache miss requests.
+
+    ② Preventing Requests requiring same data address
+    Prevents requests for the same data address.  
+      i.e. if one instruction requests a specific memory address and another instruction requests the same data,
+            the second request waits until the initial request is completed.
+
+    ③ Supporting Parallel Processing of Other Requests
+      Enables the execution of other instructions while handling a cache miss.  
+      Through the MHSR, requests unrelated to the data being awaited can be processed in parallel.  
+      This ensures the processor continues operating without stalling.  
+
+    ④ Notifying Waiting Instructions  
+      When the requested data becomes ready, the waiting instructions are notified, allowing them to resume execution.  
 
 
 
