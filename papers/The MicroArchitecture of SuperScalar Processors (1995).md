@@ -10,7 +10,7 @@ sitemap: false
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-### 0. OverView
+### OverView
 * Terminology Definition
 * Introduction
 * General problem solved by superscalar processors 
@@ -18,7 +18,7 @@ sitemap: false
 * Recent superscalar processors 
 * Future directions for instruction level parallelism
 
-### Terminology Definition
+### 0. Terminology Definition
 #### 1. Instruction Level Parallelism (ILP)
   Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
   It aims to improve performance by executing independent instructions simultaneously.
