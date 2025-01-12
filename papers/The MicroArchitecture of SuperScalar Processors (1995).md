@@ -96,34 +96,34 @@ sitemap: false
   Assembly code is executed sequentially by incrementing Program Counter (PC).  
   As a result, *Dependences* between instruction occurs.  
 
-  Why we should care about *Dependences* is to parallelize the instruction.  
+  Why we should care about *Dependences*  to parallelize the instruction.  
   Because, Instructions that are independent can execute simultaneously.
 
   **Dependences**  
   1) Control dependences
 
-    why we should care about *control dependences*?
+  why we should care about *control dependences*?
 
-    Instructions is executed sequentially before the branch instruction appears.  
-    Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
-    Instructions in the basic block will be executed eventually.  
-    Then we can execute them simultaneously if there is no *data dependences*.  
+  Instructions is executed sequentially before the branch instruction appears.  
+  Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
+  Instructions in the basic block will be executed eventually.  
+  Then we can execute them simultaneously if there is no *data dependences*.  
 
-    Control dependences is caused by branch inst.  
-    To get more parallelism the basic block should be larger.  
+  Control dependences is caused by branch inst.  
+  To get more parallelism the basic block should be larger.  
 
-    We use *branch prediction* to overcome control dependences.
+  We use *branch prediction* to overcome control dependences.
   
   2) Data dependences
 
-    As, the instructions may access the same storage location, *Data dependences* occur.  
+  As, the instructions may access the same storage location, *Data dependences* occur.  
 
-    *True dependences*  
+  *True dependences*  
 
-      read-after-write (RAW) : writing value into a register and reading value from the same register.
+    read-after-write (RAW) : writing value into a register and reading value from the same register.
 
-    *Artificial dependences*  
+  *Artificial dependences*  
 
-       write-after-read (WAR) : reading value from a register and writing the value in the same register.  
-       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
-    
+      write-after-read (WAR) : reading value from a register and writing the value in the same register.  
+      write-after-write (WAW) : writing value to a register and writing the value in the same register.  
+  
