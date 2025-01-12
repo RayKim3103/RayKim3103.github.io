@@ -103,14 +103,14 @@ sitemap: false
   Assembly code is executed sequentially by incrementing Program Counter (PC).  
   As a result, *Dependences* between instruction occurs.  
 
-  Why we should care about *Dependences*  to parallelize the instruction.  
+  Why should we care about *Dependences*  to parallelize the instruction.  
   Because, Instructions that are independent can execute simultaneously.
 
   **Dependences**
 
   1) Control dependences
 
-    why we should care about *control dependences*?
+    why should we care about *control dependences*?
 
     Instructions is executed sequentially before the branch instruction appears.  
     Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
