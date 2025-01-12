@@ -100,7 +100,7 @@ sitemap: false
   Because, Instructions that are independent can execute simultaneously.
 
   **Dependences**  
-  1) control dependences
+  1) Control dependences
 
     why we should care about *control dependences*?
 
@@ -108,6 +108,12 @@ sitemap: false
     Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
     Instructions in the basic block will be executed eventually.  
     Then we can execute them simultaneously if there is no *data dependences*.  
-    
-    control dependences is caused by branch inst.  
+
+    Control dependences is caused by branch inst.  
+    To get more parallelism the basic block should be larger.  
+
+    We use *branch prediction* to overcome control dependences.
+  
+  2) Data dependences
+
     
