@@ -64,7 +64,7 @@ sitemap: false
     1) reduce individual instruction latencies.  
     2) execute more instructions in parallel.  
 
-  The way to 'execute more instructions in parallel' is **SuperScalar processing**.
+  The way to *execute more instructions in parallel* is **SuperScalar processing**.
 
   SuperScalar processing : the ability to initiate multiple instructions during the same clock cycle.  
   However, most processor designs inherit a legacy from their predecessors. (Binary compatibility)  
