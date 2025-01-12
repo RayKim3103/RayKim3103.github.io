@@ -230,10 +230,15 @@ sitemap: false
     Then, destination register is assigned another physical register from a freelist.  
     Free the physical register that was assigned to source register.   
 
-![Execution Tuple](/assets/img/papers/1/1_1.png){: width="30" height="15" style="float: right; margin-left: 50px;"}
+![Execution Tuple](/assets/img/papers/1/1_1.png){: width="90" height="45" style="float: right; margin-left: 50px;"}
 
     2 - Using reorder buffer
 
     Reorder Buffer :  FIFO storage, implemented in hardware as a circular buffer with head and tail pointers.  
+
+    As instructions complete execution, their result values are inserted into the reorder buffer.  
+    At the time an instruction reaches the head of the reorder buffer, if it has completed execution, its entry is removed from the buffer and its result value is placed in the register file.  
+
+
 
     
