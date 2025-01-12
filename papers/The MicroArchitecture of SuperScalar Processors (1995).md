@@ -193,8 +193,17 @@ sitemap: false
   Then, Control and Data dependence linkages are set up.
 
   Job of the decode phase : to set up one or more execution tuples for each instruction  
+  
   What is execution tuple?
 
-    1) 
+  1) It contains an operation to be executed.
+  2) the identities of storage elements where the input operands reside.
+  3) locations where the instruction's result must be placed.
+
+  To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
+  
+  **SOLUTION**
+  
+  physical storage elements that may differ from the logical storage elements
 
 
