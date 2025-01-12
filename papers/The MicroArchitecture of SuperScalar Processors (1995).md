@@ -99,7 +99,8 @@ sitemap: false
   Why we should care about *Dependences*  to parallelize the instruction.  
   Because, Instructions that are independent can execute simultaneously.
 
-  **Dependences**  
+  **Dependences**
+  
   1) Control dependences
 
   why we should care about *control dependences*?
