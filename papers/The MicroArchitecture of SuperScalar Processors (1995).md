@@ -337,10 +337,10 @@ sitemap: false
     MHSR is used to track the status of outstanding cache misses, and allow multiple requests to the memory hierarchy to be overlapped.  
 
     ① Tracking Cache Miss Requests  
-    The Miss Handling Status Register (MHSR) stores the status of ongoing cache miss requests.
+      The Miss Handling Status Register (MHSR) stores the status of ongoing cache miss requests.
 
     ② Preventing Requests requiring same data address
-    Prevents requests for the same data address.  
+      Prevents requests for the same data address.  
       i.e. if one instruction requests a specific memory address and another instruction requests the same data,
             the second request waits until the initial request is completed.
 
