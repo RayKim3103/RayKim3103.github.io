@@ -189,4 +189,5 @@ sitemap: false
       2 - use *delayed branches* method (branch does not take effect until the instruction after the branch).  
 
 #### B. Instruction Decoding, Renaming, and Dispatch 
-  During this phase, instructions are removed from the instruction fetch buffers, examined, and control and data dependence linkages are set up.
+  During this phase, instructions are removed from the instruction fetch buffers.  
+  Then, Control and Data dependence linkages are set up.
