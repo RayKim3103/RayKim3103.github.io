@@ -10,7 +10,7 @@ sitemap: false
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-## OverView
+### OverView
 * Terminology Definition
 * Introduction
 * General problem solved by superscalar processors 
@@ -18,7 +18,7 @@ sitemap: false
 * Recent superscalar processors 
 * Future directions for instruction level parallelism
 
-## Terminology Definition
+### Terminology Definition
 #### 1. Instruction Level Parallelism (ILP)
   Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
   It aims to improve performance by executing independent instructions simultaneously.
@@ -58,7 +58,7 @@ sitemap: false
 #### 7. Static Program
   Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
 
-## INTRODUCTION
+### INTRODUCTION
   Instruction level parallelism was performed using pipelining.  
   But, The pipeline initiation rate remained at one instruction per cycle for many years.  
   This was a serious bottleneck. Thus, High Performance Processing is required.  
@@ -88,7 +88,7 @@ sitemap: false
     5) Methods for communicating data values through memory.  
     6) Methods for  maintain an outward appearance of sequential execution.  
   
-## PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
+### PROGRAM REPRESENTATION, DEPENDENCES, AND PARALLEL EXECUTION
   Application begins as a high level language.  
   Then, compiled into static machine level program.  
   (high level language -> assembly code -> machine code)  
@@ -136,7 +136,7 @@ sitemap: false
   Eventually, when it is determined that the sequential model would have executed an instruction, its temporary results are made permanent by updating the architectural state.  
   This process is typically called *committing or retiring* the instruction.  
 
-## THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
+### THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
 
 #### A. Instruction Fetching and Branch Prediction
 
@@ -189,3 +189,4 @@ sitemap: false
       2 - use *delayed branches* method (branch does not take effect until the instruction after the branch).  
 
 #### B. Instruction Decoding, Renaming, and Dispatch 
+  During this phase, instructions are removed from the instruction fetch buffers, examined, and control and data dependence linkages are set up.
