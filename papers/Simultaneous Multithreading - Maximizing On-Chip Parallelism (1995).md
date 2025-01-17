@@ -92,7 +92,7 @@ Table of contents
   Model is based on the Alpha AXP 21164.  
   Models the execution pipelines, the memory hierarchy, the TLBs, and the branch prediction logic of a wide superscalar processor.  
 
-![simulation_details](/assets/img/papers/2/2_1.png){: width="270" height="120"}
+![simulation_details](/assets/img/papers/2/2_1.png){: width="360" height="180"}
 
   Details :  
 
