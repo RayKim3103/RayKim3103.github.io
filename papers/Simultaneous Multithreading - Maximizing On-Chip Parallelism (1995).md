@@ -126,7 +126,7 @@ Table of contents
   Multithread Details :  
 
     (1) Assume 8 hardware contexts.  
-    (2) Instructions are scheduled in a strict priority order.
+    (2) Instructions are scheduled in a strict priority order.  
         i.e., context O can schedule instructions onto any available functional unit,  
               context 1 can schedule onto any unit unutilized by context O.
 
