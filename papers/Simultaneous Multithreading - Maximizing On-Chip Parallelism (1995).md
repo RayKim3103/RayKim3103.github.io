@@ -82,7 +82,7 @@ Table of contents
   
 ### 2. Basic machine model, the workloads for simulation and the simulation environment
 
-2.1. Simulation Environment  
+Simulation Environment  
 
   Model is based on the Alpha AXP 21164.  
   Models the execution pipelines, the memory hierarchy, the TLBs, and the branch prediction logic of a wide superscalar processor.  
@@ -142,4 +142,29 @@ Table of contents
 
     
 ### 3. Superscalar Bottlenecks: Where have all the Cycles Gone?
+
+Measuring Issue utilization : Measure the unused issue slots which shows how much efficiently processors are used.  
+
+![simulation_results](/assets/img/papers/2/2_2.png){: width="360" height="180"}
+
+Above Figure 2. shows that functional units of wide superscalar processor are highly underutilized. (Usage : 19%)  
+
+Also, Figure 2. shows that no dominant source of wasted issue bandwidth.  
+As there is no dominant cause of wasted cycles, there appears to be no dominant solution.  
+
+SOLUTIONS That can be used : 
+  (1) latency-tolerating technique :  
+      But!!!  
+      -> Can be used to specific types of latencies.  
+  (2) Instruction scheduling :  
+      But!!!  
+      -> Compiler has already achieved most of the available gains in that regard.  
+  (3) Putting larger amounts of caches into on-chip area :  
+      But!!!
+      -> Even if memory latencies are completely eliminated, 
+        we cannot achieve 40% utilization of this processor.  
+
+Thererfore, general latency-hiding solution is needed to achieve dramatic increase in parallelism.  
+
+**Multithreading** can be the solution!!
 
