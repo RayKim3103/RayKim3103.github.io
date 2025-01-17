@@ -156,14 +156,16 @@ SOLUTIONS That can be used :
 
   (1) latency-tolerating technique :  
       But!!!  
-      -> Can be used to specific types of latencies.  
+      -> Can be used to specific types of latencies. 
+     
   (2) Instruction scheduling :  
       But!!!  
       -> Compiler has already achieved most of the available gains in that regard.  
+    
   (3) Putting larger amounts of caches into on-chip area :  
       But!!!
       -> Even if memory latencies are completely eliminated, 
-        we cannot achieve 40% utilization of this processor.  
+          we cannot achieve 40% utilization of this processor.  
 
 Thererfore, general latency-hiding solution is needed to achieve dramatic increase in parallelism.  
 
