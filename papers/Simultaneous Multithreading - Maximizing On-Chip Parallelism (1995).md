@@ -72,7 +72,7 @@ Table of contents
   Contents of this Paper :  
 
     (Section 2) Discuss Basic machine model, the workloads for simulation and the simulation environment.  
-    (Section 3) Evaluates the performance of a single-threaded superscalar architecture.  
+    (Section 3) Evaluating the performance of a single-threaded superscalar architecture.  
     (Section 4) Discuss performance of a range of SM architectures  
                 and compares with superscalar architecture, and fine-grain multithreaded processor.  
     (Section 5) Explores the effect of cache design alternatives on the performance of simultaneous multithreading.  
@@ -89,4 +89,4 @@ Table of contents
 
 
 
-### 3. THE MICROARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR
+### 3. Evaluating the performance of a single-threaded superscalar architecture.
