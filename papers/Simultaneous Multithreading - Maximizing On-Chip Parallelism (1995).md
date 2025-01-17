@@ -189,5 +189,11 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
       Pros     : Shows  potential completely for simultaneous multithreading.  
       Cons     : Least realistic model in terms of hardware complexity.  
     
-    
+    SM: Single, Dual, Four Issue  
+
+      Property : These three models limit the number of instructions each thread can issue.  
+              -> i.e. In a SM:Dual Issue processor, each thread can issue a maximum of 2 instructions per cycle.  
+                      Therefore, a minimum of 4 threads would be required to fill the 8 issue slots in one cycle.  
+      Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
+      
 
