@@ -175,36 +175,36 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   4.1. The Machine Models   
 
-    Fine-Grain Multithreading  
+  Fine-Grain Multithreading  
 
-      Property : 1 thread issues instructions each cycle, but it can use the entire issue width of the processor.  
-                 Only model that does not feature simultaneous multithreading.  
-      Pros     : Hides all sources of vertical waste.  
-      Cons     : Does not hide horizontal waste. 
+    Property : 1 thread issues instructions each cycle, but it can use the entire issue width of the processor.  
+                Only model that does not feature simultaneous multithreading.  
+    Pros     : Hides all sources of vertical waste.  
+    Cons     : Does not hide horizontal waste. 
 
-    SM: Full Simultaneous Issue  
+  SM: Full Simultaneous Issue  
 
-      Property : Completely flexible simultaneous multithreaded superscalar.  
-                 All eight threads compete for each of the issue slots each cycle.  
-      Pros     : Shows  potential completely for simultaneous multithreading.  
-      Cons     : Least realistic model in terms of hardware complexity.  
-    
-    SM: Single, Dual, Four Issue  
+    Property : Completely flexible simultaneous multithreaded superscalar.  
+                All eight threads compete for each of the issue slots each cycle.  
+    Pros     : Shows  potential completely for simultaneous multithreading.  
+    Cons     : Least realistic model in terms of hardware complexity.  
+  
+  SM: Single, Dual, Four Issue  
 
-      Property : These three models limit the number of instructions each thread can issue.  
-              -> i.e. In a SM:Dual Issue processor, each thread can issue a maximum of 2 instructions per cycle.  
-                      Therefore, a minimum of 4 threads would be required to fill the 8 issue slots in one cycle.  
-      Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
-    
-    SM: Limited Connection
+    Property : These three models limit the number of instructions each thread can issue.  
+            -> i.e. In a SM:Dual Issue processor, each thread can issue a maximum of 2 instructions per cycle.  
+                    Therefore, a minimum of 4 threads would be required to fill the 8 issue slots in one cycle.  
+    Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
+  
+  SM: Limited Connection
 
-      Property :  Each hardware context is directly connected to exactly one of each type of functional unit. 
-              -> i.e. If the hardware supports eight threads and there are four integer units,   
-                      each integer unit could receive instructions from exactly 2 threads.  
-      Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
-      Cons     : Partitioning of functional units among threads. Thus less dynamic than in the other models.  
-                 But, each functional unit is still shared (the critical factor in achieving high utilization).  
-              -> You can see 2 threads are sharing integer unit in the last example.  
+    Property :  Each hardware context is directly connected to exactly one of each type of functional unit. 
+            -> i.e. If the hardware supports eight threads and there are four integer units,   
+                    each integer unit could receive instructions from exactly 2 threads.  
+    Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
+    Cons     : Partitioning of functional units among threads. Thus less dynamic than in the other models.  
+                But, each functional unit is still shared (the critical factor in achieving high utilization).  
+            -> You can see 2 threads are sharing integer unit in the last example.  
       
       
 
