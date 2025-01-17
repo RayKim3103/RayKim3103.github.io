@@ -15,8 +15,8 @@ Table of contents
 [OverView](#overview)  
 [0. Terminology Definition](#0-terminology-definition)  
 [1. INTRODUCTION](#1-introduction)  
-[2. PROGRAM REPRESENTATION DEPENDENCES AND PARALLEL EXECUTION](#2-program-representation-dependences-and-parallel-execution)  
-[3. THE MICRO ARCHITECTURE OF A TYPICAL SUPERSCALAR PROCESSOR](#3-the-microarchitecture-of-a-typical-superscalar-processor)  
+[2. Basic machine model, the workloads for simulation and the simulation environment](#2-basic-machine-model-the-workloads-for-simulation-and-the-simulation-environment)  
+[3. Superscalar Bottlenecks: Where have all the Cycles Gone?](#3-superscalar-bottlenecks-where-have-all-the-cycles-gone)  
 
 ### OverView
 * Terminology Definition
