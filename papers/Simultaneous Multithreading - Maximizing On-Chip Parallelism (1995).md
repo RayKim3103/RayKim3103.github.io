@@ -171,3 +171,23 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
 **Multithreading** can be the solution!!
 
+### 4. Simultaneous Multithreading
+
+  4.1. The Machine Models   
+
+    Fine-Grain Multithreading  
+
+      Property : 1 thread issues instructions each cycle, but it can use the entire issue width of the processor.  
+                 Only model that does not feature simultaneous multithreading.  
+      Pros     : Hides all sources of vertical waste.  
+      Cons     : Does not hide horizontal waste. 
+
+    SM: Full Simultaneous Issue  
+
+      Property : Completely flexible simultaneous multithreaded superscalar.  
+                 All eight threads compete for each of the issue slots each cycle.  
+      Pros     : Shows  potential completely for simultaneous multithreading.  
+      Cons     : Least realistic model in terms of hardware complexity.  
+    
+    
+
