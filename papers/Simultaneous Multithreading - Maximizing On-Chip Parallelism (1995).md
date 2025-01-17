@@ -150,7 +150,7 @@ Measuring Issue utilization : Measure the unused issue slots which shows how muc
 Above Figure 2. shows that functional units of wide superscalar processor are highly underutilized. (Usage : 19%)  
 
 Also, Figure 2. shows that no dominant source of wasted issue bandwidth.  
-As there is no dominant cause of wasted cycles, there appears to be no dominant solution.  
+Since, there is no dominant cause of wasted cycles, there appears to be no dominant solution.  
 
   SOLUTIONS That can be used :  
 
