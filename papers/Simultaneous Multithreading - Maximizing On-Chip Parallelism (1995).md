@@ -195,5 +195,16 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
               -> i.e. In a SM:Dual Issue processor, each thread can issue a maximum of 2 instructions per cycle.  
                       Therefore, a minimum of 4 threads would be required to fill the 8 issue slots in one cycle.  
       Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
+    
+    SM: Limited Connection
+
+      Property :  Each hardware context is directly connected to exactly one of each type of functional unit. 
+              -> i.e. If the hardware supports eight threads and there are four integer units,   
+                      each integer unit could receive instructions from exactly 2 threads.  
+      Pros     : Less hardware complexity, compare to Full Simultaneous Issue Model.  
+      Cons     : Partitioning of functional units among threads. Thus less dynamic than in the other models.  
+                 But, each functional unit is still shared (the critical factor in achieving high utilization).  
+              -> You can see 2 threads are sharing integer unit in the last example.  
+      
       
 
