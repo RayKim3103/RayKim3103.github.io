@@ -68,7 +68,8 @@ Table of contents
       In any one cycle, these architectures issue instructions from only one thread (single thread in a single cycle).  
       The technique is thus limited by the amount of parallelism.  
 
-    Therefore, Simultaneous multithreading came out resolving both horizontal waste and virtical waste.
+    Therefore, Simultaneous multithreading came out resolving both horizontal waste and virtical waste.  
+    -> Many threads per 1 clock cycle. But, it has only 1 core.  
   
   Contents of this Paper :  
 
@@ -133,5 +134,5 @@ Table of contents
     (1) Use uniprocessor applications, assigning a distinct program to each thread.  
         -> To measure the raw instruction throughput achievable by multithreaded superscalar processors.  
     (2) 
-    
+
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
