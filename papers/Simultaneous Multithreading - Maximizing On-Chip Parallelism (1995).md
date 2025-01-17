@@ -124,6 +124,10 @@ Table of contents
     (3) Use 32-entry jump table, which records the last jumped-to destination from a particular address.  
     
   Multithread Details :  
-    (1) 
+
+    (1) Assume 8 hardware contexts.  
+    (2) Instructions are scheduled in a strict priority order.
+        i.e., context O can schedule instructions onto any available functional unit,  
+              context 1 can schedule onto any unit unutilized by context O.
 
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
