@@ -110,7 +110,12 @@ Table of contents
         -> Independent instructions are issued in-order with "8 inst/thread".  
     (2) Support static scheduling.  
         -> Using the Multiflow trace scheduling compiler.  
-  Branch prediction Details : 
+  Branch prediction Details :  
+    (1) Use 2048-entry, direct-mapped, 2-bit branch prediction history table.  
+    (2) Use a 12-entry return stack, to predict return destinations.  
+        -> return stack : stack which stores return address.  
+    (3) Use 32-entry jump table, which records the last jumped-to destination from a particular address.  
+  Multithread Details :  
     (1) 
 
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
