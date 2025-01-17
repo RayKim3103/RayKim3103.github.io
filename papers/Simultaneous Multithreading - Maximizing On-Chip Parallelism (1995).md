@@ -133,6 +133,12 @@ Table of contents
 
     (1) Use uniprocessor applications, assigning a distinct program to each thread.  
         -> To measure the raw instruction throughput achievable by multithreaded superscalar processors.  
-    (2) 
+    (2) In the single-thread experiments : All of the benchmarks are run to completion using the default data sets.  
+    (3) In the multithreaded experiments : 
+        -> Total B benchmarks.  
+        -> Each runs : T × 500 million instructions.  
+        -> For each data sets, Average of B × T × 500 million instructions. (Average of B runs)  
+        -> Number of benchmarks(B) is limited to number of Threads. Because, to limit the number of execution.  
 
+    
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
