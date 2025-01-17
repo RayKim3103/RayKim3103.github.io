@@ -62,7 +62,8 @@ Table of contents
       Long-latency operations within the single executing thread.  
       -> shown as horizontal waste and vertical waste in Figure 1.  
     
-    (2) Multithreaded Architectures : 
+    (2) Multithreaded Architectures :  
+      Use 1 thread for 1 clock cycle.  
       Hides memory and firnctional unit latencies, reducing vertical waste.  
       In any one cycle, these architectures issue instructions from only one thread (single thread in a single cycle).  
       The technique is thus limited by the amount of parallelism.  
@@ -122,5 +123,14 @@ Table of contents
     (2) Instructions are scheduled in a strict priority order.  
         i.e., context O can schedule instructions onto any available functional unit,  
               context 1 can schedule onto any unit unutilized by context O.
+
+  Pipeline Details :  
+
+    (1) Use basic pipeline to accommodate simultaneous multithreading.
+ 
+   Workload Details :  
+
+    (1) Use uniprocessor applications, assigning a distinct program to each thread.  
+        -> To measure the raw instruction throughput achievable by multithreaded superscalar processors.  
 
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
