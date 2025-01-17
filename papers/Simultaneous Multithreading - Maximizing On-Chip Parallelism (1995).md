@@ -128,9 +128,10 @@ Table of contents
 
     (1) Use basic pipeline to accommodate simultaneous multithreading.
  
-   Workload Details :  
+  Workload Details :  
 
     (1) Use uniprocessor applications, assigning a distinct program to each thread.  
         -> To measure the raw instruction throughput achievable by multithreaded superscalar processors.  
-
+    (2) 
+    
 ### 3. Evaluating the performance of a single-threaded superscalar architecture.
