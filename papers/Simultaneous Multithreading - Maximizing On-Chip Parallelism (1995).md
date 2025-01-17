@@ -77,13 +77,6 @@ Table of contents
                 and compares with superscalar architecture, and fine-grain multithreaded processor.  
     (Section 5) Explores the effect of cache design alternatives on the performance of simultaneous multithreading.  
     (Section 6) Compares the SM approach with conventional multiprocessor architectures.  
-<!-- 
-(1) Introduce several SM models.  
-(2) Evaluate the performance of those models relative to superscalar and fine-grain multithreading.  
-(3) Show how to tune the cache hierarchy for SM processors.  
-(4) Demonstrate the potential for performance and real-estate advantages of SM architectures over small-scale, on-chip multiprocessors. -->
-
-
   
 ### 2. Basic machine model, the workloads for simulation and the simulation environment
 
