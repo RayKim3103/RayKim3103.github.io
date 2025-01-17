@@ -141,4 +141,5 @@ Table of contents
         -> Number of benchmarks(B) is limited to number of Threads. Because, to limit the number of execution.  
 
     
-### 3. Evaluating the performance of a single-threaded superscalar architecture.
+### 3. Superscalar Bottlenecks: Where have all the Cycles Gone?
+
