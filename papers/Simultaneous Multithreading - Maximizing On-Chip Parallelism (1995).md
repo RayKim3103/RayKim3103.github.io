@@ -78,6 +78,10 @@ Table of contents
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
+6 - Execution Resources
+
+
+
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
@@ -284,3 +288,17 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
           
           With SM, Threads A and B execute simultaneously, ensuring all functional units are efficiently utilized.  
 
+  Cons of SM 
+
+    See the Figure 3(c), (= the Full Simultaneous Issue model).  
+
+    1. The lowest-priority thread among the 8 threads executes at 55% of the speed of the highest-priority thread.  
+
+       why?  
+        Since, contention occurs for issue slots and functional units (Execution Resources).  
+      
+    2. The highest-priority thread, which is relatively less affected by contention for issue slots and functional units,  
+        experiences performance degradation as the number of threads increases (a 35% speed reduction with 8 threads).
+      
+       why?  
+        The impact of sharing other system resources (Non Execution Resources: caches, TLBs, branch prediction table).
