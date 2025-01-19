@@ -245,7 +245,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   **4.2. The Performance of Simultaneous Multithreading**
 
-![simulation_results](/assets/img/papers/2/2_3.png){: width="360" height="360"}
+![simulation_results](/assets/img/papers/2/2_4.png){: width="360" height="360"}
 
   Why SM model increase the Processor Utilization?
 
@@ -273,7 +273,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
         Using only ILP in a superscalar processor:  
           Thread A:  
             A = B + C, D = E + F (executed in parallel using integer execution units).  
-            
+
           However, if Thread A does not use the floating-point unit, that unit remains idle.  
         
         Combining ILP and TLP in SM:  
