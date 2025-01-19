@@ -266,3 +266,21 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
       Each hardware context is capable of running a separate thread.  
       Increasing the number of hardware contexts allows more threads to run concurrently, thereby improving resource utilization.  
   
+    [cf]  
+
+    5. Combination of ILP and TLP in Simultaneous Multithreading :  
+      Example:  
+        Using only ILP in a superscalar processor:  
+          Thread A:  
+            A = B + C, D = E + F (executed in parallel using integer execution units).  
+            
+          However, if Thread A does not use the floating-point unit, that unit remains idle.  
+        
+        Combining ILP and TLP in SM:  
+          Thread A:  
+            A = B + C, D = E + F (using integer execution units).  
+          Thread B:  
+            G = H * I (using the floating-point unit).  
+          
+          With SM, Threads A and B execute simultaneously, ensuring all functional units are efficiently utilized.  
+
