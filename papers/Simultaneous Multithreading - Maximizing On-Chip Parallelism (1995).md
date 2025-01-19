@@ -378,36 +378,54 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
       Example : 
         64p.64s has 8 private 8 KB inst. caches and a shared 64 KB data cache.  
   
-  Simulation Result :  
+Simulation Result :  
 
-    Example : 
-     * the 64s.64s cache ranks first among all models at 1 thread and last at 8 threads.  
-     * the 64p.64p cache gives nearly the opposite result.  
+  Example : 
+    * the 64s.64s cache ranks first among all models at 1 thread and last at 8 threads.  
+    * the 64p.64p cache gives nearly the opposite result.  
 
-    Notice that the tradeoffs are not the same for both instructions and data.  
+  Notice that the tradeoffs are not the same for both instructions and data.  
+    
+    1. A shared data cache is better than a private data cache over all numbers of threads.  
+      (e.g., compare 64p.64s with 64p.64p) 
+
+    2. Instruction caches benefit from private caches at 8 threads.  
+    
+    why? 
+      * Private I caches eliminate conflicts between different threads in the I cache.  
+        Example:  
+          For Shared I Cache:
+            Assume that the instructions to be executed by Thread A and Thread B are mapped to the same cache block.
+            When Thread A uses that block, Thread B may overwrite it, causing a cache conflict.
+            -> As a result, the instructions required by Thread B must be fetched from memory again, leading to a cache miss.
+          
+          For Private I Cache:
+            Threads A and B use their own independent I caches.
+            When Thread A fetches instructions from its private I cache, it does not affect Thread B’s cache.
+            -> As a result, no conflicts occur, cache misses are reduced, and performance improves.
       
-      1. A shared data cache is better than a private data cache over all numbers of threads.  
-        (e.g., compare 64p.64s with 64p.64p) 
+      * Shared D cache allows a single thread to issue multiple memory instructions to different banks.  
+        Example:
+          Thread A issues three memory instructions:
+            Instruction 1 accesses cache bank 1,
+            Instruction 2 accesses cache bank 2,
+            Instruction 3 accesses cache bank 3.
+          As a result, the shared cache supports parallel memory accesses from Thread A, increasing the throughput.
 
-      2. Instruction caches benefit from private caches at 8 threads.  
+  Two Configurations That Seem to Be Good Choices:
+
+    64s.64s Configuration:
+
+      Performance differences among 8 threads are minimal.  
+
+      It makes the cost of optimizing for a small number of threads relatively low.  
       
-      why? 
-        * Private I caches eliminate conflicts between different threads in the I cache.  
-          Example:  
-            For Shared I Cache:
-              Assume that the instructions to be executed by Thread A and Thread B are mapped to the same cache block.
-              When Thread A uses that block, Thread B may overwrite it, causing a cache conflict.
-              -> As a result, the instructions required by Thread B must be fetched from memory again, leading to a cache miss.
-            
-            For Private I Cache:
-              Threads A and B use their own independent I caches.
-              When Thread A fetches instructions from its private I cache, it does not affect Thread B’s cache.
-              -> As a result, no conflicts occur, cache misses are reduced, and performance improves.
-        
-        * Shared D cache allows a single thread to issue multiple memory instructions to different banks.  
-          Example:
-            Thread A issues three memory instructions:
-              Instruction 1 accesses cache bank 1,
-              Instruction 2 accesses cache bank 2,
-              Instruction 3 accesses cache bank 3.
-            As a result, the shared cache supports parallel memory accesses from Thread A, increasing the throughput.
+      This appears to be an attractive option.  
+    
+    64p.64s Configuration:
+
+      If most thread slots are expected to be fully occupied, 
+        this configuration delivers the best performance in such scenarios.  
+      
+      Additionally, it consistently maintains at least second place in performance 
+        when the number of threads is small, without significant degradation.  
