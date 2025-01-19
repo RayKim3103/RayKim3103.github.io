@@ -369,6 +369,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 ![simulation_results_4](/assets/img/papers/2/2_5.png){: width="360" height="360"}
 
   Simulation Assumption : 
+  
     1. Focuses only on the first-level (Ll ) caches.  
     2. All experiments use the 4-issue model with up to 8 threads.  
     3. The caches are specified as,  
@@ -381,6 +382,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 Simulation Result :  
 
   Example : 
+
     * the 64s.64s cache ranks first among all models at 1 thread and last at 8 threads.  
     * the 64p.64p cache gives nearly the opposite result.  
 
@@ -419,7 +421,7 @@ Simulation Result :
       Performance differences among 8 threads are minimal.  
 
       It makes the cost of optimizing for a small number of threads relatively low.  
-      
+
       This appears to be an attractive option.  
     
     64p.64s Configuration:
