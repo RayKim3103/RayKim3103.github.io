@@ -247,3 +247,22 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
 ![simulation_results](/assets/img/papers/2/2_3.png){: width="360" height="360"}
 
+  Why SM model increase the Processor Utilization?
+
+    1. Reduction of Vertical Waste :  
+      SM allows multiple threads to execute simultaneously.  
+      If one thread is in a waiting state, other threads can use the idle resources.  
+    
+    2. Reduction of Horizontal Waste :  
+      SM is designed for multiple threads to share processor resources.  
+      If one thread does not use certain functional units, another thread can utilize them.  
+
+    3. Dynamic Resource Sharing :  
+      SM dynamically shares processor resources, such as issue slots, functional units, registers, and caches, among multiple threads.  
+      Resources are dynamically allocated to other threads, reducing idle states and improving throughput.  
+    
+    4. Utilization of Hardware Contexts :  
+      SM activates multiple hardware contexts within a single processor core.  
+      Each hardware context is capable of running a separate thread.  
+      Increasing the number of hardware contexts allows more threads to run concurrently, thereby improving resource utilization.  
+  
