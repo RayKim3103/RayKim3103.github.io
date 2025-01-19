@@ -19,6 +19,8 @@ Table of contents
 [3. Superscalar Bottlenecks: Where have all the Cycles Gone?](#3-superscalar-bottlenecks-where-have-all-the-cycles-gone)  
 [4. Simultaneous Multithreading](#4-simultaneous-multithreading)  
 [5. Cache Design for a Simultaneous Multithreaded Processor](#5-cache-design-for-a-simultaneous-multithreaded-processor)  
+[6. Simultaneous Multithreading vs. Chip Multiprocessing](#6-simultaneous-multithreading-vs-chip-multiprocessing)  
+
 
 
 
@@ -435,3 +437,6 @@ Simulation Result :
       
       Additionally, it consistently maintains at least second place in performance 
         when the number of threads is small, without significant degradation.  
+
+### 6. Simultaneous Multithreading vs. Chip Multiprocessing
+
