@@ -80,9 +80,59 @@ Table of contents
 
 6 - Execution Resources
 
+  The hardware components required by a processor to actually execute instructions.  
 
+  Functional Units:
+
+    * Integer Arithmetic Logic Units (Integer ALUs)
+    * Floating Point Units (FPUs)
+    * Multipliers
+    * Load/Store Units
+
+  Issue Slots:  
+
+    Slots responsible for dispatching instructions to functional units.
+  
+  Pipeline Stages:
+
+    Execution stages of instructions, such as Fetch, Decode, Execute, Memory Access, and Write-back.
+  
+  Role:
+
+    Execution resources handle tasks like calculations, accessing memory, and moving data,  
+    enabling the processor to complete instructions effectively.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
+
+7 - Non-Execution Resources
+
+  Components that support instruction execution and manage the flow of data and instructions.  
+  These resources provide data to execution resources or manage control signals to ensure smooth operation.  
+
+  Cache:  
+
+    Stores frequently accessed data for quick retrieval.  
+  
+  TLB (Translation Lookaside Buffer):  
+
+    Translates virtual memory addresses to physical memory addresses.  
+
+  Branch Prediction Table:  
+
+    Predicts the outcome of branch instructions to enhance execution speed.  
+
+  Instruction Queue:  
+
+    Stores instructions waiting to be executed.  
+
+  Register File:  
+
+    Holds data required for instruction execution.  
+
+  Role:  
+
+    Supplying data to execution resources, control the flow of instructions, and optimize memory access,  
+    ensuring efficient processor operation.  
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
