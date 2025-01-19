@@ -53,7 +53,8 @@ Table of contents
 
   Each thread is mapped to each Hardware Context.  (1 to 1 mapping)
 
-  Examples
+  Examples  
+  
     4 Hardware Contexts, 8 Threads:  
       Only 4 threads can be executed, while the remaining 4 threads remain in a waiting state.  
     8 Hardware Contexts, 8 Threads:  
