@@ -175,6 +175,8 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   4.1. The Machine Models   
 
+![simulation_results](/assets/img/papers/2/2_3.png){: width="480" height="240"}
+
   Fine-Grain Multithreading  
 
     Property : 1 thread issues instructions each cycle, but it can use the entire issue width of the processor.  
@@ -205,6 +207,12 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
     Cons     : Partitioning of functional units among threads. Thus less dynamic than in the other models.  
                 But, each functional unit is still shared (the critical factor in achieving high utilization).  
             -> You can see 2 threads are sharing integer unit in the last example.  
+
+  Notice that the fine-grain model may not necessarily represent the cheapest implementation.  
+
+  Many of these complexity issues are inherited from our wide superscalar design rather than from multithreading.  
+
+
       
       
 
