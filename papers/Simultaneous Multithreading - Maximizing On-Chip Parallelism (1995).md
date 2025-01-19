@@ -64,7 +64,8 @@ Table of contents
 
 4 - Vertical Waste
 
-  Occurs when a thread enters a waiting state due to memory access, data dependencies, cache misses, or similar reasons. 
+  Occurs when a thread enters a waiting state  
+  due to memory access, data dependencies, cache misses, or similar reasons.  
   
   Leaving processor resources idle.
 
@@ -72,7 +73,8 @@ Table of contents
 
 5 - Horizontal Waste
 
-  Occurs when a single thread cannot fully utilize all the functional units of a processor (e.g., integer execution unit, floating-point unit).  
+  Occurs when a single thread cannot fully utilize all the functional units of a processor  
+  (e.g., integer execution unit, floating-point unit).  
   
   Resulting in some units remaining idle.
 
