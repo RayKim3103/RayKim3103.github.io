@@ -139,8 +139,13 @@ Table of contents
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 ### 1. INTRODUCTION
-  Simultaneous multithreading (SM) : A technique that permits several independent threads to issue to multiple functional units each cycle.  
-  Objective of SM : To increase processor utilization for both long memory latencies and limited available parallelism per thread.  
+  Simultaneous multithreading (SM) : 
+  
+    A technique that permits several independent threads to issue to multiple functional units each cycle.  
+  
+  Objective of SM : 
+  
+    To increase processor utilization for both long memory latencies and limited available parallelism per thread.  
 
   Constraints of the early Microprocessors :  
 
@@ -172,7 +177,8 @@ Table of contents
 Simulation Environment  
 
   Model is based on the Alpha AXP 21164.  
-  Models the execution pipelines, the memory hierarchy, the TLBs, and the branch prediction logic of a wide superscalar processor.  
+
+  Copies the execution pipelines, the memory hierarchy, the TLBs, and the branch prediction logic of a wide superscalar processor.  
 
 ![simulation_details](/assets/img/papers/2/2_1.png){: width="360" height="180"}
 
@@ -230,7 +236,9 @@ Simulation Environment
     
 ### 3. Superscalar Bottlenecks: Where have all the Cycles Gone?
 
-Measuring Issue utilization : Measure the unused issue slots which shows how much efficiently processors are used.  
+Measuring Issue utilization : 
+
+  Measure the unused issue slots which shows how much efficiently processors are used.  
 
 ![simulation_results](/assets/img/papers/2/2_2.png){: width="480" height="240"}
 
