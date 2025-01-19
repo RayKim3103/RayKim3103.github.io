@@ -440,3 +440,5 @@ Simulation Result :
 
 ### 6. Simultaneous Multithreading vs. Chip Multiprocessing
 
+![simulation_results_4](/assets/img/papers/2/2_6.png){: width="480" height="240"}
+
