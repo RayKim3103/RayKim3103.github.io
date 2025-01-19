@@ -17,6 +17,10 @@ Table of contents
 [1. INTRODUCTION](#1-introduction)  
 [2. Basic machine model, the workloads for simulation and the simulation environment](#2-basic-machine-model-the-workloads-for-simulation-and-the-simulation-environment)  
 [3. Superscalar Bottlenecks: Where have all the Cycles Gone?](#3-superscalar-bottlenecks-where-have-all-the-cycles-gone)  
+[4. Simultaneous Multithreading](#4-simultaneous-multithreading)  
+[5. Cache Design for a Simultaneous Multithreaded Processor](#5-cache-design-for-a-simultaneous-multithreaded-processor)  
+
+
 
 ### OverView
 * Terminology Definition
@@ -369,7 +373,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 ![simulation_results_4](/assets/img/papers/2/2_5.png){: width="360" height="360"}
 
   Simulation Assumption : 
-  
+
     1. Focuses only on the first-level (Ll ) caches.  
     2. All experiments use the 4-issue model with up to 8 threads.  
     3. The caches are specified as,  
