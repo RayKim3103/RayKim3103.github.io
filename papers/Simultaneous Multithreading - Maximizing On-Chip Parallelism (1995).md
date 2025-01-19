@@ -54,7 +54,7 @@ Table of contents
   Each thread is mapped to each Hardware Context.  (1 to 1 mapping)
 
   Examples  
-  
+
     4 Hardware Contexts, 8 Threads:  
       Only 4 threads can be executed, while the remaining 4 threads remain in a waiting state.  
     8 Hardware Contexts, 8 Threads:  
@@ -62,7 +62,19 @@ Table of contents
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
+4 - Vertical Waste
+
+  Occurs when a thread enters a waiting state due to memory access, data dependencies, cache misses, or similar reasons. 
+  
+  Leaving processor resources idle.
+
 :--------------------------------------------------------------------------------------------------------------------------------------:
+
+5 - Horizontal Waste
+
+  Occurs when a single thread cannot fully utilize all the functional units of a processor (e.g., integer execution unit, floating-point unit).  
+  
+  Resulting in some units remaining idle.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
