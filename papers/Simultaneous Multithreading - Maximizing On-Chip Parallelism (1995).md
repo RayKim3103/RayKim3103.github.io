@@ -55,9 +55,9 @@ Table of contents
 
   Examples
     4 Hardware Contexts, 8 Threads:  
-      Only 4 threads can be executed, while the remaining 4 threads remain in a waiting state.
+      Only 4 threads can be executed, while the remaining 4 threads remain in a waiting state.  
     8 Hardware Contexts, 8 Threads:  
-      All 8 threads can be executed simultaneously.
+      All 8 threads can be executed simultaneously.  
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
