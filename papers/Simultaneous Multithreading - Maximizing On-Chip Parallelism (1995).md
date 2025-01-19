@@ -41,6 +41,24 @@ Table of contents
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
+3 - Hardware Context
+
+  Hardware Context includes :  
+  
+    Program Counter (PC)  
+    Registers
+    Status Registers
+    TLB
+    ...
+
+  Each thread is mapped to each Hardware Context.  (1 to 1 mapping)
+
+  Examples
+    4 Hardware Contexts, 8 Threads:  
+      Only 4 threads can be executed, while the remaining 4 threads remain in a waiting state.
+    8 Hardware Contexts, 8 Threads:  
+      All 8 threads can be executed simultaneously.
+
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
@@ -210,9 +228,5 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   Notice that the fine-grain model may not necessarily represent the cheapest implementation.  
 
-  Many of these complexity issues are inherited from our wide superscalar design rather than from multithreading.  
-
-
-      
-      
+  Many of these complexity issues are inherited from wide superscalar design rather than from multithreading.  
 
