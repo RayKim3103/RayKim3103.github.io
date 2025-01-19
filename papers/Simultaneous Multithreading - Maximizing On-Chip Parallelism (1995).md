@@ -240,7 +240,7 @@ Measuring Issue utilization :
 
   Measure the unused issue slots which shows how much efficiently processors are used.  
 
-![simulation_results](/assets/img/papers/2/2_2.png){: width="480" height="240"}
+![simulation_results_1](/assets/img/papers/2/2_2.png){: width="480" height="240"}
 
 Above Figure 2. shows that functional units of wide superscalar processor are highly underutilized. (Usage : 19%)  
 
@@ -270,7 +270,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   **4.1. The Machine Models**   
 
-![simulation_results](/assets/img/papers/2/2_3.png){: width="480" height="240"}
+![simulation_results_2](/assets/img/papers/2/2_3.png){: width="480" height="240"}
 
   Fine-Grain Multithreading  
 
@@ -309,7 +309,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
   **4.2. The Performance of Simultaneous Multithreading**
 
-![simulation_results](/assets/img/papers/2/2_4.png){: width="360" height="360"}
+![simulation_results_3](/assets/img/papers/2/2_4.png){: width="360" height="360"}
 
   *Why SM model increase the Processor Utilization?*  
 
@@ -363,3 +363,8 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
        why?  
         The impact of sharing other system resources (Non Execution Resources: caches, TLBs, branch prediction table).  
         Due to a decrease in locality.  
+
+### 5. Cache Design for a Simultaneous Multithreaded Processor
+
+![simulation_results_4](/assets/img/papers/2/2_5.png){: width="360" height="360"}
+
