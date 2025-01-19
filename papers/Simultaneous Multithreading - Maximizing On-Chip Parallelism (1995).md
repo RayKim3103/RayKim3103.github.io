@@ -204,7 +204,7 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
 
 ### 4. Simultaneous Multithreading
 
-  4.1. The Machine Models   
+  **4.1. The Machine Models**   
 
 ![simulation_results](/assets/img/papers/2/2_3.png){: width="480" height="240"}
 
@@ -242,4 +242,8 @@ Thererfore, general latency-hiding solution is needed to achieve dramatic increa
   Notice that the fine-grain model may not necessarily represent the cheapest implementation.  
 
   Many of these complexity issues are inherited from wide superscalar design rather than from multithreading.  
+
+  **4.2. The Performance of Simultaneous Multithreading**
+
+![simulation_results](/assets/img/papers/2/2_3.png){: width="360" height="360"}
 
