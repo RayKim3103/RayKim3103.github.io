@@ -490,4 +490,24 @@ Simulation Result :
         2. 4 load/store units and 8 threads, sharing a single cache-load/store combination among each set of 2 threads. 
 
 **Simulation Result**
+
+  Tests A, B, and C:  
+
+    The number of functional units (FUs) effectively set to unlimited in each test.  
+      i.e. All types of functional units are made available for each issue slot.  
+
+    The number of "register sets" and the "total issue bandwidth" are kept constant across all experiments.  
+      i.e. In Test C, both a 4-thread, 8-issue SM processor and a 4-processor MP with 2 issues per processor   
+           have 4 register sets and can issue up to 8 instructions per cycle.  
+
+    Since these models have a high functional unit-to-thread-to-issue bandwidth ratio, both configurations utilize most of the issue bandwidth.  
   
+    However, Simultaneous Multithreading (SM) achieves this more effectively. (Less Resources)  
+
+  Test D:  
+
+    Test A is repeated, but the SM processor is restricted to a more realistic configuration.  
+    -> A 10-functional-unit configuration, as used in other experiments in the paper, is adopted.  
+    
+    Even in this setup, SM outperforms MP by nearly the same margin as in Test A.  
+    The SM configuration uses 22 fewer functional units than MP while also requiring fewer forwarding connections.
