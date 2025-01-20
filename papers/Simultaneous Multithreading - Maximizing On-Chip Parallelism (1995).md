@@ -574,7 +574,7 @@ Simulation Result :
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-  SUMMART of RESULTS :  
+  SUMMARY of RESULTS :  
 
     SM's ability to dynamically allocate functional units, make SM outperforms MP across various configurations.  
 
