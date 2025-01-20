@@ -583,10 +583,33 @@ Simulation Result :
 
 ----------------------------------------------------------------------------------------------------------------------------
 
+  Additional Advantages of SM (Beyond the Scope of the Experiments)
 
+    (1) High Performance with Fewer Threads:
 
+      The experiments primarily demonstrate performance at maximum utilization.
 
+      However, SM's true strength becomes evident when some hardware contexts (or processors) are idle:
+        -> In MP, when a processor is idle, 1/n of the system's resources remain unused.
+        -> In contrast, SM allows other threads to utilize these idle resources.
+      
+      This advantage is particularly significant in the following scenarios:
+        1. When the level of parallelism in parallel code fluctuates over time.
+        2. In environments where performance with a small number of threads is critical.
+        3. When workloads are sized to match the machine (e.g., tasks involving 8 threads).
+          i.e.
+            -> If a specific thread experiences significant delays (e.g., due to I/O), 
+                MP leaves the corresponding processor and its resources idle. 
+                  In contrast, SM allows other threads to utilize these idle resources.
 
+    (2) Granularity and Flexibility in Design:
 
+        SM offers finer granularity in design, providing more options for optimization:
 
+        -> MP typically requires adding entire processors as units.
+        -> SM can benefit from adding individual resources, such as functional units, register contexts, or issue slots.
 
+        These added resources can then be shared among all threads.
+        This design flexibility enables better resource utilization.
+
+----------------------------------------------------------------------------------------------------------------------------
