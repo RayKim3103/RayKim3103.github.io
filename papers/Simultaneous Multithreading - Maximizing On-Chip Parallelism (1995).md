@@ -446,13 +446,48 @@ Simulation Result :
 
   The key difference :  
 
-    the way those resources are partitioned and scheduled
-
-    -> The multiprocessor statically partitions resources, assigning a fixed number of functional units to each thread.  
-    -> The SM processor allows the partitioning to change every cycle.  
-       Clearly, scheduling is more complex for an SM processor.  
+    The way those resources are partitioned and scheduled :  
+      -> The multiprocessor statically partitions resources, assigning a fixed number of functional units to each thread.  
+      -> The SM processor allows the partitioning to change every cycle.  
+        Clearly, scheduling is more complex for an SM processor.  
     
     => However, other areas the SM model requires fewer resources, relative to multiprocessing.  
 
+**SM and MP configurations for simulation**
 
+  For most of the comparisons, set them equal: 
+    -> The number of register sets (i.e, Number of threads for SM and the number of processors for MP).  
+    -> Total issue bandwidth.  
+    -> Specific functional unit configuration.  
+    -> 8 KB private instruction and data caches (per thread for SM, per processor for MP).  
+    -> 256 KB 4-way set-associative shared second-level cache.  
+    -> 2 MB direct-miipped third-level cache.  
+  
+  Evaluation conditions:  
+    -> MPs with 1, 2, and 4 issues per cycle on each processor.  
+    -> SM processors with 4 and 8 issues per cycle.  
 
+**NOTICE of SM model**
+  SM results may be optimistic in two respects  
+    (1) Amount of time to schedule instructions onto functional units.  
+
+      In SM, there is a possibility of additional scheduling time, but experiment show that its impact is minimal.  
+
+      Impact of Increased Cycles:  
+        Experimental results: If instruction issue delay increases by 1 cycle.  
+        - Performance impact in single-thread mode is less than 1%.  
+        - When 8 threads are running, the performance reduction is negligible, at less than 0.5%.  
+      
+    (2) Amount of time to access Shared cache.  
+
+      -> Multiprocessor with private caches and private load/store units, can minimize the distances between them.  
+      -> SM processor cannot do so, even with private caches, because the load/store units are shared.  
+
+      SOLUTION :  
+        1. Having eight load/store units (one private unit per thread, associated with a private cache).  
+           It still allows to match MP performance with fewer than half the total number of MP functional units (32 vs. 15). 
+        
+        2. 4 load/store units and 8 threads, sharing a single cache-load/store combination among each set of 2 threads. 
+
+**Simulation Result**
+  
