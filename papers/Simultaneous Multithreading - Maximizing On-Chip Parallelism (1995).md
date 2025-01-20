@@ -538,5 +538,20 @@ Simulation Result :
 
     This result highlights the limitation of MP,  
       where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.  
+    
+    MORE SPECIFICALLY (Problems of MP) :   
+
+      Limits of Parallelism:  
+        
+        -> The number of instructions a single processor can issue is fixed (e.g., 4).  
+        -> If dependencies between instructions within a thread or resource conflicts occur during a specific cycle,   
+            the number of issuable instructions decreases.  
+        -> This results in horizontal waste, where functional units remain idle.  
+      
+      Lack of Dynamic Resource Sharing:  
+      
+        -> In MP, each processor has statically independent resources.  
+        -> If one processor underutilizes its resources, those resources cannot be used by other processors.  
+        -> In contrast, SM dynamically shares resources, maximizing resource utilization.  
   
 ----------------------------------------------------------------------------------------------------------------------------
