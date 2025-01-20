@@ -398,7 +398,8 @@ Table of contents
 
 #### E. Committing State 
   Commit or the Retire phase
-  -> Effects of the instruction are allowed to modify the logical process state.  
+
+    -> Effects of the instruction are allowed to modify the logical process state.  
 
   The purpose of this phase is to implement the appearance of a sequential execution model.  
   Thus, recovering *"Precise State"* is required.  
