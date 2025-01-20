@@ -442,3 +442,17 @@ Simulation Result :
 
 ![simulation_results_4](/assets/img/papers/2/2_6.png){: width="480" height="240"}
 
+**Overview of Simultaneous Multithreading vs. Chip Multiprocessing**
+
+  The key difference :  
+
+    the way those resources are partitioned and scheduled
+
+    -> The multiprocessor statically partitions resources, assigning a fixed number of functional units to each thread.  
+    -> The SM processor allows the partitioning to change every cycle.  
+       Clearly, scheduling is more complex for an SM processor.  
+    
+    => However, other areas the SM model requires fewer resources, relative to multiprocessing.  
+
+
+
