@@ -456,6 +456,7 @@ Simulation Result :
 **SM and MP configurations for simulation**
 
   For most of the comparisons, set them equal: 
+
     -> The number of register sets (i.e, Number of threads for SM and the number of processors for MP).  
     -> Total issue bandwidth.  
     -> Specific functional unit configuration.  
@@ -464,6 +465,7 @@ Simulation Result :
     -> 2 MB direct-miipped third-level cache.  
   
   Evaluation conditions:  
+
     -> MPs with 1, 2, and 4 issues per cycle on each processor.  
     -> SM processors with 4 and 8 issues per cycle.  
 
@@ -521,13 +523,17 @@ Simulation Result :
   In Tests E and F, MP is allowed a significantly higher total issue bandwidth.
 
   Test E:
-    Each MP processor can issue 4 instructions per cycle, resulting in a total issue bandwidth of 32 for 8 processors.
-    For SM, each thread can issue 4 instructions per cycle, but 8 threads share 8 issue slots.
-    Despite this imbalance in issue slots, the results are similar for both configurations.
+
+    Each MP processor can issue 4 instructions per cycle, resulting in a total issue bandwidth of 32 for 8 processors.  
+    For SM, each thread can issue 4 instructions per cycle, but 8 threads share 8 issue slots.  
+
+    Despite this imbalance in issue slots, the results are similar for both configurations.  
   
   Test F:
-    A 4-thread, 8-issue SM processor slightly outperforms a 4-processor MP, where each processor has 4 issues.
-    While MP has a total issue bandwidth of 16 instructions per cycle, which is twice the bandwidth of SM, SM still achieves better performance.
-    This result highlights the limitation of MP, where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.
+  
+    A 4-thread, 8-issue SM processor slightly outperforms a 4-processor MP, where each processor has 4 issues.  
+    While MP has a total issue bandwidth of 16 instructions per cycle, which is twice the bandwidth of SM, SM still achieves better performance.  
+
+    This result highlights the limitation of MP, where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.  
   
 ----------------------------------------------------------------------------------------------------------------------------
