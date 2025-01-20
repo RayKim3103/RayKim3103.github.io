@@ -73,20 +73,26 @@ Table of contents
 
 5 - Binary compatibility
 
-  Binary compatibility : the ability to execute a machine program written for an earlier generation processor.  
+  Binary compatibility : 
+
+    The ability to execute a machine program written for an earlier generation processor.  
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 6 - Precise state
 
-  Precise state : the ability of a computer system to accurately track and record the state of the instructions being executed.  
-  This allows the system to recover to a known state if an error or interruption occurs.
+  Precise state : 
+
+    The ability of a computer system to accurately track and record the state of the instructions being executed.  
+    This allows the system to recover to a known state if an error or interruption occurs.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 7 - Static Program
 
-  Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
+  Static Program : 
+
+    All components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
@@ -102,12 +108,17 @@ Table of contents
 
   The way to *execute more instructions in parallel* is **SuperScalar processing**.
 
-  SuperScalar processing : the ability to initiate multiple instructions during the same clock cycle.  
+  SuperScalar processing : 
+  
+    The ability to initiate multiple instructions during the same clock cycle.  
+  
   However, most processor designs inherit a legacy from their predecessors. (Binary compatibility)  
 
-  Sequential execution model : the way processors were implemented many years ago.  
-  In this model, one instruction is executed at a time in a sequential manner.  
-  Also, sequential model has a concept of precise state.
+  Sequential execution model : 
+  
+    The way processors were implemented many years ago.  
+    In this model, one instruction is executed at a time in a sequential manner.  
+    Also, sequential model has a concept of precise state.
 
   Therefore, SuperScalar processing should maintain the feature of *instruction set compatibility* and a *sequential execution model*.
 
@@ -128,8 +139,9 @@ Table of contents
   Assembly code is executed sequentially by incrementing Program Counter (PC).  
   As a result, *Dependences* between instruction occurs.  
 
-  Why should we care about *Dependences* to parallelize the instruction.  
-  Because, Instructions that are independent can execute simultaneously.
+  Why should we care about *Dependences* to parallelize the instruction?  
+
+    Because, Instructions that are independent can execute simultaneously.
 
   **[Dependences]**
 
@@ -161,7 +173,7 @@ Table of contents
       write-after-read (WAR) : reading value from a register and writing the value in the same register.  
       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
   
-  After resolving control dependences and artificial dependences, instructions are issued and begin execution in parallel.  
+  After resolving control dependences and artificial dependences, instructions are issued and executed in parallel.  
   But, instructions does not complete their execution in sequential order since they are parallelized.  
   As a result, instructions must be held in a temporary status until the architectural state can be updated.  
   Meanwhile, to maintain high performance, these results must be usable by dependent instructions.  
@@ -178,6 +190,7 @@ Table of contents
   The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
 
   *Instruction Cache* is used to contain instructions.  
+
   Cache is used because it is faster than Memory.  
   But, Hit and Miss is the problem. When, Cache misses, it have to search Memory to find content.  
   Thus, Cache Miss increases latency.  
@@ -227,19 +240,21 @@ Table of contents
   During this phase, instructions are removed from the instruction fetch buffers.  
   Then, Control and Data dependence linkages are set up.
 
-  Job of the decode phase : to set up one or more execution tuples for each instruction  
+  Job of the decode phase : 
+  
+    To set up one or more execution tuples for each instruction  
   
   What is execution tuple?
 
-  1) It contains an operation to be executed.  
-  2) the identities of storage elements where the input operands reside.  
-  3) locations where the instruction's result must be placed.
+    1) It contains an operation to be executed.  
+    2) the identities of storage elements where the input operands reside.  
+    3) locations where the instruction's result must be placed.
 
   To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
   
   **[SOLUTION : Register Renaming]**
 
-  => physical storage elements are differ with logical storage elements  
+    => physical storage elements are differ with logical storage elements  
 
   *2 register renaming methods*
 
@@ -281,12 +296,13 @@ Table of contents
   Ideally an instruction is ready to execute as soon as its input operands are available.  
 
   But, there are some constraints.  
-    1) execution units, interconnect, and register file (or reorder buffer) ports.  
-    2) organization of buffers.  
+
+    1) Execution units, interconnect, and register file (or reorder buffer) ports.  
+    2) Organization of buffers.  
   
   The instruction issue buffer can be designed in various ways to keep instructions in an executable state and optimize parallel processing.  
 
-  Below are three main approaches to achieving this.  
+  Below are three main approaches to achieve this.  
 
 ![issue queue](/assets/img/papers/1/1_3.png){: width="480" height="240"}
 
