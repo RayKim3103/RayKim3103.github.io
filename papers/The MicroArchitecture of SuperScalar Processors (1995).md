@@ -50,21 +50,24 @@ Table of contents
 
 2 - Dynamic instruction scheduling
 
-  Dynamic Instruction Scheduling : a processor dynamically adjusts the execution order of instructions at *"runtime"*.  
-  It resolves bottlenecks caused by data or control dependencies between instructions.
+  Dynamic Instruction Scheduling : 
+
+    A processor dynamically adjusts the execution order of instructions at *"runtime"*.  
+    It resolves bottlenecks caused by data or control dependencies between instructions.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 3 - Tomasulo's Algorithm
 
-  Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
+    Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
 4 - Vector Processing
 
-  Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.  
-  Unlike scalar processing, where one data element is processed at a time, vector processing allows a single instruction to process multiple data elements at once.
+    Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.  
+    Unlike scalar processing, where one data element is processed at a time, 
+      vector processing allows a single instruction to process multiple data elements at once.
 
 :--------------------------------------------------------------------------------------------------------------------------------------:
 
