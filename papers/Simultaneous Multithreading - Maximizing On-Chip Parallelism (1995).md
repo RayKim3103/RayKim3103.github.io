@@ -567,9 +567,26 @@ Simulation Result :
 
     Why?   
       -> In MP, each processor must have at least 4 functional units   
-          (e.g., integer, floating-point, load/store, branch) which restricting scalability.  
+          (e.g., integer, floating-point, load/store, branch) which restricts scalability.  
 
     Results (with the fixed number of functional units):  
       -> By adding more thread contexts, SM achieve more than twice the throughput of MP.  
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+  SUMMART of RESULTS :  
+
+    SM's ability to dynamically allocate functional units, make SM outperforms MP across various configurations.  
+
+    More importantly, SM requires significantly fewer resources to achieve the same performance level.  
+    (Resources : functional units and issue slots)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
