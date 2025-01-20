@@ -555,3 +555,21 @@ Simulation Result :
         -> In contrast, SM dynamically shares resources, maximizing resource utilization.  
   
 ----------------------------------------------------------------------------------------------------------------------------
+
+  Test G:  
+
+    This test demonstrates SM's ability to utilize a fixed number of functional units effectively.  
+
+    Both SM and MP have 8 functional units and 8 issue slots per cycle.  
+
+    However, SM can support 8 hardware contexts (8 register sets),  
+              whereas MP is limited to 2 processors (2 register sets).   
+
+    Why?   
+      -> In MP, each processor must have at least 4 functional units   
+          (e.g., integer, floating-point, load/store, branch) which restricting scalability.  
+
+    Results (with the fixed number of functional units):  
+      -> By adding more thread contexts, SM achieve more than twice the throughput of MP.  
+
+----------------------------------------------------------------------------------------------------------------------------
