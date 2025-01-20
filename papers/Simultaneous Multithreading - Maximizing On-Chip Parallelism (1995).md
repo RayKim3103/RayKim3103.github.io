@@ -491,6 +491,8 @@ Simulation Result :
 
 **Simulation Result**
 
+----------------------------------------------------------------------------------------------------------------------------
+
   Tests A, B, and C:  
 
     The number of functional units (FUs) effectively set to unlimited in each test.  
@@ -504,6 +506,8 @@ Simulation Result :
   
     However, Simultaneous Multithreading (SM) achieves this more effectively. (Less Resources)  
 
+----------------------------------------------------------------------------------------------------------------------------
+
   Test D:  
 
     Test A is repeated, but the SM processor is restricted to a more realistic configuration.  
@@ -511,3 +515,19 @@ Simulation Result :
     
     Even in this setup, SM outperforms MP by nearly the same margin as in Test A.  
     The SM configuration uses 22 fewer functional units than MP while also requiring fewer forwarding connections.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+  In Tests E and F, MP is allowed a significantly higher total issue bandwidth.
+
+  Test E:
+    Each MP processor can issue 4 instructions per cycle, resulting in a total issue bandwidth of 32 for 8 processors.
+    For SM, each thread can issue 4 instructions per cycle, but 8 threads share 8 issue slots.
+    Despite this imbalance in issue slots, the results are similar for both configurations.
+  
+  Test F:
+    A 4-thread, 8-issue SM processor slightly outperforms a 4-processor MP, where each processor has 4 issues.
+    While MP has a total issue bandwidth of 16 instructions per cycle, which is twice the bandwidth of SM, SM still achieves better performance.
+    This result highlights the limitation of MP, where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.
+  
+----------------------------------------------------------------------------------------------------------------------------
