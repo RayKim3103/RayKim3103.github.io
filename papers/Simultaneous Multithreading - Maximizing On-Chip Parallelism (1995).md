@@ -530,10 +530,13 @@ Simulation Result :
     Despite this imbalance in issue slots, the results are similar for both configurations.  
   
   Test F:
-  
-    A 4-thread, 8-issue SM processor slightly outperforms a 4-processor MP, where each processor has 4 issues.  
-    While MP has a total issue bandwidth of 16 instructions per cycle, which is twice the bandwidth of SM, SM still achieves better performance.  
 
-    This result highlights the limitation of MP, where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.  
+    A 4-thread, 8-issue SM processor slightly outperforms a 4-processor MP, where each processor has 4 issues.  
+
+    While MP has a total issue bandwidth of 16 instructions per cycle,  
+      which is twice the bandwidth of SM, SM still achieves better performance.  
+
+    This result highlights the limitation of MP,  
+      where each processor is restricted to issuing 4 instructions per cycle, reducing overall efficiency.  
   
 ----------------------------------------------------------------------------------------------------------------------------
