@@ -3,7 +3,7 @@ layout: page
 title: Reading Paper
 description: >
   This page reviews papers published in the field of EE and Computer Engineering.
-hide_description: true
+hide_description: false
 sitemap: false
 permalink: /papers/
 ---
