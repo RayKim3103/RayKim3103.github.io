@@ -21,9 +21,13 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 * [Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995)]{:.heading.flip-title}
 {:.related-posts.faded}
 
+* [MIPS R10000 SUPERSCALAR PROCESSOR (1996)]{:.heading.flip-title}
+{:.related-posts.faded}
+
 ## 2024 ~ 
 * None
 
 [The MicroArchitecture of SuperScalar Processors (1995)]: The MicroArchitecture of SuperScalar Processors (1995).md
 [Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995)]: Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995).md
+[MIPS R10000 SUPERSCALAR PROCESSOR (1996)]: MIPS R10000 SUPERSCALAR PROCESSOR (1996).md
 
