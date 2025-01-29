@@ -2,7 +2,7 @@
 layout: page
 title: THE MIPS R10000 SUPERSCALAR PROCESSOR (1996)
 description: >
-  This paper tells about MIPS R10000 SUPERSCALAR PROCESSOR
+  This paper tells about THE MIPS R10000 SUPERSCALAR PROCESSOR
 hide_description: false
 sitemap: false
 ---
