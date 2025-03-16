@@ -57,8 +57,8 @@ author:
 menu:
   - title:             About
     url:               /about/
-  - title:             Publications
-    url:               /publications/
+  # - title:             Publications
+  #   url:               /publications/
   - title:             Reading Paper
     url:               /papers/
   - title:             Comming Soon
