@@ -15,7 +15,7 @@ sitemap: false
 
 # NOT YET!!
 
-As I don't have any papers I will tell you a short fairy tale.
+<!-- As I don't have any papers I will tell you a short fairy tale.
 
 The Secret of the Ancient Library
 
@@ -33,4 +33,4 @@ With trembling hands, she opened the book. The pages were filled with strange sy
 
 Lena’s breath caught in her throat. She knew she had uncovered something much larger than she had ever imagined. This wasn’t just a library. It was a gateway to something far beyond the ordinary world. And now, she was part of its mystery, a mystery that would change her life forever.
 
-If you enjoyed it, I'd be happy to welcome you back anytime for more!
+If you enjoyed it, I'd be happy to welcome you back anytime for more! -->
