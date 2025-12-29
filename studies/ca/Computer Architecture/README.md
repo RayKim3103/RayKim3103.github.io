@@ -29,10 +29,10 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 {:.related-posts.faded}
 
 
-[Computer Abstraction]: /studies/ca/Computer Architecture/Computer Abstraction.md
-[Instructions]: /studies/ca/Computer Architecture/Instructions.md
-[Arithmetic]: /studies/ca/Computer Architecture/Arithmetic.md
-[Processor]: /studies/ca/Computer Architecture/Processor.md
-[Memory]: /studies/ca/Computer Architecture/Memory.md
+[Computer Abstraction]: Computer Abstraction.md
+[Instructions]: Instructions.md
+[Arithmetic]: Arithmetic.md
+[Processor]: Processor.md
+[Memory]: Memory.md
 
 
