@@ -35,7 +35,7 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 {:.related-posts.faded}
 
 
-[Artificial Intelligence]: /studies/ai/
+[Artificial Intelligence]: /studies/ai/README.md
 [Computer Architecture]: /studies/ca/
 [Circuits]: /studies/circuit/
 [Communications]: /studies/communications/
