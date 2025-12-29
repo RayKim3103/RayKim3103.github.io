@@ -37,7 +37,7 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 
 [Artificial Intelligence]: /studies/ai/
 [Computer Architecture]: /studies/ca/
-[Circuits]: /studies/circuit/
+[Circuits]: /studies/circuit/dd/
 [Communications]: /studies/communications/
 [Computer System]: /studies/cs/
 [Math for Engineering]: /studies/math/
