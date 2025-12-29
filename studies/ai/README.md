@@ -20,5 +20,5 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 {:.related-posts.faded}
 
 [Computer Vision]: /studies/ai/Computer Vision/
-[Machine Learning]: /studies/ca/Machine Learning/
+[Machine Learning]: /studies/ai/Machine Learning/
 
