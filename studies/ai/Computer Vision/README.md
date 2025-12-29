@@ -17,5 +17,5 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 {:.related-posts.faded}
 
 
-[2D Image processing]: /studies/ai/Computer Vision/2D Image processing.md
+[2D Image processing]: 2D Image processing.md
 
