@@ -24,6 +24,30 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 * [THE MIPS R10000 SUPERSCALAR PROCESSOR (1996)]{:.heading.flip-title}
 {:.related-posts.faded}
 
+* [Eyeriss]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [DNPU]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [UNPU]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [LNPU]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [XNOR SRAM]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [IMAC]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [A 64-Tile 2.4-Mb In-Memory-Computing CNN Accelerator Employing Charge-Domain Compute]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [C3SRAM]{:.heading.flip-title}
+{:.related-posts.faded}
+
 ## 2024 ~ 
 * None
 
@@ -31,3 +55,11 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 [Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995)]: Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995).md
 [THE MIPS R10000 SUPERSCALAR PROCESSOR (1996)]: THE MIPS R10000 SUPERSCALAR PROCESSOR (1996).md
 
+[Eyeriss]: Eyeriss.md
+[DNPU]: DNPU.md
+[UNPU]: UNPU.md
+[LNPU]: LNPU.md
+[XNOR SRAM]: XNOR SRAM.md
+[IMAC]: IMAC.md
+[A 64-Tile 2.4-Mb In-Memory-Computing CNN Accelerator Employing Charge-Domain Compute]: A 64-Tile 2.4-Mb In-Memory-Computing CNN Accelerator Employing Charge-Domain Compute.md
+[C3SRAM]: C3SRAM.md
