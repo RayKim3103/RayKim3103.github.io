@@ -5,7 +5,7 @@ description: >
   This page reviews courses I have studied in the field of EE and Computer Engineering.
 hide_description: false
 sitemap: false
-# permalink: /studies/ai/
+permalink: /studies/ai/
 ---
 
 <!-- Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
