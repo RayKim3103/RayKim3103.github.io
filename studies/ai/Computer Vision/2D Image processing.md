@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Computer Vision
+title: 2D Image processing
 description: >
-  This page tells about the Computer Vision
+  This page tells about the 2D Image processing
 hide_description: false
 sitemap: false
 ---
