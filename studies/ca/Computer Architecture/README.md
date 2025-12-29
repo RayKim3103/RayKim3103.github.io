@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Artificial Intelligence
+title: Computer Architecture
 description: >
   This page reviews courses I have studied in the field of EE and Computer Engineering.
 hide_description: false
