@@ -25,10 +25,14 @@ Table of contents
 * Specific techniques used in typical superscalar microprocessors 
 
 ### 0. Terminology Definition
+:--------------------------------------------------------------------------------------------------------------------------------------:
+
 1 - Instruction Level Parallelism (ILP)
 
-  Instruction Level Parallelism (ILP): the degree that a processor can execute multiple instructions in parallel.  
-  It aims to improve performance by executing independent instructions simultaneously.
+  Instruction Level Parallelism (ILP): 
+  
+    The degree that a processor can execute multiple instructions in parallel.  
+    It aims to improve performance by executing independent instructions simultaneously.
 
   **ILP Implementation methods**
 
@@ -44,32 +48,55 @@ Table of contents
 
     => we can execute Inst.1 & Inst.2 in parallel because they are independent.
 
+:--------------------------------------------------------------------------------------------------------------------------------------:
+
 2 - Dynamic instruction scheduling
 
-  Dynamic Instruction Scheduling : a processor dynamically adjusts the execution order of instructions at *"runtime"*.  
-  It resolves bottlenecks caused by data or control dependencies between instructions.
+  Dynamic Instruction Scheduling : 
+
+    A processor dynamically adjusts the execution order of instructions at *"runtime"*.  
+    It resolves bottlenecks caused by data or control dependencies between instructions.
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 3 - Tomasulo's Algorithm
 
-  Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
+    Algorithm that optimizes instruction execution by utilizing dynamic instruction scheduling and out-of-order execution.
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 4 - Vector Processing
 
-  Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.  
-  Unlike scalar processing, where one data element is processed at a time, vector processing allows a single instruction to process multiple data elements at once.
+    Vector Processing handles multiple data simultaneously using a vector, which is a collection of data elements.  
+    Unlike scalar processing, where one data element is processed at a time, 
+      vector processing allows a single instruction to process multiple data elements at once.
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 5 - Binary compatibility
 
-  Binary compatibility : the ability to execute a machine program written for an earlier generation processor.  
+  Binary compatibility : 
+
+    The ability to execute a machine program written for an earlier generation processor.  
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 6 - Precise state
 
-  Precise state : the ability of a computer system to accurately track and record the state of the instructions being executed.  
-  This allows the system to recover to a known state if an error or interruption occurs.
+  Precise state : 
+
+    The ability of a computer system to accurately track and record the state of the instructions being executed.  
+    This allows the system to recover to a known state if an error or interruption occurs.
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 7 - Static Program
 
-  Static Program : all components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
+  Static Program : 
+
+    All components, such as the code, data, and variables, are determined at compile time and remain unchanged during execution.  
+
+:--------------------------------------------------------------------------------------------------------------------------------------:
 
 ### 1. INTRODUCTION
   Instruction level parallelism was performed using pipelining.  
@@ -83,12 +110,17 @@ Table of contents
 
   The way to *execute more instructions in parallel* is **SuperScalar processing**.
 
-  SuperScalar processing : the ability to initiate multiple instructions during the same clock cycle.  
+  SuperScalar processing : 
+  
+    The ability to initiate multiple instructions during the same clock cycle.  
+  
   However, most processor designs inherit a legacy from their predecessors. (Binary compatibility)  
 
-  Sequential execution model : the way processors were implemented many years ago.  
-  In this model, one instruction is executed at a time in a sequential manner.  
-  Also, sequential model has a concept of precise state.
+  Sequential execution model : 
+  
+    The way processors were implemented many years ago.  
+    In this model, one instruction is executed at a time in a sequential manner.  
+    Also, sequential model has a concept of precise state.
 
   Therefore, SuperScalar processing should maintain the feature of *instruction set compatibility* and a *sequential execution model*.
 
@@ -109,8 +141,9 @@ Table of contents
   Assembly code is executed sequentially by incrementing Program Counter (PC).  
   As a result, *Dependences* between instruction occurs.  
 
-  Why should we care about *Dependences* to parallelize the instruction.  
-  Because, Instructions that are independent can execute simultaneously.
+  Why should we care about *Dependences* to parallelize the instruction?  
+
+    Because, Instructions that are independent can execute simultaneously.
 
   **[Dependences]**
 
@@ -120,8 +153,9 @@ Table of contents
 
     Instructions is executed sequentially before the branch instruction appears.  
     Let's say Instructions is divided by branch Inst. and let's call each divided Inst. as basic block.  
-    Instructions in the basic block will be executed eventually.  
-    Then we can execute them simultaneously if there is no *data dependences*.  
+    When Basic Block A is chosen to be executed.  
+    Instructions in the Basic Block A will be executed eventually.  
+    Then we can execute them(Block A) simultaneously if there is no *data dependences*.  
 
     Control dependences is caused by branch inst.  
     To get more parallelism the basic block should be larger.  
@@ -141,7 +175,7 @@ Table of contents
       write-after-read (WAR) : reading value from a register and writing the value in the same register.  
       write-after-write (WAW) : writing value to a register and writing the value in the same register.  
   
-  After resolving control dependences and artificial dependences, instructions are issued and begin execution in parallel.  
+  After resolving control dependences and artificial dependences, instructions are issued and executed in parallel.  
   But, instructions does not complete their execution in sequential order since they are parallelized.  
   As a result, instructions must be held in a temporary status until the architectural state can be updated.  
   Meanwhile, to maintain high performance, these results must be usable by dependent instructions.  
@@ -158,6 +192,7 @@ Table of contents
   The instruction fetch phase of superscalar processing supplies instructions to the rest of the processing pipeline.  
 
   *Instruction Cache* is used to contain instructions.  
+
   Cache is used because it is faster than Memory.  
   But, Hit and Miss is the problem. When, Cache misses, it have to search Memory to find content.  
   Thus, Cache Miss increases latency.  
@@ -207,19 +242,21 @@ Table of contents
   During this phase, instructions are removed from the instruction fetch buffers.  
   Then, Control and Data dependence linkages are set up.
 
-  Job of the decode phase : to set up one or more execution tuples for each instruction  
+  Job of the decode phase : 
+  
+    To set up one or more execution tuples for each instruction  
   
   What is execution tuple?
 
-  1) It contains an operation to be executed.  
-  2) the identities of storage elements where the input operands reside.  
-  3) locations where the instruction's result must be placed.
+    1) It contains an operation to be executed.  
+    2) the identities of storage elements where the input operands reside.  
+    3) locations where the instruction's result must be placed.
 
   To increase parallelism, it should overcome WAR & WAW dependences during dynamic execution.  
   
   **[SOLUTION : Register Renaming]**
 
-  => physical storage elements are differ with logical storage elements  
+    => physical storage elements are differ with logical storage elements  
 
   *2 register renaming methods*
 
@@ -261,12 +298,13 @@ Table of contents
   Ideally an instruction is ready to execute as soon as its input operands are available.  
 
   But, there are some constraints.  
-    1) execution units, interconnect, and register file (or reorder buffer) ports.  
-    2) organization of buffers.  
+
+    1) Execution units, interconnect, and register file (or reorder buffer) ports.  
+    2) Organization of buffers.  
   
   The instruction issue buffer can be designed in various ways to keep instructions in an executable state and optimize parallel processing.  
 
-  Below are three main approaches to achieving this.  
+  Below are three main approaches to achieve this.  
 
 ![issue queue](/assets/img/papers/1/1_3.png){: width="480" height="240"}
 
@@ -362,7 +400,8 @@ Table of contents
 
 #### E. Committing State 
   Commit or the Retire phase
-  -> Effects of the instruction are allowed to modify the logical process state.  
+
+    -> Effects of the instruction are allowed to modify the logical process state.  
 
   The purpose of this phase is to implement the appearance of a sequential execution model.  
   Thus, recovering *"Precise State"* is required.  
@@ -389,7 +428,7 @@ Table of contents
 
 #### F. The Role of Software 
   Software can assist creating a binary.
-  
+
     -> Make the instruction fetching process more efficient.   
     -> Make the instruction issuing and execution process more efficient.  
   

@@ -3,7 +3,7 @@ layout: page
 title: Reading Paper
 description: >
   This page reviews papers published in the field of EE and Computer Engineering.
-hide_description: true
+hide_description: false
 sitemap: false
 permalink: /papers/
 ---
@@ -18,9 +18,16 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 * [The MicroArchitecture of SuperScalar Processors (1995)]{:.heading.flip-title}
 {:.related-posts.faded}
 
+* [Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995)]{:.heading.flip-title}
+{:.related-posts.faded}
+
+* [THE MIPS R10000 SUPERSCALAR PROCESSOR (1996)]{:.heading.flip-title}
+{:.related-posts.faded}
+
 ## 2024 ~ 
 * None
 
 [The MicroArchitecture of SuperScalar Processors (1995)]: The MicroArchitecture of SuperScalar Processors (1995).md
-
+[Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995)]: Simultaneous Multithreading - Maximizing On-Chip Parallelism (1995).md
+[THE MIPS R10000 SUPERSCALAR PROCESSOR (1996)]: THE MIPS R10000 SUPERSCALAR PROCESSOR (1996).md
 
