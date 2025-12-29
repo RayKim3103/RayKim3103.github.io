@@ -57,10 +57,12 @@ author:
 menu:
   - title:             About
     url:               /about/
-  # - title:             Publications
-  #   url:               /publications/
+  - title:             Studies
+    url:               /studies/
   - title:             Reading Paper
     url:               /papers/
+  # - title:             Publications
+  #   url:               /publications/
   - title:             Comming Soon
     url:               /commingsoon/
 
