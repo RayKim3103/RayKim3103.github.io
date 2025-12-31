@@ -23,3 +23,8 @@ Table of contents
 * Amdahl’s Law
 * Power Wall and Multi Core
 
+### 1. Computer Design Abstract
+
+![Computer Design Abstract](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/1.png){: width="360" height="180"}
+
+
