@@ -59,6 +59,20 @@ Computer를 사용하는 사용자는 일일히 직접 Computer에게 Coding을 
 
 ![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="720" height="360"}
 
+2. Use abstraction to simplify a design
+
+2. Make the common cases faster
+
+2. Performance scaling via parallelism
+
+2. Performance scaling via pipelining
+
+2. Performance scaling via prediction
+
+2. Memory hierarchy
+
+2. Reliability (dependability) via redundancy
+
 
 ### 3. Translating High-Level Language to Machine Code
 
