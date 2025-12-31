@@ -90,3 +90,6 @@ Amdahl’s Law는 내가 개선하는 부분이 전체 system 성능 향상에 �
 항상 어떤 시스템을 개선할 때 내가 특정 부분을 몇 % 개선했을 때, 전체 성능이 몇 % 개선될 수 있는 지 확인하고 연구를 시작해야 한다. 내가 개선하는 부분이 전체 시스템의 1%도 안되는 부분이면 그 연구는 헛된 노력이 될 수 있다.
 
 ### 5. Power Wall and Multi Core
+
+1개의 Core만 가지고 계속 성능을 무한히 향상을 할 수는 없다. Core의 성능은 보통 Clock Frequency를 통해 판단하는데, 이 Clock Frequency가 무한히 빨라질 수 없기 때문이다. Clock Frequency가 무한히 빨라진다면, Chip의 온도는 태양보다 뜨거워질 것이다. 이를 Power Wall이라고 한다. 따라서, 2025년 CPU의 Maximum Frequency는 4GHz정도에서 멈춰있다.  
+따라서, 성능을 향상 시키기 위해서 Multi Core를 사용한다.
