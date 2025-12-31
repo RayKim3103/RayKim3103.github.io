@@ -78,10 +78,15 @@ Table of contents
 
 ![Translating High-Level Language to Machine Code](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/3.png){: width="720" height="360"}
 
-- Compiler는 high-level 언어(예: C/C++)로 작성된 프로그램을 어셈블리 코드로 번역한다. assembly code는 machine instruction의 기호적 표현이다.
+- Compiler는 high-level 언어(예: C/C++)로 작성된 프로그램을 assembly code로 번역한다. assembly code는 machine instruction의 기호적 표현이다.
 - Assembler는 assembly code를 하드웨어가 실행할 수 있는 binary code로 변환한다.
 -  Operating system는 이 binary code를 실행하는 데 도움을 준다
 
 ### 4. Amdahl’s Law
+
+![Translating High-Level Language to Machine Code](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/4.png){: width="720" height="360"}
+
+Amdahl’s Law는 내가 개선하는 부분이 전체 system 성능 향상에 얼마나 기여하는지 측정하는 metric이다. 매우 간단한 metric이지만, 매우 중요한 metric이다.  
+항상 어떤 시스템을 개선할 때 내가 특정 부분을 몇 % 개선했을 때, 전체 성능이 몇 % 개선될 수 있는 지 확인하고 연구를 시작해야 한다. 내가 개선하는 부분이 전체 시스템의 1%도 안되는 부분이면 그 연구는 헛된 노력이 될 수 있다.
 
 ### 5. Power Wall and Multi Core
