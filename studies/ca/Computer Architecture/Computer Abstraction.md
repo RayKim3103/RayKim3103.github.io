@@ -30,10 +30,10 @@ Table of contents
 컴퓨터를 구성하는 요소는 여러 계층으로 이루어져 있다. Transistor 하나부터 Application까지 수억 개의 부품과 코드가 얽혀 있다.
 이러한 계층 관계가 위 figure을 통해 나타난다.
 
-1. Materials an Physics 및 Devices
+1. Materials an Physics 및 Devices  
     주로 반도체 물성을 이용하여 Transistor와 같은 소자를 개발하는 단계이다. 2025년 기준 3nm 공정과 같은 기사를 흔히 볼 수 있는데, 이 단계의 Transistor Size(Length)를 의미한다.
 
-1. Circuits
+1. Circuits  
     앞서 개발된 Transistor를 사용하여 특정 동작을 하는 회로를 구성하는 단계이다. 보통 학부 과정 중에서 흔히 설계하는 회로의 예시로 Filter를 들 수 있을 것 같다.
 
 1. Logic Gates, RTL
