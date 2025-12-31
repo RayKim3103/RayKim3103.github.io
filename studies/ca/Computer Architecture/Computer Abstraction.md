@@ -60,6 +60,7 @@ Computer를 사용하는 사용자는 일일히 직접 Computer에게 Coding을 
 ![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="720" height="360"}
 
 2. Use abstraction to simplify a design
+새로운 컴퓨터 시스템 기술을 개발할 때, 하드웨어와 소프트웨어는 설계를 특징짓기 위해 추상화(abstractions)를 자주 사용한다. 낮은 수준의 세부 사항은 단순화되거나 숨겨진다.
 
 2. Make the common cases faster
 
