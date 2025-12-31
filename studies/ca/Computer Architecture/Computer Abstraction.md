@@ -10,9 +10,16 @@ sitemap: false
 Table of contents
 
 [OverView](#overview)  
-[0. Terminology Definition](#0-terminology-definition)  
-[1. INTRODUCTION](#1-introduction)  
-
+[1. Computer Design Abstract](#1-Computer Design Abstract)  
+[2. Important Concepts in Computer Architecture](#2-Important Concepts in Computer Architecture)  
+[3. Translating High-Level Language to Machine Code](#3-Translating High-Level Language to Machine Code)  
+[4. Amdahl’s Law](#4-Amdahl’s Law)
+[5. Power Wall and Multi Core](#5-Power Wall and Multi Core)
+ 
 ### OverView
-* Terminology Definition
-* Introduction
+* Computer Design Abstract
+* Important Concepts in Computer Architecture
+* Translating High-Level Language to Machine Code
+* Amdahl’s Law
+* Power Wall and Multi Core
+
