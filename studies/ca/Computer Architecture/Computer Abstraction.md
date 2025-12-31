@@ -60,9 +60,12 @@ Computer를 사용하는 사용자는 일일히 직접 Computer에게 Coding을 
 ![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="720" height="360"}
 
 2. Use abstraction to simplify a design
+
 새로운 컴퓨터 시스템 기술을 개발할 때, 하드웨어와 소프트웨어는 설계를 특징짓기 위해 추상화(abstractions)를 자주 사용한다. 낮은 수준의 세부 사항은 단순화되거나 숨겨진다.
 
 2. Make the common cases faster
+
+작은 변화일지라도, 흔한 경우(common cases)를 더 빠르게 개선하는 것이 드문 경우(rare cases)를 크게 최적화하는 것보다 전체 시스템 성능을 더 효과적으로 향상시킨다. 대표적으로 이를 측정하는 metric으로 Amdahl's Law가 있다.
 
 2. Performance scaling via parallelism
 
