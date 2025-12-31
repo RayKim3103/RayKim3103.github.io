@@ -76,6 +76,12 @@ Table of contents
 
 ### 3. Translating High-Level Language to Machine Code
 
+![Translating High-Level Language to Machine Code](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/3.png){: width="720" height="360"}
+
+- Compiler는 high-level 언어(예: C/C++)로 작성된 프로그램을 어셈블리 코드로 번역한다. assembly code는 machine instruction의 기호적 표현이다.
+- Assembler는 assembly code를 하드웨어가 실행할 수 있는 binary code로 변환한다.
+-  Operating system는 이 binary code를 실행하는 데 도움을 준다
+
 ### 4. Amdahl’s Law
 
 ### 5. Power Wall and Multi Core
