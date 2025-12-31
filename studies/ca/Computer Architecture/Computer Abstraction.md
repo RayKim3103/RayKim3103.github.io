@@ -57,7 +57,7 @@ Computer를 사용하는 사용자는 일일히 직접 Computer에게 Coding을 
 
 ### 2. Important Concepts in Computer Architecture
 
-![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="360" height="180"}
+![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="720" height="360"}
 
 
 ### 3. Translating High-Level Language to Machine Code
