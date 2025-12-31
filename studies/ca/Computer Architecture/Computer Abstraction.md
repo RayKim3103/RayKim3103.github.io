@@ -55,8 +55,10 @@ Computer는 그 자체로 돌아가는 것이 아니라, Software를 통해서 H
 Computer를 사용하는 사용자는 일일히 직접 Computer에게 Coding을 통해서 명령을 하는 것이 아니라, Application이라는 형태로 보여지는 여러 프로그램을 클릭과 타이핑을 통해서 실행한다. 따라서, Computer에게는 자체적으로 이러한 여러 프로그램을 관리하는 System이 필요하며, 사용자의 입력을 받고 이를 Hardware가 이해할 수 있게 변환하는 System, 사용자에게 Hardware 그대로를 보여주는 것이 아닌 좀 더 친화적인 환경을 만들어 보여주는 Virtualization 등이 필요하다. 이러한 system을 우리는 Operating System이라고 부른다.
 
 
-
 ### 2. Important Concepts in Computer Architecture
+
+![Important Concepts in Computer Architecture](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/2.png){: width="360" height="180"}
+
 
 ### 3. Translating High-Level Language to Machine Code
 
