@@ -2,7 +2,7 @@
 layout: page
 title: Computer Architecture
 description: >
-  This page reviews courses I have studied in the field of EE and Computer Engineering.
+  This page reviews Computer Architecture course based on Lecture of Professor William Song. at Yonsei University
 hide_description: false
 sitemap: false
 permalink: /studies/ca/Computer Architecture/
