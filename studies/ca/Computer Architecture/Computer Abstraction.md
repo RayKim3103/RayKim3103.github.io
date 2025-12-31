@@ -26,6 +26,7 @@ Table of contents
 ### 1. Computer Design Abstract
 
 ![Computer Design Abstract](/assets/img/studies/ca/Computer Architecture/Computer Abstraction/1.png){: width="360" height="180"}
+
 컴퓨터를 구성하는 요소는 여러 계층으로 이루어져 있다. Transistor 하나부터 Application까지 수억 개의 부품과 코드가 얽혀 있다.
 이러한 계층 관계가 위 figure을 통해 나타난다.
 
