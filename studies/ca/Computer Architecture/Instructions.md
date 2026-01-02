@@ -211,6 +211,7 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ![U-Type](/assets/img/studies/ca/Computer Architecture/Instructions/9.png){: width="360" height="180"}
 
 **lui를 C code로 비유하면 다음과 같다.** 
+
     // 64비트 환경 (long long)에서 lui x19, 0x12345 에 해당하는 동작
     long long x19 = ((long long)(int)0x12345 << 12);
 
