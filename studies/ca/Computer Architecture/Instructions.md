@@ -234,7 +234,7 @@ jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 �
 jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지만, x0은 hard-wired zero Register이기에, 반환 주소가 저장되지 않고 그냥 ra에 저장된 주소로의 이동만 수행한다.  
 
 ### 8. RISC-V Instruction Format: S-Type
-![S-Type](/assets/img/studies/ca/Computer Architecture/Instructions/7.png){: width="360" height="180"}
+![S-Type](/assets/img/studies/ca/Computer Architecture/Instructions/8.png){: width="360" height="180"}
 
 **sd를 C code로 비유하면 다음과 같다.** 
 
