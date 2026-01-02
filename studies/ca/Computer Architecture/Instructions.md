@@ -54,13 +54,13 @@ Table of contents
     명령어 집합의 목표는 하드웨어 사용을 단순화하는 것이다.  
 
 1. Von Neumann Architecture  
-  현대 컴퓨터는 폰 노이만 아키텍처(Von Neumann architecture)를 기반으로 하며, 이는 저장된 프로그램(stored-program) 개념을 구현한다.  
-  컴퓨터 프로그램은 메모리에 저장된다.  
-  처리 장치(예: CPU)는 메모리에서 프로그램을 불러와 실행한다.  
-  프로그램의 결과는 다시 메모리에 기록된다.  
+  현대 컴퓨터는 폰 노이만 아키텍처(Von Neumann architecture)를 기반으로 하며, 이는 stored-program 개념을 구현한다.  
+    - 컴퓨터 프로그램은 메모리에 저장된다.  
+    - 처리 장치(예: CPU)는 메모리에서 프로그램을 불러와 실행한다.  
+    - 프로그램의 결과는 다시 메모리에 기록된다.  
 
 ### 2. CISC vs. RISC
-![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/2.png){: width="360" height="180"}
+![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/2.png){: width="720" height="360"}
 
 2. Complex Instruction Set Computer, CISC  
     작업을 가능한 한 적은 수의 어셈블리 명령어 라인으로 완료하는 것을 목표로 한다.
@@ -81,10 +81,10 @@ RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라�
 32비트로 표현되는 데이터의 크기는 워드(word)라고 한다.
 
 - RISC-V는 x0부터 x31까지 이름 붙여진 32개의 64비트 Register를 정의한다.  
-    세 개의 오퍼랜드를 사용하는 명령어는 결과를 저장할 32개 Register 중 하나를 선택해야 한다.  
-    나머지 두 개는 이전 명령어들이 생성한 기존 Register다.
+- 3개의 operand를 사용하는 명령어는 결과를 저장할 Register 하나를 선택한다.  
+- 나머지 2개는 이전 명령어들이 생성한 기존 Register다.
 
-- 왜 RISC-V는 Register를 32개만 가지는가?
+- 왜 RISC-V는 Register를 32개만 가지는가?  
     Register는 명령어가 작업할 데이터를 빠르게 공급하기 위한 것이다.  
     Register가 많으면 필요한 데이터를 찾기 위해 Register를 검색하는 데 더 많은 시간이 걸린다.  
     그러나 Register가 적으면 작업 공간(workspace)의 크기가 줄어든다.
