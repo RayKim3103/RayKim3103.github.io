@@ -255,25 +255,25 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 - immediate값을 이렇게 분할하는 이유([11:5]와 [4:0]으로 분할)는 rs1과 rs2의 위치를 다른 명령어 형식들과 동일하게 유지하기 위함이다.
 
 ### 9. RISC-V Instruction Format: U-Type
-
+![U-Type](/assets/img/studies/ca/Computer Architecture/Instructions/9.png){: width="360" height="180"}
 
 ### 10. RISC-V Instruction Format: SB-Type
-
+![SB-Type](/assets/img/studies/ca/Computer Architecture/Instructions/10.png){: width="360" height="180"}
 
 ### 11. RISC-V Instruction Format: UJ-Type
-
+![UJ-Type](/assets/img/studies/ca/Computer Architecture/Instructions/11.png){: width="360" height="180"}
 
 ### 12. Function Frame and Frame Pointer
-
+![Function Frame and Frame Pointer](/assets/img/studies/ca/Computer Architecture/Instructions/12.png){: width="360" height="180"}
 
 ### 13. Stack and Stack Pointer
 
 
 ### 14. Program Counter
-
+![Program Counter](/assets/img/studies/ca/Computer Architecture/Instructions/14.png){: width="360" height="180"}
 
 ### 15. RISC-V Addressing Modes
-
+![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="360" height="180"}
 
 ### 16. Big Endian and Little Endian
 
