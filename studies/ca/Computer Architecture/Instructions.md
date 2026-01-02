@@ -137,7 +137,17 @@ Cache나 DRAM과 같은 Memory Access는 performance를 감소시키기에, Memo
 ### 5. RISC-V Instruction Format: R-Type
 ![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/4.png){: width="360" height="180"}
 
-본격
+본격적으로 RISC-V Instructions에 대해서 알아본다.  
+Instructions는 32bit binary로 정의되며, 동작에 따라 다양한 Type으로 나뉜다.  
+
+R-type instruction는 두 개의 source register operands를 사용하는  arithmetic operation을 정의한다.  
+예를 들어 add 명령어가 이에 해당한다.  
+- opcode: 명령어의 연산 코드(operation code)
+- rd: 결과가 저장될 destination register operand
+- funct3: 추가적인 opcode 필드
+- rs1: 첫 번째 source register operand
+- rs2: 두 번째 source register operand
+- funct7: 추가적인 opcode 필드
 
 ### 6. RISC-V Instruction Format: I-Type
 
