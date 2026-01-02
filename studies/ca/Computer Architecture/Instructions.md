@@ -176,7 +176,8 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
 ### 7. RISC-V Instruction Format: I-Type Variant
 ![I-Type Variant](/assets/img/studies/ca/Computer Architecture/Instructions/6.png){: width="360" height="180"}
 
-slli를 C code로 비유하면 다음과 같다. 
+slli를 C code로 비유하면 다음과 같다.  
+
     unsigned int value = 7;     // 7 = 00000111 (2진수)
 
     value = value << 3;        // slli rd, rs1, 3 와 동일
