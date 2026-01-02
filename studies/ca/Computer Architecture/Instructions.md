@@ -101,7 +101,7 @@ RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라�
     그러나 Register가 적으면 작업 공간(workspace)의 크기가 줄어든다.
 
 ### 4. Calling Convention for Registers
-![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/3.png){: width="540" height="270"}
+![Calling Convention for Registers](/assets/img/studies/ca/Computer Architecture/Instructions/3.png){: width="540" height="270"}
 
 이번에는 간단한 C코드 예시를 통해, Register의 Conventional Use에 대해서 알아본다.  
 
@@ -135,7 +135,7 @@ Cache나 DRAM과 같은 Memory Access는 performance를 감소시키기에, Memo
 - x8~x9, x18~x27은 피호출자 함수(callee)가 반드시 보존해야 한다.  (callee-saved registers 또는 saved registers)  
 
 ### 5. RISC-V Instruction Format: R-Type
-![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/4.png){: width="360" height="180"}
+![R-Type](/assets/img/studies/ca/Computer Architecture/Instructions/4.png){: width="360" height="180"}
 
 본격적으로 RISC-V Instructions에 대해서 알아본다.  
 Instructions는 32bit binary로 정의되며, 동작에 따라 다양한 Type으로 나뉜다.  
@@ -152,7 +152,7 @@ R-type instruction는 두 개의 source register operands를 사용하는  arith
 참고로, register를 나타내는데 5bit를 사용하는데, 이는 총 32개의 Register가 있기 때문이다.
 
 ### 6. RISC-V Instruction Format: I-Type
-![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/5.png){: width="360" height="180"}
+![I-Type](/assets/img/studies/ca/Computer Architecture/Instructions/5.png){: width="360" height="180"}
 
 I형 명령어(I-type instruction)는 constant operand와 하나의 source register operand를 사용하는 연산을 정의한다.  
 예를 들어 addi 명령어가 이에 해당한다.  
