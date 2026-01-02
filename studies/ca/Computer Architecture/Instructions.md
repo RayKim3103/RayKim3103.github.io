@@ -69,9 +69,25 @@ Table of contents
 2. Reduced instruction set computers, RISC  
     동일한 작업을 완료하기 위해 단순한 명령어를 사용한다.
     하드웨어를 단순하게 만들어 축소된 명령어를 빠르게 실행한다.
+    기본적인 RISC-V 명령어는 다음과 같은 형식을 가진다.
+    - add a, b, c  
+      - add는 operation type이다.
+      - a, b, c는 operands이다.
+      - 이 명령어는 b와 c의 값을 읽어 들인 후 덧셈을 수행 후, 결과를 a에 저장한다.
+      - 즉, 이 명령어는 a = b + c를 수행한다.
 
 ### 3. RISC-V Registers
+RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라고 한다.
+32비트로 표현되는 데이터의 크기는 워드(word)라고 한다.
 
+- RISC-V는 x0부터 x31까지 이름 붙여진 32개의 64비트 Register를 정의한다.  
+    세 개의 오퍼랜드를 사용하는 명령어는 결과를 저장할 32개 Register 중 하나를 선택해야 한다.  
+    나머지 두 개는 이전 명령어들이 생성한 기존 Register다.
+
+- 왜 RISC-V는 Register를 32개만 가지는가?
+    Register는 명령어가 작업할 데이터를 빠르게 공급하기 위한 것이다.  
+    Register가 많으면 필요한 데이터를 찾기 위해 Register를 검색하는 데 더 많은 시간이 걸린다.  
+    그러나 Register가 적으면 작업 공간(workspace)의 크기가 줄어든다.
 
 ### 4. Calling Convention for Registers
 
