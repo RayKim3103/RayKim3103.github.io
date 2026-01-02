@@ -221,14 +221,17 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
         int result = callee();  // 함수 호출 → callee의 주소로 점프 
         // Assembly Code로 표현 시 :
         // (jalr ra(ra register 보통 x1), 0(calle함수 주소를 가지는 register))
-        
+
         // callee가 끝나면 자동으로 여기로 돌아옴 (반환)
         return result + 1;
     }
 
-jalr은 Jump and Link Register 명령어로,
-Register에 저장된 주소로 점프(jump)하면서 동시에 **반환 주소(return address)**를 지정된 Register(보통 ra)에 저장한다.  
-이는 함수 호출(function call)과 정확히 동일한 동작이다.  
+jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 동시에 return address를 지정된 Register(보통 ra)에 저장한다.  
+이는 함수 호출(function call)과 정확히 동일한 동작이다.    
+
+아직 Program Counter의 개념을 다루지 않았지만, Program Counter + 4의 값을 보통 ra에 저장한다.  
+
+jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지만, x0은 hard-wired zero Register이기에, 반환 주소가 저장되지 않고 그냥 ra에 저장된 주소로의 이동만 수행한다.  
 
 ### 8. RISC-V Instruction Format: S-Type
 
