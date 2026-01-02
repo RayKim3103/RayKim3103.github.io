@@ -161,7 +161,7 @@ R-type instruction는 두 개의 source register operands를 사용하는  arith
 
 *ld를 C code로 비유하면 다음과 같다.*  
 
-    long *base = array;        // rs1 레지스터에 배열 시작 주소 저장
+    long *base = array;        // rs1 Register에 배열 시작 주소 저장
     long temp;
 
     temp = *(base + 3);        // ld x10, 24(x11) 와 대응 (3 * 8 = 24바이트 오프셋)
@@ -203,9 +203,29 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
     }
 
 프로그램 코드의 if-else 문은 컴파일 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
-- beq (branch if equal) 명령어는 x21 레지스터와 x22 레지스터의 값이 같을 때 L1이라는 라벨이 붙은 문장으로 분기한다.
-- bne (branch if not equal) 명령어는 x21 레지스터와 x22 레지스터의 값이 다를 때 L1이라는 라벨이 붙은 문장으로 분기한다.  
+- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 라벨이 붙은 문장으로 분기한다.
+- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 라벨이 붙은 문장으로 분기한다.  
 이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
+
+*jalr를 C code로 비유하면 다음과 같다.* 
+
+    int callee() {
+        return 42;
+        // Assembly Code로 표현 시 :
+        // li a0, 42          # 반환값 42를 a0 레지스터에 로드
+        // jalr zero, 0(ra)   # ra(반환 주소)로 점프하며 ra에 아무것도 저장 안 함 (zero)
+        //                    # 함수 종료 후 caller의 다음 명령어로 복귀
+    }
+
+    int caller() {
+        int result = callee();  // 함수 호출 → callee의 주소로 점프
+        // callee가 끝나면 자동으로 여기로 돌아옴 (반환)
+        return result + 1;
+    }
+
+jalr은 Jump and Link Register 명령어로,
+Register에 저장된 주소로 점프(jump)하면서 동시에 **반환 주소(return address)**를 지정된 Register(보통 ra)에 저장한다.  
+이는 함수 호출(function call)과 정확히 동일한 동작이다.  
 
 ### 8. RISC-V Instruction Format: S-Type
 
