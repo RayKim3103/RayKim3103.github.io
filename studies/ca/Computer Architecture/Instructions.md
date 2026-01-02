@@ -93,28 +93,31 @@ RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라�
 ![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/3.png){: width="540" height="270"}
 
 이번에는 간단한 C코드 예시를 통해, Register의 Conventional Use에 대해서 알아본다.  
+
 기본적은 Register는 저장공간으로 함수의 변수들의 값들을 저장한다.  
+
 하지만, 32개의 Register만 가지기에, Cache나 DRAM과 같은 Memory에 당장 쓰이지 않는 값을 저장할 필요가 있다.  
+
 Cache나 DRAM과 같은 Memory Access는 performance를 감소시키기에, Memory에 값을 반드시 보존하는 Register들과 굳이 안 보존해도 되는 Register들 2개의 Group으로 나눈다.  
 
 또한, 그 외의 Register들도 특별히 정해진 역할을 수행하는 Register들이 존재한다.
 
-  // 호출자 함수 (caller)
-  int caller() {
-      int temp1 = 10;  // x10~x17 (caller-saved) 사용 가능
-      int temp2 = 20;  // 임시 변수
-      int result = callee(temp1, temp2);  // callee 호출
-      return result;  // temp1, temp2는 callee가 망가뜨려도 괜찮음
-  }
+    // 호출자 함수 (caller)
+    int caller() {
+        int temp1 = 10;  // x10~x17 (caller-saved) 사용 가능
+        int temp2 = 20;  // 임시 변수
+        int result = callee(temp1, temp2);  // callee 호출
+        return result;  // temp1, temp2는 callee가 망가뜨려도 괜찮음
+    }
 
-  // 피호출자 함수 (callee)
-  int callee(int a, int b) {  // x10, x11에 매개변수 전달됨
-      static int saved_var = 100;  // x18~x27 (callee-saved) 사용
-      // saved_var 값은 함수 호출 전후로 유지되어야 함
-      
-      int local = a + b;  // x5~x7 (caller-saved) 임시 사용
-      return local * saved_var;
-  }
+    // 피호출자 함수 (callee)
+    int callee(int a, int b) {  // x10, x11에 매개변수 전달됨
+        static int saved_var = 100;  // x18~x27 (callee-saved) 사용
+        // saved_var 값은 함수 호출 전후로 유지되어야 함
+        
+        int local = a + b;  // x5~x7 (caller-saved) 임시 사용
+        return local * saved_var;
+    }
 
 - 모든 Register를 저장하고 복원하는 부담을 피하기 위해 RISC-V는 Register를 두 그룹으로 분류한다.  
 - x5~x7, x10~x17, x28~x31은 피호출자 함수(callee)가 보존할 필요가 없다.  (caller-saved registers 또는 temporary registers)  
