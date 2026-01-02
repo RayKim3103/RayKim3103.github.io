@@ -228,7 +228,7 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
 - bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
 이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
 
-*jump 명령어들*
+*jump 명령어들*  
 jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 동시에 return address를 지정된 Register(보통 ra)에 저장한다.  
 이는 함수 호출(function call)과 정확히 동일한 동작이다.    
 
