@@ -184,57 +184,10 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
     // 결과: value = 56 (7 * 2^3 = 56)
     // 2진수: 00111000
 
-**beq를 C code로 비유하면 다음과 같다.**  
-
-    int x = 5;
-    int y = 3;
-
-    if (x == y) {              // beq x10, x11, equal_label 과 대응
-        // 여기로 분기됨 (같을 때 실행)
-        x = x + 1;
-    } 
-    else {
-        // 같지 않으면 여기 실행 (분기되지 않음)
-        y = y + 1;
-    }
-
-**jalr를 C code로 비유하면 다음과 같다.** 
-
-    int callee() {
-        return 42;
-        // Assembly Code로 표현 시 :
-        // li a0, 42          # 반환값 42를 a0 레지스터에 로드
-        // jalr zero, 0(ra)   # ra(반환 주소)로 점프하며 ra에 아무것도 저장 안 함 (zero)
-        //                    # 함수 종료 후 caller의 다음 명령어로 복귀
-    }
-
-    int caller() {
-        int result = callee();  // 함수 호출 → callee의 주소로 점프 
-        // Assembly Code로 표현 시 :
-        // (jalr ra(ra register 보통 x1), 0(calle함수 주소를 가지는 register))
-
-        // callee가 끝나면 자동으로 여기로 돌아옴 (반환)
-        return result + 1;
-    }
-
 *shift 명령어들*  
 - slli, srli, srai 명령어의 경우, doubleword에서 64비트를 초과하여 시프트하는 것은 의미가 없다.
 - 따라서 논리 연산의 I형 명령어 형식은 12비트 즉치 필드(immediate field) 중 6비트만 사용한다. (2^6 = 64 이기에)
-- 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다.
-
-*branch 명령어들*  
-- 프로그램 코드의 if-else 문은 compile 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
-- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 label이 붙은 곳으로 분기한다.
-- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
-이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
-
-*jump 명령어들*  
-- jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 동시에 return address를 지정된 Register(보통 ra)에 저장한다.  
-- 이는 함수 호출(function call)과 정확히 동일한 동작이다.    
-
-- 아직 Program Counter의 개념을 다루지 않았지만, Program Counter + 4의 값을 보통 ra에 저장한다.  
-
-- jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지만, x0은 hard-wired zero Register이기에, 반환 주소가 저장되지 않고 그냥 ra에 저장된 주소로의 이동만 수행한다.  
+- 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다. 
 
 ### 8. RISC-V Instruction Format: S-Type
 ![S-Type](/assets/img/studies/ca/Computer Architecture/Instructions/8.png){: width="360" height="180"}
@@ -260,8 +213,57 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ### 10. RISC-V Instruction Format: SB-Type
 ![SB-Type](/assets/img/studies/ca/Computer Architecture/Instructions/10.png){: width="360" height="180"}
 
+
+**beq를 C code로 비유하면 다음과 같다.**  
+
+    int x = 5;
+    int y = 3;
+
+    if (x == y) {              // beq x10, x11, equal_label 과 대응
+        // 여기로 분기됨 (같을 때 실행)
+        x = x + 1;
+    } 
+    else {
+        // 같지 않으면 여기 실행 (분기되지 않음)
+        y = y + 1;
+    }
+
+*branch 명령어들*  
+- 프로그램 코드의 if-else 문은 compile 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
+- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 label이 붙은 곳으로 분기한다.
+- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
+이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
+
 ### 11. RISC-V Instruction Format: UJ-Type
 ![UJ-Type](/assets/img/studies/ca/Computer Architecture/Instructions/11.png){: width="360" height="180"}
+
+
+**jalr를 C code로 비유하면 다음과 같다.** 
+
+    int callee() {
+        return 42;
+        // Assembly Code로 표현 시 :
+        // li a0, 42          # 반환값 42를 a0 레지스터에 로드
+        // jalr zero, 0(ra)   # ra(반환 주소)로 점프하며 ra에 아무것도 저장 안 함 (zero)
+        //                    # 함수 종료 후 caller의 다음 명령어로 복귀
+    }
+
+    int caller() {
+        int result = callee();  // 함수 호출 → callee의 주소로 점프 
+        // Assembly Code로 표현 시 :
+        // (jalr ra(ra register 보통 x1), 0(calle함수 주소를 가지는 register))
+
+        // callee가 끝나면 자동으로 여기로 돌아옴 (반환)
+        return result + 1;
+    }
+
+*jump 명령어들*  
+- jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 동시에 return address를 지정된 Register(보통 ra)에 저장한다.  
+- 이는 함수 호출(function call)과 정확히 동일한 동작이다.    
+
+- 아직 Program Counter의 개념을 다루지 않았지만, Program Counter + 4의 값을 보통 ra에 저장한다.  
+
+- jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지만, x0은 hard-wired zero Register이기에, 반환 주소가 저장되지 않고 그냥 ra에 저장된 주소로의 이동만 수행한다. 
 
 ### 12. Function Frame and Frame Pointer
 ![Function Frame and Frame Pointer](/assets/img/studies/ca/Computer Architecture/Instructions/12.png){: width="720" height="360"}
