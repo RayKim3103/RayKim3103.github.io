@@ -88,8 +88,8 @@ Register는 저장요소를 뜻하며 각각 특정한 값을 저장하고 있�
 
 이번에는 이 RISC-V의 Registers에 대해 알아본다.
 
-RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라고 한다.
-32비트로 표현되는 데이터의 크기는 워드(word)라고 한다.
+RISC-V Register의 크기는 64비트이며, 이를 doubleword라고 한다.
+32비트로 표현되는 데이터의 크기는 word라고 한다.
 
 - RISC-V는 x0부터 x31까지 이름 붙여진 32개의 64비트 Register를 정의한다.  
 - 3개의 operand를 사용하는 명령어는 결과를 저장할 Register 하나를 선택한다.  
@@ -184,10 +184,6 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
     // 결과: value = 56 (7 * 2^3 = 56)
     // 2진수: 00111000
 
-- slli, srli, srai 명령어의 경우, doubleword에서 64비트를 초과하여 시프트하는 것은 의미가 없다.
-- 따라서 논리 연산의 I형 명령어 형식은 12비트 즉치 필드(immediate field) 중 6비트만 사용한다. (2^6 = 64 이기에)
-- 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다.
-
 **beq를 C code로 비유하면 다음과 같다.**  
 
     int x = 5;
@@ -201,11 +197,6 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
         // 같지 않으면 여기 실행 (분기되지 않음)
         y = y + 1;
     }
-
-프로그램 코드의 if-else 문은 compile 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
-- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 label이 붙은 곳으로 분기한다.
-- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
-이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
 
 **jalr를 C code로 비유하면 다음과 같다.** 
 
@@ -226,6 +217,18 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
         return result + 1;
     }
 
+*shift 명령어들*  
+- slli, srli, srai 명령어의 경우, doubleword에서 64비트를 초과하여 시프트하는 것은 의미가 없다.
+- 따라서 논리 연산의 I형 명령어 형식은 12비트 즉치 필드(immediate field) 중 6비트만 사용한다. (2^6 = 64 이기에)
+- 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다.
+
+*branch 명령어들*  
+프로그램 코드의 if-else 문은 compile 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
+- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 label이 붙은 곳으로 분기한다.
+- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
+이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
+
+*jump 명령어들*
 jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 동시에 return address를 지정된 Register(보통 ra)에 저장한다.  
 이는 함수 호출(function call)과 정확히 동일한 동작이다.    
 
