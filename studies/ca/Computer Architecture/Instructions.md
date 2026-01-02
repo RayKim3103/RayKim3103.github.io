@@ -162,6 +162,8 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
 - load 명령어도 I형 형식을 사용한다. (Memory에서 Register로 값을 가져오는 명령어)
 
 ### 7. RISC-V Instruction Format: I-Type Variant
+![I-Type Variant](/assets/img/studies/ca/Computer Architecture/Instructions/6.png){: width="360" height="180"}
+
 
 
 ### 8. RISC-V Instruction Format: S-Type
