@@ -154,11 +154,13 @@ R-type instruction는 두 개의 source register operands를 사용하는  arith
 ### 6. RISC-V Instruction Format: I-Type
 ![I-Type](/assets/img/studies/ca/Computer Architecture/Instructions/5.png){: width="360" height="180"}
 
-addi를 C code로 비유하면 다음과 같다.
+addi를 C code로 비유하면 다음과 같다.  
+
     int x = 100;
     x += 12;        // addi x, x, 12 와 정확히 대응
 
-ld를 C code로 비유하면 다음과 같다.
+ld를 C code로 비유하면 다음과 같다.  
+
     long *base = array;        // rs1 레지스터에 배열 시작 주소 저장
     long temp;
 
@@ -174,7 +176,16 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
 ### 7. RISC-V Instruction Format: I-Type Variant
 ![I-Type Variant](/assets/img/studies/ca/Computer Architecture/Instructions/6.png){: width="360" height="180"}
 
+slli를 C code로 비유하면 다음과 같다. 
+    unsigned int value = 7;     // 7 = 00000111 (2진수)
 
+    value = value << 3;        // slli rd, rs1, 3 와 동일
+    // 결과: value = 56 (7 * 2^3 = 56)
+    // 2진수: 00111000
+
+- slli, srli, srai 명령어의 경우, doubleword에서 64비트를 초과하여 시프트하는 것은 의미가 없다.
+- 따라서 논리 연산의 I형 명령어 형식은 12비트 즉치 필드(immediate field) 중 6비트만 사용한다. (2^6 = 64 이기에)
+- 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다.
 
 ### 8. RISC-V Instruction Format: S-Type
 
