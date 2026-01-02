@@ -218,7 +218,7 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
     }
 
     int caller() {
-        int result = callee();  // 함수 호출 → callee의 주소로 점프
+        int result = callee();  // 함수 호출 → callee의 주소로 점프 (jalr ra(ra register 보통 x1), 0(calle함수 주소를 가지는 register))
         // callee가 끝나면 자동으로 여기로 돌아옴 (반환)
         return result + 1;
     }
