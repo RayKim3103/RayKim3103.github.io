@@ -210,6 +210,14 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ### 9. RISC-V Instruction Format: U-Type
 ![U-Type](/assets/img/studies/ca/Computer Architecture/Instructions/9.png){: width="360" height="180"}
 
+**lui를 C code로 비유하면 다음과 같다.** 
+    // 64비트 환경 (long long)에서 lui x19, 0x12345 에 해당하는 동작
+    long long x19 = ((long long)(int)0x12345 << 12);
+
+- 20비트 상수(immediate)를 destination register의 [31:12] 비트 부분에 로드한다. (예: x19[31:12])
+- destination register의 최상위 32비트 (예: x19[63:32])는 immediate 값의 최상위 비트(MSB)의 부호 확장(sign extension)으로 채워진다.
+- 최하위 12비트([11:0])는 0으로 채워진다.
+
 ### 10. RISC-V Instruction Format: SB-Type
 ![SB-Type](/assets/img/studies/ca/Computer Architecture/Instructions/10.png){: width="360" height="180"}
 
@@ -275,7 +283,7 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ![Program Counter](/assets/img/studies/ca/Computer Architecture/Instructions/14.png){: width="540" height="270"}
 
 ### 15. RISC-V Addressing Modes
-![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="1620" height="810"}
+![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="2160" height="1080"}
 
 ### 16. Big Endian and Little Endian
 
