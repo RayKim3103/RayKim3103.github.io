@@ -221,7 +221,6 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ### 10. RISC-V Instruction Format: SB-Type
 ![SB-Type](/assets/img/studies/ca/Computer Architecture/Instructions/10.png){: width="360" height="180"}
 
-
 **beq를 C code로 비유하면 다음과 같다.**  
 
     int x = 5;
