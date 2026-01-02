@@ -247,7 +247,7 @@ jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지�
 
 S형 명령어(S-type instruction)는 constant operand와 2개의 source register operand를 사용하는 연산을 정의한다.  
 - store 연산은 2개의 source register operand를 필요로 한다.  
-- 이 중 1번째 operand는 base address를 저장하고, 2번째 오퍼랜드는 메모리에 저장할 값을 가지고 있다.
+- 이 중 1번째 operand는 base address를 저장하고, 2번째 operand는 메모리에 저장할 값을 가지고 있다.
 - 12비트 immediate field는 두 부분으로 나뉘며, 하위 5비트는 S형에서 사용되지 않는 rd 세그먼트에 배치된다.
 - immediate값을 이렇게 분할하는 이유([11:5]와 [4:0]으로 분할)는 rs1과 rs2의 위치를 다른 명령어 형식들과 동일하게 유지하기 위함이다.
 
