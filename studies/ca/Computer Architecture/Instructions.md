@@ -273,7 +273,7 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ![Program Counter](/assets/img/studies/ca/Computer Architecture/Instructions/14.png){: width="540" height="270"}
 
 ### 15. RISC-V Addressing Modes
-![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="1080" height="540"}
+![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="1620" height="810"}
 
 ### 16. Big Endian and Little Endian
 
