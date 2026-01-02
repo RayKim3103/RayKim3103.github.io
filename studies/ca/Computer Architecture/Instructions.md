@@ -60,7 +60,7 @@ Table of contents
     - 프로그램의 결과는 다시 메모리에 기록된다.  
 
 ### 2. CISC vs. RISC
-![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/2.png){: width="720" height="360"}
+![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/2.png){: width="540" height="270"}
 
 2. Complex Instruction Set Computer, CISC  
     작업을 가능한 한 적은 수의 어셈블리 명령어 라인으로 완료하는 것을 목표로 한다.
