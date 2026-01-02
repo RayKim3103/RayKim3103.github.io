@@ -96,11 +96,11 @@ RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라�
 
 기본적은 Register는 저장공간으로 함수의 변수들의 값들을 저장한다.  
 
-하지만, 32개의 Register만 가지기에, Cache나 DRAM과 같은 Memory에 당장 쓰이지 않는 값을 저장할 필요가 있다.  
+하지만, 32개의 Register만 가지기에, Cache나 DRAM과 같은 Memory에 당장 쓰이지 않는 값이지만 나중에 사용해야 하는 값들을 저장할 필요가 있다.  
 
 Cache나 DRAM과 같은 Memory Access는 performance를 감소시키기에, Memory에 값을 반드시 보존하는 Register들과 굳이 안 보존해도 되는 Register들 2개의 Group으로 나눈다.  
 
-또한, 그 외의 Register들도 특별히 정해진 역할을 수행하는 Register들이 존재한다.
+또한, 그 외의 Register들도 특별히 정해진 역할을 수행하는 Register들이 존재한다. 이는 위의 Table에 정리되어 있다.
 
     // 호출자 함수 (caller)
     int caller() {
@@ -124,7 +124,9 @@ Cache나 DRAM과 같은 Memory Access는 performance를 감소시키기에, Memo
 - x8~x9, x18~x27은 피호출자 함수(callee)가 반드시 보존해야 한다.  (callee-saved registers 또는 saved registers)  
 
 ### 5. RISC-V Instruction Format: R-Type
+![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/4.png){: width="360" height="180"}
 
+본격
 
 ### 6. RISC-V Instruction Format: I-Type
 
