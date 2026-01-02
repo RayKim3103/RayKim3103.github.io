@@ -149,8 +149,17 @@ R-type instruction는 두 개의 source register operands를 사용하는  arith
 - rs2: 두 번째 source register operand
 - funct7: 추가적인 opcode 필드
 
-### 6. RISC-V Instruction Format: I-Type
+참고로, register를 나타내는데 5bit를 사용하는데, 이는 총 32개의 Register가 있기 때문이다.
 
+### 6. RISC-V Instruction Format: I-Type
+![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/5.png){: width="360" height="180"}
+
+I형 명령어(I-type instruction)는 constant operand와 하나의 source register operand를 사용하는 연산을 정의한다.  
+예를 들어 addi 명령어가 이에 해당한다.  
+- I형 명령어는 source register operand가 하나만 있다.
+- 2번째 source register operand에 해당하는 5비트는 사용되지 않으므로, 이를 constant offset을 표현하는 데 활용한다. 하지만 5비트로는 -16에서 15까지의 제한된 범위만 표현할 수 있다.
+- 따라서, I형 명령어는 funct7과 rs2 부분을 결합하여 12비트 immediate value을 표현한다.
+- load 명령어도 I형 형식을 사용한다. (Memory에서 Register로 값을 가져오는 명령어)
 
 ### 7. RISC-V Instruction Format: I-Type Variant
 
