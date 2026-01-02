@@ -90,7 +90,28 @@ RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라�
     그러나 Register가 적으면 작업 공간(workspace)의 크기가 줄어든다.
 
 ### 4. Calling Convention for Registers
+![CISC vs. RISC](/assets/img/studies/ca/Computer Architecture/Instructions/3.png){: width="720" height="360"}
 
+// 호출자 함수 (caller)
+int caller() {
+    int temp1 = 10;  // x10~x17 (caller-saved) 사용 가능
+    int temp2 = 20;  // 임시 변수
+    int result = callee(temp1, temp2);  // callee 호출
+    return result;  // temp1, temp2는 callee가 망가뜨려도 괜찮음
+}
+
+// 피호출자 함수 (callee)
+int callee(int a, int b) {  // x10, x11에 매개변수 전달됨
+    static int saved_var = 100;  // x18~x27 (callee-saved) 사용
+    // saved_var 값은 함수 호출 전후로 유지되어야 함
+    
+    int local = a + b;  // x5~x7 (caller-saved) 임시 사용
+    return local * saved_var;
+}
+
+- 모든 Register를 저장하고 복원하는 부담을 피하기 위해 RISC-V는 Register를 두 그룹으로 분류한다.  
+- x5~x7, x10~x17, x28~x31은 피호출자 함수(callee)가 보존할 필요가 없다.  (caller-saved registers 또는 temporary registers)  
+- x8~x9, x18~x27은 피호출자 함수(callee)가 반드시 보존해야 한다.  (callee-saved registers 또는 saved registers)  
 
 ### 5. RISC-V Instruction Format: R-Type
 
