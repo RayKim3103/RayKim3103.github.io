@@ -188,6 +188,25 @@ slli를 C code로 비유하면 다음과 같다.
 - 따라서 논리 연산의 I형 명령어 형식은 12비트 즉치 필드(immediate field) 중 6비트만 사용한다. (2^6 = 64 이기에)
 - 사용되지 않는 나머지 6비트는 funct6 opcode로 재활용된다.
 
+beq를 C code로 비유하면 다음과 같다.  
+
+    int x = 5;
+    int y = 3;
+
+    if (x == y) {              // beq x10, x11, equal_label 과 대응
+        // 여기로 분기됨 (같을 때 실행)
+        x = x + 1;
+    } 
+    else {
+        // 같지 않으면 여기 실행 (분기되지 않음)
+        y = y + 1;
+    }
+
+프로그램 코드의 if-else 문은 컴파일 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
+- beq (branch if equal) 명령어는 x21 레지스터와 x22 레지스터의 값이 같을 때 L1이라는 라벨이 붙은 문장으로 분기한다.
+- bne (branch if not equal) 명령어는 x21 레지스터와 x22 레지스터의 값이 다를 때 L1이라는 라벨이 붙은 문장으로 분기한다.  
+이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
+
 ### 8. RISC-V Instruction Format: S-Type
 
 
