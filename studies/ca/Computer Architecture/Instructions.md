@@ -154,6 +154,16 @@ R-type instruction는 두 개의 source register operands를 사용하는  arith
 ### 6. RISC-V Instruction Format: I-Type
 ![I-Type](/assets/img/studies/ca/Computer Architecture/Instructions/5.png){: width="360" height="180"}
 
+addi를 C code로 비유하면 다음과 같다.
+    int x = 100;
+    x += 12;        // addi x, x, 12 와 정확히 대응
+
+ld를 C code로 비유하면 다음과 같다.
+    long *base = array;        // rs1 레지스터에 배열 시작 주소 저장
+    long temp;
+
+    temp = *(base + 3);        // ld x10, 24(x11) 와 대응 (3 * 8 = 24바이트 오프셋)
+
 I형 명령어(I-type instruction)는 constant operand와 하나의 source register operand를 사용하는 연산을 정의한다.  
 예를 들어 addi 명령어가 이에 해당한다.  
 - I형 명령어는 source register operand가 하나만 있다.
