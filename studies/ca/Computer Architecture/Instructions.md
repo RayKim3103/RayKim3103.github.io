@@ -202,9 +202,9 @@ I형 명령어(I-type instruction)는 constant operand와 하나의 source regis
         y = y + 1;
     }
 
-프로그램 코드의 if-else 문은 컴파일 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
-- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 라벨이 붙은 문장으로 분기한다.
-- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 라벨이 붙은 문장으로 분기한다.  
+프로그램 코드의 if-else 문은 compile 시 의사결정을 담당하는 분기(branch) 명령어로 변환된다.  
+- beq (branch if equal) 명령어는 x21 Register와 x22 Register의 값이 같을 때 L1이라는 label이 붙은 곳으로 분기한다.
+- bne (branch if not equal) 명령어는 x21 Register와 x22 Register의 값이 다를 때 L1이라는 label이 붙은 곳으로 분기한다.  
 이러한 명령어들은 조건이 참일 때만 분기가 이루어지기 때문에 conditional branches라고 불린다.
 
 **jalr를 C code로 비유하면 다음과 같다.** 
@@ -234,7 +234,22 @@ jalr(Jump and Link Register)는 Register에 저장된 주소로 jump하면서 �
 jalr zero, 0(ra)의 경우, x0 에 현재 PC + 4 값을 저장하려고 하지만, x0은 hard-wired zero Register이기에, 반환 주소가 저장되지 않고 그냥 ra에 저장된 주소로의 이동만 수행한다.  
 
 ### 8. RISC-V Instruction Format: S-Type
+![S-Type](/assets/img/studies/ca/Computer Architecture/Instructions/7.png){: width="360" height="180"}
 
+**sd를 C code로 비유하면 다음과 같다.** 
+
+    long value = 42;                   // rs2 레지스터에 저장할 값 (64비트)
+    long *base_addr = some_array;      // rs1 레지스터에 베이스 주소 저장 가정
+
+    base_addr[3] = value;
+    // => *(base_addr + 3) = value
+    // 이는 sd x10, 24(x11) 와 동일 (3 * 8 = 24바이트 오프셋)
+
+S형 명령어(S-type instruction)는 constant operand와 두 개의 source register operand를 사용하는 연산을 정의한다.  
+- store 연산은 2개의 source register operand를 필요로 한다.  
+- 이 중 1번째 operand는 base address를 저장하고, 2번째 오퍼랜드는 메모리에 저장할 값을 가지고 있다.
+- 12비트 immediate field는 두 부분으로 나뉘며, 하위 5비트는 S형에서 사용되지 않는 rd 세그먼트에 배치된다.
+- immediate값을 이렇게 분할하는 이유([11:5]와 [4:0]으로 분할)는 rs1과 rs2의 위치를 다른 명령어 형식들과 동일하게 유지하기 위함이다.
 
 ### 9. RISC-V Instruction Format: U-Type
 
