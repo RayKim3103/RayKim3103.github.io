@@ -46,6 +46,7 @@ Table of contents
 * Big Endian and Little Endian
 
 ### 1. Instructions and Von Neumann Architecture
+![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/1.png){: width="360" height="180"}
 
 
 ### 2. CISC vs. RISC
