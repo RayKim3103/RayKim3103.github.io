@@ -48,6 +48,16 @@ Table of contents
 ### 1. Instructions and Von Neumann Architecture
 ![Von Neumann Architecture](/assets/img/studies/ca/Computer Architecture/Instructions/1.png){: width="360" height="180"}
 
+1. Instructions  
+    컴퓨터 언어의 단어는 명령어(instructions)라고 불린다.  
+    컴퓨터 언어의 어휘는 명령어 집합(instruction set)이며, 그 설계는 명령어 집합 구조(Instruction Set Architecture, ISA)라고 한다.  
+    명령어 집합의 목표는 하드웨어 사용을 단순화하는 것이다.  
+
+2. Von Neumann Architecture  
+  현대 컴퓨터는 폰 노이만 아키텍처(Von Neumann architecture)를 기반으로 하며, 이는 저장된 프로그램(stored-program) 개념을 구현한다.  
+  컴퓨터 프로그램은 메모리에 저장된다.  
+  처리 장치(예: CPU)는 메모리에서 프로그램을 불러와 실행한다.  
+  프로그램의 결과는 다시 메모리에 기록된다.  
 
 ### 2. CISC vs. RISC
 
