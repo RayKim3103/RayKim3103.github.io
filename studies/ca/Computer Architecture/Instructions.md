@@ -77,6 +77,16 @@ Table of contents
       - 즉, 이 명령어는 a = b + c를 수행한다.
 
 ### 3. RISC-V Registers
+앞선 예시에서 add a, b, c 라는 명령어를 실행 시 a, b, c는 각각 Register를 뜻한다. Register는 저장요소를 뜻하며 각각 특정한 값을 저장하고 있다.
+
+    int a = 10;
+    int b = 20;
+    int c = a + b;
+
+위와 같은 C code가 Compile되면, 각각 a, b 라는 Register에 10, 20 값이 저장되고, c에는 a와 b라는 Register안에 저장된 10, 20이라는 값이 add연산되어, 30이라는 값이 저장된다.
+
+이번에는 이 RISC-V의 Registers에 대해 알아본다.
+
 RISC-V Register의 크기는 64비트이며, 이를 더블워드(doubleword)라고 한다.
 32비트로 표현되는 데이터의 크기는 워드(word)라고 한다.
 
