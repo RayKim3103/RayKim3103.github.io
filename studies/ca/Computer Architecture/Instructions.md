@@ -77,7 +77,8 @@ Table of contents
       - 즉, 이 명령어는 a = b + c를 수행한다.
 
 ### 3. RISC-V Registers
-앞선 예시에서 add a, b, c 라는 명령어를 실행 시 a, b, c는 각각 Register를 뜻한다. Register는 저장요소를 뜻하며 각각 특정한 값을 저장하고 있다.
+앞선 예시에서 add a, b, c 라는 명령어를 실행 시 a, b, c는 각각 Register를 뜻한다.  
+Register는 저장요소를 뜻하며 각각 특정한 값을 저장하고 있다.  
 
     int a = 10;
     int b = 20;
