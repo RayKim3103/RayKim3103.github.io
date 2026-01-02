@@ -264,16 +264,16 @@ S형 명령어(S-type instruction)는 constant operand와 2개의 source registe
 ![UJ-Type](/assets/img/studies/ca/Computer Architecture/Instructions/11.png){: width="360" height="180"}
 
 ### 12. Function Frame and Frame Pointer
-![Function Frame and Frame Pointer](/assets/img/studies/ca/Computer Architecture/Instructions/12.png){: width="360" height="180"}
+![Function Frame and Frame Pointer](/assets/img/studies/ca/Computer Architecture/Instructions/12.png){: width="720" height="360"}
 
 ### 13. Stack and Stack Pointer
 
 
 ### 14. Program Counter
-![Program Counter](/assets/img/studies/ca/Computer Architecture/Instructions/14.png){: width="360" height="180"}
+![Program Counter](/assets/img/studies/ca/Computer Architecture/Instructions/14.png){: width="540" height="270"}
 
 ### 15. RISC-V Addressing Modes
-![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="360" height="180"}
+![RISC-V Addressing Modes](/assets/img/studies/ca/Computer Architecture/Instructions/15.png){: width="720" height="360"}
 
 ### 16. Big Endian and Little Endian
 
