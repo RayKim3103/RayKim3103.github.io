@@ -14,7 +14,8 @@ hide_description: true
 <!--author-->
 
 ## Education
-  2020 ~ : B.S. in Electrical & Electronic Engineering, Yonsei University
+  2020 ~ 2026: B.S. in Electrical & Electronic Engineering, Yonsei University
+  2026 ~ : SK Hynix Circuit Design Engineer
 
 ## Experience
 
@@ -29,6 +30,16 @@ hide_description: true
   </div>
 </div> -->
 ## Undergraduate course Projects [[GitHub]]
+  2025 Spring
+
+    Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
+
+    Artificial Intelligence : Implementing a DNN with a ResNet architecture, a tree-structured classifier, and a regression model from scratch
+
+    CMOS Integrated Circuit : Implementing a 16-to-1 bus system decoder optimized for PPA (Power, Performance, and Area)
+
+    NAND FTL                : Implementing a BAST FTL (Block-Associative Sector Translation Flash Translation Layer) optimized for wear leveling
+
   2024 Fall
 
     Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
@@ -53,9 +64,9 @@ hide_description: true
 
 [GitHub]: https://github.com/RayKim3103/Undergraduate-Course
 
-## Part-Time jobs
+<!-- ## Part-Time jobs
   12/2023 to 04/2024 : Teaching High School Student about High School level math
 
   04/2023 to 09/2023 : Making beverages and serving customers at a cafe
 
-  06/2020 to 12/2020 : Teaching High School Students about High School level math
+  06/2020 to 12/2020 : Teaching High School Students about High School level math -->
