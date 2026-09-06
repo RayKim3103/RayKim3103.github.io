@@ -1,24 +1,22 @@
 ---
 layout: page
-title: Artificial Intelligence
+title: AI & Machine Learning
 description: >
-  This page reviews courses I have studied in the field of EE and Computer Engineering.
+  AI & Machine Learning 분야 과목 모음.
 hide_description: false
 sitemap: false
 permalink: /studies/ai/
 ---
 
-<!-- Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
-
-While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
-{:.note} -->
-
-* [Computer Vision]{:.heading.flip-title}
+* [Machine Learning]{:.heading.flip-title} --- 20개 노트
 {:.related-posts.faded}
 
-* [Machine Learning]{:.heading.flip-title}
+* [Computer Vision]{:.heading.flip-title} --- 노트 준비 중
 {:.related-posts.faded}
 
-[Computer Vision]: /studies/ai/computer-vision/
+* [Reinforcement Learning]{:.heading.flip-title} --- 노트 준비 중
+{:.related-posts.faded}
+
 [Machine Learning]: /studies/ai/machine-learning/
-
+[Computer Vision]: /studies/ai/computer-vision/
+[Reinforcement Learning]: /studies/ai/reinforcement-learning/

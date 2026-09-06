@@ -1,45 +1,36 @@
 ---
 layout: page
-title: Studies
+title: Undergraduate Studies
 description: >
-  This page reviews courses I have studied in the field of EE and Computer Engineering.
+  연세대학교 전기전자공학부 학부 과정에서 수강한 과목별 강의 노트 정리.
 hide_description: false
 sitemap: false
 permalink: /studies/
 ---
 
-<!-- Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
+원본 자료: [RayKim3103 / Undergraduate-Course](https://github.com/RayKim3103/Undergraduate-Course)
 
-While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
-{:.note} -->
-
-* [Artificial Intelligence]{:.heading.flip-title}
+* [AI & Machine Learning]{:.heading.flip-title}
 {:.related-posts.faded}
 
-* [Computer Architecture]{:.heading.flip-title}
+* [Computer Architecture & Accelerators]{:.heading.flip-title}
 {:.related-posts.faded}
 
-* [Circuits]{:.heading.flip-title}
+* [Digital Design]{:.heading.flip-title}
 {:.related-posts.faded}
 
-* [Communications]{:.heading.flip-title}
+* [Circuits & Devices]{:.heading.flip-title}
 {:.related-posts.faded}
 
-<!-- * [Computer System]{:.heading.flip-title} -->
-<!-- {:.related-posts.faded} -->
-
-<!-- * [Math for Engineering]{:.heading.flip-title} -->
-<!-- {:.related-posts.faded} -->
-
-* [Signal Processing]{:.heading.flip-title}
+* [Systems & Software]{:.heading.flip-title}
 {:.related-posts.faded}
 
+* [Signal Processing & Communications]{:.heading.flip-title}
+{:.related-posts.faded}
 
-[Artificial Intelligence]: /studies/ai/
-[Computer Architecture]: /studies/ca/
-[Circuits]: /studies/circuit/
-[Communications]: /studies/communications/
-<!-- [Computer System]: /studies/cs/ -->
-<!-- [Math for Engineering]: /studies/math/ -->
-[Signal Processing]: /studies/signals/
-
+[AI & Machine Learning]: /studies/ai/
+[Computer Architecture & Accelerators]: /studies/arch/
+[Digital Design]: /studies/digital/
+[Circuits & Devices]: /studies/circuits/
+[Systems & Software]: /studies/systems/
+[Signal Processing & Communications]: /studies/signals/
