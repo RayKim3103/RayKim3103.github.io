@@ -19,6 +19,6 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 * [Machine Learning]{:.heading.flip-title}
 {:.related-posts.faded}
 
-[Computer Vision]: /studies/ai/computer-vision/
-[Machine Learning]: /studies/ai/machine-learning/
+[Computer Vision]: /studies/ai/computer vision/
+[Machine Learning]: /studies/ai/machine learning/
 
