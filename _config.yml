@@ -57,8 +57,10 @@ author:
 menu:
   - title:             About
     url:               /about/
-  - title:             Studies
+  - title:             Undergraduate Studies
     url:               /studies/
+  - title:             Graduate Studies
+    url:               /grad-studies/
   - title:             Reading Paper
     url:               /papers/
   # - title:             Publications

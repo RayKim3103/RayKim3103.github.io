@@ -25,21 +25,21 @@ While this manual tries to be beginner-friendly, as a user of Jekyll it is assum
 * [Communications]{:.heading.flip-title}
 {:.related-posts.faded}
 
-* [Computer System]{:.heading.flip-title}
-{:.related-posts.faded}
+<!-- * [Computer System]{:.heading.flip-title} -->
+<!-- {:.related-posts.faded} -->
 
-* [Math for Engineering]{:.heading.flip-title}
-{:.related-posts.faded}
+<!-- * [Math for Engineering]{:.heading.flip-title} -->
+<!-- {:.related-posts.faded} -->
 
 * [Signal Processing]{:.heading.flip-title}
 {:.related-posts.faded}
 
 
-[Artificial Intelligence]: /studies/ai/README.md
+[Artificial Intelligence]: /studies/ai/
 [Computer Architecture]: /studies/ca/
 [Circuits]: /studies/circuit/
 [Communications]: /studies/communications/
-[Computer System]: /studies/cs/
-[Math for Engineering]: /studies/math/
+<!-- [Computer System]: /studies/cs/ -->
+<!-- [Math for Engineering]: /studies/math/ -->
 [Signal Processing]: /studies/signals/
 
