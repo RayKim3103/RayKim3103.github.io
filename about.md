@@ -15,6 +15,7 @@ hide_description: true
 
 ## Education
   2020 ~ 2026: B.S. in Electrical & Electronic Engineering, Yonsei University
+  
   2026 ~ : SK Hynix Circuit Design Engineer
 
 ## Experience
@@ -32,13 +33,13 @@ hide_description: true
 ## Undergraduate course Projects [[GitHub]]
   2025 Spring
 
-    Operating System        : Modify the xv6 operating system, which does not support multi-threading, to include multi-threading features
+    Intelligent System Design : Design Basic CNN Accelerator with RTL, VIVADO
 
-    Artificial Intelligence : Implementing a DNN with a ResNet architecture, a tree-structured classifier, and a regression model from scratch
+    Digital Signal Processing : 
 
-    CMOS Integrated Circuit : Implementing a 16-to-1 bus system decoder optimized for PPA (Power, Performance, and Area)
+    Embedded Systems Lab : 
 
-    NAND FTL                : Implementing a BAST FTL (Block-Associative Sector Translation Flash Translation Layer) optimized for wear leveling
+    Multi-Core & GPU Programming : 
 
   2024 Fall
 
