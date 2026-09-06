@@ -5,6 +5,7 @@ description: >
   This page tells about Computer Vision
 hide_description: false
 sitemap: false
+permalink: /studies/ai/computer-vision/
 ---
 
 abcdef
