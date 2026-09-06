@@ -8,4 +8,4 @@ sitemap: false
 permalink: /studies/ai/computer-vision/
 ---
 
-abcdef
+Computer Vision 강의 노트는 준비 중입니다.
