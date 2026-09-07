@@ -8,7 +8,7 @@ sitemap: false
 permalink: /studies/arch/
 ---
 
-* [Computer Architecture]{:.heading.flip-title} --- 노트 준비 중
+* [Computer Architecture]{:.heading.flip-title} --- 11개 노트
 {:.related-posts.faded}
 
 * [Microprocessor]{:.heading.flip-title} --- 12개 노트

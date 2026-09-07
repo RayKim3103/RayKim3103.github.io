@@ -14,7 +14,7 @@ permalink: /studies/ai/
 * [Deep Learning Experiment]{:.heading.flip-title} --- 25개 노트
 {:.related-posts.faded}
 
-* [Computer Vision]{:.heading.flip-title} --- 노트 준비 중
+* [Computer Vision]{:.heading.flip-title} --- 27개 노트
 {:.related-posts.faded}
 
 * [Reinforcement Learning]{:.heading.flip-title} --- 18개 노트
