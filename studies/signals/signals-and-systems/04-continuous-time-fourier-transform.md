@@ -158,6 +158,43 @@ H(jω) = Y(jω)/X(jω)
 - [시간-주파수 특성](06-time-frequency-properties.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **04. 연속시간 푸리에 변환**를 다루며, 신호와 LTI 시스템을 convolution, Fourier/Laplace/z 변환으로 해석하는 공학 수학의 핵심 기반이다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- 신호 주제에서는 시간영역 연산이 주파수/z-domain에서 어떻게 단순해지는지 변환쌍으로 연결한다.
+- sampling과 DFT에서는 주기화, aliasing, zero padding을 분리해 생각해야 한다.
+- LTI 시스템은 impulse response만 알면 convolution으로 모든 입력에 대한 출력을 구할 수 있다.
+- Fourier 계열과 변환은 신호를 frequency component로 분해해 filtering과 system response를 단순화한다.
+- Laplace/z transform은 Fourier보다 ROC와 pole 관점을 추가해 stability와 transient까지 다룬다.
+
+### 문제 풀이 또는 구현 루틴
+
+- 신호를 continuous/discrete, periodic/aperiodic, energy/power로 먼저 분류한다.
+- LTI 문제는 impulse response, convolution, frequency response 중 가장 쉬운 표현을 선택한다.
+- 변환 문제에서는 transform pair, property, ROC 또는 convergence 조건을 함께 기록한다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- time shift와 frequency shift property의 부호를 자주 혼동한다.
+- sampling은 spectrum replication을 만들므로 Nyquist 조건을 항상 확인해야 한다.
+- stability는 impulse response 절대적분/절대합 조건과 pole 위치 조건을 연결해 판단한다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- 이 신호/시스템은 어떤 분류에 속하는가?
+- time domain과 frequency domain 중 어느 쪽 계산이 더 단순한가?
+- pole, zero, ROC가 causality와 stability를 어떻게 말해 주는가?
+- **04. 연속시간 푸리에 변환**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---

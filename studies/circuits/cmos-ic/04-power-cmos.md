@@ -153,6 +153,43 @@ Junction leakage는 reverse-biased p-n junction에서 발생한다. 특히 high-
 - Stack effect와 power gating이 leakage를 줄이는 원리를 이해해야 한다.
 - Power gating의 delay, area, wake-up noise tradeoff를 설명할 수 있어야 한다.
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **04. CMOS 전력소모와 저전력기법**를 다루며, MOS device 특성에서 CMOS gate, delay, power, interconnect, sequential timing까지 회로와 물리 관점으로 연결한다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- 회로 주제에서는 DC 동작점, small-signal 모델, 주파수 응답, feedback 효과를 순서대로 분리한다.
+- gain 식은 부호, loading, output resistance, capacitance가 들어가는 위치를 회로 노드에서 추적한다.
+- 디지털 회로도 transistor와 wire RC 위에서 동작하므로 noise margin, delay, power를 함께 봐야 한다.
+- logical effort는 복잡한 gate delay를 parasitic과 electrical effort로 나누어 설계 감각을 준다.
+- scaling은 성능 이득과 함께 leakage, variability, reliability 문제를 키운다.
+
+### 문제 풀이 또는 구현 루틴
+
+- pull-up/pull-down network, 논리 기능, 최악 경로, load capacitance를 순서대로 확인한다.
+- delay 계산은 equivalent resistance와 switched capacitance를 잡고 Elmore/RC 근사로 시작한다.
+- sequential timing은 setup, hold, clock skew, contamination/propagation delay를 따로 계산한다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- static CMOS에서 PUN과 PDN은 dual network여야 한다.
+- dynamic power는 activity factor와 capacitance에 민감해 단순 주파수만으로 결정되지 않는다.
+- setup violation과 hold violation은 고치는 방향이 다르다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- 이 회로의 최악 delay path는 어디인가?
+- 전력 중 switching, short-circuit, leakage 중 무엇이 지배적인가?
+- 공정/전압/온도 변화가 margin을 얼마나 줄이는가?
+- **04. CMOS 전력소모와 저전력기법**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---

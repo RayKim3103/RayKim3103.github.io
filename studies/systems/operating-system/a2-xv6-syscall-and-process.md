@@ -104,6 +104,43 @@ System call argument 수가 고정되어 있다면 실제 option 개수를 알�
 - `RUNNING` 상태가 single CPU 기준에서만 관찰되는 점을 놓치는 문제
 - `argc`와 syscall 인자 수를 혼동하는 문제
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **A2 xv6 System Call and Process 과제**를 다루며, process, scheduling, virtual memory, concurrency, file system을 통해 OS가 hardware resource를 추상화하고 보호하는 방식을 이해한다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- OS 주제에서는 user/kernel 경계와 kernel data structure 변화가 어느 함수에서 일어나는지 추적한다.
+- 동시성 오류는 특정 interleaving을 상상해 shared invariant가 깨지는 순간을 찾는 방식으로 접근한다.
+- OS의 핵심은 CPU, memory, disk를 각각 process, address space, file이라는 추상화로 바꾸는 것이다.
+- concurrency에서는 correctness가 성능보다 먼저이며 race, deadlock, starvation을 구분해야 한다.
+- virtual memory는 isolation, relocation, demand paging, caching을 제공하지만 TLB/page fault 비용이 따른다.
+
+### 문제 풀이 또는 구현 루틴
+
+- kernel path를 user call, trap, syscall handler, kernel object update, return 순서로 추적한다.
+- 동기화 문제는 shared state, invariant, lock ownership, sleep/wakeup 조건을 먼저 적는다.
+- 파일 시스템은 inode, block allocation, directory entry, cache, crash consistency 순서로 본다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- process와 thread는 address space 공유 여부가 핵심 차이다.
+- lock을 잡은 채 sleep하거나 다른 lock 순서를 섞으면 deadlock이 생길 수 있다.
+- page table entry bit 하나가 protection, sharing, lazy allocation 동작을 바꾼다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- 이 기능은 어떤 kernel data structure를 바꾸는가?
+- 동시 실행될 때 invariant가 깨지는 interleaving은 없는가?
+- 성능 병목이 context switch, page fault, lock contention, I/O 중 어디인가?
+- **A2 xv6 System Call and Process 과제**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---

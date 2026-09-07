@@ -77,6 +77,41 @@ for (int i = 0; i < N; i++) {
 
 이 강의의 출발점은 power wall 이후 컴퓨터 성능 향상이 “자동 clock 증가”에서 “명시적 병렬성 활용”으로 바뀌었다는 사실이다. 이후 모든 주제는 작업을 어떻게 나눌지, 데이터를 어떻게 배치할지, 하드웨어 병목을 어떻게 피할지로 이어진다.
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **00. Course Overview - 병렬 프로그래밍 개요**를 다루며, CPU thread, CUDA, Triton, MPI를 통해 병렬 하드웨어에서 성능을 끌어내는 방법을 배운다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- 병렬화는 일을 나누는 것뿐 아니라 memory hierarchy, synchronization, occupancy, load balance를 맞추는 문제다.
+- CUDA kernel 성능은 global memory coalescing, shared memory bank conflict, register pressure, occupancy가 함께 결정한다.
+- Triton과 GPU library도 tile size, data layout, fusion, bandwidth 병목을 이해해야 잘 쓸 수 있다.
+
+### 문제 풀이 또는 구현 루틴
+
+- arithmetic intensity를 계산해 compute-bound인지 memory-bound인지 가른다.
+- thread/block mapping, memory access pattern, shared memory reuse, synchronization 지점을 표로 적는다.
+- 최적화 전후에는 correctness check, timing methodology, profiler metric을 같이 남긴다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- thread 수를 늘리는 것만으로 speedup이 선형 증가하지 않는다.
+- shared memory를 쓰면 항상 빠른 것이 아니라 bank conflict와 load overhead를 함께 봐야 한다.
+- 비동기 stream/memory copy는 dependency를 명확히 기록하지 않으면 race처럼 보이는 오류가 생긴다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- 병목은 연산량, memory bandwidth, synchronization, launch overhead 중 무엇인가?
+- 각 thread가 담당하는 데이터와 인접 thread의 memory access가 coalesced 되는가?
+- 최적화가 정확도를 유지한다는 검증과 성능 개선 근거가 함께 있는가?
+- **00. Course Overview - 병렬 프로그래밍 개요**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---

@@ -436,6 +436,43 @@ $$
 - [ ] 피벗과 랭크의 관계를 설명할 수 있다.
 - [ ] 순열행렬이 왜 필요한지 예시로 설명할 수 있다.
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **02. 행렬과 가우스 소거**를 다루며, 벡터, 행렬, 선형변환, 부분공간, 직교성을 통해 공학 문제를 구조적으로 푸는 언어를 익힌다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- 선형대수 주제에서는 계산 결과를 column space, null space, rank, projection의 기하학으로 다시 해석한다.
+- 행렬 곱의 차원과 선형변환의 domain/codomain을 먼저 쓰면 수식 실수를 줄일 수 있다.
+- 행렬은 숫자 표가 아니라 선형변환이며, rank와 null space는 정보가 보존되거나 사라지는 방향을 말한다.
+- Gaussian elimination은 해를 구하는 절차이면서 column space, pivot, independence를 드러내는 도구다.
+- orthogonality와 projection은 least squares, signal decomposition, PCA 같은 과목으로 이어진다.
+
+### 문제 풀이 또는 구현 루틴
+
+- 문제를 matrix equation으로 쓰고 unknown vector의 차원과 equation 수를 확인한다.
+- row reduction 후 pivot columns, free variables, null space basis를 따로 기록한다.
+- 기하학적으로는 span, projection, transformation이 벡터를 어떻게 움직이는지 그림으로 해석한다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- row space와 column space는 서로 다른 ambient space에 있을 수 있다.
+- invertible 여부는 square matrix에서만 말하며 rank 조건과 연결된다.
+- orthogonal과 independent는 관련이 있지만 같은 개념이 아니다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- 이 행렬이 보존하는 방향과 없애는 방향은 무엇인가?
+- 해가 없거나 무한히 많을 조건을 rank로 설명할 수 있는가?
+- projection error가 왜 column space에 직교해야 하는가?
+- **02. 행렬과 가우스 소거**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---

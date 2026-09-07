@@ -95,6 +95,43 @@ DIPSwitch는 보드의 8개 스위치 입력이다. `[7:0] DIPSwitch`로 선언�
 
 2주차 결과의 핵심은 PS와 PL의 실습 흐름을 분리해서 익힌 점이다. PS는 SDK와 펌웨어, UART 출력 중심이고, PL은 RTL, `.xdc`, bitstream, 물리 입출력 검증 중심이다. 또한 `RegPushButton`을 이용한 edge 검출과 shift 기반 LED 제어는 이후 버튼 입력 처리의 기본 패턴이 된다.
 
+## 보강 학습 노트
+
+### 큰 그림
+
+- 이 문서는 **02주차 결과 - Vivado PS PL LED 실습**를 다루며, Zynq/FPGA 기반 임베디드 시스템에서 hardware IP, device tree, Linux driver, boot flow를 실습으로 연결한다.
+- 단편적인 정의를 외우기보다 입력이 무엇이고, 내부에서 어떤 변환이 일어나며, 출력이나 성능 지표가 어떻게 결정되는지 흐름으로 잡는 것이 좋다.
+- 앞뒤 단원과 연결해 보면 이 주제가 왜 필요한지, 어떤 가정을 추가하거나 완화하는지 더 분명해진다.
+
+### 핵심을 더 깊게 보기
+
+- 디지털 구현 주제에서는 cycle 단위 timing, reset 상태, handshake 조건을 파형으로 검증하는 습관이 중요하다.
+- 합성 가능한 RTL과 testbench 전용 문법을 구분해 실제 hardware 의미를 확인한다.
+- 실습/과제 문서는 재현 절차, 입력 조건, 기대 출력, 디버깅 로그, 성능 또는 정확도 검증 기준을 함께 남겨야 한다.
+- 보고서형 문서라면 단순 결과보다 설계 선택, 실패 원인, 수정 근거가 드러날수록 복습 가치가 커진다.
+- embedded 개발은 hardware address map, bus protocol, interrupt, kernel/user boundary가 정확히 맞아야 한다.
+
+### 문제 풀이 또는 구현 루틴
+
+- 보드 문제는 bitstream, address map, device tree, driver probe, user app access 순서로 확인한다.
+- 레지스터 제어는 base address, offset, bit field, read/write side effect를 표로 정리한다.
+- interrupt는 hardware source, controller, device tree binding, ISR registration, user notification 경로를 추적한다.
+- 마지막에는 단위, 차원, boundary condition, edge case를 확인해 계산 결과가 현실적인지 검산한다.
+
+### 자주 하는 실수
+
+- MMIO를 일반 메모리처럼 다루면 최적화와 ordering 문제가 생긴다.
+- device tree compatible 문자열이 driver와 맞지 않으면 probe가 호출되지 않는다.
+- interrupt clear 순서를 놓치면 ISR이 반복 호출되거나 edge를 잃을 수 있다.
+- 정의를 그대로 적용하기 전에 이 단원에서 전제한 ideal assumption이 실제 문제에서도 유지되는지 확인한다.
+
+### 스스로 점검할 질문
+
+- peripheral의 register map과 실제 Vivado address가 일치하는가?
+- kernel log에서 probe, interrupt, read/write 경로가 어디까지 도달하는가?
+- user space 오류가 hardware, driver, permission 중 어디에서 시작되는가?
+- **02주차 결과 - Vivado PS PL LED 실습**를 한 문장으로 설명하고, 관련 수식이나 회로/알고리즘/시스템 그림 없이도 핵심 흐름을 말할 수 있는가?
+
 {% endraw %}
 
 ---
