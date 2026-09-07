@@ -65,6 +65,15 @@ hide_description: true
 
 [GitHub]: https://github.com/RayKim3103/Undergraduate-Course
 
+## Transcript
+
+<a href="/assets/pdf/transcript-en.pdf" download>📄 Academic Transcript — Yonsei University (English, PDF)</a>
+
+<object data="/assets/pdf/transcript-en.pdf" type="application/pdf" width="100%" height="900" style="border: 1px solid #ddd; margin-top: 12px;">
+  <p>Your browser can't display the embedded PDF.
+     <a href="/assets/pdf/transcript-en.pdf">Download the transcript</a> instead.</p>
+</object>
+
 <!-- ## Part-Time jobs
   12/2023 to 04/2024 : Teaching High School Student about High School level math
 
