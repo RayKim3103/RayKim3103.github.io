@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/04%20Noise%20and%20Decision%20-%20%EC%9E%A1%EC%9D%8C%EA%B3%BC%20%EC%B5%9C%EC%A0%81%20%EA%B2%80%EC%B6%9C.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 디지털 수신기에서 잡음을 확률적으로 모델링하고, 수신 신호를 threshold와 비교해 bit를 결정하는 과정을 다룬다. 에너지/전력 스펙트럼 밀도, bandpass noise의 I/Q 표현, Gaussian random process, Bayes decision, MAP/ML decision, matched filter, unipolar/bipolar signaling의 BER이 핵심이다.
@@ -312,6 +313,7 @@ P_B = Q(sqrt(2E_b / N_0))
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 - [Amplitude Modulation - AM DSB SSB VSB](10-amplitude-modulation-am-dsb-ssb-vsb.md)
 
+{% endraw %}
 
 ---
 

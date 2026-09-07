@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/06%20%EC%88%9C%EC%B0%A8%EB%85%BC%EB%A6%AC%20%EC%84%A4%EA%B3%84.md)
 
+{% raw %}
 tags: #digital-logic #sequential-logic #latch #flip-flop #timing #register
 
 관련 노트: [조합논리](02-combinational-logic.md), [유한상태기계](07-finite-state-machines.md), [유한상태기계 활용](08-fsm-applications.md)
@@ -192,6 +193,7 @@ Shift register 응용:
 - Clock skew가 setup/hold 제약에 어떤 영향을 주는가?
 - Metastability가 왜 완전히 제거되지 않고 synchronizer로 완화되는지 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

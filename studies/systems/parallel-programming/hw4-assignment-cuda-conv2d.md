@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW4%20Assignment%20-%20CUDA%20Conv2d.md)
 
+{% raw %}
 이전: [Report - CUDA LoRA Tiled MatMul 최적화](hw3-report-cuda-lora-tiled-matmul.md)  
 다음: [Report - Direct Convolution과 im2col GEMM](hw4-report-direct-convolution-im2col-gemm.md)
 
@@ -64,6 +65,7 @@ HW4는 CUDA로 convolution을 두 방식으로 구현하는 과제다. 첫째는
 
 HW4는 convolution 자체와 GEMM으로 변환한 convolution을 비교하는 과제다. Direct 방식은 중간 memory가 적지만 최적화가 어렵고, im2col+GEMM은 matrix multiplication 최적화를 재사용할 수 있지만 중간 데이터 변환 비용이 생긴다.
 
+{% endraw %}
 
 ---
 

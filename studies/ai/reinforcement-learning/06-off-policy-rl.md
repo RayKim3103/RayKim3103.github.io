@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/06%20Off-policy%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 Off-policy RL은 현재 학습하려는 target policy와 다른 behavior policy가 수집한 data를 사용해 학습할 수 있는 방법이다. Q-learning 계열은 본질적으로 off-policy이고, replay buffer를 통해 data reuse가 가능하다. 연속 action에서는 DDPG, TD3, SAC 같은 actor-critic 기반 off-policy 알고리즘이 중요하다.
@@ -117,6 +118,7 @@ minπ E[α log π(a|s) - Q(s,a)]
 - [Offline RL](08-offline-rl.md)
 - [Humanoid RL](16-humanoid-rl.md)
 
+{% endraw %}
 
 ---
 

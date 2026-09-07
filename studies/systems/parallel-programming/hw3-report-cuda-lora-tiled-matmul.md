@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW3%20Report%20-%20CUDA%20LoRA%20Tiled%20MatMul%20%EC%B5%9C%EC%A0%81%ED%99%94.md)
 
+{% raw %}
 이전: [Assignment - CUDA LoRA](hw3-assignment-cuda-lora.md)  
 다음: [Assignment - CUDA Conv2d](hw4-assignment-cuda-conv2d.md)
 
@@ -104,6 +105,7 @@ y[i] = a[i] + scale * b[i];
 
 HW3 보고서의 핵심은 CUDA 최적화가 단일 기법이 아니라 memory access, shared memory, index mapping, occupancy, branch를 동시에 맞추는 일이라는 점이다. LoRA는 수식은 간단하지만 여러 GEMM shape가 달라 non-square tiling과 transpose 처리에서 실질적인 어려움이 발생한다.
 
+{% endraw %}
 
 ---
 

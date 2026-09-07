@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/23%20Project%20Design%20Guide%20-%20TIA%20CTLE%20%EC%84%A4%EA%B3%84%20%EA%B0%80%EC%9D%B4%EB%93%9C.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 자료는 설계 프로젝트의 전체 구조와 목표 스펙을 설명한다. 대상 회로는 optical receiver이며, photodiode가 optical signal을 current signal로 변환하고, TIA가 current를 voltage로 바꾸며, CTLE가 PD/TIA의 제한된 bandwidth를 보상한다. 성능은 frequency response, eye diagram, power consumption, FoM으로 평가한다.
@@ -213,6 +214,7 @@ FoM = eye height * eye width / power consumption
 - [LTSpice Tutorial - 시뮬레이션 튜토리얼](22-ltspice-tutorial.md)
 
 
+{% endraw %}
 
 ---
 

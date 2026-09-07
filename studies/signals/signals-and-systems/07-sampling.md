@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/07%20%EC%83%98%ED%94%8C%EB%A7%81.md)
 
+{% raw %}
 ## 핵심 요약
 
 샘플링 정리는 일정 조건에서 CT 신호가 일정 간격의 샘플들만으로 완전히 표현될 수 있음을 말한다. 신호가 band-limited이고 샘플링 주파수가 최고 주파수의 두 배보다 크면 원 신호를 완벽히 복원할 수 있다. 조건을 만족하지 않으면 aliasing이 발생한다. 이 장은 impulse train sampling, reconstruction, interpolation, CT 신호의 DT 처리, DT decimation과 interpolation을 다룬다.
@@ -163,6 +164,7 @@ upsampling은 sample 사이에 `N-1`개의 0을 삽입한 뒤 low-pass filtering
 - [시간-주파수 특성](06-time-frequency-properties.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
 
+{% endraw %}
 
 ---
 

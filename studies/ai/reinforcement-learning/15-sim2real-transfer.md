@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/15%20Sim2Real%20Transfer.md)
 
+{% raw %}
 ## 핵심 요약
 
 Sim2Real transfer는 simulation에서 학습한 policy를 real world에 배포하는 문제이다. 실제 로봇에서 RL을 직접 학습하면 sample이 많이 필요하고, 실패가 위험하며, reward와 초기 상태 다양성을 확보하기 어렵다. simulation은 안전하고 data를 많이 만들 수 있지만, sim과 real 사이의 dynamics 및 visual discrepancy 때문에 transfer가 실패할 수 있다.
@@ -85,6 +86,7 @@ real world에 배포한 뒤 policy나 dynamics representation을 빠르게 보�
 - [Humanoid RL](16-humanoid-rl.md)
 - [강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
 
+{% endraw %}
 
 ---
 

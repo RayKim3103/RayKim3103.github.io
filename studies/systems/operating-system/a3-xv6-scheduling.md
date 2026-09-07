@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A3%20xv6%20Scheduling%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #scheduler #lottery-scheduling #context-switch
 
 관련 노트: [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [A2 xv6 System Call and Process 과제](a2-xv6-syscall-and-process.md)
@@ -79,6 +80,7 @@ Scheduler는 `proc[]`을 순회하며 `RUNNABLE` process를 찾는다. Process s
 - `struct proc`에 새 scheduling field를 추가할 때 초기화 위치를 찾을 수 있는가?
 - Lock을 잡은 상태로 context switch하는 xv6의 관례를 이해했는가?
 
+{% endraw %}
 
 ---
 

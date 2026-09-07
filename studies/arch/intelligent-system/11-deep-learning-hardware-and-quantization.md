@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/11%20Deep%20Learning%20Hardware%20and%20Quantization.md)
 
+{% raw %}
 > 이전: [Computer Vision, Neural Networks, and CNN](10-computer-vision-neural-networks-and-cnn.md)
 
 ## 학습 목표
@@ -324,6 +325,7 @@ CNN accelerator를 만들 때 확인해야 할 것:
 - output/weight/input stationary는 무엇을 PE 근처에 오래 둘지의 선택이다.
 - quantization은 성능/전력/메모리 효율을 올리지만 accuracy와 overflow를 함께 관리해야 한다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/02%20Point%20Estimation%20-%20%EC%A0%90%EC%B6%94%EC%A0%95%EA%B3%BC%20MLE.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #statistics #mle #pac-learning #gaussian
 
 관련 노트: [머신러닝 개요](01-introduction.md), [선형회귀 모델과 학습](03-linear-regression-part-1.md)
@@ -125,6 +126,7 @@ sigma_MLE^2 = (1/N) * sum_i (x_i - mu_MLE)^2
 - MLE variance estimator가 biased인 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

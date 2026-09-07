@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/14%20Multi%20GPU%20-%20%EB%8B%A8%EC%9D%BC%20%EB%85%B8%EB%93%9C%EC%99%80%20MPI.md)
 
+{% raw %}
 이전: [CUDA Debug and Profiling - cuda-gdb와 nvprof](13-cuda-debug-and-profiling-gdb-nvprof.md)  
 다음: [More Notes - DL Compiler와 LLM Inference](15-more-notes-dl-compiler-llm-inference.md)
 
@@ -90,6 +91,7 @@ Message passing에서는 data 교환이 명시적 send/receive로 이루어진�
 
 Multi-GPU는 병렬화를 한 단계 확장하지만 data movement가 더 중요해진다. 단일 노드는 device selection, stream, peer communication, event가 핵심이고, multi-node는 distributed memory와 MPI message passing을 이해해야 한다.
 
+{% endraw %}
 
 ---
 

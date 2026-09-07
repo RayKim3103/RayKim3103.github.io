@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/08%20Differential%20Amplifiers%201%20-%20%EC%B0%A8%EB%8F%99%20%EC%A6%9D%ED%8F%AD%EA%B8%B0%20%EA%B8%B0%EB%B3%B8.md)
 
+{% raw %}
 ## 핵심 요약
 
 MOS differential pair는 두 입력의 차이 `Vin1 - Vin2`에 반응하고, 두 입력에 공통으로 들어오는 noise는 억제한다. small-signal 해석은 differential mode와 common mode로 나누어 수행한다. differential mode에서는 대칭성 때문에 half-circuit을 사용하고, common mode에서는 tail current source의 finite resistance가 중요해진다.
@@ -137,6 +138,7 @@ VCM,max ≈ VDD - ID RD + VTH
 - [OTA and Op-Amp - OTA와 연산증폭기](15-ota-and-op-amp.md)
 
 
+{% endraw %}
 
 ---
 

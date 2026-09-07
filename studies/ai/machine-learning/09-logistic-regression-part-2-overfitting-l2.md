@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/09%20Logistic%20Regression%20Part%202%20-%20%EB%B6%84%EB%A5%98%20Overfitting%EA%B3%BC%20L2%20%EC%A0%95%EA%B7%9C%ED%99%94.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #classification #logistic-regression #regularization #l2
 
 관련 노트: [선형분류와 Logistic Regression](08-logistic-regression-part-1.md), [SGD와 Online Learning](10-logistic-regression-part-3-sgd-online-learning.md)
@@ -90,6 +91,7 @@ coefficient magnitude를 작게 유지하는 것
 - Gradient update에서 regularization term이 어떤 방향으로 작용하는지 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

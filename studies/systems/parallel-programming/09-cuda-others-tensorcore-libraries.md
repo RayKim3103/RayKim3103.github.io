@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/09%20CUDA%20Others%20-%20TensorCore%EC%99%80%20CUDA%20Libraries.md)
 
+{% raw %}
 이전: [CUDA Reduction - Parallel Reduction 최적화](08-cuda-reduction-parallel.md)  
 다음: [Prefix Sum - GPU Scan 알고리즘](10-prefix-sum-gpu-scan.md)
 
@@ -53,6 +54,7 @@ Matrix multiplication은 작은 matrix multiply-accumulate의 반복으로 볼 �
 
 이 강의의 핵심은 “직접 kernel 작성”과 “library 사용”의 균형이다. CUDA를 잘하려면 low-level 최적화를 이해해야 하지만, 동시에 TensorCore와 cuBLAS/cuDNN/Thrust 같은 검증된 고성능 primitive를 언제 사용할지 판단할 수 있어야 한다.
 
+{% endraw %}
 
 ---
 

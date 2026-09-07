@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/09%20Fermi%20Statistics%20Emission%20Phonons%20-%20%ED%8E%98%EB%A5%B4%EB%AF%B8%20%EB%B0%A9%EC%B6%9C%20%ED%8F%AC%EB%85%BC.md)
 
+{% raw %}
 tags: #ElectronicMaterials #FermiDirac #Thermoelectric #ThermionicEmission #FieldEmission #Phonon
 
 이전: [Molecular Orbital and Energy Bands - 분자궤도 에너지밴드](08-molecular-orbital-and-energy-bands.md)  
@@ -138,6 +139,7 @@ emission requires electron energy > E_F + Phi
 - Debye temperature와 heat capacity 곡선의 의미.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/02%20Thread%20Programming%20-%20C%2B%2B%20Thread%EC%99%80%20%EB%8F%99%EA%B8%B0%ED%99%94.md)
 
+{% raw %}
 이전: [Basic Parallel Architectures - 기본 병렬 아키텍처](01-basic-parallel-architectures.md)  
 다음: [Matrix Multiplication - CPU Cache와 병렬 행렬곱](03-matrix-multiplication-cpu-cache.md)
 
@@ -119,6 +120,7 @@ C++ 표준 지원이 부족한 시점에는 Boost barrier 같은 library를 사�
 
 Thread programming의 핵심은 shared data를 다루는 순간 correctness와 performance가 동시에 어려워진다는 점이다. mutex는 안전하지만 과하면 느리고, atomic은 가볍지만 적용 범위가 좁고, condition variable은 대기 문제를 효율적으로 해결한다. 마지막으로 Amdahl's Law는 동기화와 serial section을 줄이는 것이 성능의 본질임을 보여준다.
 
+{% endraw %}
 
 ---
 

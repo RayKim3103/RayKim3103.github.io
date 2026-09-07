@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/05%20LTI%20System%20to%20Linear%20Algebra.md)
 
+{% raw %}
 ﻿---
 title: "05. LTI System to Linear Algebra"
 pages: 18
@@ -193,6 +194,7 @@ $$
 - DFT matrix: circulant matrix의 eigenvector 행렬
 - convolution을 행렬로 쓰면 inverse problem과 least squares가 자연스럽게 등장한다.
 
+{% endraw %}
 
 ---
 

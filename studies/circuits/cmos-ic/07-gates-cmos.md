@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/07%20Gates%20-%20%EA%B3%A0%EA%B8%89%20CMOS%20%EA%B2%8C%EC%9D%B4%ED%8A%B8.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #gates #compound-gate #skewed-gate #pseudo-nmos #dynamic-circuit #domino
 
 관련 노트: [MTCMOS와 Power Gating 보강](06-1-mtcmos-and-power-gating.md), [Datapaths: 가산기, 시프터, 곱셈기](08-datapaths.md)
@@ -149,6 +150,7 @@ Dynamic gate 내부 node들이 evaluation 중 charge를 나누면 dynamic output
 - Domino gate, keeper, charge sharing의 역할과 tradeoff를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

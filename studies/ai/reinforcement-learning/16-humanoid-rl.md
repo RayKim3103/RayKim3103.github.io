@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/16%20Humanoid%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 Humanoid RL은 사람형 로봇의 locomotion, manipulation, whole-body control을 강화학습으로 해결하는 분야이다. PPO 같은 on-policy 알고리즘이 locomotion에서 널리 쓰이며, motion tracking과 human motion prior를 결합하면 더 복잡한 행동을 학습할 수 있다. 하지만 탐색 비효율, task reward와 imitation reward의 충돌, sim2real gap이 주요 문제이다.
@@ -92,6 +93,7 @@ humanoid policy는 simulation에서 잘 되어도 real robot에서 실패하기 
 - [Sim2Real Transfer](15-sim2real-transfer.md)
 - [생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
 
+{% endraw %}
 
 ---
 

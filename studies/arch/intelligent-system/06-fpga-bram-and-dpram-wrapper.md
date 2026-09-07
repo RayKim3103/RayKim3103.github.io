@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/06%20FPGA%20BRAM%20and%20DPRAM%20Wrapper.md)
 
+{% raw %}
 ﻿---
 title: "06. FPGA BRAM and DPRAM Wrapper"
 pages: 24
@@ -174,6 +175,7 @@ Port A: write accumulated values back
 - controller는 BRAM latency에 맞춰 state를 설계해야 한다.
 - `done` 이후 testbench가 memory를 읽을 수 있도록 control ownership을 고려한다.
 
+{% endraw %}
 
 ---
 

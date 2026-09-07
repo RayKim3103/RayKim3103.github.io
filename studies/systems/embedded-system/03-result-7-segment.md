@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/03%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%207-Segment%20%EC%8B%9C%EA%B3%84%EC%99%80%20%EC%A0%84%EA%B4%91%ED%8C%90%20%EA%B5%AC%ED%98%84.md)
 
+{% raw %}
 이전: [03주차 예비 - LED와 7-Segment 디지털 시계](03-prep-led-7-segment.md)  
 다음: [04주차 예비 - Text-LCD 컨트롤러와 타이밍](04-prep-text-lcd.md)
 
@@ -88,6 +89,7 @@ sitemap: false
 
 3주차 결과의 핵심은 **시간 생성 로직** 과 **표시 로직** 을 분리한 점이다. `clock.v`는 값을 만들고, `seven_seg.v`는 그 값을 사람이 볼 수 있게 빠르게 순환 표시한다. Quiz는 결국 `segdata`를 어떤 규칙으로 갱신할지 바꾸는 응용이다.
 
+{% endraw %}
 
 ---
 

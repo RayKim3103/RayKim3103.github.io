@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/07%20Lab09%20Quantization%20Interval%20Learning.md)
 
+{% raw %}
 ## 한눈에 보기
 CNN의 weight와 activation을 낮은 bit-width로 양자화하여 메모리와 연산 비용을 줄이는 실습이다. 특히 Quantization Interval Learning(QIL)은 clipping/interval parameter를 학습 가능하게 두어 정보 손실을 줄인다.
 
@@ -52,6 +53,7 @@ CNN의 weight와 activation을 낮은 bit-width로 양자화하여 메모리와 
 - [Lab03 VGGNet과 ResNet 구현](01-lab03-vggnet-resnet.md)
 - [Lab10 Neural Style Transfer](08-lab10-neural-style-transfer.md)
 
+{% endraw %}
 
 ---
 

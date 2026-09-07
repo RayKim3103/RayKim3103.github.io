@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/09%20Differential%20Amplifiers%202%20-%20CMRR%EC%99%80%20Active%20Load.md)
 
+{% raw %}
 ## 핵심 요약
 
 차동 증폭기는 symmetry에 의존한다. symmetry를 깨는 모든 요소, 예를 들어 resistor mismatch, current source finite resistance, active load mirror action은 성능에 영향을 준다. 이 강의는 single-ended output에서 common-mode gain이 생기는 이유, CMRR, component mismatch, active-loaded differential amplifier의 gain을 다룬다.
@@ -117,6 +118,7 @@ Av ≈ -Gm Rout
 - [Bias Circuits and Current Mirrors - 바이어스와 전류미러](07-bias-circuits-and-current-mirrors.md)
 
 
+{% endraw %}
 
 ---
 

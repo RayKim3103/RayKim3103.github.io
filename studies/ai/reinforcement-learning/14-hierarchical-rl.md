@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/14%20Hierarchical%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 Hierarchical RL은 긴 horizon task를 낮은 수준의 primitive action만으로 풀지 않고, 더 높은 수준의 skill 또는 option을 조합해 해결하려는 접근이다. 사람은 파스타를 만들 때 “채소 씻기”, “면 삶기”, “볶기” 같은 추상 행동으로 계획한다. HRL은 AI agent도 이런 abstraction을 사용하게 만드는 것이 목표이다.
@@ -94,6 +95,7 @@ initial state -> skill 1 -> intermediate state -> skill 2 -> goal
 - [Humanoid RL](16-humanoid-rl.md)
 - [강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
 
+{% endraw %}
 
 ---
 

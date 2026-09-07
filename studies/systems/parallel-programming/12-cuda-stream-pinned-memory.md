@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/12%20CUDA%20Stream%20-%20Pinned%20Memory%EC%99%80%20%EB%B9%84%EB%8F%99%EA%B8%B0%20%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.md)
 
+{% raw %}
 이전: [Triton Introduction - Triton DSL과 Kernel Fusion](11-triton-introduction-dsl-kernel-fusion.md)  
 다음: [CUDA Stream Updated - 업데이트본 요약](12-cuda-stream-updated.md)
 
@@ -80,6 +81,7 @@ NVIDIA Visual Profiler에서는 timeline을 통해 stream별 H2D, kernel, D2H가
 
 CUDA stream 최적화는 kernel 내부 최적화가 아니라 application-level scheduling 최적화다. Copy가 kernel보다 훨씬 긴 workload에서는 pinned memory와 async stream pipeline이 전체 성능을 크게 좌우한다.
 
+{% endraw %}
 
 ---
 

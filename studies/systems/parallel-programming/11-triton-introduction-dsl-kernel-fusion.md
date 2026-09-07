@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/11%20Triton%20Introduction%20-%20Triton%20DSL%EA%B3%BC%20Kernel%20Fusion.md)
 
+{% raw %}
 이전: [Prefix Sum NVIDIA Supplement - Work-Efficient Scan](10-prefix-sum-nvidia-supplement-work-efficient-scan.md)  
 다음: [CUDA Stream - Pinned Memory와 비동기 파이프라인](12-cuda-stream-pinned-memory.md)
 
@@ -72,6 +73,7 @@ Triton은 PyTorch와 함께 custom operator처럼 사용될 수 있다. Liger Ke
 
 Triton의 강점은 CUDA보다 생산성이 높고 PyTorch보다 kernel-level 제어가 가능하다는 점이다. 특히 memory-bound operator에서 fusion으로 global memory traffic을 줄일 때 효과적이다. 다만 CUDA처럼 thread, shared memory를 세밀하게 직접 제어하는 모델은 아니므로 최적화 관점의 추상화 차이를 이해해야 한다.
 
+{% endraw %}
 
 ---
 

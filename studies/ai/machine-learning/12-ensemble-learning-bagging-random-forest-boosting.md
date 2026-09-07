@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/12%20Ensemble%20Learning%20-%20Bagging%20Random%20Forest%20Boosting.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #ensemble #bagging #random-forest #boosting #adaboost
 
 관련 노트: [Decision Tree](11-decision-tree.md), [Evaluating Classifiers: Precision과 Recall](13-evaluating-classifiers-precision-recall.md)
@@ -111,6 +112,7 @@ Boosting도 무한정 반복하면 overfitting이 생길 수 있으므로 최대
 - Bagging과 boosting의 차이를 비교할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

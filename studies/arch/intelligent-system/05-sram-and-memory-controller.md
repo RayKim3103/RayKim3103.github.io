@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/05%20SRAM%20and%20Memory%20Controller.md)
 
+{% raw %}
 > 이전: [Assignment 1 Vending Machine and Board Practice](04-assignment-1-vending-machine-and-board-practice.md)
 > 다음: [FPGA BRAM and DPRAM Wrapper](06-fpga-bram-and-dpram-wrapper.md)
 
@@ -196,6 +197,7 @@ read latency를 모르면 controller FSM이 한 cycle 빠르거나 늦어지는 
 - 16-bit에서 32-bit로 data packing할 때 MSB/LSB 위치를 헷갈리지 않는다.
 - simulation용 memory model과 실제 FPGA BRAM 구현은 다르다.
 
+{% endraw %}
 
 ---
 

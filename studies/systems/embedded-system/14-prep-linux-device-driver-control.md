@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/14%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20Linux%20Device%20Driver%EC%99%80%20Device%20Control.md)
 
+{% raw %}
 이전: [13주차 결과 - U-Boot Kernel Device Tree와 Driver 개념](13-result-u-boot-kernel-device-tree-driver.md)  
 다음: [14주차 결과 - Sevenseg Driver 8-Byte Read Write](14-result-sevenseg-driver-8-byte-read-write.md)
 
@@ -87,6 +88,7 @@ Zynq PS는 Linux kernel과 user application을 실행하는 CPU다. PL에는 sev
 
 14주차 예비의 핵심은 Linux 위에서 hardware를 제어할 때도 결국 핵심은 address mapping과 system call 흐름이라는 점이다. Application은 `/dev` 파일만 알고, driver가 kernel 내부에서 hardware 접근의 세부사항을 책임진다.
 
+{% endraw %}
 
 ---
 

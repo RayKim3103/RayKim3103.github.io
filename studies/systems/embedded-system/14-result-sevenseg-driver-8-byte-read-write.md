@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/14%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20Sevenseg%20Driver%208-Byte%20Read%20Write.md)
 
+{% raw %}
 이전: [14주차 예비 - Linux Device Driver와 Device Control](14-prep-linux-device-driver-control.md)  
 다음: 없음
 
@@ -129,6 +130,7 @@ LED는 `0x87654321`의 하위 byte부터 순서대로 출력되므로, `21 -> 43
 
 14주차 결과의 핵심은 Linux application에서 시작된 8Byte write가 driver, kernel buffer, virtual address, AXI interconnect를 거쳐 PL hardware 출력으로 이어지는 전 과정을 확인한 것이다. 이 실습은 embedded Linux에서 custom IP를 device driver로 제어하는 전체 패턴을 완성한다.
 
+{% endraw %}
 
 ---
 

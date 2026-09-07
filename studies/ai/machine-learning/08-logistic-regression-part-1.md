@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/08%20Logistic%20Regression%20Part%201%20-%20%EC%84%A0%ED%98%95%EB%B6%84%EB%A5%98%EC%99%80%20%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1%ED%9A%8C%EA%B7%80.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #classification #logistic-regression #cross-entropy #softmax
 
 관련 노트: [정규화회귀의 기하학과 Cross Validation](07-regularized-regression-geometry-cross-validation.md), [분류 Overfitting과 L2 정규화](09-logistic-regression-part-2-overfitting-l2.md)
@@ -143,6 +144,7 @@ error = # mistakes / # total
 - Binary와 multiclass logistic regression의 차이를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

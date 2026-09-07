@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/23%20Lab12%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20Pix2Pix%EC%99%80%20CycleGAN.md)
 
+{% raw %}
 ## 한눈에 보기
 paired image-to-image translation인 Pix2Pix와 unpaired translation인 CycleGAN을 비교한 사전보고서이다.
 
@@ -49,6 +50,7 @@ Lab12에서는 MNIST와 SVHN을 unpaired domain으로 두고 두 generator, 두 
 - [Lab11 사전보고서 GAN과 DCGAN](22-prep-lab11-gan-dcgan.md)
 - [Lab10 사전보고서 Style Transfer](21-prep-lab10-style-transfer.md)
 
+{% endraw %}
 
 ---
 

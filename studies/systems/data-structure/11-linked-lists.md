@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/11%20%EC%97%B0%EA%B2%B0%20%EB%A6%AC%EC%8A%A4%ED%8A%B8.md)
 
+{% raw %}
 ## 등장 배경
 
 벡터는 내부 배열을 사용하기 때문에 크기 증가 시 재할당이 발생하고, 중간 삽입/삭제 시 원소 이동 비용이 든다. 이 overhead의 핵심 원인은 데이터 자체를 복사하거나 이동해야 한다는 점이다.
@@ -191,6 +192,7 @@ void pop_back() {
 - [큐](13-queue.md)
 
 
+{% endraw %}
 
 ---
 

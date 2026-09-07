@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/11%20HDMI%20TMDS%20LCD%20Display%20-%20HDMI%20TMDS%20LCD%20%EC%B6%9C%EB%A0%A5.md)
 
+{% raw %}
 tags: #basic-digital-experiment #hdmi #tmds #lcd #display-timing #verilog
 
 관련 노트: [Audio IP, Digital Filters, Stream Delay](10-audio-ip-digital-filters-stream-delay.md), [Sprite, BRAM, FPGA Graphics](12-sprite-bram-graphics.md)
@@ -180,6 +181,7 @@ image generator
 - serializer와 differential output이 HDMI 전송에서 필요한 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

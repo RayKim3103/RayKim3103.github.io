@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/03%20PYNQ%20GPIO%20DEMUX%20Decoder%20-%20GPIO%20DEMUX%20Decoder.md)
 
+{% raw %}
 tags: #basic-digital-experiment #pynq #gpio #demux #mux #decoder #rgb-led
 
 관련 노트: [가산기, 2의 보수, Verilog 디버깅](02-adders-two-complement-debugging.md), [순차논리, Shift Register, Counter](04-sequential-logic-shift-register-counter.md)
@@ -157,6 +158,7 @@ DEMUX, MUX, decoder, RGB decoder 모두 waveform과 FPGA 보드 결과가 이론
 - RGB LED의 bit mapping이 실제 색상과 어떻게 연결되는지 해석할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

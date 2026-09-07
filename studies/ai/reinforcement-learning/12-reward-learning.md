@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/12%20Reward%20Learning.md)
 
+{% raw %}
 ## 핵심 요약
 
 Reward learning은 사람이 직접 설계하기 어려운 reward function을 data, demonstration, preference, human feedback으로부터 학습하는 방법이다. 시뮬레이션에서는 reward를 코드로 만들 수 있지만, 현실 task에서는 무엇을 reward로 줄지 명확하지 않거나 reward shaping이 부작용을 낳을 수 있다. RLHF와 preference learning은 이 문제를 해결하는 대표 접근이다.
@@ -96,6 +97,7 @@ Direct Preference Optimization은 reward model을 명시적으로 따로 학습�
 - [Skill Discovery](13-skill-discovery.md)
 - [강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
 
+{% endraw %}
 
 ---
 

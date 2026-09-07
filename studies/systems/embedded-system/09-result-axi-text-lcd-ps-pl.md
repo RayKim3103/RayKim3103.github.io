@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/09%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20AXI%20Text-LCD%20PS%20PL%20%EC%97%B0%EB%8F%99.md)
 
+{% raw %}
 이전: [07주차 예비 - PS 기반 LED 7-Segment AXI 제어](07-prep-ps-led-7-segment-axi.md)  
 다음: [10주차 결과 - AHB TFT-LCD 이미지 출력](10-result-ahb-tft-lcd.md)
 
@@ -111,6 +112,7 @@ offset은 `i*4`로 증가하여 `REG_A~REG_D`에 접근하고, `i*4+16`은 `REG_
 
 9주차 결과의 핵심은 PS가 문자열을 생성하고, AXI register에 32비트 단위로 write하면, PL의 Text-LCD controller가 이를 timing에 맞춰 LCD에 표시한다는 점이다. 즉, Text-LCD 출력 데이터의 출처가 PL 내부 고정값에서 PS software로 이동했다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/15%20%EA%B8%B0%EB%B3%B8%20%EC%A0%95%EB%A0%AC.md)
 
+{% raw %}
 ## 정렬 문제
 
 정렬 알고리즘은 리스트의 원소를 특정 순서로 재배열한다. 중복 원소 찾기, 검색 전처리, 데이터 표시 등에 기본적으로 사용된다.
@@ -127,6 +128,7 @@ Shell sort의 시간 복잡도는 gap sequence에 의존한다.
 - [효율적인 정렬](16-efficient-sorting.md)
 
 
+{% endraw %}
 
 ---
 

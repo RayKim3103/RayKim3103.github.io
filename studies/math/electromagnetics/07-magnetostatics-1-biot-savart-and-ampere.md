@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/07%20%EC%A0%95%EC%9E%90%EA%B3%84%20I%20-%20%EB%B9%84%EC%98%A4-%EC%82%AC%EB%B0%94%EB%A5%B4%EC%99%80%20%EC%95%99%ED%8E%98%EB%A5%B4%20%EB%B2%95%EC%B9%99.md)
 
+{% raw %}
 ## 핵심 요약
 
 정자계는 시간에 따라 변하지 않는 전류가 만드는 자기장을 다룬다. 전하가 정지해 있을 때 전기장이 생기듯, 전하가 정상적으로 움직이면 자기장이 생긴다. 핵심 법칙은 로렌츠 힘, 비오-사바르 법칙, 앙페르 회로 법칙, 자기 벡터 포텐셜이다.
@@ -158,6 +159,7 @@ T = m × B
 - [정자계 II - 자성체와 경계조건](08-magnetostatics-2-materials-and-boundary-conditions.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

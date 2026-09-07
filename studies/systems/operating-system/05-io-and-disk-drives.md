@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/05%20IO%EC%99%80%20%EB%94%94%EC%8A%A4%ED%81%AC%20%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C.md)
 
+{% raw %}
 tags: #operating-system #io #disk #dma #interrupt #raid
 
 관련 노트: [운영체제 개요](01-os-overview.md), [파일 시스템](06-file-systems.md)
@@ -141,6 +142,7 @@ Parity block을 여러 disk에 분산한다. RAID 4의 parity disk bottleneck을
 - SSTF와 SPTF의 차이를 말할 수 있는가?
 - RAID 0, 1, 4, 5의 성능과 신뢰성 trade-off를 비교할 수 있는가?
 
+{% endraw %}
 
 ---
 

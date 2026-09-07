@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/03%20Bandpass%20Transmission%20-%20%EB%94%94%EC%A7%80%ED%84%B8%20%EB%B3%80%EC%A1%B0%EC%99%80%20%EA%B2%80%ED%8C%8C.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 디지털 정보를 passband carrier의 amplitude, phase, frequency 변화로 표현하는 방법과, 수신 신호를 vector space에서 검출하는 방법을 다룬다. PSK, FSK, ASK, APK/QAM의 기본 신호 모델을 비교하고, matched filter/correlator, coherent detection, noncoherent detection의 차이를 설명한다.
@@ -254,6 +255,7 @@ Delta f_min = 1 / T
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 - [QPSK vs 16QAM - 대역폭과 BER 비교](08-qpsk-vs-16qam-ber.md)
 
+{% endraw %}
 
 ---
 

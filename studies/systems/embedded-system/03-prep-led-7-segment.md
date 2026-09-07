@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/03%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20LED%EC%99%80%207-Segment%20%EB%94%94%EC%A7%80%ED%84%B8%20%EC%8B%9C%EA%B3%84.md)
 
+{% raw %}
 이전: [02주차 결과 - Vivado PS PL LED 실습](02-result-vivado-ps-pl-led.md)  
 다음: [03주차 결과 - 7-Segment 시계와 전광판 구현](03-result-7-segment.md)
 
@@ -77,6 +78,7 @@ RPS-Z7020-TK 보드는 Anode형 7-segment를 사용한다. 따라서 cathode형 
 
 3주차 예비의 핵심은 시계 회로를 단순한 소프트웨어 카운터가 아니라, clock divider, 자리별 counter, binary-to-segment decoder, digit multiplexing으로 나누어 보는 것이다. 이 구조를 이해하면 초기 시각 변경이나 전광판 구현도 `segdata`를 어떻게 업데이트하느냐의 문제로 정리된다.
 
+{% endraw %}
 
 ---
 

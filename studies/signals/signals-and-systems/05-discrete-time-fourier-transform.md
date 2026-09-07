@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/05%20%EC%9D%B4%EC%82%B0%EC%8B%9C%EA%B0%84%20%ED%91%B8%EB%A6%AC%EC%97%90%20%EB%B3%80%ED%99%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 DTFT는 비주기 이산시간 신호를 연속 주파수 변수 `Ω`의 함수로 표현한다. CTFT와 비슷하지만 DTFT 스펙트럼은 `2π` 주기를 가진다. 이 장은 DTFT의 정의, DTFS와의 관계, 주기 신호의 DTFT, 성질, DT LTI 시스템의 주파수 응답, 차분방정식 해석을 정리한다.
@@ -170,6 +171,7 @@ H(ejΩ) = (Σ[k=0,M] bk e-jΩk) / (Σ[k=0,N] ak e-jΩk)
 - [샘플링](07-sampling.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/08%20%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EA%B8%B0%EA%B3%84%20%ED%99%9C%EC%9A%A9.md)
 
+{% raw %}
 tags: #digital-logic #fsm #state-minimization #state-assignment #partitioning
 
 관련 노트: [유한상태기계](07-finite-state-machines.md), [순차논리 설계](06-sequential-logic-design.md), [조합논리 구현 기술](04-combinational-logic-implementation.md)
@@ -190,6 +191,7 @@ FSM 최적화는 하나의 숫자만 줄이는 문제가 아니다.
 - State assignment가 K-map grouping과 next-state equation에 미치는 영향을 설명할 수 있는가?
 - Programmable logic 제약 때문에 partitioning이 필요한 상황을 예로 들 수 있는가?
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/04%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20Text-LCD%20%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%99%80%20%ED%83%80%EC%9D%B4%EB%B0%8D.md)
 
+{% raw %}
 이전: [03주차 결과 - 7-Segment 시계와 전광판 구현](03-result-7-segment.md)  
 다음: [04주차 결과 - Text-LCD 문자열 출력과 버튼 회전](04-result-text-lcd.md)
 
@@ -76,6 +77,7 @@ Zynq 보드는 Boot/JTAG mode switch로 부팅 방식을 선택한다. 이번 �
 
 4주차 예비의 핵심은 Text-LCD가 내부 controller를 가진 장치이므로, 문자 데이터뿐 아니라 **명령 순서와 timing** 이 설계의 중심이라는 점이다. 다음 결과 실습에서는 이 개념이 `lcd_mode`, `count_lcd`, `set_data`로 구현된다.
 
+{% endraw %}
 
 ---
 

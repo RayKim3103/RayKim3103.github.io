@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/12%20CUDA%20Stream%20Updated%20-%20%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%EB%B3%B8%20%EC%9A%94%EC%95%BD.md)
 
+{% raw %}
 이전: [CUDA Stream - Pinned Memory와 비동기 파이프라인](12-cuda-stream-pinned-memory.md)  
 다음: [CUDA Debug and Profiling - cuda-gdb와 nvprof](13-cuda-debug-and-profiling-gdb-nvprof.md)
 
@@ -57,6 +58,7 @@ cudaMemcpyAsync(h_out, d_out, size, cudaMemcpyDeviceToHost, stream);
 
 업데이트본의 핵심은 stream 최적화를 코드에 넣었다고 끝나는 것이 아니라, profiler timeline에서 copy/compute overlap이 실제 발생하는지 검증해야 한다는 점이다.
 
+{% endraw %}
 
 ---
 

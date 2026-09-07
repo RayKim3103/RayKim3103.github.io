@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/03%20Crystalline%20Amorphous%20and%20Fabrication%20-%20%EA%B2%B0%EC%A0%95%EC%A7%88%20%EB%B9%84%EC%A0%95%EC%A7%88%20%EA%B3%B5%EC%A0%95.md)
 
+{% raw %}
 tags: #ElectronicMaterials #Amorphous #Czochralski #PVD #CVD #Interconnect
 
 이전: [Crystal Structure and Defects - 결정구조와 결함](02-crystal-structure-and-defects.md)  
@@ -148,6 +149,7 @@ tags: #ElectronicMaterials #Amorphous #Czochralski #PVD #CVD #Interconnect
 - electromigration이 금속 interconnect 실패를 일으키는 과정.
 
 
+{% endraw %}
 
 ---
 

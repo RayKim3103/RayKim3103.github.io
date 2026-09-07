@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/01%20%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 핵심 요약
 
 강화학습은 agent가 environment와 상호작용하면서 누적 reward를 최대화하는 행동 정책을 배우는 문제이다. 지도학습처럼 정답 label을 직접 받는 것이 아니라, 행동의 결과로 돌아오는 reward와 다음 state를 통해 무엇이 좋은 행동인지 간접적으로 배운다. 이 과목은 imitation learning, model-free RL, model-based RL, offline RL, reward learning, skill discovery, hierarchical RL, sim2real, humanoid control, generative model 기반 RL을 폭넓게 다룬다.
@@ -100,6 +101,7 @@ flowchart TD
 - [Q-learning](05-q-learning.md)
 - [강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
 
+{% endraw %}
 
 ---
 

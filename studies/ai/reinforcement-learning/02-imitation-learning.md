@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/02%20%EB%AA%A8%EB%B0%A9%ED%95%99%EC%8A%B5.md)
 
+{% raw %}
 ## 핵심 요약
 
 모방학습은 expert demonstration을 이용해 policy를 학습하는 방법이다. 강화학습처럼 reward를 직접 설계하고 탐색하는 대신, expert가 어떤 state에서 어떤 action을 선택했는지 보고 supervised learning 형태로 policy를 훈련한다. 그러나 단순 behavioral cloning은 distribution shift 때문에 rollout 중 작은 실수가 누적될 수 있다.
@@ -97,6 +98,7 @@ DAgger는 learned policy가 실제로 방문하는 state에서 expert label을 �
 - [Reward Learning](12-reward-learning.md)
 - [Hierarchical RL](14-hierarchical-rl.md)
 
+{% endraw %}
 
 ---
 

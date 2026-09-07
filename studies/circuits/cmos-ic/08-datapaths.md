@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/08%20Datapaths%20-%20%EA%B0%80%EC%82%B0%EA%B8%B0%20%EC%8B%9C%ED%94%84%ED%84%B0%20%EA%B3%B1%EC%85%88%EA%B8%B0.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #datapath #adder #carry-lookahead #shifter #multiplier #carry-save
 
 관련 노트: [고급 CMOS Gates](07-gates-cmos.md), [Sequential Circuit Design과 Timing](09-sequential-circuit-design-timing.md)
@@ -188,6 +189,7 @@ Array multiplier는 규칙적인 구조가 장점이지만 partial product 수�
 - Multiplier가 partial product와 adder tree로 구성되는 원리를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

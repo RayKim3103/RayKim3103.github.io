@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/25%20IO%20Resistance%20Improvement%20with%20Feedback%202%20-%20%EC%A6%9D%ED%8F%AD%EA%B8%B0%EB%B3%84%20%EC%A0%80%ED%95%AD%20%EA%B0%9C%EC%84%A0.md)
 
+{% raw %}
 ## 핵심 요약
 
 feedback이 input/output resistance에 주는 효과는 amplifier type과 sampling/mixing 방식에 따라 달라진다. 전압 증폭기, 전류 증폭기, transconductance amplifier, transimpedance amplifier는 각각 이상적인 input/output resistance가 다르므로, negative feedback은 그 이상 조건에 가까워지도록 저항을 증가 또는 감소시킨다.
@@ -127,6 +128,7 @@ Zt,closed ≈ -RF   (large loop gain)
 - [Project Design Guide - TIA CTLE 설계 가이드](23-project-design-guide-tia-ctle.md)
 
 
+{% endraw %}
 
 ---
 

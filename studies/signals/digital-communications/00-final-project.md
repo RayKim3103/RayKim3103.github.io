@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/00%20Final%20Project%20-%20%EB%94%94%EC%A7%80%ED%84%B8%20%ED%86%B5%EC%8B%A0%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 프로젝트는 디지털 통신 시스템 전체 사슬을 MATLAB으로 구현하고 분석하는 과제이다. 주요 구성은 `bit sequence -> modulation -> channel -> receiver -> BER/복원 성능 분석`이며, QPSK 시스템의 BER 비교와 16-QAM 기반 음성 데이터 수신기/송신기 설계가 중심이다.
@@ -191,6 +192,7 @@ h[n] = alpha_0 delta[n] + alpha_1 delta[n-1]
 - [Channel Coding - 오류 제어 부호](06-channel-coding.md)
 - [Channel Model - Multipath Fading과 Equalization](09-channel-model-multipath-fading-equalization.md)
 
+{% endraw %}
 
 ---
 

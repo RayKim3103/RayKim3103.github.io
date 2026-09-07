@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/01%20Vivado%20Verilog%20Basics%20and%20Logic%20Gates%20-%20Vivado%20Verilog%20%EA%B8%B0%EB%B3%B8%EA%B3%BC%20%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8.md)
 
+{% raw %}
 tags: #basic-digital-experiment #verilog #vivado #logic-gate #testbench
 
 관련 노트: [가산기, 2의 보수, Verilog 디버깅](02-adders-two-complement-debugging.md)
@@ -112,6 +113,7 @@ and_gate u0(
 - top module, module instantiation, constraint 파일이 각각 어떤 역할을 하는지 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

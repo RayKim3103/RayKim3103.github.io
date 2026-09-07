@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/22%20%EA%B7%B8%EB%9E%98%ED%94%84.md)
 
+{% raw %}
 ## 문제 상황
 
 쾨니히스베르크의 일곱 다리 문제는 “모든 다리를 정확히 한 번씩 건널 수 있는가?”라는 질문에서 출발한다. 땅을 vertex, 다리를 edge로 표현하면 현실 문제를 그래프로 모델링할 수 있다.
@@ -213,6 +214,7 @@ BFS의 level은 시작 vertex에서 edge 몇 개로 도달하는지를 나타낸
 - [최단 경로](24-shortest-paths.md)
 
 
+{% endraw %}
 
 ---
 

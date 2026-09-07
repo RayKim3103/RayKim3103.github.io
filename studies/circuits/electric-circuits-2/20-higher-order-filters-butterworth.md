@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/20%20Higher-Order%20Filters%20-%20Butterworth%20%EA%B3%A0%EC%B0%A8%20%ED%95%84%ED%84%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 고차 필터는 1차/2차 필터보다 더 가파른 cutoff와 다양한 응답 특성을 제공한다. 이 강의는 Butterworth low-pass filter를 중심으로, ripple 없는 maximally flat passband와 pole 위치를 구하는 방법을 설명한다. 고차 Butterworth 필터는 1차 섹션과 2차 섹션의 cascade로 구현한다.
@@ -116,6 +117,7 @@ N차 Butterworth 필터는 다음 섹션들의 곱으로 구현한다.
 - [Filters with Integrators - KHN Tow-Thomas Biquad](19-filters-with-integrators-khn-tow-thomas-biquad.md)
 
 
+{% endraw %}
 
 ---
 

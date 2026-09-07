@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/03%20C%2B%2B%20%ED%83%80%EC%9E%85.md)
 
+{% raw %}
 ## 최소 C++ 프로그램
 
 C++ 프로그램은 `main` 함수에서 시작한다.
@@ -132,6 +133,7 @@ const double pi = 3.14159;
 - [C++ 메모리](05-cpp-memory.md)
 
 
+{% endraw %}
 
 ---
 

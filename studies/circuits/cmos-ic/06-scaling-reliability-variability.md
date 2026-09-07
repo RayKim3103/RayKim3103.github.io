@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/06%20Scaling%20Reliability%20Variability%20-%20%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81%20%EC%8B%A0%EB%A2%B0%EC%84%B1%20%EB%B3%80%EB%8F%99%EC%84%B1.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #scaling #moores-law #reliability #variability #interconnect
 
 관련 노트: [Wire 모델과 Crosstalk](05-wire-crosstalk.md), [MTCMOS와 Power Gating 보강](06-1-mtcmos-and-power-gating.md)
@@ -109,6 +110,7 @@ Transistor 수는 빠르게 증가하지만, 설계자가 검증하고 구현할
 - Reliability와 yield가 variability에 민감한 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

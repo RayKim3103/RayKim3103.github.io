@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/13%20MOS%20Capacitor%20and%20MOSFET%20-%20MOS%20%EC%BB%A4%ED%8C%A8%EC%8B%9C%ED%84%B0%EC%99%80%20MOSFET.md)
 
+{% raw %}
 tags: #ElectronicMaterials #MOSCapacitor #MOSFET #ThresholdVoltage #Scaling
 
 이전: [PN Diode Operation and Special Diodes - PN 다이오드](12-pn-diode-operation-and-special-diodes.md)  
@@ -241,6 +242,7 @@ I_D = (mu C_ox / 2) (W/L) (V_GS - V_TH)^2
 - SCE, HCE, DIBL, gate leakage의 원인과 결과.
 
 
+{% endraw %}
 
 ---
 

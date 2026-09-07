@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/18%20Lab07%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20Focal%20Loss%EC%99%80%20RetinaNet.md)
 
+{% raw %}
 ## 한눈에 보기
 Focal Loss와 RetinaNet 논문을 중심으로 one-stage object detector의 class imbalance 문제를 정리한 사전보고서이다.
 
@@ -48,6 +49,7 @@ Lab07 구현은 PASCAL VOC annotation parsing, FPN feature construction, anchor 
 - [Lab06 사전보고서 FCN](17-prep-lab06-fcn.md)
 - [Lab08 사전보고서 CAM과 Grad-CAM](19-prep-lab08-cam-grad.md)
 
+{% endraw %}
 
 ---
 

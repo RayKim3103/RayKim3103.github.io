@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/02%20LTI%20%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B3%BC%20%EC%BB%A8%EB%B3%BC%EB%A3%A8%EC%85%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 LTI 시스템은 impulse response만 알면 모든 입력에 대한 출력을 계산할 수 있다. DT에서는 convolution sum, CT에서는 convolution integral을 사용한다. 이 장은 impulse decomposition, 컨볼루션, LTI 시스템의 성질, 미분방정식ㆍ차분방정식 모델, 특이 함수까지 다룬다.
@@ -179,6 +180,7 @@ x(t) * u(t) = ∫[-∞,t] x(τ)dτ
 - [연속시간 푸리에 변환](04-continuous-time-fourier-transform.md)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 
+{% endraw %}
 
 ---
 

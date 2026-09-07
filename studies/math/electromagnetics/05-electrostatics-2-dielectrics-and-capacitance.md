@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/05%20%EC%A0%95%EC%A0%84%EA%B3%84%20II%20-%20%EC%9C%A0%EC%A0%84%EC%B2%B4%EC%99%80%20%EC%BB%A4%ED%8C%A8%EC%8B%9C%ED%84%B4%EC%8A%A4.md)
 
+{% raw %}
 ## 핵심 요약
 
 유전체는 자유전하가 거의 움직이지 않지만, 외부 전기장에 의해 내부의 묶인 전하가 미세하게 변위되어 분극을 만든다. 분극은 유전체 내부 전기장을 바꾸므로, 전기장을 직접 `E`만으로 다루기보다 전기 플럭스 밀도 `D`를 도입한다. 이후 경계조건, 커패시턴스, 정전 에너지, 전기력까지 연결된다.
@@ -139,6 +140,7 @@ we = (1/2) E · D
 - [정상 전류와 저항](06-steady-current-and-resistance.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

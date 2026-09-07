@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/18%20%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5%20%EB%A6%AC%EB%B7%B0%EC%99%80%20%EC%97%B4%EB%A6%B0%20%EB%AC%B8%EC%A0%9C.md)
 
+{% raw %}
 ## 핵심 요약
 
 마지막 강의는 강화학습의 전체 흐름을 다시 묶고, 반복해서 등장한 어려움과 열린 문제를 정리한다. 핵심은 RL이 경험과 간접 feedback에서 행동을 배우는 문제이며, action이 미래 observation distribution 자체를 바꾸기 때문에 supervised learning보다 훨씬 불안정하다는 점이다.
@@ -116,6 +117,7 @@ RL은 많은 trial을 필요로 한다. 이를 줄이기 위한 접근은 다음
 - [Sim2Real Transfer](15-sim2real-transfer.md)
 - [생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
 
+{% endraw %}
 
 ---
 

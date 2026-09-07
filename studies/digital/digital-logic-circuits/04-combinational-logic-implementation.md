@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/04%20%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%20%EA%B5%AC%ED%98%84%20%EA%B8%B0%EC%88%A0.md)
 
+{% raw %}
 tags: #digital-logic #rom #pla #pal #multiplexer #decoder #tri-state
 
 관련 노트: [조합논리](02-combinational-logic.md), [조합논리 활용](03-combinational-logic-applications.md), [유한상태기계](07-finite-state-machines.md)
@@ -174,6 +175,7 @@ Open-collector gate는 출력을 낮은 값으로 끌어내릴 수는 있지만,
 - ROM, PLA, PAL 중 어떤 구현이 특정 문제에 적절한지 근거를 들어 선택할 수 있는가?
 - Tri-state의 `Z` 상태와 don't-care `X`를 혼동하지 않고 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

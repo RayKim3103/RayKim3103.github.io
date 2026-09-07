@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/05%20CUDA%20Matrix%20Multiplication%20-%20Shared%20Memory%20Tiling.md)
 
+{% raw %}
 이전: [Intro to CUDA - CUDA 프로그래밍 모델](04-intro-to-cuda.md)  
 다음: [CUDA Transpose and Bank Conflict - Shared Memory 심화](06-cuda-transpose-and-bank-conflict-shared-memory.md)
 
@@ -107,6 +108,7 @@ Global memory access는 warp의 thread들이 연속 주소를 읽을 때 효율�
 
 CUDA matmul 최적화의 핵심은 global memory에서 직접 dot product를 계산하지 않고, shared memory tile을 통해 데이터를 block 내부에서 재사용하는 것이다. 성능은 tile 크기, coalescing, bank conflict, occupancy, synchronization overhead의 균형으로 결정된다.
 
+{% endraw %}
 
 ---
 

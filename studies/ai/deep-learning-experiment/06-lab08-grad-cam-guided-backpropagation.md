@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/06%20Lab08%20Grad-CAM%EA%B3%BC%20Guided%20Backpropagation.md)
 
+{% raw %}
 ## 한눈에 보기
 pretrained AlexNet과 VGG16의 예측 근거를 시각화하는 실습이다. Grad-CAM은 마지막 convolution feature map의 gradient를 사용해 class-discriminative region을 찾고, Guided Backpropagation은 입력 gradient의 fine detail을 제공한다.
 
@@ -52,6 +53,7 @@ pretrained AlexNet과 VGG16의 예측 근거를 시각화하는 실습이다. Gr
 - [Lab07 RetinaNet과 Focal Loss](05-lab07-retinanet-focal-loss.md)
 - [Lab10 Neural Style Transfer](08-lab10-neural-style-transfer.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/07%20%EC%BA%90%EC%8A%A4%EC%BD%94%EB%93%9C%EC%99%80%20%EC%A0%84%EB%A5%98%20%EB%AF%B8%EB%9F%AC.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 고이득 증폭기와 안정적인 바이어싱을 위한 두 핵심 회로인 cascode와 current mirror를 다룬다. Cascode는 출력저항을 키워 이득을 높이고, current mirror는 기준 전류를 복사해 바이어스 전류를 만든다.
@@ -224,6 +225,7 @@ Cascode를 current mirror에 적용하면 출력저항이 증가한다. 따라�
 - [ ] $\lambda$ 효과가 current mirror 정확도에 미치는 영향을 설명할 수 있다.
 - [ ] cascode current mirror의 장단점을 말할 수 있다.
 
+{% endraw %}
 
 ---
 

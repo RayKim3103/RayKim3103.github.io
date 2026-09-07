@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/06%20Cascode%20Amplifier%20-%20%EC%BA%90%EC%8A%A4%EC%BD%94%EB%93%9C%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 Cascode amplifier는 CS stage 뒤에 CG stage를 붙인 구조이다. CS가 transconductance를 만들고, CG가 current buffer처럼 동작하여 output resistance를 크게 키운다. 결과적으로 높은 voltage gain을 얻을 수 있지만, transistor를 stack하기 때문에 headroom 문제가 생긴다.
@@ -100,6 +101,7 @@ Av ≈ -gm1 (Rout,N || Rout,P)
 - [Bias Circuits and Current Mirrors - 바이어스와 전류미러](07-bias-circuits-and-current-mirrors.md)
 
 
+{% endraw %}
 
 ---
 

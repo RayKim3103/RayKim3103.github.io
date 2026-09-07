@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/14%20Frequency%20Response%20of%20Cascode%20SF%20Differential%20-%20%EA%B3%A0%EC%A3%BC%ED%8C%8C%20%EC%9D%91%EB%8B%B5%20%EB%B9%84%EA%B5%90.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 cascode, source follower, differential amplifier의 frequency response를 비교한다. cascode는 Miller effect를 줄여 CS보다 bandwidth가 좋아질 수 있고, source follower는 gain이 1에 가까워 Miller effect가 거의 없어 매우 빠르다. differential amplifier의 differential-mode 응답은 CS와 유사하고, common-mode 응답은 tail source capacitance와 finite resistance 때문에 주파수에 따라 증가할 수 있다.
@@ -125,6 +126,7 @@ common mode에서는 tail current source가 MOSFET으로 만들어지며 finite 
 - [OTA and Op-Amp - OTA와 연산증폭기](15-ota-and-op-amp.md)
 
 
+{% endraw %}
 
 ---
 

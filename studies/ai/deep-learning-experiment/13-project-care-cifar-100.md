@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/13%20Project%20CARE%20%EC%9E%A5%EA%B8%B0%EA%BC%AC%EB%A6%AC%20CIFAR-100%20%EA%B5%AC%ED%98%84.md)
 
+{% raw %}
 ## 한눈에 보기
 CIFAR-100 long-tailed split에서 head class bias를 줄이기 위해 CARE(Class-Aware Rebalancing Experts)를 구현한 프로젝트 노트이다. Stage 1에서 강한 표현을 학습하고, Stage 2에서 목적이 다른 expert classifier들을 결합해 tail 성능을 보완한다.
 
@@ -54,6 +55,7 @@ CIFAR-100 long-tailed split에서 head class bias를 줄이기 위해 CARE(Class
 - [Lab13 Attention 기반 기계번역](12-lab13-attention.md)
 - [Lab09 사전보고서 XNOR-Net과 양자화](20-prep-lab09-xnor-net.md)
 
+{% endraw %}
 
 ---
 

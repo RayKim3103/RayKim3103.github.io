@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/09%20Model-Based%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 Model-based RL은 environment dynamics나 reward model을 학습하거나 알고 있다고 가정하고, 그 model을 이용해 planning 또는 policy improvement를 수행한다. model-free RL이 실제 environment sample에 크게 의존한다면, model-based RL은 imaginary rollout을 통해 sample efficiency를 높이려 한다.
@@ -92,6 +93,7 @@ model error는 horizon이 길어질수록 누적된다. 그래서 긴 full traje
 - [AlphaGo와 MCTS](11-alphago-mcts.md)
 - [Sim2Real Transfer](15-sim2real-transfer.md)
 
+{% endraw %}
 
 ---
 

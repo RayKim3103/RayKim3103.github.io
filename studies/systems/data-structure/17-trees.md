@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/17%20%ED%8A%B8%EB%A6%AC.md)
 
+{% raw %}
 ## 문제 상황
 
 Unix/Linux 파일 시스템은 디렉터리와 파일이 계층적으로 배치된다. 이런 계층 구조를 표현하는 대표 자료구조가 트리다.
@@ -186,6 +187,7 @@ inOrder(v)
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
 
 
+{% endraw %}
 
 ---
 

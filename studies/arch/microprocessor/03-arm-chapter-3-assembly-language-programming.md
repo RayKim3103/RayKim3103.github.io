@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/03%20ARM%20Chapter%203%20-%20ARM%20Assembly%20Language%20Programming.md)
 
+{% raw %}
 tags: #micro-processor #arm #assembly #ldr #str #branch #stack #conditional-execution
 
 관련 노트: [ARM Chapter 2 - ARM Architecture](02-arm-chapter-2-architecture.md), [Computer Organization Chapter 6 - Storage and I/O Topics](04-computer-organization-chapter-6-storage-and-io-topics.md)
@@ -244,6 +245,7 @@ SUBTAB
 - `STMFD`/`LDMFD`를 stack save/restore와 연결할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

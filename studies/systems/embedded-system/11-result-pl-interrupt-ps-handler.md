@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/11%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20PL%20Interrupt%EC%99%80%20PS%20Handler.md)
 
+{% raw %}
 이전: [11주차 예비 - Push Button Interrupt System](11-prep-push-button-interrupt-system.md)  
 다음: [12주차 결과 - Zynq Ubuntu Root File System 구성](12-result-zynq-ubuntu-root-file-system.md)
 
@@ -116,6 +117,7 @@ button별로 서로 다른 LED 2개가 켜지도록 mapping되어 있다.
 
 11주차 결과의 핵심은 interrupt 처리 전체가 HW와 SW의 협업이라는 점이다. PL은 event를 만들고 status를 제공하며, PS는 GIC와 handler로 event를 해석하고 다시 PL register를 써서 LED 동작을 만든다.
 
+{% endraw %}
 
 ---
 

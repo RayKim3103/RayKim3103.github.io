@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/10%20%EA%B3%A0%EA%B8%89%20Model-Based%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 고급 model-based RL은 학습된 model을 policy optimization, value learning, latent dynamics learning과 결합한다. 핵심은 실제 환경 data와 model-generated imaginary rollout을 섞어 sample efficiency를 높이되, model error가 누적되지 않도록 rollout 길이와 latent 표현을 조절하는 것이다.
@@ -80,6 +81,7 @@ TD-MPC는 latent dynamics, temporal difference learning, model predictive contro
 - [AlphaGo와 MCTS](11-alphago-mcts.md)
 - [생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
 
+{% endraw %}
 
 ---
 

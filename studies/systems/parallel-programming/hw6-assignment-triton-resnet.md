@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW6%20Assignment%20-%20Triton%20ResNet.md)
 
+{% raw %}
 이전: [Reference - Optimizing Parallel Reduction in CUDA](hw5-reference-optimizing-parallel-reduction-in-cuda.md)  
 다음: [Report - Triton ResNet18 구현과 Conv2d 분석](hw6-report-triton-resnet18-conv2d.md)
 
@@ -51,6 +52,7 @@ Custom kernel 작성은 비용이 있지만, operator fusion이나 특정 shape 
 
 HW6는 강의의 CUDA 최적화 지식을 Triton과 DNN 전체 모델 구현으로 확장하는 과제다. 핵심은 ResNet18의 각 layer를 Triton kernel로 구현하면서, high-level DSL의 생산성과 low-level CUDA/library 대비 성능 한계를 함께 분석하는 것이다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/12%20Lab13%20Attention%20%EA%B8%B0%EB%B0%98%20%EA%B8%B0%EA%B3%84%EB%B2%88%EC%97%AD.md)
 
+{% raw %}
 ## 한눈에 보기
 French-English 짧은 문장 번역 문제에서 GRU 기반 encoder-decoder와 attention decoder를 구현하는 실습이다. 고정 길이 context vector의 한계를 attention으로 보완하고, attention map으로 단어 정렬을 해석한다.
 
@@ -52,6 +53,7 @@ French-English 짧은 문장 번역 문제에서 GRU 기반 encoder-decoder와 a
 - [Lab12 CycleGAN](11-lab12-cyclegan.md)
 - [Project CARE 장기꼬리 CIFAR-100 구현](13-project-care-cifar-100.md)
 
+{% endraw %}
 
 ---
 

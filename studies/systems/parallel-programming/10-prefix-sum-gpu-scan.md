@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/10%20Prefix%20Sum%20-%20GPU%20Scan%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.md)
 
+{% raw %}
 이전: [CUDA Others - TensorCore와 CUDA Libraries](09-cuda-others-tensorcore-libraries.md)  
 다음: [Prefix Sum NVIDIA Supplement - Work-Efficient Scan](10-prefix-sum-nvidia-supplement-work-efficient-scan.md)
 
@@ -94,6 +95,7 @@ Brent-Kung은 balanced binary tree pattern을 사용한다.
 
 Prefix sum은 reduce보다 더 많은 정보를 유지하는 누적 연산이다. GPU에서는 Kogge-Stone과 Brent-Kung의 depth/work tradeoff, shared memory bank conflict, 큰 배열 decomposition이 핵심이다.
 
+{% endraw %}
 
 ---
 

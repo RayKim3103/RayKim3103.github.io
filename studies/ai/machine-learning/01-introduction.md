@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/01%20Introduction%20-%20%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #overview #regression #classification #clustering
 
 관련 노트: [점추정과 Maximum Likelihood Estimation](02-point-estimation-mle.md)
@@ -112,6 +113,7 @@ Embedding은 복잡한 데이터를 similarity가 보존되는 vector space로 �
 - ImageNet과 AlexNet이 deep learning 확산에 중요한 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

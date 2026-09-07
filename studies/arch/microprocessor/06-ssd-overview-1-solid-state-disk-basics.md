@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/06%20SSD%20Overview%201%20-%20Solid%20State%20Disk%20Basics.md)
 
+{% raw %}
 tags: #micro-processor #ssd #flash-memory #storage #hdd #sata #pcie
 
 관련 노트: [Computer Organization Chapter 7 - Multiprocessors](05-computer-organization-chapter-7-multiprocessors.md), [SSD Overview 2 - SSD Architecture](07-ssd-overview-2-architecture.md)
@@ -96,6 +97,7 @@ SSD와 HDD는 성능, 가격, 용량, 신뢰성에서 서로 다른 장단점을
 - Random write 성능이 FTL과 garbage collection에 좌우되는 이유를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

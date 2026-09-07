@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/18%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89%20%ED%8A%B8%EB%A6%AC.md)
 
+{% raw %}
 ## 문제 상황
 
 트리에서 데이터를 빠르게 찾으려면 저장 순서가 필요하다. 이진 탐색 트리는 왼쪽에는 작은 key, 오른쪽에는 큰 key를 둔다.
@@ -149,6 +150,7 @@ AVL search는 일반 BST search와 같다. 차이는 트리가 균형을 유지�
 - [해싱](21-hashing.md)
 
 
+{% endraw %}
 
 ---
 

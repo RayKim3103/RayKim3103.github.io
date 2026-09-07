@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/04%20Assignment%201%20Vending%20Machine%20and%20Board%20Practice.md)
 
+{% raw %}
 ﻿---
 title: "04. Assignment 1 Vending Machine and Board Practice"
 pages: 16
@@ -192,6 +193,7 @@ top module -> board I/O 연결
 - board implementation에서는 `.xdc` pin mapping이 코드만큼 중요하다.
 - counter/FSM practice는 vending machine 과제의 작은 구성요소로 이해하면 좋다.
 
+{% endraw %}
 
 ---
 

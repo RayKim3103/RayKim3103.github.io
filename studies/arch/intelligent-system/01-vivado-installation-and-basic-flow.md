@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/01%20Vivado%20Installation%20and%20Basic%20Flow.md)
 
+{% raw %}
 ﻿---
 title: "01. Vivado Installation and Basic Flow"
 pages: 23
@@ -149,6 +150,7 @@ testbench 역할:
 - simulation 후 waveform을 충분히 zoom/fit해서 확인했는가?
 - synthesis/implementation/bitstream 흐름을 구분해서 이해했는가?
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/10%20Amplitude%20Modulation%20-%20AM%20DSB%20SSB%20VSB.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 continuous wave modulation 중 amplitude modulation 계열을 다룬다. DSB-SC, DSB-LC, FDM, SSB, VSB의 생성/복조 방식과 동기 오차, carrier power 효율, envelope detector, heterodyne receiver, bandpass noise, AM 수신 SNR이 핵심이다.
@@ -308,6 +309,7 @@ envelope detector는 nonlinear이다.
 - [Noise and Decision - 잡음과 최적 검출](04-noise-and-decision.md)
 - [Angle Modulation - FM PM과 SNR](11-angle-modulation-fm-pm-snr.md)
 
+{% endraw %}
 
 ---
 

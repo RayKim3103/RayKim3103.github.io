@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/14%20%EC%9E%AC%EA%B7%80.md)
 
+{% raw %}
 ## 문제 상황: 최대공약수
 
 두 정수 `p`, `q`의 최대공약수는 두 수를 모두 나누는 가장 큰 정수다. 분수 약분, 암호 시스템 등에서 중요하다.
@@ -143,6 +144,7 @@ for (int i = 2; i < x; i++)
 - [트리](17-trees.md)
 
 
+{% endraw %}
 
 ---
 

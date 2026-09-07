@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/11%20Digital%20Filter%20Design.md)
 
+{% raw %}
 ﻿---
 title: "11. Digital Filter Design"
 pages: 18
@@ -281,6 +282,7 @@ $$
 - window method는 간단하지만 ripple/transition 제어가 제한적이다.
 - bilinear transform은 안정성을 보존하지만 frequency warping 때문에 prewarping이 필요하다.
 
+{% endraw %}
 
 ---
 

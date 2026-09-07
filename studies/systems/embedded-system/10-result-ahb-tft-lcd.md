@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/10%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20AHB%20TFT-LCD%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%B6%9C%EB%A0%A5.md)
 
+{% raw %}
 이전: [09주차 결과 - AXI Text-LCD PS PL 연동](09-result-axi-text-lcd-ps-pl.md)  
 다음: [11주차 예비 - Push Button Interrupt System](11-prep-push-button-interrupt-system.md)
 
@@ -124,6 +125,7 @@ AHB는 memory mapped 방식이다. Processor는 I/O device와 memory를 별도 �
 
 10주차 결과의 핵심은 PS software가 `Xil_Out32`로 image data를 쓰면, interconnect와 bridge를 지나 PL BRAM에 저장되고, TFT-LCD controller가 그 BRAM을 읽어 화면으로 출력한다는 점이다. 이 구조는 embedded system에서 CPU, bus, memory, custom hardware가 협력하는 전형적인 예시다.
 
+{% endraw %}
 
 ---
 

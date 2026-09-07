@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Linear_Algebra/lecture_notes/05%20%EC%A7%81%EA%B5%90%EC%84%B1.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 벡터공간에 길이와 각도 개념을 부여하는 내적에서 시작해 노름, 거리, 코시-슈바르츠 부등식, 삼각부등식, 직교부분공간, 직교여공간, 최소제곱 문제, 무선 채널 모델링까지 연결한다.
@@ -441,6 +442,7 @@ $$
 - [ ] 최소제곱해 $(A^TA)^{-1}A^Ty$의 의미를 projection으로 설명할 수 있다.
 - [ ] Toeplitz와 circulant 행렬이 통신 시스템에서 왜 중요한지 설명할 수 있다.
 
+{% endraw %}
 
 ---
 

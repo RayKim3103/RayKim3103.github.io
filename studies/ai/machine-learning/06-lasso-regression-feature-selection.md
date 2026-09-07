@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/06%20Lasso%20Regression%20-%20%EB%9D%BC%EC%8F%98%ED%9A%8C%EA%B7%80%EC%99%80%20Feature%20Selection.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #lasso #l1-regularization #feature-selection #coordinate-descent
 
 관련 노트: [Ridge Regression](05-ridge-regression.md), [정규화회귀의 기하학과 Cross Validation](07-regularized-regression-geometry-cross-validation.md)
@@ -110,6 +111,7 @@ Lasso는 통계학, 머신러닝, 전기전자 분야에서 sparse model을 만�
 - Lasso 전에 feature normalization이 필요한 이유를 알아야 한다.
 
 
+{% endraw %}
 
 ---
 

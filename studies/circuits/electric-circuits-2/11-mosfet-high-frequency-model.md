@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/11%20MOSFET%20High-Frequency%20Model%20-%20%EA%B3%A0%EC%A3%BC%ED%8C%8C%20%EB%AA%A8%EB%8D%B8.md)
 
+{% raw %}
 ## 핵심 요약
 
 MOSFET은 gate oxide와 junction 구조 때문에 여러 capacitance를 가진다. 고주파 응답에서는 `Cgs`, `Cgd`, `Cdb`, `Csb` 같은 capacitance가 pole/zero를 만들고, amplifier bandwidth를 제한한다. transistor 자체의 속도는 unit-gain frequency `ft`로 비교한다.
@@ -110,6 +111,7 @@ overlap capacitance와 channel capacitance가 모두 고려된다.
 - [Frequency Response of Cascode SF Differential - 고주파 응답 비교](14-frequency-response-of-cascode-sf-differential.md)
 
 
+{% endraw %}
 
 ---
 

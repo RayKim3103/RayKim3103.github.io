@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Linear_Algebra/lecture_notes/03%20%EB%B2%A1%ED%84%B0%EA%B3%B5%EA%B0%84%EA%B3%BC%20%EB%84%A4%20%EA%B0%80%EC%A7%80%20%EA%B8%B0%EB%B3%B8%20%EB%B6%80%EB%B6%84%EA%B3%B5%EA%B0%84.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 체와 벡터공간에서 시작해 부분공간, span, 선형독립, 기저, 차원, 열공간, 영공간, 네 가지 기본 부분공간, rank-nullity theorem, 의사역행렬까지 이어진다.
@@ -488,6 +489,7 @@ $$
 - [ ] 네 가지 기본 부분공간의 위치와 차원을 외울 수 있다.
 - [ ] 오른쪽 역행렬과 왼쪽 역행렬이 존재하는 랭크 조건을 설명할 수 있다.
 
+{% endraw %}
 
 ---
 

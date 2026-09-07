@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/05%20Computer%20Organization%20Chapter%207%20-%20Multiprocessors.md)
 
+{% raw %}
 tags: #micro-processor #multiprocessor #parallelism #cache-coherence #mesi #synchronization #interconnection-network
 
 관련 노트: [Computer Organization Chapter 6 - Storage and I/O Topics Annotated Copy](04a-computer-organization-chapter-6-storage-and-io-topics-annotated-copy.md), [SSD Overview 1 - Solid State Disk Basics](06-ssd-overview-1-solid-state-disk-basics.md)
@@ -160,6 +161,7 @@ Multiprocessor 성능은 processor 간 연결망에도 크게 의존한다.
 - Test-and-set이 atomic해야 하는 이유를 이해해야 한다.
 
 
+{% endraw %}
 
 ---
 

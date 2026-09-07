@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/07%20%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EA%B8%B0%EA%B3%84.md)
 
+{% raw %}
 tags: #digital-logic #fsm #counter #moore #mealy #state-machine
 
 관련 노트: [순차논리 설계](06-sequential-logic-design.md), [유한상태기계 활용](08-fsm-applications.md), [조합논리 구현 기술](04-combinational-logic-implementation.md)
@@ -175,6 +176,7 @@ Traffic light controller는 highway와 farm road가 만나는 교차로를 제�
 - Moore와 Mealy machine의 출력 timing 차이를 설명할 수 있는가?
 - Vending machine 또는 traffic light controller를 state diagram으로 모델링할 수 있는가?
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW6%20Report%20-%20Triton%20ResNet18%20%EA%B5%AC%ED%98%84%EA%B3%BC%20Conv2d%20%EB%B6%84%EC%84%9D.md)
 
+{% raw %}
 이전: [Assignment - Triton ResNet](hw6-assignment-triton-resnet.md)  
 다음: 없음
 
@@ -124,6 +125,7 @@ Linear는 input이 float16으로 들어오는 점을 고려해 compute dtype과 
 
 HW6 보고서의 핵심은 Triton이 생산성과 kernel fusion 측면에서 강력하지만, Conv2d처럼 vendor library가 극도로 최적화한 연산에서는 직접 구현이 쉽게 이기기 어렵다는 점이다. 성능을 끌어올리려면 im2col memory traffic, coalescing, dtype, TensorCore 활용, kernel fusion을 함께 개선해야 한다.
 
+{% endraw %}
 
 ---
 

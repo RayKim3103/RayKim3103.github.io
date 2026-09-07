@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/02%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20Zynq%20PS%20PL%20%EA%B8%B0%EC%B4%88.md)
 
+{% raw %}
 이전: 없음  
 다음: [02주차 결과 - Vivado PS PL LED 실습](02-result-vivado-ps-pl-led.md)
 
@@ -82,6 +83,7 @@ PL을 사용할 때는 `.xdc` constraint 파일이 필요하다. 이 파일은 R
 
 2주차 예비의 핵심은 Zynq를 **소프트웨어를 실행하는 PS와 하드웨어를 구성하는 PL이 AXI로 연결된 SoC** 로 이해하는 것이다. 이후 실습에서는 PS 단독 Hello World, PL 기반 LED 제어, `.xdc` 핀 매핑, bitstream 생성과 다운로드가 이어진다.
 
+{% endraw %}
 
 ---
 

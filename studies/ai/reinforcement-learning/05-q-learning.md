@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/05%20Q-learning.md)
 
+{% raw %}
 ## 핵심 요약
 
 Q-learning은 policy를 직접 미분하지 않고 state-action value `Q(s,a)`를 학습한 뒤, 가장 큰 Q값을 주는 action을 선택하는 value-based RL 방법이다. 핵심은 Bellman optimality equation을 target으로 삼아 Q함수를 반복적으로 맞추는 것이다. Deep Q-Network는 neural network로 Q함수를 근사하고 replay buffer와 target network로 학습을 안정화한다.
@@ -107,6 +108,7 @@ y = r + γ Qtarget(s',a*)
 - [Off-policy RL](06-off-policy-rl.md)
 - [Offline RL](08-offline-rl.md)
 
+{% endraw %}
 
 ---
 

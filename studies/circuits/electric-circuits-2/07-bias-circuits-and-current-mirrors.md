@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/07%20Bias%20Circuits%20and%20Current%20Mirrors%20-%20%EB%B0%94%EC%9D%B4%EC%96%B4%EC%8A%A4%EC%99%80%20%EC%A0%84%EB%A5%98%EB%AF%B8%EB%9F%AC.md)
 
+{% raw %}
 ## 핵심 요약
 
 MOS amplifier의 small-signal parameter는 bias current와 gate-source voltage에 의해 결정된다. 따라서 원하는 동작점을 만들고 유지하는 bias circuit이 필수이다. IC에서는 resistor보다 current mirror를 이용해 기준전류 `IREF`를 복사하고 scaling하는 방식이 자주 쓰인다.
@@ -114,6 +115,7 @@ IO ≈ IREF + (VO - VGS) / ro
 - [Differential Amplifiers 1 - 차동 증폭기 기본](08-differential-amplifiers-1.md)
 
 
+{% endraw %}
 
 ---
 

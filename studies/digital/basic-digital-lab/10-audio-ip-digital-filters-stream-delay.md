@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/10%20Audio%20IP%20Digital%20Filters%20Stream%20Delay%20-%20%EC%98%A4%EB%94%94%EC%98%A4%20IP%20%EB%94%94%EC%A7%80%ED%84%B8%ED%95%84%ED%84%B0.md)
 
+{% raw %}
 tags: #basic-digital-experiment #audio #ip #axi-stream #digital-filter #i2s #spi
 
 관련 노트: [AMBA, AHB, APB, Memory Transfer](09-amba-ahb-apb-memory-transfer.md), [HDMI, TMDS, LCD Display](11-hdmi-tmds-lcd-display.md)
@@ -168,6 +169,7 @@ out = current sample + previous sample
 - fixed-point scaling과 normalization이 필요한 이유를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

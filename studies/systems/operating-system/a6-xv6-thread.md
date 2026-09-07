@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A6%20xv6%20Thread%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #thread #tfork #mutex #trapframe
 
 관련 노트: [멀티스레딩](04-multithreading.md), [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [메모리 가상화 - 세그먼테이션과 페이징](03-memory-virtualization-segmentation-and-paging.md)
@@ -134,6 +135,7 @@ PDF는 이전 과제에서는 single CPU라 process lock 효과가 거의 보이
 - Thread 하나의 exit에서 shared page table을 해제하는 문제
 - Mutex를 non-atomic load/store만으로 구현하는 문제
 
+{% endraw %}
 
 ---
 

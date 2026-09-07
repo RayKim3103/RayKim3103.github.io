@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/09%20%EC%8B%9C%EA%B0%84%20%EB%B3%80%ED%99%94%EC%9E%A5%EA%B3%BC%20%EB%A7%A5%EC%8A%A4%EC%9B%B0%20%EB%B0%A9%EC%A0%95%EC%8B%9D.md)
 
+{% raw %}
 ## 핵심 요약
 
 시간 변화 전자기장은 정전계와 정자계를 하나의 동역학으로 연결한다. 시간에 따라 변하는 자기장은 비보존 전기장을 만들고, 시간에 따라 변하는 전기 플럭스는 변위 전류로 작용해 자기장을 만든다. 이 두 항을 포함하면 맥스웰 방정식이 완성되고, 전자기파와 빛의 전자기적 성질이 자연스럽게 나온다.
@@ -229,6 +230,7 @@ B = ay B0 cos(kz - ωt)
 - [정자계 I - 비오-사바르와 앙페르 법칙](07-magnetostatics-1-biot-savart-and-ampere.md)
 - [정자계 II - 자성체와 경계조건](08-magnetostatics-2-materials-and-boundary-conditions.md)
 
+{% endraw %}
 
 ---
 

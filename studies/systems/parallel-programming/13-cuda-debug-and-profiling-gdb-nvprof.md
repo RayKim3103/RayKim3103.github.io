@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/13%20CUDA%20Debug%20and%20Profiling%20-%20cuda-gdb%EC%99%80%20nvprof.md)
 
+{% raw %}
 이전: [CUDA Stream Updated - 업데이트본 요약](12-cuda-stream-updated.md)  
 다음: [Multi GPU - 단일 노드와 MPI](14-multi-gpu-mpi.md)
 
@@ -88,6 +89,7 @@ Memcheck는 runtime error checker다. 특히 out-of-bounds access처럼 결과�
 
 CUDA debugging은 일반 C++ debugging보다 focus 차원이 많다. block/thread/warp/lane을 명시적으로 좁혀야 하며, memory error와 race는 memcheck/racecheck로 확인해야 한다. 성능 최적화는 profiler timeline과 metric을 보고 병목을 찾는 과정이다.
 
+{% endraw %}
 
 ---
 

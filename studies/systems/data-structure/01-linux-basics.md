@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/01%20Linux%20%EA%B8%B0%EB%B3%B8.md)
 
+{% raw %}
 ## 핵심 질문
 
 Linux는 자료구조 구현을 실험하고 채점 가능한 형태로 만드는 실행 환경이다. 이 노트의 중심 질문은 “터미널에서 파일을 만들고, 컴파일하고, 실행하고, 결과를 확인하는 흐름을 어떻게 안정적으로 반복할 것인가?”이다.
@@ -140,6 +141,7 @@ Linux 기본기는 자료구조 자체만큼 중요하다. C++ 코드를 작성�
 - [C++ 입출력](07-cpp-io.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/03%20%EB%B2%A1%ED%84%B0%20%EB%AF%B8%EC%A0%81%EB%B6%84%EA%B3%BC%20%EC%9E%A5%20%EC%9D%B4%EB%A1%A0.md)
 
+{% raw %}
 ## 핵심 요약
 
 벡터 미적분은 장의 공간적 변화를 정량화하는 도구이다. 이 강의는 스칼라장과 벡터장을 정의하고, 선적분ㆍ면적분ㆍ체적적분, gradient, divergence, curl, Laplacian, Gauss 정리, Stokes 정리, Helmholtz 정리를 전자기학의 언어로 연결한다.
@@ -128,6 +129,7 @@ Helmholtz 정리는 벡터장의 발산과 회전이 공간 전체에서 주어�
 - [정자계 I - 비오-사바르와 앙페르 법칙](07-magnetostatics-1-biot-savart-and-ampere.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

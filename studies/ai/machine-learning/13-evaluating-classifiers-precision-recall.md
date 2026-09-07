@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/13%20Evaluating%20Classifiers%20-%20Precision%20Recall.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #classification #precision #recall #confusion-matrix #pr-curve
 
 관련 노트: [Ensemble Learning](12-ensemble-learning-bagging-random-forest-boosting.md), [Instance-Based Learning: Nearest Neighbor와 Kernel Regression](14-instance-based-learning.md)
@@ -110,6 +111,7 @@ Precision-recall curve는 threshold를 바꾸며 precision과 recall의 변화�
 - Accuracy가 불충분한 예시를 들 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

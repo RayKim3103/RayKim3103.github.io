@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A2%20xv6%20System%20Call%20and%20Process%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #system-call #process
 
 관련 노트: [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [A1 xv6 Shell 과제](a1-xv6-shell.md), [A3 xv6 Scheduling 과제](a3-xv6-scheduling.md)
@@ -103,6 +104,7 @@ System call argument 수가 고정되어 있다면 실제 option 개수를 알�
 - `RUNNING` 상태가 single CPU 기준에서만 관찰되는 점을 놓치는 문제
 - `argc`와 syscall 인자 수를 혼동하는 문제
 
+{% endraw %}
 
 ---
 

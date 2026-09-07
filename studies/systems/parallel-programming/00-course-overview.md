@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/00%20Course%20Overview%20-%20%EB%B3%91%EB%A0%AC%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 이전: 없음  
 다음: [Basic Parallel Architectures - 기본 병렬 아키텍처](01-basic-parallel-architectures.md)
 
@@ -76,6 +77,7 @@ for (int i = 0; i < N; i++) {
 
 이 강의의 출발점은 power wall 이후 컴퓨터 성능 향상이 “자동 clock 증가”에서 “명시적 병렬성 활용”으로 바뀌었다는 사실이다. 이후 모든 주제는 작업을 어떻게 나눌지, 데이터를 어떻게 배치할지, 하드웨어 병목을 어떻게 피할지로 이어진다.
 
+{% endraw %}
 
 ---
 

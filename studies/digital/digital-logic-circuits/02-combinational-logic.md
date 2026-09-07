@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/02%20%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC.md)
 
+{% raw %}
 tags: #digital-logic #combinational-logic #boolean-algebra #k-map
 
 관련 노트: [조합논리 활용](03-combinational-logic-applications.md), [조합논리 구현 기술](04-combinational-logic-implementation.md), [순차논리 설계](06-sequential-logic-design.md)
@@ -142,6 +143,7 @@ Multi-level logic은 공통 부분식을 묶어 여러 단계로 구현한다. �
 - K-map에서 edge wrap-around와 Gray code adjacency를 올바르게 사용할 수 있는가?
 - 최소화된 식이 실제 회로에서 항상 지연/hazard 측면까지 최적인 것은 아니라는 점을 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

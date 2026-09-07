@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/01%20ARM%20Chapter%201%20-%20Processor%20Design%20Introduction.md)
 
+{% raw %}
 tags: #micro-processor #arm #embedded-system #processor-design #risc #low-power
 
 관련 노트: [ARM Chapter 2 - ARM Architecture](02-arm-chapter-2-architecture.md)
@@ -147,6 +148,7 @@ Low-power strategies:
 - Pipeline hazard 세 종류를 구분할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

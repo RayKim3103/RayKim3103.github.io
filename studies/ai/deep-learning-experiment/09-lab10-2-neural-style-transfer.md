@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/09%20Lab10-2%20Neural%20Style%20Transfer%20%EB%B0%98%EB%B3%B5%20%EC%8B%A4%ED%97%98.md)
 
+{% raw %}
 ## 한눈에 보기
 Lab10의 style transfer 구현을 바탕으로 initialization, alpha/beta 비율, content layer 위치, style image를 바꿔가며 결과 차이를 분석한 반복 실험 노트이다.
 
@@ -50,6 +51,7 @@ Lab10의 style transfer 구현을 바탕으로 initialization, alpha/beta 비율
 - [Lab10 사전보고서 Style Transfer](21-prep-lab10-style-transfer.md)
 - [Lab12 CycleGAN](11-lab12-cyclegan.md)
 
+{% endraw %}
 
 ---
 

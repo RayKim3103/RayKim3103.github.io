@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/13%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20U-Boot%20Kernel%20Device%20Tree%EC%99%80%20Driver%20%EA%B0%9C%EB%85%90.md)
 
+{% raw %}
 이전: [12주차 결과 - Zynq Ubuntu Root File System 구성](12-result-zynq-ubuntu-root-file-system.md)  
 다음: [14주차 예비 - Linux Device Driver와 Device Control](14-prep-linux-device-driver-control.md)
 
@@ -116,6 +117,7 @@ Linux에서 hardware는 파일처럼 다룬다. 예를 들어 `/dev/zynq_sevense
 
 13주차 결과의 핵심은 embedded Linux가 boot되기 위해 bootloader, kernel, device tree, rootfs가 함께 필요하며, hardware 제어는 device file과 device driver를 통해 Linux 방식으로 추상화된다는 점이다.
 
+{% endraw %}
 
 ---
 

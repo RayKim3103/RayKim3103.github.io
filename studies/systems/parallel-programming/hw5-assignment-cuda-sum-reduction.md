@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW5%20Assignment%20-%20CUDA%20Sum%20Reduction.md)
 
+{% raw %}
 이전: [Report - Direct Convolution과 im2col GEMM](hw4-report-direct-convolution-im2col-gemm.md)  
 다음: [Reference - Optimizing Parallel Reduction in CUDA](hw5-reference-optimizing-parallel-reduction-in-cuda.md)
 
@@ -69,6 +70,7 @@ make run
 
 HW5는 CUDA reduction 최적화의 실습 과제다. 단순 합계 계산이지만, divergent branch, bank conflict, idle thread, loop unrolling, multiple adds per thread, kernel decomposition을 모두 확인해야 한다.
 
+{% endraw %}
 
 ---
 

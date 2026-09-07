@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A5%20xv6%20Paging%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #paging #page-fault #copy-on-write
 
 관련 노트: [메모리 가상화 - 세그먼테이션과 페이징](03-memory-virtualization-segmentation-and-paging.md), [A4 xv6 Free List 과제](a4-xv6-free-list.md)
@@ -92,6 +93,7 @@ Validation은 새 page들이 처음에는 zero frame에 mapping되고, write가 
 - Zero page를 read-only로 두어야 하는 이유는 무엇인가?
 - Page fault handler가 정상 lazy allocation과 불법 접근을 어떻게 구분해야 하는가?
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/02%20MOS%20Large-Signal%20Characteristics%20-%20MOS%20%EB%8C%80%EC%8B%A0%ED%98%B8%20%ED%8A%B9%EC%84%B1.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 NMOS/PMOS의 large-signal I-V 특성을 복습한다. MOSFET은 gate oxide를 사이에 둔 capacitor 구조와 source-channel-drain 구조를 가지며, `VGS`, `VDS`, `VTH` 조건에 따라 cutoff, triode, saturation 영역으로 나뉜다. 실제 소자에서는 subthreshold leakage, channel-length modulation, body effect, temperature effect가 ideal model에서 벗어나게 만든다.
@@ -170,6 +171,7 @@ MOSFET parameter들은 온도에 의존한다. 보통 온도가 올라가면 mob
 - [Bias Circuits and Current Mirrors - 바이어스와 전류미러](07-bias-circuits-and-current-mirrors.md)
 
 
+{% endraw %}
 
 ---
 

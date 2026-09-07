@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/08%20Z-Transform%20Analysis%20of%20LTI%20Systems.md)
 
+{% raw %}
 ﻿---
 title: "08. Z-Transform Analysis of LTI Systems"
 pages: 15
@@ -159,6 +160,7 @@ $$
 - all-pass는 magnitude를 바꾸지 않고 phase만 바꾼다.
 - minimum phase system은 inverse도 stable/causal인 가장 다루기 좋은 시스템이다.
 
+{% endraw %}
 
 ---
 

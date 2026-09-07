@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/12%20Frequency%20Response%20of%20CS%20-%20CS%20%EC%A3%BC%ED%8C%8C%EC%88%98%20%EC%9D%91%EB%8B%B5.md)
 
+{% raw %}
 ## 핵심 요약
 
 CS amplifier의 주파수 응답은 MOS capacitance, 특히 input과 output을 연결하는 `Cgd` 때문에 복잡해진다. Miller theorem을 사용하면 `Cgd`를 input/output node의 등가 capacitance로 나누어 근사할 수 있다. CS는 negative gain이 크므로 input에서 `Cgd`가 `1+|Av|`배 커진 것처럼 보이고, 이것이 dominant input pole을 만든다.
@@ -119,6 +120,7 @@ GBW ≈ gm / (Cgd) * 1/RS factor
 - [Frequency Response of CS Degeneration and CG - Degeneration CG 응답](13-frequency-response-of-cs-degeneration-and-cg.md)
 
 
+{% endraw %}
 
 ---
 

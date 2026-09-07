@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/12%20DFT%20and%20FFT.md)
 
+{% raw %}
 ﻿---
 title: "12. DFT and FFT"
 pages: 18
@@ -229,6 +230,7 @@ $$
 - FFT는 새로운 변환이 아니라 DFT를 빠르게 계산하는 알고리즘이다.
 - DIT: time index 분해, DIF: frequency index 분해.
 
+{% endraw %}
 
 ---
 

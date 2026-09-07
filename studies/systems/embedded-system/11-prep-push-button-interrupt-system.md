@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/11%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20Push%20Button%20Interrupt%20System.md)
 
+{% raw %}
 이전: [10주차 결과 - AHB TFT-LCD 이미지 출력](10-result-ahb-tft-lcd.md)  
 다음: [11주차 결과 - PL Interrupt와 PS Handler](11-result-pl-interrupt-ps-handler.md)
 
@@ -79,6 +80,7 @@ PL 영역에 설계된 사용자 IP는 다음 역할을 담당한다.
 
 11주차 예비의 핵심은 interrupt가 단순한 입력 신호가 아니라 **PL event -> PS exception 처리 -> handler -> PL 제어** 로 이어지는 시스템 동작이라는 점이다. 이 구조를 이해해야 결과 실습에서 AHB/APB bridge, GIC 설정, handler 코드의 역할이 분명해진다.
 
+{% endraw %}
 
 ---
 

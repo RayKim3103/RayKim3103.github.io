@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/10%20Prefix%20Sum%20NVIDIA%20Supplement%20-%20Work-Efficient%20Scan.md)
 
+{% raw %}
 이전: [Prefix Sum - GPU Scan 알고리즘](10-prefix-sum-gpu-scan.md)  
 다음: [Triton Introduction - Triton DSL과 Kernel Fusion](11-triton-introduction-dsl-kernel-fusion.md)
 
@@ -80,6 +81,7 @@ physical_index = logical_index + conflict_free_offset(logical_index)
 
 이 보충자료의 핵심은 efficient scan이 알고리즘과 하드웨어 최적화를 동시에 요구한다는 점이다. `O(N)` work의 Blelloch scan, shared memory padding, block decomposition을 합쳐야 큰 배열에서도 빠른 CUDA scan이 된다.
 
+{% endraw %}
 
 ---
 

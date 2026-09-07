@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/10%20Intrinsic%20Extrinsic%20Semiconductors%20-%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%BA%90%EB%A6%AC%EC%96%B4.md)
 
+{% raw %}
 tags: #ElectronicMaterials #Semiconductor #Doping #CarrierGeneration #Recombination
 
 이전: [Fermi Statistics Emission Phonons - 페르미 방출 포논](09-fermi-statistics-emission-phonons.md)  
@@ -163,6 +164,7 @@ Delta p_n(t) rises or decays exponentially with lifetime tau_h
 - low-level injection에서 minority carrier 변화가 중요한 이유.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/21%20Lab10%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20Style%20Transfer.md)
 
+{% raw %}
 ## 한눈에 보기
 Neural Style Transfer와 perceptual loss 기반 image transformation의 배경을 정리한 사전보고서이다.
 
@@ -48,6 +49,7 @@ Lab10에서는 VGG loss network를 고정하고 optimization 기반 방법과 fe
 - [Lab10-2 Neural Style Transfer 반복 실험](09-lab10-2-neural-style-transfer.md)
 - [Lab05 사전보고서 FSRCNN](16-prep-lab05-fsrcnn.md)
 
+{% endraw %}
 
 ---
 

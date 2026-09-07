@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/07%20C%2B%2B%20%EC%9E%85%EC%B6%9C%EB%A0%A5.md)
 
+{% raw %}
 ## 입출력의 목표
 
 프로그램은 키보드, 파일, 네트워크, 디스플레이 같은 외부 세계와 데이터를 주고받아야 한다. C++는 운영체제와 라이브러리가 제공하는 stream abstraction을 통해 이를 처리한다.
@@ -150,6 +151,7 @@ file.write(memblock, size);
 - [C++ 흐름 제어](04-cpp-control-flow.md)
 
 
+{% endraw %}
 
 ---
 

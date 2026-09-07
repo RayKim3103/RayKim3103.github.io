@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/02%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20Vivado%20PS%20PL%20LED%20%EC%8B%A4%EC%8A%B5.md)
 
+{% raw %}
 이전: [02주차 예비 - Zynq PS PL 기초](02-prep-zynq-ps-pl.md)  
 다음: [03주차 예비 - LED와 7-Segment 디지털 시계](03-prep-led-7-segment.md)
 
@@ -94,6 +95,7 @@ DIPSwitch는 보드의 8개 스위치 입력이다. `[7:0] DIPSwitch`로 선언�
 
 2주차 결과의 핵심은 PS와 PL의 실습 흐름을 분리해서 익힌 점이다. PS는 SDK와 펌웨어, UART 출력 중심이고, PL은 RTL, `.xdc`, bitstream, 물리 입출력 검증 중심이다. 또한 `RegPushButton`을 이용한 edge 검출과 shift 기반 LED 제어는 이후 버튼 입력 처리의 기본 패턴이 된다.
 
+{% endraw %}
 
 ---
 

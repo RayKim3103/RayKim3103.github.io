@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/20%20%ED%9E%99%EA%B3%BC%20%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%20%ED%81%90.md)
 
+{% raw %}
 ## 문제 상황
 
 경로 탐색, 이벤트 시뮬레이션, 운영체제 스케줄링처럼 “가장 우선순위가 높은 항목”을 반복해서 선택해야 하는 문제가 있다. 이를 위한 ADT가 priority queue다.
@@ -147,6 +148,7 @@ for i = lastInternalNode downto 0
 - [최단 경로](24-shortest-paths.md)
 
 
+{% endraw %}
 
 ---
 

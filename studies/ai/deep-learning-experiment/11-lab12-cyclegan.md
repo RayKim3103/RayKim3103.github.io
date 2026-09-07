@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/11%20Lab12%20CycleGAN.md)
 
+{% raw %}
 ## 한눈에 보기
 paired ground truth 없이 두 도메인 사이의 image translation을 학습하는 CycleGAN 실습이다. MNIST와 SVHN처럼 서로 대응쌍이 없는 데이터에서 X->Y, Y->X generator와 각 domain discriminator를 동시에 학습한다.
 
@@ -51,6 +52,7 @@ paired ground truth 없이 두 도메인 사이의 image translation을 학습�
 - [Lab11 DCGAN](10-lab11-dcgan.md)
 - [Lab10-2 Neural Style Transfer 반복 실험](09-lab10-2-neural-style-transfer.md)
 
+{% endraw %}
 
 ---
 

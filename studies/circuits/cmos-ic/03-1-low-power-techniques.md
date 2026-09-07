@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/03_1%20Low%20Power%20Techniques%20-%20%EC%A0%80%EC%A0%84%EB%A0%A5%20%EC%84%A4%EA%B3%84%20%EB%B3%B4%EA%B0%95.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #low-power #vdd-scaling #switching-activity #glitch #mtcmos
 
 관련 노트: [지연 모델과 Logical Effort](03-speed-logical-effort.md), [CMOS 전력소모와 저전력기법](04-power-cmos.md)
@@ -105,6 +106,7 @@ Logic depth를 줄이면 glitch가 줄 수 있지만, pipeline register가 많�
 - Resource sharing의 power tradeoff를 capacitance와 activity 관점에서 분석할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/00%20Project%20Report%20-%20Rayleigh%20Fading%20%EC%9D%8C%EC%84%B1%20%ED%86%B5%EC%8B%A0%20%EA%B5%AC%ED%98%84.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 보고서는 Rayleigh fading 채널을 설명하고, QPSK BER 시뮬레이션, `(7,4) Hamming code`의 coding gain, 16-QAM 음성 복원 수신기, 복원 신호 재송신기, 2-tap 채널 개선 방법을 다룬다.
@@ -222,6 +223,7 @@ h[n] = alpha_0 delta[n] + alpha_1 delta[n-1]
 - [Channel Coding - 오류 제어 부호](06-channel-coding.md)
 - [Channel Model - Multipath Fading과 Equalization](09-channel-model-multipath-fading-equalization.md)
 
+{% endraw %}
 
 ---
 

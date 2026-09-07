@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/03%20%EB%A9%94%EB%AA%A8%EB%A6%AC%20%EA%B0%80%EC%83%81%ED%99%94%20-%20%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%85%8C%EC%9D%B4%EC%85%98%EA%B3%BC%20%ED%8E%98%EC%9D%B4%EC%A7%95.md)
 
+{% raw %}
 tags: #operating-system #virtual-memory #segmentation #paging #tlb #page-fault
 
 관련 노트: [운영체제 개요](01-os-overview.md), [A4 xv6 Free List 과제](a4-xv6-free-list.md), [A5 xv6 Paging 과제](a5-xv6-paging.md)
@@ -150,6 +151,7 @@ Page fault는 오류일 수도 있고, OS가 memory virtualization을 효율적�
 - TLB hit/miss와 page fault의 차이를 설명할 수 있는가?
 - Multi-level page table이 sparse address space에서 메모리를 줄이는 이유를 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

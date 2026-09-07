@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/15%20Clustering%20-%20K%20Means%20%EA%B5%B0%EC%A7%91%ED%99%94.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #clustering #unsupervised-learning #k-means
 
 관련 노트: [Instance-Based Learning: Nearest Neighbor와 Kernel Regression](14-instance-based-learning.md), [Dimension Reduction: PCA와 LDA](16-dimension-reduction-pca-lda.md)
@@ -98,6 +99,7 @@ k-means는 두 종류의 변수를 번갈아 최적화한다.
 - `k`가 증가하면 objective가 어떻게 변하는지 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

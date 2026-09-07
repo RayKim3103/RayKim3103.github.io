@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/16%20Dimension%20Reduction%20-%20PCA%EC%99%80%20LDA.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #dimension-reduction #pca #lda #curse-of-dimensionality
 
 관련 노트: [Clustering과 K-Means](15-clustering-k-means.md), [Neural Networks Part 1: 다층신경망 기초](17-neural-networks-part-1.md)
@@ -121,6 +122,7 @@ maximize (w^T S_B w) / (w^T S_W w)
 - PCA와 LDA를 목적과 데이터 요구사항 관점에서 비교할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

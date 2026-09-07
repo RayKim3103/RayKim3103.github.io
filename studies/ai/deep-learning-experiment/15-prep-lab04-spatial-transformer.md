@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/15%20Lab04%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20Spatial%20Transformer.md)
 
+{% raw %}
 ## 한눈에 보기
 Spatial Transformer Network 논문과 왜곡된 이미지 분류에서의 공간 정렬 개념을 정리한 사전보고서이다.
 
@@ -45,6 +46,7 @@ Lab04에서는 STN의 마지막 affine layer를 identity로 초기화하고, `af
 - [Lab04 Spatial Transformer Network](02-lab04-spatial-transformer-network.md)
 - [Lab03 사전보고서 CNN 구조](14-prep-lab03-cnn.md)
 
+{% endraw %}
 
 ---
 

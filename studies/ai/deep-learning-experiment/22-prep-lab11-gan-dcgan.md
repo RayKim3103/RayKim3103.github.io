@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/22%20Lab11%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20GAN%EA%B3%BC%20DCGAN.md)
 
+{% raw %}
 ## 한눈에 보기
 GAN의 minimax 학습 원리와 DCGAN의 안정적 convolutional architecture를 정리한 사전보고서이다.
 
@@ -47,6 +48,7 @@ Lab11에서는 BCE loss, alternating update, Generator/Discriminator convolution
 - [Lab11 DCGAN](10-lab11-dcgan.md)
 - [Lab12 사전보고서 Pix2Pix와 CycleGAN](23-prep-lab12-pix2pix-cyclegan.md)
 
+{% endraw %}
 
 ---
 

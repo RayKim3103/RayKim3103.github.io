@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/25%20Project%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20CARE.md)
 
+{% raw %}
 ## 한눈에 보기
 CARE 프로젝트의 문제 정의와 관련 연구를 정리한 사전보고서이다.
 
@@ -51,6 +52,7 @@ CARE 프로젝트의 문제 정의와 관련 연구를 정리한 사전보고서
 - [Lab09 사전보고서 XNOR-Net과 양자화](20-prep-lab09-xnor-net.md)
 - [Lab13 사전보고서 RNN과 Seq2Seq](24-prep-lab13-rnn-seq2seq.md)
 
+{% endraw %}
 
 ---
 

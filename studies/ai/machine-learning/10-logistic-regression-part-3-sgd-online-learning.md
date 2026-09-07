@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/10%20Logistic%20Regression%20Part%203%20-%20SGD%EC%99%80%20Online%20Learning.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #logistic-regression #sgd #online-learning #optimization
 
 관련 노트: [분류 Overfitting과 L2 정규화](09-logistic-regression-part-2-overfitting-l2.md), [Decision Tree](11-decision-tree.md)
@@ -90,6 +91,7 @@ SGD는 learning rate에 민감하다. 너무 크면 발산하거나 optimum 근�
 - Online learning이 batch learning과 다른 점을 예시와 함께 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

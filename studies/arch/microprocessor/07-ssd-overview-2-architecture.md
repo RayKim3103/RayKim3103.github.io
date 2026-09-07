@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/07%20SSD%20Overview%202%20-%20SSD%20Architecture.md)
 
+{% raw %}
 tags: #micro-processor #ssd #architecture #ssd-controller #sram #dram #nand-flash #ahb
 
 관련 노트: [SSD Overview 1 - Solid State Disk Basics](06-ssd-overview-1-solid-state-disk-basics.md), [SSD Hardware 4 - NAND Flash Memory](08-ssd-hardware-4-nand-flash-memory.md)
@@ -141,6 +142,7 @@ NAND controller는 NAND command, address, data timing을 생성한다.
 - SLC와 MLC의 성능/수명/비용 tradeoff를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

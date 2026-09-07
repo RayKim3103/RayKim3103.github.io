@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/09%20SSD%20Software%201%20-%20FTL%20Overview%20BAST%20FAST.md)
 
+{% raw %}
 tags: #micro-processor #ssd #ftl #address-translation #garbage-collection #bast #fast
 
 관련 노트: [SSD Hardware 4 - NAND Flash Memory](08-ssd-hardware-4-nand-flash-memory.md), [SSD Software 2 - Superblock, LAST, FTL Functions](10-ssd-software-2-superblock-last-and-ftl-functions.md)
@@ -153,6 +154,7 @@ Random update를 fully associative하게 수용한다. 하지만 random log bloc
 - FAST가 BAST의 어떤 문제를 해결하려고 하는지 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

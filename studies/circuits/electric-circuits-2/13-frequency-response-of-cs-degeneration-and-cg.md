@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/13%20Frequency%20Response%20of%20CS%20Degeneration%20and%20CG%20-%20Degeneration%20CG%20%EC%9D%91%EB%8B%B5.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 source degeneration이 있는 CS 증폭기의 저주파/고주파 응답과 CG 증폭기의 고주파 응답을 다룬다. coupling capacitor는 DC bias를 분리하면서 low-frequency pole/zero를 만들고, bypass capacitor는 저주파에서는 degeneration으로 안정성을 주고 고주파에서는 source를 AC ground에 가깝게 만들어 gain을 회복한다. CG는 input-output을 직접 잇는 `Cgd` Miller 효과가 없어 CS보다 빠르다.
@@ -141,6 +142,7 @@ CG:
 - [Frequency Response of CS - CS 주파수 응답](12-frequency-response-of-cs.md)
 
 
+{% endraw %}
 
 ---
 

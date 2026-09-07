@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/07%20RL%20%EB%B2%A4%EC%B9%98%EB%A7%88%ED%81%AC.md)
 
+{% raw %}
 ## 핵심 요약
 
 RL 알고리즘은 최종 성능만으로 비교하기 어렵다. 같은 final return을 얻더라도 필요한 environment step 수가 다르면 sample efficiency가 다르다. 이 장은 RL benchmark의 역할, 연속 제어와 이산 제어 benchmark, 로봇 및 long-horizon task 평가 기준을 정리한다.
@@ -91,6 +92,7 @@ RL 실험은 seed variance가 크다. 따라서 하나의 curve만 보고 결론
 - [Sim2Real Transfer](15-sim2real-transfer.md)
 - [Humanoid RL](16-humanoid-rl.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW3%20Assignment%20-%20CUDA%20LoRA.md)
 
+{% raw %}
 이전: [Report - Parallel GEMM과 Freivalds 최적화](hw2-report-parallel-gemm-freivalds.md)  
 다음: [Report - CUDA LoRA Tiled MatMul 최적화](hw3-report-cuda-lora-tiled-matmul.md)
 
@@ -72,6 +73,7 @@ Shape:
 
 HW3는 CUDA matmul을 실제 deep learning layer 계산에 적용하는 과제다. 핵심은 LoRA 식을 여러 GEMM과 element-wise operation으로 분해하고, shared memory, coalescing, tiling, occupancy를 고려해 구현하는 것이다.
 
+{% endraw %}
 
 ---
 

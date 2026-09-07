@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/09%20AMBA%20AHB%20APB%20Memory%20Transfer%20-%20AMBA%20AHB%20APB%20%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%84%EC%86%A1.md)
 
+{% raw %}
 tags: #basic-digital-experiment #amba #ahb #apb #bus #memory #zynq
 
 관련 노트: [Polling, Interrupt, Timer](07-polling-interrupt-timer.md), [Audio IP, Digital Filters, Stream Delay](10-audio-ip-digital-filters-stream-delay.md)
@@ -202,6 +203,7 @@ base + 4  -> 가능
 - 32-bit MMIO 접근에서 주소가 4 byte 단위로 증가하는 이유를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

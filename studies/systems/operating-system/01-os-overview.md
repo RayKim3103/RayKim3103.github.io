@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/01%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 tags: #operating-system #virtualization #concurrency #persistence
 
 관련 노트: [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [메모리 가상화 - 세그먼테이션과 페이징](03-memory-virtualization-segmentation-and-paging.md), [멀티스레딩](04-multithreading.md), [IO와 디스크 드라이브](05-io-and-disk-drives.md), [파일 시스템](06-file-systems.md)
@@ -94,6 +95,7 @@ File system은 inode, directory entry, block allocation, free space management�
 - System call이 일반 함수 호출과 어떻게 다른가?
 - CPU virtualization과 memory virtualization의 공통점과 차이를 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

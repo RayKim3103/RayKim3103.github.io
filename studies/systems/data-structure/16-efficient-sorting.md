@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/16%20%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8%20%EC%A0%95%EB%A0%AC.md)
 
+{% raw %}
 ## 재귀적 정렬
 
 효율적인 정렬의 핵심은 분할 정복이다. 문제를 같은 형태의 부분 문제로 나누고, 재귀적으로 정렬한 뒤, 결과를 합친다.
@@ -131,6 +132,7 @@ T(n) = 2T(n/2) + n = Theta(n log n)
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
 
 
+{% endraw %}
 
 ---
 

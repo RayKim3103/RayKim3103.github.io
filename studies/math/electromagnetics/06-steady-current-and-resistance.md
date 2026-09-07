@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/06%20%EC%A0%95%EC%83%81%20%EC%A0%84%EB%A5%98%EC%99%80%20%EC%A0%80%ED%95%AD.md)
 
+{% raw %}
 ## 핵심 요약
 
 정상 전류장은 움직이는 자유전하가 만드는 전류밀도 `J`를 다룬다. 미시적으로는 전자의 열운동과 충돌, 외부 전기장에 의한 drift velocity가 옴의 법칙으로 이어진다. 거시적으로는 연속 방정식, KCL, KVL, 저항, 전력 손실, 도체와 유전체의 이중성이 핵심이다.
@@ -162,6 +163,7 @@ J1n = J2n
 - [정자계 I - 비오-사바르와 앙페르 법칙](07-magnetostatics-1-biot-savart-and-ampere.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

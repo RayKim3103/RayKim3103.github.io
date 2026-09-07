@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A4%20xv6%20Free%20List%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #malloc #free-list #memory-allocation
 
 관련 노트: [메모리 가상화 - 세그먼테이션과 페이징](03-memory-virtualization-segmentation-and-paging.md)
@@ -95,6 +96,7 @@ Free list에서 적절한 block을 찾지 못하면 `morecore(nunits)`를 호출
 - Split 위치를 앞쪽으로 잡아 기존 xv6 pointer arithmetic과 어긋나는 문제
 - Debug print나 helper 수정 사항을 제출에 남기는 문제
 
+{% endraw %}
 
 ---
 

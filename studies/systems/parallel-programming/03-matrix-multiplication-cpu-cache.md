@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/03%20Matrix%20Multiplication%20-%20CPU%20Cache%EC%99%80%20%EB%B3%91%EB%A0%AC%20%ED%96%89%EB%A0%AC%EA%B3%B1.md)
 
+{% raw %}
 이전: [Thread Programming - C++ Thread와 동기화](02-thread-programming-c.md)  
 다음: [Intro to CUDA - CUDA 프로그래밍 모델](04-intro-to-cuda.md)
 
@@ -88,6 +89,7 @@ Block size `b`를 키우면 각 tile element 재사용이 늘지만, 너무 크�
 
 CPU 행렬곱 최적화는 “thread를 몇 개 쓰는가”보다 “각 thread가 cache line을 어떻게 읽고 쓰는가”가 중요하다. row-wise 분할, B transpose, padding, blocking은 모두 memory hierarchy를 의식한 최적화이며, 이후 CUDA shared memory tiling의 CPU 버전 배경이 된다.
 
+{% endraw %}
 
 ---
 

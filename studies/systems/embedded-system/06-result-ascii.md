@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/06%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20ASCII%20%EB%AC%B8%EC%9E%90%20%EC%83%9D%EC%84%B1%EA%B8%B0%EC%99%80%20%ED%99%94%EB%A9%B4%20%ED%91%9C%EC%8B%9C.md)
 
+{% raw %}
 이전: [06주차 예비 - TFT-LCD ASCII 문자 출력](06-prep-tft-lcd-ascii.md)  
 다음: [07주차 예비 - PS 기반 LED 7-Segment AXI 제어](07-prep-ps-led-7-segment-axi.md)
 
@@ -113,6 +114,7 @@ chargen_rom_address = {ascii_code[7:0], subchar_line[2:0]};
 
 6주차 결과의 핵심은 ASCII 출력이 단순 문자열 출력이 아니라 **timing, memory, ROM bitmap, foreground/background color 선택** 의 결합이라는 점이다. 이후 PS가 문자열이나 데이터를 공급하는 실습에서도 같은 문자/영상 출력 파이프라인 이해가 기반이 된다.
 
+{% endraw %}
 
 ---
 

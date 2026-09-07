@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/11%20AlphaGo%EC%99%80%20MCTS.md)
 
+{% raw %}
 ## 핵심 요약
 
 AlphaGo는 깊은 neural network와 Monte Carlo Tree Search를 결합해 바둑의 거대한 탐색공간을 다룬 사례이다. 바둑은 state space가 약 `10^170`으로 매우 크고 action space도 19x19이며, reward는 승패 중심이라 sparse하다. AlphaGo는 policy network로 탐색 폭을 줄이고 value network로 rollout 평가를 개선했다.
@@ -97,6 +98,7 @@ AlphaGo는 model이 완벽하게 알려진 환경에서 planning과 learning을 
 - [고급 Model-Based RL](10-advanced-model-based-rl.md)
 - [생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
 
+{% endraw %}
 
 ---
 

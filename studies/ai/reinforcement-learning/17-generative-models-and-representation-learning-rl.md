@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/17%20%EC%83%9D%EC%84%B1%EB%AA%A8%EB%8D%B8%EA%B3%BC%20%ED%91%9C%ED%98%84%ED%95%99%EC%8A%B5%20%EA%B8%B0%EB%B0%98%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 생성모델과 표현학습 기반 RL은 RL을 더 supervised learning처럼 안정적으로 만들거나, 큰 offline data와 foundation model의 힘을 활용하려는 흐름이다. Decision Transformer, return-conditioned policy, video generation 기반 planning, world model, representation learning이 핵심 주제이다.
@@ -104,6 +105,7 @@ model-based RL의 latent dynamics와도 강하게 연결된다.
 - [Humanoid RL](16-humanoid-rl.md)
 - [강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
 
+{% endraw %}
 
 ---
 

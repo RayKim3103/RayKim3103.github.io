@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/03%20MOS%20Small-Signal%20Characteristics%20-%20MOS%20%EC%86%8C%EC%8B%A0%ED%98%B8%20%EB%AA%A8%EB%8D%B8.md)
 
+{% raw %}
 ## 핵심 요약
 
 MOSFET의 saturation 영역 전류는 `VGS`에 비선형적으로 의존하지만, bias point 근처의 작은 변화는 선형화하여 voltage-controlled current source로 볼 수 있다. 이때 핵심 파라미터가 transconductance `gm`, output resistance `ro`, body transconductance `gmb`이다.
@@ -130,6 +131,7 @@ small-signal model은 NMOS와 동일한 형태로 사용할 수 있으나, contr
 - [MOSFET High-Frequency Model - 고주파 모델](11-mosfet-high-frequency-model.md)
 
 
+{% endraw %}
 
 ---
 

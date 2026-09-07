@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW5%20Reference%20-%20Optimizing%20Parallel%20Reduction%20in%20CUDA.md)
 
+{% raw %}
 이전: [Assignment - CUDA Sum Reduction](hw5-assignment-cuda-sum-reduction.md)  
 다음: [Assignment - Triton ResNet](hw6-assignment-triton-resnet.md)
 
@@ -77,6 +78,7 @@ Brent's theorem은 각 thread가 `O(log N)` 정도의 sequential work를 하고,
 
 이 참고자료의 핵심은 CUDA 성능 최적화가 병목 유형에 따라 달라진다는 점이다. Reduction은 memory-bound이고 instruction overhead도 중요하므로, memory access pattern과 algorithmic work efficiency를 먼저 잡고, 이후 unrolling 같은 code optimization을 적용해야 한다.
 
+{% endraw %}
 
 ---
 

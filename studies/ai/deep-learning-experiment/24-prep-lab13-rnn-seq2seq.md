@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/24%20Lab13%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20RNN%EA%B3%BC%20Seq2Seq.md)
 
+{% raw %}
 ## 한눈에 보기
 RNN 계열 모델과 attention 기반 sequence-to-sequence 번역 모델을 정리한 사전보고서이다.
 
@@ -49,6 +50,7 @@ Lab13 구현은 vocabulary 구축, GRU encoder, attention decoder, teacher forci
 - [Lab13 Attention 기반 기계번역](12-lab13-attention.md)
 - [Project 사전보고서 CARE](25-prep-project-care.md)
 
+{% endraw %}
 
 ---
 

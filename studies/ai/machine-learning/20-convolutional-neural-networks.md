@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/20%20Convolutional%20Neural%20Networks%20-%20%ED%95%A9%EC%84%B1%EA%B3%B1%EC%8B%A0%EA%B2%BD%EB%A7%9D.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #deep-learning #cnn #convolution #computer-vision
 
 관련 노트: [Neural Networks Part 3: 실전 학습과 정규화](19-neural-networks-part-3.md)
@@ -166,6 +167,7 @@ Convolution layer도 결국 neuron들의 배열이다. 차이는 각 neuron이 �
 - 여러 filter가 여러 activation map을 만든다는 점을 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

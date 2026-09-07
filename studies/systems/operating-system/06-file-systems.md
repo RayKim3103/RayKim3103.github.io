@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/06%20%ED%8C%8C%EC%9D%BC%20%EC%8B%9C%EC%8A%A4%ED%85%9C.md)
 
+{% raw %}
 tags: #operating-system #file-system #inode #directory #storage
 
 관련 노트: [운영체제 개요](01-os-overview.md), [IO와 디스크 드라이브](05-io-and-disk-drives.md), [A1 xv6 Shell 과제](a1-xv6-shell.md)
@@ -108,6 +109,7 @@ Path resolution은 `/a/b/c`를 해석할 때 root inode에서 시작해 `a`, `b`
 - `write()`와 `fsync()`의 durability 차이를 말할 수 있는가?
 - Hard link와 unlink의 동작을 link count로 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

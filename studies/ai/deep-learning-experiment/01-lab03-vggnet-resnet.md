@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/01%20Lab03%20VGGNet%EA%B3%BC%20ResNet%20%EA%B5%AC%ED%98%84.md)
 
+{% raw %}
 ## 한눈에 보기
 CIFAR-10 중 plane, car, bird 세 클래스만 사용하여 VGG16과 ResNet50을 직접 구현하고 분류 성능을 비교한 실습이다. 같은 데이터 전처리와 cross-entropy 목적함수 아래에서 단순히 깊은 네트워크와 residual shortcut을 가진 네트워크가 어떻게 다르게 학습되는지 확인한다.
 
@@ -51,6 +52,7 @@ CIFAR-10 중 plane, car, bird 세 클래스만 사용하여 VGG16과 ResNet50을
 - [Lab04 Spatial Transformer Network](02-lab04-spatial-transformer-network.md)
 - [Lab06 Semantic Segmentation](04-lab06-semantic-segmentation.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Logic_Circuits/lecture_notes/03%20%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%20%ED%99%9C%EC%9A%A9.md)
 
+{% raw %}
 tags: #digital-logic #logic-minimization #hazard #verilog #hdl
 
 관련 노트: [조합논리](02-combinational-logic.md), [조합논리 구현 기술](04-combinational-logic-implementation.md), [순차논리 설계](06-sequential-logic-design.md)
@@ -155,6 +156,7 @@ Behavioral model은 `assign` 같은 continuous assignment나 `always` block으�
 - Static 1-hazard와 static 0-hazard의 차이를 설명하고 redundant term을 추가할 수 있는가?
 - Verilog structural model과 behavioral model의 차이를 회로 관점에서 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

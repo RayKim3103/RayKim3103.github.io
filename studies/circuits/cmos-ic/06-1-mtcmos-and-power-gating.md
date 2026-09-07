@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/06_1%20MTCMOS%20and%20Power%20Gating%20-%20%ED%95%9C%EA%B8%80%EB%82%A0%20%EB%B3%B4%EA%B0%95.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #mtcmos #power-gating #leakage #stack-effect #retention
 
 관련 노트: [Scaling, Reliability, Variability](06-scaling-reliability-variability.md), [고급 CMOS Gates](07-gates-cmos.md)
@@ -137,6 +138,7 @@ Conventional power gating은 sleep에서 active로 전환할 때 큰 current spi
 - Power gating에서 data retention과 wake-up noise가 왜 중요한지 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

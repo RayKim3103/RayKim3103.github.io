@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/A1%20xv6%20Shell%20%EA%B3%BC%EC%A0%9C.md)
 
+{% raw %}
 tags: #operating-system #xv6 #shell #fork #exec #pipe
 
 관련 노트: [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [파일 시스템](06-file-systems.md)
@@ -117,6 +118,7 @@ Pipe fd를 닫지 않으면 reader가 EOF를 받지 못해 command가 끝나지 
 - Parent shell의 stdin/stdout을 실수로 바꾸는 문제
 - Foreground/background에 따라 `wait()` 호출 여부를 구분하지 않는 문제
 
+{% endraw %}
 
 ---
 

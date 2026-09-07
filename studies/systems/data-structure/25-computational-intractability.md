@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/25%20%EA%B3%84%EC%82%B0%20%EB%82%9C%ED%95%B4%EC%84%B1.md)
 
+{% raw %}
 ## 실용적인 알고리즘의 기준
 
 강의는 “어떤 알고리즘이 실제로 유용한가?”라는 질문에서 시작한다. 보통 모든 입력에 대해 polynomial time에 실행되는 알고리즘을 실용적 기준으로 삼는다.
@@ -173,6 +174,7 @@ graph TD
 - [최단 경로](24-shortest-paths.md)
 
 
+{% endraw %}
 
 ---
 

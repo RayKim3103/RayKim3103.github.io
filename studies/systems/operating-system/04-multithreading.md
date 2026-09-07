@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/04%20%EB%A9%80%ED%8B%B0%EC%8A%A4%EB%A0%88%EB%94%A9.md)
 
+{% raw %}
 tags: #operating-system #thread #race-condition #lock #condition-variable #semaphore
 
 관련 노트: [운영체제 개요](01-os-overview.md), [CPU 가상화 - 프로세스와 스케줄링](02-cpu-virtualization-processes-and-scheduling.md), [A6 xv6 Thread 과제](a6-xv6-thread.md)
@@ -176,6 +177,7 @@ Reader-writer lock은 여러 reader가 동시에 critical section에 들어갈 �
 - Lock, condition variable, semaphore의 역할 차이를 말할 수 있는가?
 - Producer-consumer에서 `empty`, `full`, `mutex` semaphore의 순서가 왜 중요한가?
 
+{% endraw %}
 
 ---
 

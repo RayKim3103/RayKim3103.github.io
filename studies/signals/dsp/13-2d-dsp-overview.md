@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/13%202D%20DSP%20Overview.md)
 
+{% raw %}
 ﻿---
 title: "13. 2D Digital Signal Processing Overview"
 pages: 13
@@ -233,6 +234,7 @@ $$
 - DSFT는 2D frequency 성분을 분석하는 도구이다.
 - sampling/reconstruction과 aliasing 개념은 축별로 적용된다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/13%20Skill%20Discovery.md)
 
+{% raw %}
 ## 핵심 요약
 
 Skill discovery는 외부 reward나 명시적 task supervision 없이 유용하고 다양한 행동 skill을 학습하는 문제이다. agent가 어떤 task를 해야 할지 모르는 상황에서도 나중에 재사용 가능한 temporally extended behavior를 발견하려는 접근이다. 강의는 entropy, KL divergence, mutual information 같은 정보이론 개념을 바탕으로 skill discovery를 설명한다.
@@ -97,6 +98,7 @@ Maximum entropy RL은 reward와 entropy를 함께 최대화한다. Skill discove
 - [Hierarchical RL](14-hierarchical-rl.md)
 - [생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/05%20C%2B%2B%20%EB%A9%94%EB%AA%A8%EB%A6%AC.md)
 
+{% raw %}
 ## 메모리 관점
 
 컴퓨터 메모리는 주소가 붙은 byte 배열로 볼 수 있다. 코드, 전역 데이터, 힙, 스택 등이 메모리의 서로 다른 영역에 배치된다.
@@ -152,6 +153,7 @@ int operation(int x, int y, int (*pF)(int, int)) {
 - [트리](17-trees.md)
 
 
+{% endraw %}
 
 ---
 

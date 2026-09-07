@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/19%20Filters%20with%20Integrators%20-%20KHN%20Tow-Thomas%20Biquad.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 op-amp integrator를 이용해 하나의 active circuit에서 HP, BP, LP, AP 2차 필터를 얻는 biquad 구조를 다룬다. KHN(Kerwin-Huelsman-Newcomb) biquad는 high-pass output을 만들고 이를 적분해 band-pass, 다시 적분해 low-pass를 만든다. Tow-Thomas biquad도 component 선택으로 다양한 2차 응답을 구현한다.
@@ -115,6 +116,7 @@ Tow-Thomas biquad도 integrator와 summing amplifier를 이용한 2차 active fi
 - [Higher-Order Filters - Butterworth 고차 필터](20-higher-order-filters-butterworth.md)
 
 
+{% endraw %}
 
 ---
 

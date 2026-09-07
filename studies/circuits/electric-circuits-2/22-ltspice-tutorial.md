@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/22%20LTSpice%20Tutorial%20-%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%20%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 자료는 LTspice 설치부터 NCSU 45nm CMOS model 설정, inverter schematic 작성, DC operating point, DC sweep, parametric sweep, AC analysis, transient simulation까지 실습 절차를 설명한다. 마지막에는 CS amplifier homework를 통해 `VTH`, `gm`, `ro`, gain, 3-dB bandwidth를 simulation으로 측정한다.
@@ -191,6 +192,7 @@ CS amplifier 조건:
 - [Project Design Guide - TIA CTLE 설계 가이드](23-project-design-guide-tia-ctle.md)
 
 
+{% endraw %}
 
 ---
 

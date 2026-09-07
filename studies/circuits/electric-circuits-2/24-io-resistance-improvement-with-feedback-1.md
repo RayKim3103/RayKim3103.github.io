@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/24%20IO%20Resistance%20Improvement%20with%20Feedback%201%20-%20%EC%A0%84%EC%95%95%20%EC%A6%9D%ED%8F%AD%EA%B8%B0%20%ED%94%BC%EB%93%9C%EB%B0%B1.md)
 
+{% raw %}
 ## 핵심 요약
 
 negative feedback은 gain desensitization과 bandwidth extension뿐 아니라 input/output resistance도 이상적인 증폭기 조건에 가깝게 만든다. 전압 증폭기에서는 input resistance를 키우고 output resistance를 줄이는 방향으로 개선된다.
@@ -97,6 +98,7 @@ Rout,closed = Rout,open / (1 + KA)
 - [IO Resistance Improvement with Feedback 2 - 증폭기별 저항 개선](25-io-resistance-improvement-with-feedback-2.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/01%20Introduction%20-%20%EC%A0%84%EC%9E%90%ED%9A%8C%EB%A1%9C%20II%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 핵심 요약
 
 전자회로 II는 MOS 전자회로를 복습하고, 증폭기, 주파수 응답, 필터, 피드백, 발진기, 설계 프로젝트까지 확장하는 과목이다. 전자공학의 목적은 전자 또는 전하 운반자의 흐름을 제어하여 amplification, filtering, logic, memory, computing 같은 유용한 기능을 수행하는 것이다.
@@ -110,6 +111,7 @@ Electronics는 고유한 V-I 특성을 가진 소자를 이용해 전자의 흐�
 - [Project Design Guide - TIA CTLE 설계 가이드](23-project-design-guide-tia-ctle.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/03%20%EC%A0%95%EC%B1%85%20%EA%B7%B8%EB%9E%98%EB%94%94%EC%96%B8%ED%8A%B8%20%EA%B8%B0%EC%B4%88.md)
 
+{% raw %}
 ## 핵심 요약
 
 정책 그래디언트는 policy `πθ(a|s)`를 직접 최적화하는 방법이다. RL 문제를 MDP로 정식화하고, trajectory return의 기댓값을 최대화하도록 parameter `θ`를 업데이트한다. 핵심 수식은 log-derivative trick을 사용해 reward를 직접 미분하지 않고 sampling된 trajectory로 gradient를 추정하는 것이다.
@@ -116,6 +117,7 @@ Gt = rt + γrt+1 + γ2rt+2 + ...
 - [Actor-Critic과 PPO](04-actor-critic-ppo.md)
 - [Q-learning](05-q-learning.md)
 
+{% endraw %}
 
 ---
 

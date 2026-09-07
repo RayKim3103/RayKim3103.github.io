@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW2%20Assignment%20-%20Matrix%20Verification%20Challenge.md)
 
+{% raw %}
 이전: [More Notes - DL Compiler와 LLM Inference](15-more-notes-dl-compiler-llm-inference.md)  
 다음: [Report - Parallel GEMM과 Freivalds 최적화](hw2-report-parallel-gemm-freivalds.md)
 
@@ -70,6 +71,7 @@ HW2는 행렬곱 검증 문제를 두 방식으로 구현하는 과제다. 하�
 
 HW2의 핵심은 같은 검증 문제를 완전 계산 방식과 확률적 방식으로 비교하는 것이다. GEMM은 정확하지만 `O(N^3)` 비용이 크고, Freivalds는 확률적 error를 허용하는 대신 GEMV 중심으로 계산량을 크게 줄인다.
 
+{% endraw %}
 
 ---
 

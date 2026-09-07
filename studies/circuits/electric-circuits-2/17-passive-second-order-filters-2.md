@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/17%20Passive%20Second-Order%20Filters%20-%20%EC%88%98%EB%8F%99%202%EC%B0%A8%20%ED%95%84%ED%84%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 2차 필터는 두 개의 pole을 가지며, complex conjugate pole을 사용하면 더 sharp한 frequency response와 resonance를 얻을 수 있다. 핵심 파라미터는 natural frequency `w0`와 quality factor `Q`이다. LP, HP, BP, AP 필터는 같은 denominator를 공유하고 numerator의 차이에 의해 기능이 달라진다.
@@ -132,6 +133,7 @@ H_AP(s) = [s^2 - (w0/Q)s + w0^2] /
 - [Higher-Order Filters - Butterworth 고차 필터](20-higher-order-filters-butterworth.md)
 
 
+{% endraw %}
 
 ---
 

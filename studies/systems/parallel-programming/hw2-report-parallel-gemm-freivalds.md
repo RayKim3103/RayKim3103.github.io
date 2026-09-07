@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW2%20Report%20-%20Parallel%20GEMM%EA%B3%BC%20Freivalds%20%EC%B5%9C%EC%A0%81%ED%99%94.md)
 
+{% raw %}
 이전: [Assignment - Matrix Verification Challenge](hw2-assignment-matrix-verification-challenge.md)  
 다음: [Assignment - CUDA LoRA](hw3-assignment-cuda-lora.md)
 
@@ -86,6 +87,7 @@ Freivalds는 `A * (B * v) == C * v`를 검사한다. 핵심 계산은 GEMV다.
 
 HW2 보고서의 핵심은 CPU 병렬화에서 thread 수만 늘리는 것이 답이 아니라는 점이다. 행렬곱은 memory layout, cache line, false sharing, block size, transpose 여부가 성능을 지배한다. 검증 문제에서는 Freivalds처럼 문제 목적에 맞는 algorithmic optimization이 가장 큰 차이를 만든다.
 
+{% endraw %}
 
 ---
 

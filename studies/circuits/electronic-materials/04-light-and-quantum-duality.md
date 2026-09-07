@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/04%20Light%20and%20Quantum%20Duality%20-%20%EB%B9%9B%EA%B3%BC%20%EC%96%91%EC%9E%90%20%EC%9D%B4%EC%A4%91%EC%84%B1.md)
 
+{% raw %}
 tags: #ElectronicMaterials #QuantumPhysics #Diffraction #PhotoelectricEffect #Wavefunction
 
 이전: [Crystalline Amorphous and Fabrication - 결정질 비정질 공정](03-crystalline-amorphous-and-fabrication.md)  
@@ -144,6 +145,7 @@ probability density = |psi(x)|^2
 - `|psi|^2` 확률 해석과 무한 우물의 에너지 양자화.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/08%20%EC%A0%95%EC%9E%90%EA%B3%84%20II%20-%20%EC%9E%90%EC%84%B1%EC%B2%B4%EC%99%80%20%EA%B2%BD%EA%B3%84%EC%A1%B0%EA%B1%B4.md)
 
+{% raw %}
 ## 핵심 요약
 
 자성체가 있는 정자계에서는 자유공간의 `B`만으로는 물질 반응을 분리해 보기 어렵다. 물질 내부의 자기 쌍극자 정렬을 자화 `M`으로 표현하고, 자유 전류만 다루기 위해 보조장 `H`를 도입한다. 이 장은 반자성ㆍ상자성ㆍ강자성, 자화 전류, 투자율, 자기 경계조건, 홀 효과, 자기공명 응용까지 연결한다.
@@ -154,6 +155,7 @@ VH = Ey d
 - [정자계 I - 비오-사바르와 앙페르 법칙](07-magnetostatics-1-biot-savart-and-ampere.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

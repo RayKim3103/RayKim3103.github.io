@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/11%20Decision%20Tree%20-%20%EA%B2%B0%EC%A0%95%ED%8A%B8%EB%A6%AC.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #decision-tree #nonparametric #pruning #classification
 
 관련 노트: [SGD와 Online Learning](10-logistic-regression-part-3-sgd-online-learning.md), [Ensemble Learning](12-ensemble-learning-bagging-random-forest-boosting.md)
@@ -131,6 +132,7 @@ Split을 유지한 tree보다 제거한 작은 tree의 total cost가 낮으면 p
 - Decision tree overfitting과 pruning objective를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

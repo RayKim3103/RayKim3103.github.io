@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/10A%20SSD%20Software%202%20-%20Superblock%20LAST%20Annotated%20Image%20Copy.md)
 
+{% raw %}
 tags: #micro-processor #ssd #ftl #superblock #last #annotated-copy
 
 관련 노트: [SSD Software 2 - Superblock, LAST, FTL Functions](10-ssd-software-2-superblock-last-and-ftl-functions.md)
@@ -83,6 +84,7 @@ Wear-leveling은 모든 block의 erase count를 균등하게 만드는 작업이
 - 이 사본은 필기/이미지 확인용이고, 상세 텍스트 정리는 10번 노트와 함께 보는 것이 좋다.
 
 
+{% endraw %}
 
 ---
 

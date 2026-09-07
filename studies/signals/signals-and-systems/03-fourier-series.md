@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/03%20%ED%91%B8%EB%A6%AC%EC%97%90%20%EA%B8%89%EC%88%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 푸리에 급수는 주기 신호를 서로 조화 관계에 있는 복소 지수들의 가중합으로 표현한다. LTI 시스템에서 복소 지수는 eigenfunction이므로, 주기 입력을 푸리에 급수로 나누면 각 주파수 성분이 시스템의 frequency response만큼 스케일되고 위상 이동된 뒤 다시 합쳐진다.
@@ -141,6 +142,7 @@ bk = H(ej(2π/N)k) ak
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [시간-주파수 특성](06-time-frequency-properties.md)
 
+{% endraw %}
 
 ---
 

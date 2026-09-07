@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/05%20Wire%20-%20%EB%B0%B0%EC%84%A0%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20Crosstalk.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #wire #interconnect #rc-delay #crosstalk #repeater
 
 관련 노트: [CMOS 전력소모와 저전력기법](04-power-cmos.md), [Scaling, Reliability, Variability](06-scaling-reliability-variability.md)
@@ -121,6 +122,7 @@ Properly repeated wire의 delay per unit length는 unrepeated long wire보다 �
 - Repeater insertion의 delay/power/area tradeoff를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

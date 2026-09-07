@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/02%20Crystal%20Structure%20and%20Defects%20-%20%EA%B2%B0%EC%A0%95%EA%B5%AC%EC%A1%B0%EC%99%80%20%EA%B2%B0%ED%95%A8.md)
 
+{% raw %}
 tags: #ElectronicMaterials #CrystalStructure #MillerIndex #Defects
 
 이전: [Atomic Model and Bonding - 원자모형과 결합](01-atomic-model-and-bonding.md)  
@@ -153,6 +154,7 @@ planar concentration = number of atoms centered on plane / area of plane
 - screw dislocation이 결정 성장을 촉진하는 이유.
 
 
+{% endraw %}
 
 ---
 

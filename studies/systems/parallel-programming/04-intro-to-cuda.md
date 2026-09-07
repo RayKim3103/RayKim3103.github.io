@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/04%20Intro%20to%20CUDA%20-%20CUDA%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EB%AA%A8%EB%8D%B8.md)
 
+{% raw %}
 이전: [Matrix Multiplication - CPU Cache와 병렬 행렬곱](03-matrix-multiplication-cpu-cache.md)  
 다음: [CUDA Matrix Multiplication - Shared Memory Tiling](05-cuda-matrix-multiplication-shared-memory-tiling.md)
 
@@ -105,6 +106,7 @@ Occupancy는 SM에 동시에 resident할 수 있는 active warp/thread 비율이
 
 CUDA의 핵심은 host-device 구조, grid/block/thread 계층, warp 단위 실행을 이해하는 것이다. 성능은 단순히 thread를 많이 만드는 것으로 결정되지 않고, branch divergence를 줄이고 occupancy를 확보하며 memory latency를 숨기는 방식으로 결정된다.
 
+{% endraw %}
 
 ---
 

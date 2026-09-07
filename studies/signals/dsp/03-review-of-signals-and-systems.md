@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/03%20Review%20of%20Signals%20and%20Systems.md)
 
+{% raw %}
 ﻿---
 title: "03. Review of Signals and Systems"
 pages: 32
@@ -257,6 +258,7 @@ $$
 - 샘플링은 주파수 영역에서 spectrum replica를 만들며, replica가 겹치면 aliasing이다.
 - 이후 강의의 z-transform, DFT, Wiener filter는 모두 이 복습 내용을 기반으로 한다.
 
+{% endraw %}
 
 ---
 

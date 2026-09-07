@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/08%20UART%20and%20Memory%20Loopback.md)
 
+{% raw %}
 ﻿---
 title: "08. UART and Memory Loopback"
 pages: 24
@@ -181,6 +182,7 @@ BRAM -> Memory Controller -> UART_TX -> Tester RX
 - ready/valid 또는 empty/rd_en handshake를 놓치면 data loss가 생긴다.
 - memory loopback은 UART, BRAM, FSM controller를 통합하는 과제이다.
 
+{% endraw %}
 
 ---
 

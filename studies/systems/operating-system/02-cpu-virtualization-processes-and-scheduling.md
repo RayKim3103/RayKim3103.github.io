@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Operating_System/lecture_notes/02%20CPU%20%EA%B0%80%EC%83%81%ED%99%94%20-%20%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%20%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81.md)
 
+{% raw %}
 tags: #operating-system #process #scheduling #system-call #context-switch
 
 관련 노트: [운영체제 개요](01-os-overview.md), [A1 xv6 Shell 과제](a1-xv6-shell.md), [A2 xv6 System Call and Process 과제](a2-xv6-syscall-and-process.md), [A3 xv6 Scheduling 과제](a3-xv6-scheduling.md)
@@ -157,6 +158,7 @@ MLFQ는 job runtime을 미리 모르는 상황에서 interactive job에 좋은 r
 - FIFO, SJF, STCF, RR의 장단점을 metric 관점에서 비교할 수 있는가?
 - MLFQ가 job runtime을 모르는 상황에서 어떤 heuristic을 쓰는지 설명할 수 있는가?
 
+{% endraw %}
 
 ---
 

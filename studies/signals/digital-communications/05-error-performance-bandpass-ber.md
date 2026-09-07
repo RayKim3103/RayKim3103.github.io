@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/05%20Error%20Performance%20-%20Bandpass%20BER%20%EC%84%B1%EB%8A%A5.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 bandpass digital modulation의 error performance를 `Eb/N0`, BER, SER 관점에서 비교한다. coherent BPSK/BFSK, noncoherent BFSK, DPSK, MPSK, MFSK가 핵심이며, power efficiency와 bandwidth efficiency의 trade-off를 정리한다.
@@ -272,6 +273,7 @@ P_b ≈ (1/2) P_s
 - [Noise and Decision - 잡음과 최적 검출](04-noise-and-decision.md)
 - [QPSK vs 16QAM - 대역폭과 BER 비교](08-qpsk-vs-16qam-ber.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/10%20Lab11%20DCGAN.md)
 
+{% raw %}
 ## 한눈에 보기
 Deep Convolutional GAN(DCGAN)을 구현하여 latent noise에서 이미지를 생성하는 실습이다. Generator와 Discriminator를 번갈아 학습시키며 adversarial objective가 어떻게 균형을 이루는지 관찰한다.
 
@@ -52,6 +53,7 @@ Deep Convolutional GAN(DCGAN)을 구현하여 latent noise에서 이미지를 �
 - [Lab12 CycleGAN](11-lab12-cyclegan.md)
 - [Lab12 사전보고서 Pix2Pix와 CycleGAN](23-prep-lab12-pix2pix-cyclegan.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/01%20%EC%8B%A0%ED%98%B8%EC%99%80%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 핵심 요약
 
 신호와 시스템 과목은 연속시간 신호 `x(t)`와 이산시간 신호 `x[n]`를 수학적으로 표현하고, 시스템이 입력 신호를 출력 신호로 바꾸는 방식을 분석하는 과목이다. 오디오, 음성, 영상, 통신, 레이더, 생체신호, 머신러닝까지 다양한 응용이 같은 신호 처리 언어로 설명된다. 이 장은 신호의 기본 분류, 독립변수 변환, 기본 신호, 시스템 성질을 정리한다.
@@ -212,6 +213,7 @@ LTI 시스템은 linearity와 time invariance를 모두 만족하는 시스템�
 - [LTI 시스템과 컨볼루션](02-lti-systems-and-convolution.md)
 - [푸리에 급수](03-fourier-series.md)
 
+{% endraw %}
 
 ---
 

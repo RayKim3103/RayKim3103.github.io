@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/05%20MOSFET%20%EA%B8%B0%EB%B3%B8%20%EB%8F%99%EC%9E%91.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 MOSFET의 구조와 전류식을 다룬다. BJT의 한계였던 입력 전류 문제를 줄이고, gate 전압으로 channel을 형성해 drain current를 제어하는 소자라는 점이 핵심이다.
@@ -248,6 +249,7 @@ PMOS는 NMOS와 극성이 반대이다.
 - [ ] lambda effect와 $r_o$의 관계를 설명할 수 있다.
 - [ ] NMOS와 PMOS의 극성 차이를 말할 수 있다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/10%20Pole%20Zero%20Bode%20Plot%20-%20%EA%B7%B9%EC%A0%90%20%EC%98%81%EC%A0%90%20%EB%B3%B4%EB%93%9C%EC%84%A0%EB%8F%84.md)
 
+{% raw %}
 ## 핵심 요약
 
 회로의 frequency response는 s-domain transfer function의 pole과 zero로 결정된다. Bode plot은 `20log10|H(jw)|`와 phase를 log frequency 축에 그린 것이다. pole은 magnitude slope를 `-20 dB/dec`씩 낮추고 phase를 `-90 deg` 변화시키며, zero는 반대로 `+20 dB/dec`, `+90 deg` 효과를 만든다.
@@ -153,6 +154,7 @@ Av0 = -gm RD
 - [First-Order Filters - 1차 필터](16-first-order-filters-1.md)
 
 
+{% endraw %}
 
 ---
 

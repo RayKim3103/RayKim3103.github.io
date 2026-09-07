@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/00%20Design%20Project%20Summary%20-%20Optical%20Receiver%20PD%20TIA%20CTLE.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 자료는 광수신기 `Photodiode(PD) + Transimpedance Amplifier(TIA) + Continuous-Time Linear Equalizer(CTLE)` 설계 결과를 정리한 프로젝트 보고서이다. 핵심 목표는 PD에서 나온 전류 신호를 TIA로 전압 신호로 변환/증폭하고, CTLE로 고주파 손실을 보상하여 10Gbps급 eye opening을 확보하는 것이다.
@@ -163,6 +164,7 @@ CTLE는 작은 capacitance와 GHz 대역 parasitic 영향 때문에 이론식과
 - [IO Resistance Improvement with Feedback 1 - 전압 증폭기 피드백](24-io-resistance-improvement-with-feedback-1.md)
 
 
+{% endraw %}
 
 ---
 

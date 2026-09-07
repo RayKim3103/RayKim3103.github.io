@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Linear_Algebra/lecture_notes/04%20%EC%84%A0%ED%98%95%EB%B3%80%ED%99%98.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 함수를 벡터공간 사이의 구조 보존 사상으로 바라본다. 선형변환은 덧셈과 스칼라 곱을 보존하는 함수이며, 행렬은 선형변환을 계산하는 구체적인 표현이다.
@@ -488,6 +489,7 @@ $$
 - [ ] 선형변환 버전 rank-nullity theorem을 설명할 수 있다.
 - [ ] direct sum과 표현 유일성의 관계를 증명할 수 있다.
 
+{% endraw %}
 
 ---
 

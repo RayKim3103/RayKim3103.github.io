@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/04%20%EC%A0%95%EC%A0%84%EA%B3%84%20I%20-%20%EC%BF%A8%EB%A1%B1%20%EB%B2%95%EC%B9%99%EA%B3%BC%20%EA%B0%80%EC%9A%B0%EC%8A%A4%20%EB%B2%95%EC%B9%99.md)
 
+{% raw %}
 ## 핵심 요약
 
 정전계는 정지한 전하가 만드는 시간 불변 전기장을 다룬다. 이 장의 출발점은 쿨롱 법칙과 중첩 원리이다. 점전하에서 시작해 연속 전하분포의 전기장을 적분으로 구하고, 대칭성이 높은 문제에서는 가우스 법칙을 사용해 훨씬 간단히 전기장을 구한다.
@@ -159,6 +160,7 @@ Vab = -∫a^b E · dl
 - [정전계 II - 유전체와 커패시턴스](05-electrostatics-2-dielectrics-and-capacitance.md)
 - [정상 전류와 저항](06-steady-current-and-resistance.md)
 
+{% endraw %}
 
 ---
 

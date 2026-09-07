@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/16%20Lab05%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20FSRCNN.md)
 
+{% raw %}
 ## 한눈에 보기
 SRCNN과 FSRCNN의 차이를 중심으로 single image super-resolution의 이론 배경을 정리한 사전보고서이다.
 
@@ -48,6 +49,7 @@ Lab05 구현은 T91 patch 학습, Set5 평가, Adam optimizer, layer별 learning
 - [Lab05 FSRCNN 초해상도](03-lab05-fsrcnn.md)
 - [Lab10 사전보고서 Style Transfer](21-prep-lab10-style-transfer.md)
 
+{% endraw %}
 
 ---
 

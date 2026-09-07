@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/04A%20Computer%20Organization%20Chapter%206%20-%20Storage%20and%20IO%20Topics%20Annotated%20Copy.md)
 
+{% raw %}
 tags: #micro-processor #computer-organization #io #storage #bus #interrupt #dma #annotated-copy
 
 관련 노트: [Computer Organization Chapter 6 - Storage and I/O Topics](04-computer-organization-chapter-6-storage-and-io-topics.md), [Computer Organization Chapter 7 - Multiprocessors](05-computer-organization-chapter-7-multiprocessors.md)
@@ -86,6 +87,7 @@ Multiple master system에서는 누가 bus를 사용할지 결정해야 한다.
 - DMA와 cache coherence 문제가 왜 연결되는지 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

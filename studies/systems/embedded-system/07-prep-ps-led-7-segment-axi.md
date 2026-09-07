@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/07%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20PS%20%EA%B8%B0%EB%B0%98%20LED%207-Segment%20AXI%20%EC%A0%9C%EC%96%B4.md)
 
+{% raw %}
 이전: [06주차 결과 - ASCII 문자 생성기와 화면 표시](06-result-ascii.md)  
 다음: [09주차 결과 - AXI Text-LCD PS PL 연동](09-result-axi-text-lcd-ps-pl.md)
 
@@ -85,6 +86,7 @@ Top RTL의 역할:
 
 7주차 예비의 핵심은 PS가 단순히 보조 역할을 하는 것이 아니라, AXI-Lite를 통해 PL에 만든 IP를 직접 제어하는 master가 된다는 점이다. 이후 주차의 Text-LCD, TFT-LCD, interrupt, Linux device driver 실습은 모두 이 memory mapped I/O 개념 위에서 확장된다.
 
+{% endraw %}
 
 ---
 

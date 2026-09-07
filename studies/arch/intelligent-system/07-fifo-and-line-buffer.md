@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/07%20FIFO%20and%20Line%20Buffer.md)
 
+{% raw %}
 ﻿---
 title: "07. FIFO and Line Buffer"
 pages: 35
@@ -203,6 +204,7 @@ data_out = {from_FIFO2, from_FIFO1, from_FIFO0};
 - line buffer는 2D convolution을 streaming hardware로 만들기 위한 기본 구조이다.
 - output concatenate 순서와 BRAM latency를 testbench 기준에 맞춘다.
 
+{% endraw %}
 
 ---
 

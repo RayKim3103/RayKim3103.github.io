@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/00%20%EA%B0%95%EC%9D%98%EA%B3%84%ED%9A%8D%EA%B3%BC%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 > 다음: [연구실 소개와 DSP 응용 맥락](01-lab-intro-and-dsp-applications.md)
 
 ## 강의 기본 정보
@@ -156,6 +157,7 @@ $$
 - 행렬 관점은 inverse filtering, superresolution, Wiener filter로 이어진다.
 - 2D DSP에서는 1D의 시간축이 이미지의 공간축 두 개로 확장된다.
 
+{% endraw %}
 
 ---
 

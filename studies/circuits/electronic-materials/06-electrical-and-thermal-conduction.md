@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/06%20Electrical%20and%20Thermal%20Conduction%20-%20%EC%A0%84%EA%B8%B0%20%EC%97%B4%20%EC%A0%84%EB%8F%84.md)
 
+{% raw %}
 tags: #ElectronicMaterials #Conduction #Resistivity #HallEffect #ThermalConductivity
 
 이전: [Tunneling Blackbody Laser - 터널링 흑체 레이저](05-tunneling-blackbody-laser.md)  
@@ -192,6 +193,7 @@ Q' = Delta T / theta
 - 금속과 비금속의 열전도 carrier 차이.
 
 
+{% endraw %}
 
 ---
 

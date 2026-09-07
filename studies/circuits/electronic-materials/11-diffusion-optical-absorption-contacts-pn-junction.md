@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/11%20Diffusion%20Optical%20Absorption%20Contacts%20PN%20Junction%20-%20%ED%99%95%EC%82%B0%20%ED%9D%A1%EC%88%98%20%EC%A0%91%EC%B4%89%20PN%EC%A0%91%ED%95%A9.md)
 
+{% raw %}
 tags: #ElectronicMaterials #Diffusion #OpticalAbsorption #SchottkyContact #OhmicContact #PNJunction
 
 이전: [Intrinsic Extrinsic Semiconductors - 반도체 캐리어](10-intrinsic-extrinsic-semiconductors.md)  
@@ -192,6 +193,7 @@ rho = 0 outside depletion region
 - depletion approximation의 가정.
 
 
+{% endraw %}
 
 ---
 

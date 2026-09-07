@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/04%20Computer%20Organization%20Chapter%206%20-%20Storage%20and%20IO%20Topics.md)
 
+{% raw %}
 tags: #micro-processor #computer-organization #io #storage #bus #interrupt #dma #disk
 
 관련 노트: [ARM Chapter 3 - ARM Assembly Language Programming](03-arm-chapter-3-assembly-language-programming.md), [Computer Organization Chapter 6 - Storage and I/O Topics Annotated Copy](04a-computer-organization-chapter-6-storage-and-io-topics-annotated-copy.md), [Computer Organization Chapter 7 - Multiprocessors](05-computer-organization-chapter-7-multiprocessors.md)
@@ -202,6 +203,7 @@ DMA controller는 hard-wired special I/O processor로 볼 수 있다. 더 일반
 - Polling, interrupt, DMA의 CPU overhead 차이를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

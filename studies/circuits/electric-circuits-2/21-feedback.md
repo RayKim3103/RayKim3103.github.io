@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/21%20Feedback%20-%20%EC%9D%8C%EA%B7%80%ED%99%98%20%EA%B8%B0%EC%B4%88.md)
 
+{% raw %}
 ## 핵심 요약
 
 Feedback은 output의 일부를 input으로 되돌리는 구조이다. negative feedback에서는 closed-loop gain이 open-loop gain `A`보다 작아지지만, gain이 feedback factor에 의해 안정화되고 bandwidth가 증가한다. 핵심 식은 `A/(1+KA)`이며, `KA`가 loop gain이다.
@@ -160,6 +161,7 @@ feedback 회로는 output 변화가 amplifier input error를 줄이는지 확인
 - [IO Resistance Improvement with Feedback 2 - 증폭기별 저항 개선](25-io-resistance-improvement-with-feedback-2.md)
 
 
+{% endraw %}
 
 ---
 

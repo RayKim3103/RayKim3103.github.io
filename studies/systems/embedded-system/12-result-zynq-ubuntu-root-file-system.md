@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/12%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20Zynq%20Ubuntu%20Root%20File%20System%20%EA%B5%AC%EC%84%B1.md)
 
+{% raw %}
 이전: [11주차 결과 - PL Interrupt와 PS Handler](11-result-pl-interrupt-ps-handler.md)  
 다음: [13주차 결과 - U-Boot Kernel Device Tree와 Driver 개념](13-result-u-boot-kernel-device-tree-driver.md)
 
@@ -105,6 +106,7 @@ Windows는 ext4를 기본 인식하지 못하므로 rootfs partition 작업은 L
 
 12주차 결과의 핵심은 embedded Linux boot를 위해 boot image뿐 아니라 제대로 구성된 root file system이 필요하다는 점이다. 이번 주차는 SD 카드의 root partition을 준비하고, 다음 주차에서 boot image와 kernel, device tree를 결합해 실제 Linux boot로 이어진다.
 
+{% endraw %}
 
 ---
 

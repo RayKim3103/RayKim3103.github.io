@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/20%20Lab09%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20XNOR-Net%EA%B3%BC%20%EC%96%91%EC%9E%90%ED%99%94.md)
 
+{% raw %}
 ## 한눈에 보기
 binary/low-bit neural network의 동기와 대표 방법을 정리한 사전보고서이다.
 
@@ -48,6 +49,7 @@ Lab09에서는 QConv2d, weight/activation quantizer, custom rounding, pretrained
 - [Lab09 Quantization Interval Learning](07-lab09-quantization-interval-learning.md)
 - [Project 사전보고서 CARE](25-prep-project-care.md)
 
+{% endraw %}
 
 ---
 

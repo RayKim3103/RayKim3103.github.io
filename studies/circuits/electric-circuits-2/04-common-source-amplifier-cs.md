@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/04%20Common-Source%20Amplifier%20-%20CS%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 Common-source(CS) 증폭기는 MOSFET의 `gm vgs` 전류원 특성을 이용해 입력 전압을 출력 전압 또는 출력 전류로 변환한다. 기본 gain은 `-gm RD`이며, channel-length modulation을 고려하면 `-gm(RD || ro)`가 된다. source degeneration을 넣으면 gain은 줄지만 안정성과 선형성이 좋아진다.
@@ -128,6 +129,7 @@ Av ≈ - RD / RS
 - [Feedback - 음귀환 기초](21-feedback.md)
 
 
+{% endraw %}
 
 ---
 

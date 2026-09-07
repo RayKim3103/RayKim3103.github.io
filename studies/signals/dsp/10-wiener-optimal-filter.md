@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/10%20Wiener%20Optimal%20Filter.md)
 
+{% raw %}
 ﻿---
 title: "10. Wiener Optimal Filter"
 pages: 6
@@ -177,6 +178,7 @@ $$
 - 단순 inverse와 달리 noise spectrum을 고려한다.
 - $S_{vv}$가 0이면 inverse filter에 가까워지고, $S_{vv}$가 크면 해당 주파수 성분을 억제한다.
 
+{% endraw %}
 
 ---
 

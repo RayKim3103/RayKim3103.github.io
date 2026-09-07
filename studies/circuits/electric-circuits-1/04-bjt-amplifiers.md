@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/04%20BJT%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 BJT 증폭기를 실제로 설계하고 해석하는 방법을 다룬다. 핵심은 임피던스, DC bias, 소신호 파라미터, AC 등가회로, common-emitter/common-base/common-collector 구성, 다단 증폭기 이득 계산이다.
@@ -335,6 +336,7 @@ $$
 - [ ] CE, CB, CC의 입력/출력 단자와 용도를 구분할 수 있다.
 - [ ] 다단 증폭기의 loading effect를 반영해 전체 이득을 구할 수 있다.
 
+{% endraw %}
 
 ---
 

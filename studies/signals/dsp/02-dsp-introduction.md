@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/02%20DSP%20Introduction.md)
 
+{% raw %}
 ﻿---
 title: "02. Introduction to Digital Signal Processing"
 pages: 11
@@ -150,6 +151,7 @@ CCD/CMOS 센서로 획득한 디지털 영상은 필터링, 향상, 복원, 압�
 - digital processing의 장점은 유연성, 반복성, 저장/전송 안정성이다.
 - 1D DSP는 시간 신호, 2D/3D DSP는 영상과 동영상으로 자연스럽게 확장된다.
 
+{% endraw %}
 
 ---
 

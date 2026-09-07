@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/04%20Sequential%20Logic%20Shift%20Register%20Counter%20-%20%EC%88%9C%EC%B0%A8%EB%85%BC%EB%A6%AC%20%EC%8B%9C%ED%94%84%ED%8A%B8%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0%20%EC%B9%B4%EC%9A%B4%ED%84%B0.md)
 
+{% raw %}
 tags: #basic-digital-experiment #sequential-logic #flip-flop #shift-register #counter #verilog
 
 관련 노트: [PYNQ GPIO, DEMUX, MUX, Decoder](03-pynq-gpio-demux-decoder.md), [FSM과 Traffic Light Controller](05-fsm-traffic-light.md)
@@ -150,6 +151,7 @@ blocking assignment `=`는 절차적으로 즉시 대입되는 것처럼 동작�
 - sequential logic에서 nonblocking assignment를 선호하는 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

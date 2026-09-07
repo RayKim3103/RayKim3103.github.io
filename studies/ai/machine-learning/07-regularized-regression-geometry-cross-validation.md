@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/07%20Regularized%20Regression%20Geometry%20-%20%EC%A0%95%EA%B7%9C%ED%99%94%ED%9A%8C%EA%B7%80%EC%9D%98%20%EA%B8%B0%ED%95%98%ED%95%99%EA%B3%BC%20Cross%20Validation.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #regularization #ridge #lasso #cross-validation
 
 관련 노트: [Lasso Regression과 Feature Selection](06-lasso-regression-feature-selection.md), [선형분류와 Logistic Regression](08-logistic-regression-part-1.md)
@@ -105,6 +106,7 @@ K-fold cross validation은 데이터 사용 효율을 높인다. 각 sample이 �
 - K-fold cross validation 절차를 순서대로 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

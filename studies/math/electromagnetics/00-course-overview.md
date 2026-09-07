@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/00%20%EA%B0%95%EC%9D%98%20%EA%B0%9C%EC%9A%94%EC%99%80%20%EC%A0%84%EC%9E%90%EA%B8%B0%ED%95%99%20%EC%A7%80%EB%8F%84.md)
 
+{% raw %}
 ## 핵심 요약
 
 전자기학은 전하, 전류, 전기장, 자기장, 물질, 시간 변화가 서로 어떻게 연결되는지 설명하는 장 이론이다. 고등학교나 일반물리에서 배운 쿨롱 법칙, 옴의 법칙, 앙페르 법칙, 패러데이 법칙을 개별 공식으로 외우는 수준에서 멈추지 않고, 이 강의에서는 이를 미분방정식과 적분 법칙으로 일반화한다. 최종 목표는 맥스웰 방정식이 거시적 전자기 현상을 매우 짧은 수학적 언어로 통합한다는 점을 이해하는 것이다.
@@ -66,6 +67,7 @@ flowchart TD
 - [정전계 I - 쿨롱 법칙과 가우스 법칙](04-electrostatics-1-coulomb-and-gauss.md)
 - [시간 변화장과 맥스웰 방정식](09-time-varying-fields-and-maxwell.md)
 
+{% endraw %}
 
 ---
 

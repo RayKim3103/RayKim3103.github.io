@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/06%20SoC%20ARM%20PL%20PS%20MMIO%20-%20Zynq%20SoC%EC%99%80%20MMIO.md)
 
+{% raw %}
 tags: #basic-digital-experiment #soc #zynq #arm #mmio #axi-gpio #vitis
 
 관련 노트: [FSM과 Traffic Light Controller](05-fsm-traffic-light.md), [Polling, Interrupt, Timer](07-polling-interrupt-timer.md)
@@ -138,6 +139,7 @@ rgb_led[0] = 1 + 4 + 16;
 - AXI GPIO base address와 LED bit mapping을 연결해 해석할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

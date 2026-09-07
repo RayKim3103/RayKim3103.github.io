@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/04%20%EC%97%B0%EC%86%8D%EC%8B%9C%EA%B0%84%20%ED%91%B8%EB%A6%AC%EC%97%90%20%EB%B3%80%ED%99%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 연속시간 푸리에 변환은 비주기 CT 신호를 연속 주파수 성분의 적분으로 표현한다. 푸리에 급수를 주기가 무한대로 가는 극한으로 확장하면 CTFT가 나온다. CTFT는 비주기 신호의 스펙트럼, LTI 시스템의 주파수 응답, 필터링, 변조, 미분방정식 해석의 기본 도구이다.
@@ -157,6 +158,7 @@ H(jω) = Y(jω)/X(jω)
 - [시간-주파수 특성](06-time-frequency-properties.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
 
+{% endraw %}
 
 ---
 

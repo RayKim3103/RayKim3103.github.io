@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/17%20Neural%20Networks%20Part%201%20-%20%EB%8B%A4%EC%B8%B5%EC%8B%A0%EA%B2%BD%EB%A7%9D%20%EA%B8%B0%EC%B4%88.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #neural-network #perceptron #activation #backpropagation
 
 관련 노트: [Dimension Reduction: PCA와 LDA](16-dimension-reduction-pca-lda.md), [Neural Networks Part 2: Backpropagation](18-neural-networks-part-2-backpropagation.md)
@@ -126,6 +127,7 @@ gradient descent: weight update
 - Forward propagation과 backpropagation의 역할을 구분할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

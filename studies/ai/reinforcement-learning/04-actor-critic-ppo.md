@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/04%20Actor-Critic%EA%B3%BC%20PPO.md)
 
+{% raw %}
 ## 핵심 요약
 
 Actor-critic은 policy를 업데이트하는 actor와 value를 추정하는 critic을 함께 학습한다. policy gradient의 높은 variance를 줄이기 위해 reward-to-go, baseline, advantage, GAE를 사용한다. PPO는 policy가 한 번에 너무 크게 바뀌지 않도록 clipped objective를 사용하는 안정적인 on-policy deep RL 알고리즘이다.
@@ -118,6 +119,7 @@ LCLIP(θ) = E[min(rt(θ)At, clip(rt(θ), 1-ε, 1+ε)At)]
 - [Off-policy RL](06-off-policy-rl.md)
 - [Humanoid RL](16-humanoid-rl.md)
 
+{% endraw %}
 
 ---
 

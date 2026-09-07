@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/02%20%EB%8B%A4%EC%9D%B4%EC%98%A4%EB%93%9C%20%EC%9D%91%EC%9A%A9.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 다이오드의 회로 응용을 다룬다. 핵심은 다이오드를 어떤 모델로 볼 것인지 정하고, 켜짐/꺼짐 조건에 따라 입력-출력 관계를 조각별로 해석하는 것이다.
@@ -226,6 +227,7 @@ $$
 - [ ] 반파 정류기와 전파 정류기의 출력 파형을 비교할 수 있다.
 - [ ] 커패시터 필터가 리플을 줄이는 이유를 설명할 수 있다.
 
+{% endraw %}
 
 ---
 

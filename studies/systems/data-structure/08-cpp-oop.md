@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/08%20C%2B%2B%20%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.md)
 
+{% raw %}
 ## 절차적 프로그래밍과 객체지향
 
 절차적 프로그래밍은 “무엇을 어떤 순서로 수행할지”에 초점을 둔다. 객체지향 프로그래밍은 문제 세계의 사물과 개념을 타입으로 모델링하고, 각 객체가 데이터와 동작을 함께 가지게 한다.
@@ -176,6 +177,7 @@ public:
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
 
 
+{% endraw %}
 
 ---
 

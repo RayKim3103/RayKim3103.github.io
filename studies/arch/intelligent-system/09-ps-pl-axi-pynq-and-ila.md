@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/09%20PS%20PL%20AXI%20PYNQ%20and%20ILA.md)
 
+{% raw %}
 ﻿---
 title: "09. PS/PL, AXI, PYNQ, and ILA"
 pages: 94
@@ -269,6 +270,7 @@ PYNQ에서 overlay를 쓰려면 다음 파일이 필요하다.
 - ILA는 board에서만 드러나는 timing/control 문제를 잡는 필수 도구이다.
 - PYNQ driver는 overlay, MMIO, memory access, polling을 한 class로 정리하면 좋다.
 
+{% endraw %}
 
 ---
 

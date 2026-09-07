@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/04%20Sampling%20Rate%20Change.md)
 
+{% raw %}
 ﻿---
 title: "04. Sampling Rate Change"
 pages: 14
@@ -150,6 +151,7 @@ $$
 - up-sampling은 spectrum image를 만든다.
 - 비정수 변환은 항상 “먼저 up-sample, filter, 나중에 down-sample” 순서로 생각한다.
 
+{% endraw %}
 
 ---
 

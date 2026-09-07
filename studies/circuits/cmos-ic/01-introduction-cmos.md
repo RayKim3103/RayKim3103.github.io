@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/01%20Introduction%20-%20CMOS%20%EC%A7%91%EC%A0%81%ED%9A%8C%EB%A1%9C%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #cmos #mosfet #layout #standard-cell #verification
 
 관련 노트: [MOS 소자 모델과 비이상성](02-devices-mos.md)
@@ -147,6 +148,7 @@ Fabrication은 느리고 비싸다. 한 번 tape-out한 뒤 오류를 발견하�
 - HDL부터 fabrication까지 CMOS design flow를 순서대로 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

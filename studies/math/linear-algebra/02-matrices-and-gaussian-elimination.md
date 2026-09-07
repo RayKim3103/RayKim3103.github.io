@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Linear_Algebra/lecture_notes/02%20%ED%96%89%EB%A0%AC%EA%B3%BC%20%EA%B0%80%EC%9A%B0%EC%8A%A4%20%EC%86%8C%EA%B1%B0.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 행렬의 정의, 행렬 연산, 연립방정식의 행렬 표현, 가우스-조르당 소거법, 역행렬, LDU 분해, 피벗과 랭크, 순열행렬, 기본행렬을 다룬다. 핵심은 연립방정식 풀이를 행 연산과 행렬 곱으로 바라보는 것이다.
@@ -435,6 +436,7 @@ $$
 - [ ] 피벗과 랭크의 관계를 설명할 수 있다.
 - [ ] 순열행렬이 왜 필요한지 예시로 설명할 수 있다.
 
+{% endraw %}
 
 ---
 

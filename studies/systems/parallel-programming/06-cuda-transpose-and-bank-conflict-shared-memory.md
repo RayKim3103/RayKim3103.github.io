@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/06%20CUDA%20Transpose%20and%20Bank%20Conflict%20-%20Shared%20Memory%20%EC%8B%AC%ED%99%94.md)
 
+{% raw %}
 이전: [CUDA Matrix Multiplication - Shared Memory Tiling](05-cuda-matrix-multiplication-shared-memory-tiling.md)  
 다음: [CUDA DNN - Convolution과 im2col](07-cuda-dnn-convolution-im2col.md)
 
@@ -84,6 +85,7 @@ extern __shared__ float buffer[];
 
 Transpose는 memory coalescing과 bank conflict를 동시에 보여주는 대표 예제다. 좋은 CUDA kernel은 global memory access만 보는 것이 아니라, shared memory 내부 bank mapping까지 고려해야 한다. “coalescing을 만들고, bank conflict를 피하라”가 이 강의의 결론이다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/01%20%EB%B0%98%EB%8F%84%EC%B2%B4%EC%99%80%20PN%20%EC%A0%91%ED%95%A9.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 전자회로 1의 출발점인 반도체 물성을 정리한다. 원자 결합, 도핑, 캐리어 농도, drift 전류, diffusion 전류, PN 접합의 built-in potential, 순방향/역방향 바이어스, 다이오드 전류식까지 이어진다.
@@ -311,6 +312,7 @@ $$
 - [ ] built-in potential 식을 적용할 수 있다.
 - [ ] Shockley diode equation을 회로 해석에 사용할 수 있다.
 
+{% endraw %}
 
 ---
 

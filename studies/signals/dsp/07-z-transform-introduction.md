@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/07%20Z-Transform%20Introduction.md)
 
+{% raw %}
 ﻿---
 title: "07. Z-Transform Introduction"
 pages: 16
@@ -170,6 +171,7 @@ causal and stable LTI:
 - DTFT는 z-transform의 unit circle evaluation이다.
 - causal/stable 판단은 pole 위치와 ROC를 함께 봐야 한다.
 
+{% endraw %}
 
 ---
 

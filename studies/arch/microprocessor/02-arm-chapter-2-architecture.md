@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/02%20ARM%20Chapter%202%20-%20ARM%20Architecture.md)
 
+{% raw %}
 tags: #micro-processor #arm #architecture #programmers-model #cpsr #exception #load-store
 
 관련 노트: [ARM Chapter 1 - Processor Design Introduction](01-arm-chapter-1-processor-design-introduction.md), [ARM Chapter 3 - ARM Assembly Language Programming](03-arm-chapter-3-assembly-language-programming.md)
@@ -166,6 +167,7 @@ ARM 개발 환경은 cross development가 일반적이다. Host PC에서 compile
 - ARM exception 진입/복귀의 큰 흐름을 이해해야 한다.
 
 
+{% endraw %}
 
 ---
 

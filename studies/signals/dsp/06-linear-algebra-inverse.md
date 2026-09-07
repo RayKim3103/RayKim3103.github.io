@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/06%20Linear%20Algebra%20Inverse.md)
 
+{% raw %}
 ﻿---
 title: "06. Linear Algebra Inverse"
 pages: 5
@@ -177,6 +178,7 @@ condition number가 크면 작은 오차가 해에서 크게 증폭된다.
 - underdetermined 문제는 prior나 regularization 없이는 해가 결정되지 않는다.
 - inverse filtering은 수학적으로 가능해도 noise 때문에 실용적으로 불안정할 수 있다.
 
+{% endraw %}
 
 ---
 

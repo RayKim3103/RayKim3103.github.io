@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/03%20Lab05%20FSRCNN%20%EC%B4%88%ED%95%B4%EC%83%81%EB%8F%84.md)
 
+{% raw %}
 ## 한눈에 보기
 저해상도 이미지를 고해상도로 복원하는 super-resolution 실습이다. SRCNN의 bicubic 선확대 방식 대신 FSRCNN처럼 저해상도 공간에서 feature extraction과 mapping을 수행하고 마지막 transposed convolution으로 해상도를 키운다.
 
@@ -52,6 +53,7 @@ sitemap: false
 - [Lab10 Neural Style Transfer](08-lab10-neural-style-transfer.md)
 - [Lab10-2 Neural Style Transfer 반복 실험](09-lab10-2-neural-style-transfer.md)
 
+{% endraw %}
 
 ---
 

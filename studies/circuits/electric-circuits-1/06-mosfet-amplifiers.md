@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/06%20MOSFET%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 MOSFET를 이용한 증폭기 해석을 정리한다. DC bias로 saturation 동작점을 잡고, 소신호 모델로 바꾼 뒤 common-source, source degeneration, 다단 MOS 증폭기 이득을 계산한다.
@@ -215,6 +216,7 @@ $$
 - [ ] diode-connected MOS의 소신호 저항을 설명할 수 있다.
 - [ ] BJT CE/CB/CC와 MOS CS/CG/CD의 대응을 말할 수 있다.
 
+{% endraw %}
 
 ---
 

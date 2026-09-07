@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/04%20Linear%20Regression%20Part%202%20-%20%EC%84%B1%EB%8A%A5%ED%8F%89%EA%B0%80%EC%99%80%20Bias%20Variance.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #linear-regression #generalization #bias-variance #test-error
 
 관련 노트: [선형회귀 모델과 학습](03-linear-regression-part-1.md), [Ridge Regression](05-ridge-regression.md)
@@ -111,6 +112,7 @@ Expected prediction error = noise + bias^2 + variance
 - bias-variance tradeoff 그래프를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

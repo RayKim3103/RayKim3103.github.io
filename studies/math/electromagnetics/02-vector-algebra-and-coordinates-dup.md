@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/02%20%EB%B2%A1%ED%84%B0%20%EB%8C%80%EC%88%98%EC%99%80%20%EC%A7%81%EA%B5%90%20%EC%A2%8C%ED%91%9C%EA%B3%84%20%EC%A4%91%EB%B3%B5%EB%B3%B8.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 자료는 [벡터 대수와 직교 좌표계](01-vector-algebra-and-coordinates.md)와 같은 2-1장 벡터 해석 슬라이드의 중복본이다. 내용은 벡터 대수, 직교 좌표계, 좌표 변환, 스칼라장과 벡터장 입문, 벡터 적분의 필요성을 다시 다룬다. 별도 파일로 존재하므로 독립 노트로 남기되, 학습 내용은 01번 노트와 동일한 주제군으로 정리한다.
@@ -53,6 +54,7 @@ sitemap: false
 - [벡터 대수와 직교 좌표계](01-vector-algebra-and-coordinates.md)
 - [벡터 미적분과 장 이론](03-vector-calculus-and-field-theory.md)
 
+{% endraw %}
 
 ---
 

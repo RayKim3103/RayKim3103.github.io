@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/08%20SSD%20Hardware%204%20-%20NAND%20Flash%20Memory.md)
 
+{% raw %}
 tags: #micro-processor #ssd #nand-flash #flash-memory #ecc #bad-block #3d-nand
 
 관련 노트: [SSD Overview 2 - SSD Architecture](07-ssd-overview-2-architecture.md), [SSD Software 1 - FTL Overview, BAST, FAST](09-ssd-software-1-ftl-overview-bast-fast.md)
@@ -176,6 +177,7 @@ Cell당 bit 수가 늘어날수록 threshold margin이 줄어 더 강한 ECC가 
 - Bad block management와 ECC가 SSD controller에 필요한 이유를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

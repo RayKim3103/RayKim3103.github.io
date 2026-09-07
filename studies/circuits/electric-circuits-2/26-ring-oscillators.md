@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/26%20Ring%20Oscillators%20-%20%EB%A7%81%20%EB%B0%9C%EC%A7%84%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 발진기는 입력 없이 주기적인 출력을 만드는 회로이다. feedback loop가 특정 주파수에서 한 바퀴 돌아온 신호의 magnitude를 1 이상, phase를 0도 또는 360도로 만들면 oscillation이 가능하다. Ring oscillator는 odd number inverter 또는 amplifier stage를 loop로 연결해 지연과 phase shift로 발진을 만든다.
@@ -135,6 +136,7 @@ ring oscillator에서 frequency control 방법:
 - [LC Oscillators - LC 발진기](27-lc-oscillators.md)
 
 
+{% endraw %}
 
 ---
 

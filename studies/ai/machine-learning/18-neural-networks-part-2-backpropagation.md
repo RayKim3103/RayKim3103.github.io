@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/18%20Neural%20Networks%20Part%202%20-%20Backpropagation.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #neural-network #backpropagation #chain-rule #vectorization
 
 관련 노트: [Neural Networks Part 1: 다층신경망 기초](17-neural-networks-part-1.md), [Neural Networks Part 3: 실전 학습과 정규화](19-neural-networks-part-3.md)
@@ -154,6 +155,7 @@ Batch 단위 backpropagation은 모든 sample의 gradient contribution을 matrix
 - Forward/backward API에서 cache가 필요한 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

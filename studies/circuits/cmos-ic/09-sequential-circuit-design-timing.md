@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/09%20Sequential%20Circuit%20Design%20-%20%EC%88%9C%EC%B0%A8%ED%9A%8C%EB%A1%9C%EC%99%80%20Timing.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #sequential-circuit #latch #flip-flop #setup-hold #clock-skew #time-borrowing
 
 관련 노트: [Datapaths: 가산기, 시프터, 곱셈기](08-datapaths.md)
@@ -165,6 +166,7 @@ Flip-flop처럼 hard edge를 쓰는 system에서는 skew가 useful computation t
 - Clock skew가 setup과 hold 조건에 미치는 영향을 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

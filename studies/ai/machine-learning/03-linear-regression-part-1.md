@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/03%20Linear%20Regression%20Part%201%20-%20%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20%ED%95%99%EC%8A%B5.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #linear-regression #gradient-descent #least-squares
 
 관련 노트: [점추정과 Maximum Likelihood Estimation](02-point-estimation-mle.md), [성능평가와 Bias-Variance Tradeoff](04-linear-regression-part-2-bias-variance.md)
@@ -153,6 +154,7 @@ w_hat = (H^T H)^(-1) H^T y
 - closed-form solution의 조건과 한계를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

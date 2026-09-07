@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/14%20Lab03%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20CNN%20%EA%B5%AC%EC%A1%B0.md)
 
+{% raw %}
 ## 한눈에 보기
 CNN 발전 흐름을 LeNet에서 ResNet까지 정리하고, 깊은 convolutional network가 classification accuracy를 높이는 방식과 그 한계를 설명한 사전보고서이다.
 
@@ -48,6 +49,7 @@ Lab03 구현에서는 VGG16과 ResNet50을 CIFAR-10 3-class 문제에 적용했�
 - [Lab03 VGGNet과 ResNet 구현](01-lab03-vggnet-resnet.md)
 - [Lab04 사전보고서 Spatial Transformer](15-prep-lab04-spatial-transformer.md)
 
+{% endraw %}
 
 ---
 

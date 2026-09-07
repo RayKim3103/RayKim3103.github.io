@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/01%20Basic%20Parallel%20Architectures%20-%20%EA%B8%B0%EB%B3%B8%20%EB%B3%91%EB%A0%AC%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.md)
 
+{% raw %}
 이전: [Course Overview - 병렬 프로그래밍 개요](00-course-overview.md)  
 다음: [Thread Programming - C++ Thread와 동기화](02-thread-programming-c.md)
 
@@ -74,6 +75,7 @@ SIMD 구조에서 lane마다 branch 방향이 다르면 모든 lane을 같은 in
 
 이 강의의 핵심은 병렬화를 하나의 기법으로 보지 않고, 하드웨어 계층별 병렬성으로 보는 것이다. Superscalar는 자동, multi-core는 thread 분할, SIMD는 데이터 벡터화가 중심이며, 이후 CUDA warp와 GPU thread block도 이 관점의 확장으로 이해할 수 있다.
 
+{% endraw %}
 
 ---
 

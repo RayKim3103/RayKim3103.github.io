@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Reinforcement_Learning/lecture_notes/08%20Offline%20RL.md)
 
+{% raw %}
 ## 핵심 요약
 
 Offline RL은 environment와 새로 상호작용하지 않고, 이미 주어진 static dataset만으로 policy를 학습하는 문제이다. 목표는 online RL과 같이 높은 return을 얻는 것이지만, 학습 중 새로운 action을 시도해 결과를 확인할 수 없다. 핵심 어려움은 dataset 밖 action에 대한 Q값이 부정확해지고 policy가 그 OOD action을 악용하는 것이다.
@@ -88,6 +89,7 @@ fit Bellman target on dataset actions
 - [Off-policy RL](06-off-policy-rl.md)
 - [Reward Learning](12-reward-learning.md)
 
+{% endraw %}
 
 ---
 

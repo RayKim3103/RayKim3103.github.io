@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/06%20%EC%8B%9C%EA%B0%84-%EC%A3%BC%ED%8C%8C%EC%88%98%20%ED%8A%B9%EC%84%B1.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 장은 신호와 시스템을 시간 영역과 주파수 영역에서 동시에 바라보는 방법을 다룬다. Fourier transform의 magnitude와 phase, LTI 시스템의 gain과 phase shift, group delay, Bode plot, 이상적ㆍ비이상적 필터의 시간 영역 특성을 연결한다. 핵심 메시지는 주파수 선택성을 날카롭게 만들수록 시간 영역 응답이 길어지고 ringing이 생길 수 있다는 trade-off이다.
@@ -140,6 +141,7 @@ h[n] = sin(Ωc n) / (πn)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [샘플링](07-sampling.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/09%20Channel%20Model%20-%20Multipath%20Fading%EA%B3%BC%20Equalization.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 무선 채널에서 발생하는 multipath 현상과 fading channel model을 설명한다. 전파는 반사, 산란, 회절을 거쳐 여러 경로로 수신되며, 이로 인해 시간, 공간, 주파수 영역에서 퍼짐이 발생한다. 채널 특성은 large/small scale fading, flat/frequency-selective fading, fast/slow fading으로 분류된다. 마지막으로 pilot 기반 channel estimation과 equalization 개념을 다룬다.
@@ -243,6 +244,7 @@ X_hat(f) = Y(f) / H_hat(f)
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 
 
+{% endraw %}
 
 ---
 

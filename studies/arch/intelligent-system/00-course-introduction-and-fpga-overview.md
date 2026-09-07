@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/00%20Course%20Introduction%20and%20FPGA%20Overview.md)
 
+{% raw %}
 ﻿---
 title: "00. Course Introduction and FPGA Overview"
 pages: 34
@@ -147,6 +148,7 @@ FPGA는 hard-wired ASIC과 달리 재프로그램 가능하다. 병렬 하드웨
 - 후반에는 CNN과 AI accelerator 구조를 이해하고, convolution core와 end-to-end accelerator로 확장한다.
 - AI 시스템 설계에서 중요한 것은 알고리즘뿐 아니라 data movement, memory bandwidth, hardware parallelism이다.
 
+{% endraw %}
 
 ---
 

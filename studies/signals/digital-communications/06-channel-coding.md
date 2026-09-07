@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/06%20Channel%20Coding%20-%20%EC%98%A4%EB%A5%98%20%EC%A0%9C%EC%96%B4%20%EB%B6%80%ED%98%B8.md)
 
+{% raw %}
 ## 핵심 요약
 
 Channel coding은 bit error probability를 줄이거나 같은 BER에 필요한 `Eb/N0`를 낮추기 위해 redundancy를 추가하는 기법이다. 비용은 더 넓은 bandwidth와 낮아진 code rate이다. 이 강의는 repetition code, ARQ/FEC, parity check code, rectangular code, linear block code, syndrome decoding, Hamming code, cyclic code, coding gain을 다룬다.
@@ -287,6 +288,7 @@ trade-off:
 - [Final Project - 디지털 통신 시스템 시뮬레이션](00-final-project.md)
 - [Channel Model - Multipath Fading과 Equalization](09-channel-model-multipath-fading-equalization.md)
 
+{% endraw %}
 
 ---
 

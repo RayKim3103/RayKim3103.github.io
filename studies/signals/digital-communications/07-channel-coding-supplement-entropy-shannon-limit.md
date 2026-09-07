@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/07%20Channel%20Coding%20Supplement%20-%20Entropy%EC%99%80%20Shannon%20Limit.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 보조자료는 channel coding의 이론적 배경인 entropy, mutual information, channel capacity, Shannon-Hartley theorem, Shannon limit을 다룬다. 핵심은 coding이 error probability 자체를 없애는 마법이 아니라, capacity 이하의 rate에서 충분히 복잡한 coding을 사용하면 임의로 작은 error probability에 접근할 수 있다는 점이다.
@@ -160,6 +161,7 @@ channel coding은 redundancy를 추가해 성능을 바꾸는 도구이다.
 - [Channel Coding - 오류 제어 부호](06-channel-coding.md)
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 
+{% endraw %}
 
 ---
 

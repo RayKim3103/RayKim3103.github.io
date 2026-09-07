@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/12%20%EC%8A%A4%ED%83%9D.md)
 
+{% raw %}
 ## 문제 상황
 
 웹 브라우저의 뒤로가기 버튼은 가장 최근에 방문한 페이지를 먼저 보여준다. 최근에 들어온 데이터가 먼저 나가는 구조가 필요하다.
@@ -117,6 +118,7 @@ int fib(int x) {
 - [그래프](22-graphs.md)
 
 
+{% endraw %}
 
 ---
 

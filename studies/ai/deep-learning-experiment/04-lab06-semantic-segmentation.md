@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/04%20Lab06%20Semantic%20Segmentation.md)
 
+{% raw %}
 ## 한눈에 보기
 이미지 전체를 하나의 label로 분류하는 classification을 넘어, 각 pixel에 class label을 부여하는 semantic segmentation 실습이다. VGG 기반 sliding-window 접근의 비효율을 확인한 뒤 FCN8s와 dilated convolution 기반 개선 모델을 구현한다.
 
@@ -52,6 +53,7 @@ sitemap: false
 - [Lab03 VGGNet과 ResNet 구현](01-lab03-vggnet-resnet.md)
 - [Lab07 RetinaNet과 Focal Loss](05-lab07-retinanet-focal-loss.md)
 
+{% endraw %}
 
 ---
 

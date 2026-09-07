@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/12%20PN%20Diode%20Operation%20and%20Special%20Diodes%20-%20PN%20%EB%8B%A4%EC%9D%B4%EC%98%A4%EB%93%9C.md)
 
+{% raw %}
 tags: #ElectronicMaterials #PNDiode #ZenerDiode #Varicap #PIN #LED #TunnelDiode
 
 이전: [Diffusion Optical Absorption Contacts PN Junction - 확산 흡수 접촉 PN접합](11-diffusion-optical-absorption-contacts-pn-junction.md)  
@@ -180,6 +181,7 @@ shorter wavelength -> larger E_g
 - tunnel diode의 I-V 곡선에서 NDR이 생기는 band overlap 설명.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/19%20Lab08%20%EC%82%AC%EC%A0%84%EB%B3%B4%EA%B3%A0%EC%84%9C%20CAM%EA%B3%BC%20Grad-CAM.md)
 
+{% raw %}
 ## 한눈에 보기
 CAM과 Grad-CAM의 차이를 중심으로 CNN 해석 가능성을 정리한 사전보고서이다.
 
@@ -46,6 +47,7 @@ Lab08에서는 AlexNet/VGG16 pretrained weight를 load하고 hook을 사용해 f
 - [Lab08 Grad-CAM과 Guided Backpropagation](06-lab08-grad-cam-guided-backpropagation.md)
 - [Lab07 사전보고서 Focal Loss와 RetinaNet](18-prep-lab07-focal-loss-retinanet.md)
 
+{% endraw %}
 
 ---
 

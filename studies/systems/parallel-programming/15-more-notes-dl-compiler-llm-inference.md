@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/15%20More%20Notes%20-%20DL%20Compiler%EC%99%80%20LLM%20Inference.md)
 
+{% raw %}
 이전: [Multi GPU - 단일 노드와 MPI](14-multi-gpu-mpi.md)  
 다음: [Assignment - Matrix Verification Challenge](hw2-assignment-matrix-verification-challenge.md)
 
@@ -88,6 +89,7 @@ vLLM은 PagedAttention으로 KV cache를 memory page처럼 관리한다. LLM ser
 
 마지막 강의의 메시지는 병렬 프로그래밍의 원리가 CPU/GPU kernel을 넘어 DL compiler와 LLM serving에도 그대로 적용된다는 것이다. 연산을 fusion하고, memory traffic을 줄이고, GEMM/GEMV/attention 같은 핵심 primitive를 target hardware에 맞게 최적화하는 것이 현대 AI system 성능의 중심이다.
 
+{% endraw %}
 
 ---
 

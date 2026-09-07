@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/05%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20TFT-LCD%20%EA%B5%AC%EC%A1%B0%EC%99%80%20BRAM%20%EC%98%81%EC%83%81%20%ED%91%9C%EC%8B%9C.md)
 
+{% raw %}
 이전: [04주차 결과 - Text-LCD 문자열 출력과 버튼 회전](04-result-text-lcd.md)  
 다음: [05주차 결과 - TFT-LCD 타이밍 BRAM 색상 패턴](05-result-tft-lcd-bram.md)
 
@@ -70,6 +71,7 @@ Green을 6비트로 더 많이 주는 이유는 사람 눈이 초록색 변화�
 
 5주차 예비의 핵심은 TFT-LCD 출력이 **픽셀 데이터 + 수평/수직 동기 + active video 구간** 의 조합이라는 점이다. BRAM에 저장된 영상은 단순히 읽기만 하면 되는 것이 아니라, 현재 `H_COUNT`, `V_COUNT`에 맞는 address를 계산하여 적절한 시점에 RGB로 내보내야 한다.
 
+{% endraw %}
 
 ---
 

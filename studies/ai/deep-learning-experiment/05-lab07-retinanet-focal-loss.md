@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/05%20Lab07%20RetinaNet%EA%B3%BC%20Focal%20Loss.md)
 
+{% raw %}
 ## 한눈에 보기
 Object detection에서 bounding box와 class를 동시에 예측하는 RetinaNet을 구현하고, one-stage detector의 foreground/background class imbalance를 Focal Loss로 완화하는 실습이다.
 
@@ -53,6 +54,7 @@ Object detection에서 bounding box와 class를 동시에 예측하는 RetinaNet
 - [Lab06 Semantic Segmentation](04-lab06-semantic-segmentation.md)
 - [Lab08 Grad-CAM과 Guided Backpropagation](06-lab08-grad-cam-guided-backpropagation.md)
 
+{% endraw %}
 
 ---
 

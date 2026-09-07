@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/02%20Baseband%20Transmission%20-%20%EC%83%98%ED%94%8C%EB%A7%81%20PCM%20Quantization%20ISI.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 아날로그 정보를 baseband digital signal로 바꾸고 이를 pulse waveform으로 전송하는 과정을 다룬다. 핵심 흐름은 sampling, quantization, coding, waveform encoding이며, 실제 필터 때문에 발생하는 ISI와 이를 줄이기 위한 Nyquist 조건 및 raised cosine filter도 소개한다.
@@ -246,6 +247,7 @@ B = (1 + r) R_s / 2
 - [Noise and Decision - 잡음과 최적 검출](04-noise-and-decision.md)
 
 
+{% endraw %}
 
 ---
 

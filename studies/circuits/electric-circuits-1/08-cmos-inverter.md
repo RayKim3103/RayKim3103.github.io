@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/08%20CMOS%20%EC%9D%B8%EB%B2%84%ED%84%B0.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 디지털 회로의 기본 블록인 CMOS 인버터를 다룬다. 저항 부하 인버터의 한계에서 시작해 NMOS와 PMOS를 상보적으로 사용하면 전력과 속도 측면에서 왜 유리한지 설명한다.
@@ -267,6 +268,7 @@ CMOS 디지털 설계에서 중요한 균형은 다음과 같다.
 - [ ] $P_{dyn}=\alpha C_LV_{DD}^2f$의 각 항 의미를 말할 수 있다.
 - [ ] NAND와 NOR의 CMOS pull-up/pull-down 구조를 그릴 수 있다.
 
+{% endraw %}
 
 ---
 

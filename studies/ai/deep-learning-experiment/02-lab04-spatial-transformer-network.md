@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/02%20Lab04%20Spatial%20Transformer%20Network.md)
 
+{% raw %}
 ## 한눈에 보기
 왜곡된 MNIST 분류 문제에서 CNN 앞단에 Spatial Transformer Network(STN)를 붙여 입력을 학습 가능한 방식으로 정렬하는 실습이다. STN은 별도 annotation 없이 task loss만으로 변환 파라미터를 학습하며, CNN의 공간 불변성을 보완한다.
 
@@ -50,6 +51,7 @@ sitemap: false
 - [Lab03 VGGNet과 ResNet 구현](01-lab03-vggnet-resnet.md)
 - [Lab08 Grad-CAM과 Guided Backpropagation](06-lab08-grad-cam-guided-backpropagation.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/19%20%EA%B7%A0%ED%98%95%20%ED%8A%B8%EB%A6%AC.md)
 
+{% raw %}
 ## 핵심 목표
 
 균형 트리는 탐색 트리의 높이를 `O(log n)`으로 유지해 search, insertion, deletion을 안정적으로 빠르게 만드는 구조다.
@@ -149,6 +150,7 @@ B+ tree는 B-tree 변형으로 leaf node들이 다음 leaf를 가리키는 포�
 - [그래프](22-graphs.md)
 
 
+{% endraw %}
 
 ---
 

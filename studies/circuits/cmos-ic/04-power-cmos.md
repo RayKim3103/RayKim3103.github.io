@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/04%20Power%20-%20CMOS%20%EC%A0%84%EB%A0%A5%EC%86%8C%EB%AA%A8%EC%99%80%20%EC%A0%80%EC%A0%84%EB%A0%A5%EA%B8%B0%EB%B2%95.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #power #dynamic-power #static-power #leakage #power-gating #dual-vdd
 
 관련 노트: [Low Power Techniques](03-1-low-power-techniques.md), [Wire 모델과 Crosstalk](05-wire-crosstalk.md)
@@ -152,6 +153,7 @@ Junction leakage는 reverse-biased p-n junction에서 발생한다. 특히 high-
 - Stack effect와 power gating이 leakage를 줄이는 원리를 이해해야 한다.
 - Power gating의 delay, area, wake-up noise tradeoff를 설명할 수 있어야 한다.
 
+{% endraw %}
 
 ---
 

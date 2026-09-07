@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/05%20Ridge%20Regression%20-%20%EB%A6%BF%EC%A7%80%ED%9A%8C%EA%B7%80.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #ridge-regression #l2-regularization #overfitting #cross-validation
 
 관련 노트: [성능평가와 Bias-Variance Tradeoff](04-linear-regression-part-2-bias-variance.md), [Lasso Regression과 Feature Selection](06-lasso-regression-feature-selection.md)
@@ -117,6 +118,7 @@ Linear regression에서 Gaussian noise를 가정하면 least squares는 maximum 
 - Intercept를 penalize하지 않는 이유를 이해해야 한다.
 
 
+{% endraw %}
 
 ---
 

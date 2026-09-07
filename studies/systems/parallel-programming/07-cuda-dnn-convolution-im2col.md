@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/07%20CUDA%20DNN%20-%20Convolution%EA%B3%BC%20im2col.md)
 
+{% raw %}
 이전: [CUDA Transpose and Bank Conflict - Shared Memory 심화](06-cuda-transpose-and-bank-conflict-shared-memory.md)  
 다음: [CUDA Reduction - Parallel Reduction 최적화](08-cuda-reduction-parallel.md)
 
@@ -120,6 +121,7 @@ Pooling은 convolution보다 단순하며, 영역 내 max 또는 average를 계�
 
 DNN 가속의 핵심은 convolution dataflow를 이해하고, direct convolution과 im2col의 tradeoff를 비교하는 것이다. Direct 방식은 memory overhead가 낮지만 최적화가 어렵고, im2col은 GEMM 최적화를 활용할 수 있지만 추가 memory movement가 생긴다.
 
+{% endraw %}
 
 ---
 

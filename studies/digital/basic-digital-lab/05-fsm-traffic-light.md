@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/05%20FSM%20Traffic%20Light%20-%20%EC%9C%A0%ED%95%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%20%EC%8B%A0%ED%98%B8%EB%93%B1.md)
 
+{% raw %}
 tags: #basic-digital-experiment #fsm #moore #mealy #traffic-light #verilog
 
 관련 노트: [순차논리, Shift Register, Counter](04-sequential-logic-shift-register-counter.md), [Zynq SoC, ARM, PL/PS, MMIO](06-soc-arm-pl-ps-mmio-zynq.md)
@@ -137,6 +138,7 @@ end
 - timer의 비교값에 `-1`이 들어가는 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

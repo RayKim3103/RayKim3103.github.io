@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/13%20%ED%81%90.md)
 
+{% raw %}
 ## 문제 상황
 
 카페 주문 관리는 먼저 들어온 주문을 먼저 처리해야 한다. 이런 순서를 FIFO, First-In First-Out이라고 한다.
@@ -131,6 +132,7 @@ void dequeue() {
 - [그래프](22-graphs.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/02%20Linux%20%EB%AA%85%EB%A0%B9%EC%96%B4%20%EC%9A%94%EC%95%BD.md)
 
+{% raw %}
 ## 경로와 특수 문자
 
 | 표현 | 의미 |
@@ -114,6 +115,7 @@ sitemap: false
 - [C++ 입출력](07-cpp-io.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Linear_Algebra/lecture_notes/01%20%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 전기전자공학에서 선형대수를 왜 배우는지, 그리고 앞으로 다룰 핵심 대상이 무엇인지 소개한다. 강의의 중심 메시지는 선형대수가 거의 모든 공학 시스템을 행렬과 벡터로 표현하고 해석하는 언어라는 점이다.
@@ -326,6 +327,7 @@ $$
 - [ ] 상수항이 있는 함수가 왜 일반적으로 선형이 아닌지 설명할 수 있다.
 - [ ] MIMO 시스템을 행렬 방정식으로 해석할 수 있다.
 
+{% endraw %}
 
 ---
 

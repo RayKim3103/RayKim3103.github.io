@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/01%20%EC%97%B0%EA%B5%AC%EC%8B%A4%20%EC%86%8C%EA%B0%9C%EC%99%80%20DSP%20%EC%9D%91%EC%9A%A9%20%EB%A7%A5%EB%9D%BD.md)
 
+{% raw %}
 ﻿---
 title: "01. 연구실 소개와 DSP 응용 맥락"
 pages: 3
@@ -103,6 +104,7 @@ DSP 관점에서는 서로 다른 sampling grid, point-spread function, spectral
 - 많은 복원 문제는 $\mathbf{y}=H\mathbf{x}+\mathbf{n}$ 형태의 inverse problem으로 정식화된다.
 - 이 강의의 수학적 도구는 연구실의 초해상도/복원 문제를 이해하기 위한 언어이기도 하다.
 
+{% endraw %}
 
 ---
 

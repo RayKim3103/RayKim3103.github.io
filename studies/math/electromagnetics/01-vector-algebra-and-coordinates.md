@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electromagnetics/lecture_notes/01%20%EB%B2%A1%ED%84%B0%20%EB%8C%80%EC%88%98%EC%99%80%20%EC%A7%81%EA%B5%90%20%EC%A2%8C%ED%91%9C%EA%B3%84.md)
 
+{% raw %}
 ## 핵심 요약
 
 전자기학은 전기장과 자기장처럼 방향과 크기를 함께 가진 물리량을 다루므로 벡터 해석이 기본 언어가 된다. 이 강의는 벡터의 내적과 외적, 직교 좌표계, 좌표 변환, 미소 길이ㆍ면적ㆍ체적 요소를 정리한다. 이후 전기장 적분, 자기장 순환 적분, 플럭스 계산을 하려면 좌표계와 단위벡터가 위치에 따라 어떻게 바뀌는지 정확히 이해해야 한다.
@@ -101,6 +102,7 @@ dV = R^2 sinθ dR dθ dφ
 - [벡터 대수와 직교 좌표계 중복본](02-vector-algebra-and-coordinates-dup.md)
 - [벡터 미적분과 장 이론](03-vector-calculus-and-field-theory.md)
 
+{% endraw %}
 
 ---
 

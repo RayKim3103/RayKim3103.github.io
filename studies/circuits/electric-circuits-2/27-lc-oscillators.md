@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/27%20LC%20Oscillators%20-%20LC%20%EB%B0%9C%EC%A7%84%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 LC oscillator는 capacitor와 inductor 사이의 energy exchange를 이용해 비교적 깨끗한 sinusoidal oscillation을 만든다. 이상적인 LC tank는 `1/sqrt(LC)`에서 무손실로 진동하지만, 실제 tank는 parasitic resistance 때문에 에너지를 잃는다. amplifier 또는 cross-coupled pair가 이 손실을 보상하면 지속 발진이 가능하다.
@@ -121,6 +122,7 @@ LC tank determines oscillation frequency
 - [Feedback - 음귀환 기초](21-feedback.md)
 
 
+{% endraw %}
 
 ---
 

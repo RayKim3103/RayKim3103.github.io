@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/03%20FSM%20and%20Sequential%20System%20Design.md)
 
+{% raw %}
 ﻿---
 title: "03. FSM and Sequential System Design"
 pages: 22
@@ -189,6 +190,7 @@ state 수가 많아지면 가능한 transition 수가 급격히 늘어난다.
 - FSM은 controller 설계의 기본이며 이후 memory, UART, accelerator 제어에 반복적으로 등장한다.
 - 큰 FSM은 계층화하거나 여러 작은 FSM으로 나누는 것이 좋다.
 
+{% endraw %}
 
 ---
 

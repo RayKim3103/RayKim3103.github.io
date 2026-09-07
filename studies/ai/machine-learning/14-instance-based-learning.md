@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/14%20Instance%20Based%20Learning%20-%20%EC%B5%9C%EA%B7%BC%EC%A0%91%EC%9D%B4%EC%9B%83%EA%B3%BC%20%EC%BB%A4%EB%84%90%ED%9A%8C%EA%B7%80.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #knn #kernel-regression #nonparametric #local-model
 
 관련 노트: [Evaluating Classifiers: Precision과 Recall](13-evaluating-classifiers-precision-recall.md), [Clustering과 K-Means](15-clustering-k-means.md)
@@ -119,6 +120,7 @@ Feature dimension이 커지면 가까운 이웃을 찾기가 어려워진다. �
 - Kernel regression과 local linear regression의 차이를 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

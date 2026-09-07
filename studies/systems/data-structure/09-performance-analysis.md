@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/09%20%EC%84%B1%EB%8A%A5%20%EB%B6%84%EC%84%9D.md)
 
+{% raw %}
 ## 왜 성능을 분석하는가
 
 같은 문제도 알고리즘에 따라 입력이 커질수록 실행 시간이 크게 달라진다. 선택 정렬과 병합 정렬 예시는 “작은 입력에서는 비슷해 보여도 큰 입력에서는 성장률이 결정적”이라는 점을 보여준다.
@@ -113,6 +114,7 @@ Total running time = sum(cost_i * frequency_i)
 - [계산 난해성](25-computational-intractability.md)
 
 
+{% endraw %}
 
 ---
 

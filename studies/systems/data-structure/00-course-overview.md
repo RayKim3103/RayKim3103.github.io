@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/00%20%EA%B0%95%EC%9D%98%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 강의는 자료구조와 알고리즘을 C++와 Linux 개발 환경 위에서 배우는 과목이다. 단순히 구조를 암기하는 것이 아니라, 어떤 문제에서 어떤 자료구조를 쓰면 시간과 공간이 어떻게 달라지는지 분석하고 실제 프로그램으로 구현하는 능력을 목표로 한다.
@@ -70,6 +71,7 @@ graph TD
 - [그래프](22-graphs.md)
 
 
+{% endraw %}
 
 ---
 

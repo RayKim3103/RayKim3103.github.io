@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/05%20Source%20Follower%20and%20Common-Gate%20-%20SF%20CG%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 Source follower(SF)는 voltage gain이 1보다 조금 작은 voltage buffer이고, common-gate(CG)는 낮은 input resistance와 높은 output resistance를 가진 current buffer/current amplifier로 해석하기 좋다. CS의 큰 gain 뒤에 SF를 붙이면 load가 작은 경우에도 CS gain을 보존할 수 있다.
@@ -118,6 +119,7 @@ Av = (1 + gm ro) RD / (RD + ro)
 - [Frequency Response of CS Degeneration and CG - Degeneration CG 응답](13-frequency-response-of-cs-degeneration-and-cg.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/05%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20TFT-LCD%20%ED%83%80%EC%9D%B4%EB%B0%8D%20BRAM%20%EC%83%89%EC%83%81%20%ED%8C%A8%ED%84%B4.md)
 
+{% raw %}
 이전: [05주차 예비 - TFT-LCD 구조와 BRAM 영상 표시](05-prep-tft-lcd-bram.md)  
 다음: [06주차 예비 - TFT-LCD ASCII 문자 출력](06-prep-tft-lcd-ascii.md)
 
@@ -113,6 +114,7 @@ reg_B = 5'b11111 - wire_B;
 
 5주차 결과의 핵심은 video output을 **timing generator + pixel generator + memory address generator + RGB source selector** 로 분해해 이해한 것이다. 이 구조는 이후 PS가 image data를 BRAM에 쓰는 실습의 기반이 된다.
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Signals_and_Systems/lecture_notes/08%20%EB%9D%BC%ED%94%8C%EB%9D%BC%EC%8A%A4%20%EB%B3%80%ED%99%98%EA%B3%BC%20z%20%EB%B3%80%ED%99%98.md)
 
+{% raw %}
 ## 핵심 요약
 
 라플라스 변환은 CTFT를 복소평면 `s = σ + jω`로 확장한 것이고, z 변환은 DTFT를 복소평면 `z = rejΩ`로 확장한 것이다. 두 변환 모두 단순한 대수식만으로는 신호가 결정되지 않고 ROC가 반드시 함께 필요하다. 시스템 해석에서는 pole, zero, ROC를 통해 causality와 stability를 판단한다.
@@ -229,6 +230,7 @@ X+(z) = Σ[n=0,∞] x[n]z-n
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [샘플링](07-sampling.md)
 
+{% endraw %}
 
 ---
 

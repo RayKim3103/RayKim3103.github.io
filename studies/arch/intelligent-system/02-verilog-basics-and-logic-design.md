@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/02%20Verilog%20Basics%20and%20Logic%20Design.md)
 
+{% raw %}
 ﻿---
 title: "02. Verilog Basics and Logic Design"
 pages: 57
@@ -320,6 +321,7 @@ end
 - decoder처럼 truth table이 명확한 회로는 `case`문이 읽기 좋다.
 - testbench는 합성 대상이 아니며 simulation 검증용이다.
 
+{% endraw %}
 
 ---
 

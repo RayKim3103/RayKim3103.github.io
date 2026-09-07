@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/01%20Atomic%20Model%20and%20Bonding%20-%20%EC%9B%90%EC%9E%90%EB%AA%A8%ED%98%95%EA%B3%BC%20%EA%B2%B0%ED%95%A9.md)
 
+{% raw %}
 tags: #ElectronicMaterials #PhysicalElectronics #AtomicModel #Bonding
 
 이전: 없음  
@@ -184,6 +185,7 @@ L = L0 [1 + lambda (T - T0)]
 - 열팽창이 포텐셜 에너지 곡선의 비대칭성과 연결되는 이유.
 
 
+{% endraw %}
 
 ---
 

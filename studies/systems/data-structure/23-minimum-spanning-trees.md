@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/23%20%EC%B5%9C%EC%86%8C%20%EC%8B%A0%EC%9E%A5%20%ED%8A%B8%EB%A6%AC.md)
 
+{% raw %}
 ## 문제 상황
 
 여러 도시를 모두 연결하는 네트워크를 만들되, 건설 비용 합을 최소화하고 싶다. 모든 도시를 연결해야 하지만 cycle은 불필요한 비용을 만들 수 있다.
@@ -134,6 +135,7 @@ Prim은 cut property를 직접 사용하는 greedy 알고리즘이다.
 - [최단 경로](24-shortest-paths.md)
 
 
+{% endraw %}
 
 ---
 

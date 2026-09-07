@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/HW4%20Report%20-%20Direct%20Convolution%EA%B3%BC%20im2col%20GEMM.md)
 
+{% raw %}
 이전: [Assignment - CUDA Conv2d](hw4-assignment-cuda-conv2d.md)  
 다음: [Assignment - CUDA Sum Reduction](hw5-assignment-cuda-sum-reduction.md)
 
@@ -83,6 +84,7 @@ im2col 이후 matmul은 강의안의 shared memory tiled matrix multiplication �
 
 HW4 보고서의 핵심은 convolution이 matrix multiplication보다 data reuse와 boundary 처리가 더 복잡하다는 점이다. Direct convolution은 중복 read를 shared memory로 줄여야 하고, im2col+GEMM은 GEMM의 장점을 얻는 대신 변환 비용과 memory overhead를 감수해야 한다.
 
+{% endraw %}
 
 ---
 

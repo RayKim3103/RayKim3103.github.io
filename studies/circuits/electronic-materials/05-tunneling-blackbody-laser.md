@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/05%20Tunneling%20Blackbody%20Laser%20-%20%ED%84%B0%EB%84%90%EB%A7%81%20%ED%9D%91%EC%B2%B4%20%EB%A0%88%EC%9D%B4%EC%A0%80.md)
 
+{% raw %}
 tags: #ElectronicMaterials #QuantumTunneling #STM #Blackbody #Laser
 
 이전: [Light and Quantum Duality - 빛과 양자 이중성](04-light-and-quantum-duality.md)  
@@ -140,6 +141,7 @@ h nu = E_high - E_low
 - Laser에서 metastable state, population inversion, stimulated emission의 역할.
 
 
+{% endraw %}
 
 ---
 

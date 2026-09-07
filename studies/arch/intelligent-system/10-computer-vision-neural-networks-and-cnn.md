@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Intelligent_System/lecture_notes/10%20Computer%20Vision%20Neural%20Networks%20and%20CNN.md)
 
+{% raw %}
 ﻿---
 title: "10. Computer Vision, Neural Networks, and CNN"
 pages: 53
@@ -331,6 +332,7 @@ output channel이 여러 개이면 서로 다른 filter set이 여러 feature ma
 - CNN은 local connection과 weight sharing으로 이미지에 적합하다.
 - padding, stride, channel 수는 CNN output shape와 hardware cost를 결정한다.
 
+{% endraw %}
 
 ---
 

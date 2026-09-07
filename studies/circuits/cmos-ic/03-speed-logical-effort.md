@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/03%20Speed%20-%20%EC%A7%80%EC%97%B0%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20Logical%20Effort.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #delay #rc-model #elmore-delay #logical-effort #gate-sizing
 
 관련 노트: [MOS 소자 모델과 비이상성](02-devices-mos.md), [Low Power Techniques](03-1-low-power-techniques.md)
@@ -142,6 +143,7 @@ D = N*f_hat + P
 - NAND가 NOR보다 빠른 이유를 pMOS stack 관점에서 설명할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

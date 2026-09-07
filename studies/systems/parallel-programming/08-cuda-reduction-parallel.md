@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Parallel_Programming/lecture_notes/08%20CUDA%20Reduction%20-%20Parallel%20Reduction%20%EC%B5%9C%EC%A0%81%ED%99%94.md)
 
+{% raw %}
 이전: [CUDA DNN - Convolution과 im2col](07-cuda-dnn-convolution-im2col.md)  
 다음: [CUDA Others - TensorCore와 CUDA Libraries](09-cuda-others-tensorcore-libraries.md)
 
@@ -85,6 +86,7 @@ Brent's theorem 관점에서 너무 많은 thread가 너무 적은 일을 하면
 
 Reduction 최적화는 CUDA 성능 최적화의 축소판이다. divergent branch, bank conflict, idle thread, instruction overhead, launch decomposition, algorithmic cost를 모두 보여준다. 좋은 reduction kernel은 단순히 병렬 step 수를 줄이는 것이 아니라 memory bandwidth와 instruction overhead를 함께 최적화한다.
 
+{% endraw %}
 
 ---
 

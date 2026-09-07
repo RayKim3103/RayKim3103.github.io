@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/08%20QPSK%20vs%2016QAM%20-%20%EB%8C%80%EC%97%AD%ED%8F%AD%EA%B3%BC%20BER%20%EB%B9%84%EA%B5%90.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 자료는 QPSK와 16-QAM을 constellation, modulated signal, spectrum, BER 관점에서 비교한다. 같은 bit rate에서 16-QAM은 한 symbol에 4 bit를 싣기 때문에 QPSK보다 symbol rate가 낮고 bandwidth가 작다. 대신 constellation point가 조밀해 noise와 fading에 더 취약하여 BER 성능은 QPSK보다 나쁘다.
@@ -132,6 +133,7 @@ fading 환경에서는 두 방식 모두 AWGN보다 BER이 나빠지지만, 16-Q
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 - [Channel Model - Multipath Fading과 Equalization](09-channel-model-multipath-fading-equalization.md)
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/07%20Polling%20Interrupt%20Timer%20-%20%ED%8F%B4%EB%A7%81%20%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%20%ED%83%80%EC%9D%B4%EB%A8%B8.md)
 
+{% raw %}
 tags: #basic-digital-experiment #io #polling #interrupt #timer #zynq #vitis
 
 관련 노트: [Zynq SoC, ARM, PL/PS, MMIO](06-soc-arm-pl-ps-mmio-zynq.md), [AMBA, AHB, APB, Memory Transfer](09-amba-ahb-apb-memory-transfer.md)
@@ -155,6 +156,7 @@ I/O 방식에는 polling과 interrupt 외에도 DMA(Direct Memory Access)가 있
 - 짧은 버튼 입력이 polling에서 누락될 수 있는 이유를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

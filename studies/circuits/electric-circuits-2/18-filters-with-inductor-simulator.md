@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/18%20Filters%20with%20Inductor%20Simulator%20-%20%EC%9D%B8%EB%8D%95%ED%84%B0%20%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%ED%84%B0%20%ED%95%84%ED%84%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 IC에서 실제 inductor는 면적이 크고 특히 저주파용으로 구현하기 어렵다. 따라서 op-amp, resistor, capacitor를 이용해 inductor처럼 보이는 synthetic inductance를 만들 수 있다. 이 강의는 inductor-simulation circuit을 이용해 HP/BP/AP 등 2차 필터를 구현하는 방법을 설명한다.
@@ -113,6 +114,7 @@ Zin = product/ratio of several Z elements
 - [Filters with Integrators - KHN Tow-Thomas Biquad](19-filters-with-integrators-khn-tow-thomas-biquad.md)
 
 
+{% endraw %}
 
 ---
 

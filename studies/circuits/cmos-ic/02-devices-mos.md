@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_CMOS_Integrated_Circuit/lecture_notes/02%20Devices%20-%20MOS%20%EC%86%8C%EC%9E%90%20%EB%AA%A8%EB%8D%B8%EA%B3%BC%20%EB%B9%84%EC%9D%B4%EC%83%81%EC%84%B1.md)
 
+{% raw %}
 tags: #cmos-integrated-circuit #mosfet #device #iv-characteristics #capacitance #leakage #noise-margin
 
 관련 노트: [CMOS 집적회로 개요](01-introduction-cmos.md), [지연 모델과 Logical Effort](03-speed-logical-effort.md)
@@ -136,6 +137,7 @@ Noise margin을 크게 하려면 logic level이 충분히 rail-to-rail에 가깝
 - `VOH`, `VOL`, `VIH`, `VIL`, `NMH`, `NML`을 정의할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

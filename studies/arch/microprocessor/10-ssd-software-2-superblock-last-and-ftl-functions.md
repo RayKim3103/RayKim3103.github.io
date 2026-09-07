@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Micro_Processor/lecture_notes/10%20SSD%20Software%202%20-%20Superblock%20LAST%20and%20FTL%20Functions.md)
 
+{% raw %}
 tags: #micro-processor #ssd #ftl #superblock #last #bad-block-management #wear-leveling
 
 관련 노트: [SSD Software 1 - FTL Overview, BAST, FAST](09-ssd-software-1-ftl-overview-bast-fast.md), [SSD Software 2 - Superblock LAST Annotated Image Copy](10a-ssd-software-2-superblock-last-annotated-image-copy.md)
@@ -154,6 +155,7 @@ FTL의 주요 기능:
 - Dynamic wear-leveling과 static wear-leveling을 구분할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

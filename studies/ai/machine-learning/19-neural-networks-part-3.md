@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Artificial_Intelligence/lecture_notes/19%20Neural%20Networks%20Part%203%20-%20%EC%8B%A4%EC%A0%84%20%ED%95%99%EC%8A%B5%EA%B3%BC%20%EC%A0%95%EA%B7%9C%ED%99%94.md)
 
+{% raw %}
 tags: #artificial-intelligence #machine-learning #neural-network #optimization #mini-batch #dropout #regularization
 
 관련 노트: [Neural Networks Part 2: Backpropagation](18-neural-networks-part-2-backpropagation.md), [Convolutional Neural Networks](20-convolutional-neural-networks.md)
@@ -151,6 +152,7 @@ Validation accuracy가 더 이상 좋아지지 않거나 감소하기 시작하�
 - Dropout과 early stopping이 overfitting을 줄이는 원리를 말할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

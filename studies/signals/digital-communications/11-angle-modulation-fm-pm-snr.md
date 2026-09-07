@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/11%20Angle%20Modulation%20-%20FM%20PM%EA%B3%BC%20SNR.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 amplitude를 일정하게 유지하고 phase 또는 instantaneous frequency에 정보를 싣는 angle modulation을 다룬다. PM과 FM의 차이, NBFM/WBFM, Bessel function 기반 FM spectrum, Carson bandwidth rule, direct/indirect FM generation, discriminator/PLL demodulation, FM SNR, threshold effect, pre-emphasis/de-emphasis가 핵심이다.
@@ -301,6 +302,7 @@ receiver: 원래 spectrum으로 되돌림 (de-emphasis)
 - [Amplitude Modulation - AM DSB SSB VSB](10-amplitude-modulation-am-dsb-ssb-vsb.md)
 - [Noise and Decision - 잡음과 최적 검출](04-noise-and-decision.md)
 
+{% endraw %}
 
 ---
 

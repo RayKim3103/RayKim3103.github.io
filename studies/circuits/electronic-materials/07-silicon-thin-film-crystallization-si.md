@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/07%20Silicon%20Thin%20Film%20Crystallization%20-%20Si%20%EB%B0%95%EB%A7%89%20%EA%B2%B0%EC%A0%95%ED%99%94.md)
 
+{% raw %}
 tags: #ElectronicMaterials #SiliconThinFilm #LTPS #ELA #TFT
 
 이전: [Electrical and Thermal Conduction - 전기 열 전도](06-electrical-and-thermal-conduction.md)  
@@ -134,6 +135,7 @@ tags: #ElectronicMaterials #SiliconThinFilm #LTPS #ELA #TFT
 - grain boundary 위치 제어가 TFT 균일도에 중요한 이유.
 
 
+{% endraw %}
 
 ---
 

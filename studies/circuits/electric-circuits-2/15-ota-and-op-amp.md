@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/15%20OTA%20and%20Op-Amp%20-%20OTA%EC%99%80%20%EC%97%B0%EC%82%B0%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 OTA는 differential input을 output current로 바꾸는 operational transconductance amplifier이다. 전류미러와 single-ended differential amplifier, CS load를 조합해 만들 수 있다. voltage amplifier가 필요하면 source follower buffer를 붙여 op-amp 구조로 확장한다. op-amp는 보통 negative feedback과 함께 사용해 gain을 resistor ratio로 안정화한다.
@@ -132,6 +133,7 @@ Vo/Vs = - RF/Rin
 - [Feedback - 음귀환 기초](21-feedback.md)
 
 
+{% endraw %}
 
 ---
 

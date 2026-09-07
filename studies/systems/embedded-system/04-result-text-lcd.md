@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/04%EC%A3%BC%EC%B0%A8%20%EA%B2%B0%EA%B3%BC%20-%20Text-LCD%20%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%B6%9C%EB%A0%A5%EA%B3%BC%20%EB%B2%84%ED%8A%BC%20%ED%9A%8C%EC%A0%84.md)
 
+{% raw %}
 이전: [04주차 예비 - Text-LCD 컨트롤러와 타이밍](04-prep-text-lcd.md)  
 다음: [05주차 예비 - TFT-LCD 구조와 BRAM 영상 표시](05-prep-tft-lcd-bram.md)
 
@@ -96,6 +97,7 @@ Processor System 관련 포트가 포함되어 있으나 이번 실습에서는 
 
 4주차 결과의 핵심은 Text-LCD 출력이 단순 문자열 대입이 아니라, **DDRAM address 설정, 문자 단위 write, enable timing, mode sequence** 의 조합이라는 점이다. 버튼 회전 Quiz는 이 출력 데이터 저장부(`reg_a~reg_h`)를 동적으로 바꾸는 응용이다.
 
+{% endraw %}
 
 ---
 

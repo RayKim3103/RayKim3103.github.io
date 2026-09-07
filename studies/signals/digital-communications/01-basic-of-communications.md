@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Communications/lecture_notes/01%20Basic%20of%20Communications%20-%20%EB%94%94%EC%A7%80%ED%84%B8%20%ED%86%B5%EC%8B%A0%20%EA%B0%9C%EC%9A%94.md)
 
+{% raw %}
 ## 핵심 요약
 
 이 강의는 디지털 통신 시스템의 큰 흐름을 소개한다. 음성 같은 아날로그 정보는 sampling, quantization, bit 변환을 거쳐 baseband digital signal이 되고, 실제 채널에 맞게 passband로 변조되어 전송된다. 수신기는 반대로 down conversion, detection, decision을 거쳐 원래 정보를 복원한다.
@@ -192,6 +193,7 @@ f_i(t) = k_PM dm(t)/dt + f_c
 - [Amplitude Modulation - AM DSB SSB VSB](10-amplitude-modulation-am-dsb-ssb-vsb.md)
 - [Angle Modulation - FM PM과 SNR](11-angle-modulation-fm-pm-snr.md)
 
+{% endraw %}
 
 ---
 

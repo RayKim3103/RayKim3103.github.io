@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/08%20Molecular%20Orbital%20and%20Energy%20Bands%20-%20%EB%B6%84%EC%9E%90%EA%B6%A4%EB%8F%84%20%EC%97%90%EB%84%88%EC%A7%80%EB%B0%B4%EB%93%9C.md)
 
+{% raw %}
 tags: #ElectronicMaterials #MolecularOrbital #EnergyBand #EffectiveMass
 
 이전: [Silicon Thin Film Crystallization - Si 박막 결정화](07-silicon-thin-film-crystallization-si.md)  
@@ -128,6 +129,7 @@ a_crystal = F_ext / m*
 - effective mass가 필요한 이유와 `m*`의 물리적 의미.
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/09%20Structures%20and%20Parametric%20Modeling.md)
 
+{% raw %}
 ﻿---
 title: "09. Structures and Parametric Modeling"
 pages: 18
@@ -244,6 +245,7 @@ ARMA는 pole과 zero를 모두 추정해야 하므로 AR보다 복잡하다. 전
 - Direct Form II는 memory를 줄이지만 수치적 민감성을 확인해야 한다.
 - AR modeling의 핵심은 orthogonality principle과 Yule-Walker equation이다.
 
+{% endraw %}
 
 ---
 

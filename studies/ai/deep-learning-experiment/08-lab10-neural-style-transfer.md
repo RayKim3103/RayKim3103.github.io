@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Deep_Learning_Experiment/lecture_notes/08%20Lab10%20Neural%20Style%20Transfer.md)
 
+{% raw %}
 ## 한눈에 보기
 Gatys의 optimization 기반 neural style transfer와 Johnson의 perceptual loss 기반 feed-forward transform network를 구현하는 실습이다. pixel loss 대신 pretrained VGG feature 공간에서 content와 style을 정의한다.
 
@@ -51,6 +52,7 @@ Gatys의 optimization 기반 neural style transfer와 Johnson의 perceptual loss
 - [Lab10-2 Neural Style Transfer 반복 실험](09-lab10-2-neural-style-transfer.md)
 - [Lab08 Grad-CAM과 Guided Backpropagation](06-lab08-grad-cam-guided-backpropagation.md)
 
+{% endraw %}
 
 ---
 

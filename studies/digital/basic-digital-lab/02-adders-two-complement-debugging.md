@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Basic_Digital_Experiment/lecture_notes/02%20Adders%20Two%20Complement%20Debugging%20-%20%EA%B0%80%EC%82%B0%EA%B8%B0%20%EB%B3%B4%EC%88%98%20%EB%94%94%EB%B2%84%EA%B9%85.md)
 
+{% raw %}
 tags: #basic-digital-experiment #verilog #adder #twos-complement #debugging
 
 관련 노트: [Vivado Verilog 기본과 논리게이트](01-vivado-verilog-basics-and-logic-gates.md), [PYNQ GPIO, DEMUX, MUX, Decoder](03-pynq-gpio-demux-decoder.md)
@@ -145,6 +146,7 @@ Cin_0 = M
 - waveform의 `X`, `Z`가 어떤 종류의 오류를 암시하는지 해석할 수 있어야 한다.
 
 
+{% endraw %}
 
 ---
 

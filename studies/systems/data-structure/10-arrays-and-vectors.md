@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/10%20%EB%B0%B0%EC%97%B4%EA%B3%BC%20%EB%B2%A1%ED%84%B0.md)
 
+{% raw %}
 ## 문제 상황
 
 카페 고객 관리 프로그램을 생각한다. 고객 기록은 `(이름, 포인트)` 쌍이며, 새 고객 추가, 포인트 갱신, 탈퇴 처리가 필요하다. 이때 데이터를 어떤 구조에 저장하느냐에 따라 연산 비용이 달라진다.
@@ -101,6 +102,7 @@ replaceArray(A, newSize)
 - [성능 분석](09-performance-analysis.md)
 
 
+{% endraw %}
 
 ---
 

@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/03%20BJT%20%EA%B8%B0%EB%B3%B8%20%EB%8F%99%EC%9E%91.md)
 
+{% raw %}
 ## 한눈에 보기
 
 이 장은 BJT를 전압제어 전류원으로 이해한다. 증폭기의 핵심인 transconductance, forward active 동작, collector current, base/emitter current, current gain, small signal model, Early effect, 동작 영역을 다룬다.
@@ -348,6 +349,7 @@ PNP에서도 소신호 등가회로의 형태는 NPN과 비슷하게 사용할 �
 - [ ] Early effect가 출력저항을 만드는 이유를 설명할 수 있다.
 - [ ] NPN과 PNP의 전압/전류 방향 차이를 구분할 수 있다.
 
+{% endraw %}
 
 ---
 

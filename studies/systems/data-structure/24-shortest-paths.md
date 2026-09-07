@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/24%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C.md)
 
+{% raw %}
 ## 문제 상황
 
 지도 서비스에서 한 출발지에서 목적지까지 가장 짧은 경로를 찾는 문제를 생각한다. 도로는 edge, 교차점이나 장소는 vertex, 거리나 시간은 weight로 표현할 수 있다.
@@ -111,6 +112,7 @@ Dijkstra를 효율적으로 구현하려면 아직 확정되지 않은 vertex �
 - [최소 신장 트리](23-minimum-spanning-trees.md)
 
 
+{% endraw %}
 
 ---
 

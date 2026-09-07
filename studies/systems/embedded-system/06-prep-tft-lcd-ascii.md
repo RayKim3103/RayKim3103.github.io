@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Embedded_System/lecture_notes/06%EC%A3%BC%EC%B0%A8%20%EC%98%88%EB%B9%84%20-%20TFT-LCD%20ASCII%20%EB%AC%B8%EC%9E%90%20%EC%B6%9C%EB%A0%A5.md)
 
+{% raw %}
 이전: [05주차 결과 - TFT-LCD 타이밍 BRAM 색상 패턴](05-result-tft-lcd-bram.md)  
 다음: [06주차 결과 - ASCII 문자 생성기와 화면 표시](06-result-ascii.md)
 
@@ -69,6 +70,7 @@ TFT-LCD는 480x272 해상도이고, 한 문자가 8x8 pixel block을 사용한�
 
 6주차 예비의 핵심은 문자 출력이 `문자열 -> ASCII -> 문자 ROM address -> 8x8 bitmap -> pixel_on -> RGB`의 흐름이라는 점이다. 특히 timing generator가 pixel 좌표뿐 아니라 현재 문자 line/column까지 제공한다는 점이 중요하다.
 
+{% endraw %}
 
 ---
 

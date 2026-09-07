@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Data_Structure/lecture_notes/06%20C%2B%2B%20%EB%AA%A8%EB%93%88%ED%99%94.md)
 
+{% raw %}
 ## 모듈화의 의미
 
 모듈화는 프로그램 기능을 독립적이고 교체 가능한 부분으로 나누는 설계 방식이다. 핵심은 인터페이스와 구현을 구분하는 것이다.
@@ -201,6 +202,7 @@ public:
 - [연결 리스트](11-linked-lists.md)
 
 
+{% endraw %}
 
 ---
 

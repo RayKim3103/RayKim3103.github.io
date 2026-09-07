@@ -7,6 +7,7 @@ sitemap: false
 
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/16%20First-Order%20Filters%20-%201%EC%B0%A8%20%ED%95%84%ED%84%B0.md)
 
+{% raw %}
 ## 핵심 요약
 
 필터는 입력 신호의 frequency spectrum을 바꾸는 회로이다. 1차 필터는 하나의 real pole을 가지며, zero 위치에 따라 low-pass, high-pass, all-pass 특성을 만든다. passive RC filter는 단순하지만 gain이 고정되고 loading effect가 있으며, active filter는 op-amp를 이용해 gain 제어와 buffering을 제공한다.
@@ -137,6 +138,7 @@ inverting active LP gain = -Rf/Rin * 1/(1+sRC)
 - [Filters with Integrators - KHN Tow-Thomas Biquad](19-filters-with-integrators-khn-tow-thomas-biquad.md)
 
 
+{% endraw %}
 
 ---
 
