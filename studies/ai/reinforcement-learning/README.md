@@ -2,7 +2,7 @@
 layout: page
 title: Reinforcement Learning
 description: >
-  Reinforcement Learning 강의 노트.
+  강화학습 강의 노트. "기초 → 심화" 연속 강의를 하나로 합치고 수식을 정리·보강했습니다.
 hide_description: false
 sitemap: false
 permalink: /studies/ai/reinforcement-learning/
@@ -10,38 +10,20 @@ permalink: /studies/ai/reinforcement-learning/
 
 원본: [GitHub — Reinforcement Learning](https://github.com/RayKim3103/Undergraduate-Course/tree/main/%5BUndergraduate%5D_Reinforcement_Learning)
 
+> 원본 18개 강의에는 revised 중복은 없고, "기초 → 심화"로 이어지는 연속 강의가 있었습니다(정책 그래디언트+Actor-Critic, Q-learning+Off-policy, Model-Based 기초+심화, Skill Discovery+Hierarchical, Sim2Real+Humanoid). 이를 주제 단위로 합치고 pseudo-code 수식을 정식 표기로 다듬어 표준 자료(Sutton&Barto · CS285 · 관련 논문) 수준으로 보강했습니다.
+
 ## 강의 노트
 
-1. [01. 강화학습 개요](01-rl-overview.md)
-2. [02. 모방학습](02-imitation-learning.md)
-3. [03. 정책 그래디언트 기초](03-policy-gradient-basics.md)
-4. [04. Actor-Critic과 PPO](04-actor-critic-ppo.md)
-5. [05. Q-learning](05-q-learning.md)
-6. [06. Off-policy RL](06-off-policy-rl.md)
-7. [07. RL 벤치마크](07-rl-benchmarks.md)
-8. [08. Offline RL](08-offline-rl.md)
-9. [09. Model-Based RL](09-model-based-rl.md)
-10. [10. 고급 Model-Based RL](10-advanced-model-based-rl.md)
-11. [11. AlphaGo와 MCTS](11-alphago-mcts.md)
-12. [12. Reward Learning](12-reward-learning.md)
-13. [13. Skill Discovery](13-skill-discovery.md)
-14. [14. Hierarchical RL](14-hierarchical-rl.md)
-15. [15. Sim2Real Transfer](15-sim2real-transfer.md)
-16. [16. Humanoid RL](16-humanoid-rl.md)
-17. [17. 생성모델과 표현학습 기반 RL](17-generative-models-and-representation-learning-rl.md)
-18. [18. 강화학습 리뷰와 열린 문제](18-rl-review-and-open-problems.md)
-
-## 과목 학습 지도
-
-- agent가 environment와 상호작용하며 reward를 최대화하는 정책을 배우는 문제를 MDP, value, policy, exploration으로 해석한다.
-- 목차 순서를 따라가되, 각 문서에서 정의-핵심 식/구조-예제-실수 포인트-연결 단원을 따로 표시하며 복습한다.
-- 시험이나 프로젝트 전에는 각 노트의 보강 학습 노트에 있는 점검 질문을 먼저 풀어 보고 막히는 단원을 역추적한다.
-- 각 하위 노트는 빠른 요약으로 시작해 세부 설명으로 내려가도록 읽고, 마지막에는 직접 설명할 수 있는 질문을 하나 이상 남긴다.
-
-## 복습 루틴
-
-- 1회독: 제목과 목차를 훑으며 이 과목이 다루는 대상과 추상화 층을 잡는다.
-- 2회독: 각 노트의 핵심 식, 회로, 알고리즘, 시스템 흐름을 손으로 다시 써 본다.
-- 3회독: 예제나 과제 문서를 기준으로 입력 조건을 바꾸었을 때 결과가 어떻게 달라지는지 스스로 질문한다.
-- 시험 직전: 자주 하는 실수와 점검 질문만 모아 빠르게 훑고, 설명이 막히는 노트로 되돌아간다.
-
+1. [강화학습 개요](01-overview.md)
+2. [모방학습 (Imitation Learning)](02-imitation-learning.md)
+3. [정책 그래디언트와 Actor-Critic (PPO)](03-policy-gradient-and-actor-critic.md)
+4. [Q-learning과 Off-policy RL](04-q-learning-and-off-policy.md)
+5. [RL 벤치마크와 평가](05-rl-benchmarks.md)
+6. [Offline RL](06-offline-rl.md)
+7. [Model-Based RL (기초 · 심화)](07-model-based-rl.md)
+8. [AlphaGo와 MCTS](08-alphago-and-mcts.md)
+9. [Reward Learning · RLHF](09-reward-learning-rlhf.md)
+10. [Skill Discovery · Hierarchical RL](10-skill-discovery-and-hierarchical-rl.md)
+11. [Sim2Real · Humanoid RL](11-sim2real-and-humanoid-rl.md)
+12. [생성모델·표현학습 기반 RL](12-generative-models-and-representation-rl.md)
+13. [강화학습 리뷰와 열린 문제](13-review-and-open-problems.md)

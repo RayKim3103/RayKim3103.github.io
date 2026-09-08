@@ -2,7 +2,7 @@
 layout: page
 title: Computer Architecture
 description: >
-  Computer Architecture 강의 노트.
+  컴퓨터 구조 강의 노트 (Patterson & Hennessy ch 1–5). 각 챕터에 해당 Kite 과제를 합쳐 정리·보강했습니다.
 hide_description: false
 sitemap: false
 permalink: /studies/arch/computer-architecture/
@@ -10,31 +10,13 @@ permalink: /studies/arch/computer-architecture/
 
 원본: [GitHub — Computer Architecture](https://github.com/RayKim3103/Undergraduate-Course/tree/main/%5BUndergraduate%5D_Computer_Architecture)
 
+> 원본은 6개 강의(P&H ch 1–5) + 5개 Kite 과제로 나뉘어 있었습니다. revised 중복은 없고, 각 챕터에 해당 과제를 "이론 → Kite 과제 세부" 로 합쳐 P&H 교재 수준으로 보강했습니다. **과제의 Kite 설정·수치는 원문 그대로**입니다.
+
 ## 강의 노트
 
-1. [00. Introduction](00-introduction.md)
-2. [01. Computer Abstractions and Technology](01-computer-abstractions-and-technology.md)
-3. [02. Instructions Language of the Computer](02-instructions-language-of-the-computer.md)
-4. [03. Arithmetic for Computers](03-arithmetic-for-computers.md)
-5. [04. The Processor](04-the-processor.md)
-6. [05. Memory Hierarchy](05-memory-hierarchy.md)
-7. [06. Assignment 1 RISC-V Assembly](06-assignment-1-risc-v-assembly.md)
-8. [07. Assignment 2 Functions](07-assignment-2-functions.md)
-9. [08. Assignment 3 Floating-Point Numbers](08-assignment-3-floating-point-numbers.md)
-10. [09. Assignment 4 Branch Prediction](09-assignment-4-branch-prediction.md)
-11. [10. Assignment 5 Cache](10-assignment-5-cache.md)
-
-## 과목 학습 지도
-
-- ISA, datapath, control, memory hierarchy를 연결해 프로그램이 실제 하드웨어 위에서 실행되는 비용을 이해한다.
-- 목차 순서를 따라가되, 각 문서에서 정의-핵심 식/구조-예제-실수 포인트-연결 단원을 따로 표시하며 복습한다.
-- 시험이나 프로젝트 전에는 각 노트의 보강 학습 노트에 있는 점검 질문을 먼저 풀어 보고 막히는 단원을 역추적한다.
-- 각 하위 노트는 빠른 요약으로 시작해 세부 설명으로 내려가도록 읽고, 마지막에는 직접 설명할 수 있는 질문을 하나 이상 남긴다.
-
-## 복습 루틴
-
-- 1회독: 제목과 목차를 훑으며 이 과목이 다루는 대상과 추상화 층을 잡는다.
-- 2회독: 각 노트의 핵심 식, 회로, 알고리즘, 시스템 흐름을 손으로 다시 써 본다.
-- 3회독: 예제나 과제 문서를 기준으로 입력 조건을 바꾸었을 때 결과가 어떻게 달라지는지 스스로 질문한다.
-- 시험 직전: 자주 하는 실수와 점검 질문만 모아 빠르게 훑고, 설명이 막히는 노트로 되돌아간다.
-
+1. [강의 개요](00-course-overview.md)
+2. [Computer Abstractions & Performance](01-computer-abstractions-and-performance.md) — P&H ch 1
+3. [Instructions & RISC-V ISA](02-instructions-and-risc-v-isa.md) — ch 2 + 과제 A1(Assembly)·A2(Functions/Hanoi)
+4. [Computer Arithmetic](03-computer-arithmetic.md) — ch 3 + 과제 A3(Floating-Point)
+5. [The Processor: Datapath & Pipeline](04-processor-datapath-and-pipeline.md) — ch 4 + 과제 A4(Branch Predictor + BTB)
+6. [Memory Hierarchy & Caches](05-memory-hierarchy-and-caches.md) — ch 5 + 과제 A5(Victim Cache)
