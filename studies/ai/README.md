@@ -19,3 +19,8 @@ permalink: /studies/ai/
 
 * [Reinforcement Learning]{:.heading.flip-title} --- 13개 노트 (주제 단위 통합·보강)
 {:.related-posts.faded}
+
+[Machine Learning]: /studies/ai/machine-learning/
+[Deep Learning Experiment]: /studies/ai/deep-learning-experiment/
+[Computer Vision]: /studies/ai/computer-vision/
+[Reinforcement Learning]: /studies/ai/reinforcement-learning/

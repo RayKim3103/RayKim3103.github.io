@@ -13,3 +13,6 @@ permalink: /studies/digital/
 
 * [Basic Digital Experiment]{:.heading.flip-title} --- 11개 노트
 {:.related-posts.faded}
+
+[Digital Logic Circuits]: /studies/digital/digital-logic-circuits/
+[Basic Digital Experiment]: /studies/digital/basic-digital-lab/

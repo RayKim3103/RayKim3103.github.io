@@ -19,3 +19,8 @@ permalink: /studies/systems/
 
 * [Data Structure]{:.heading.flip-title} --- 26개 노트
 {:.related-posts.faded}
+
+[Operating System]: /studies/systems/operating-system/
+[Embedded System]: /studies/systems/embedded-system/
+[Parallel Programming]: /studies/systems/parallel-programming/
+[Data Structure]: /studies/systems/data-structure/

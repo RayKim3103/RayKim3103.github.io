@@ -19,3 +19,8 @@ permalink: /studies/arch/
 
 * [NPU]{:.heading.flip-title} --- 프로젝트 코드 (강의 노트 없음)
 {:.related-posts.faded}
+
+[Computer Architecture]: /studies/arch/computer-architecture/
+[Microprocessor]: /studies/arch/microprocessor/
+[Intelligent System Design]: /studies/arch/intelligent-system/
+[NPU]: /studies/arch/npu/

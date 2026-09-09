@@ -13,3 +13,6 @@ permalink: /studies/math/
 
 * [Electromagnetics]{:.heading.flip-title} --- 10개 노트
 {:.related-posts.faded}
+
+[Linear Algebra]: /studies/math/linear-algebra/
+[Electromagnetics]: /studies/math/electromagnetics/
