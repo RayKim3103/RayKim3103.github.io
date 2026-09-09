@@ -11,7 +11,7 @@ permalink: /studies/circuits/
 * [Electric Circuits 1]{:.heading.flip-title} --- 8개 노트
 {:.related-posts.faded}
 
-* [Electric Circuits 2]{:.heading.flip-title} --- 28개 노트
+* [Electric Circuits 2]{:.heading.flip-title} --- 16개 노트
 {:.related-posts.faded}
 
 * [CMOS Integrated Circuit]{:.heading.flip-title} --- 9개 노트

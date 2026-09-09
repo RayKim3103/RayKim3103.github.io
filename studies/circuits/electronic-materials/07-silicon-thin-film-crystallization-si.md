@@ -1,141 +1,114 @@
 ---
 layout: page
-title: "07. Silicon Thin Film Crystallization - Si 박막 결정화"
+title: "07. Si 박막 결정화 (Silicon Thin-Film Crystallization)"
 permalink: /studies/circuits/electronic-materials/07-silicon-thin-film-crystallization-si/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/07%20Silicon%20Thin%20Film%20Crystallization%20-%20Si%20%EB%B0%95%EB%A7%89%20%EA%B2%B0%EC%A0%95%ED%99%94.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes) · 주제: LTPS / ELA / SLS / TFT
+- 이전: [06. 전기·열 전도](06-electrical-and-thermal-conduction.md) · 다음: [08. 분자궤도와 에너지밴드](08-molecular-orbital-and-energy-bands.md)
 
 {% raw %}
-tags: #ElectronicMaterials #SiliconThinFilm #LTPS #ELA #TFT
+## 개요
 
-이전: [Electrical and Thermal Conduction - 전기 열 전도](06-electrical-and-thermal-conduction.md)  
-다음: [Molecular Orbital and Energy Bands - 분자궤도 에너지밴드](08-molecular-orbital-and-energy-bands.md)
+비정질 Si → poly-Si로 결정화 → TFT 이동도·구동 전류 ↑. 대표 방법: furnace anneal, SPC, RTA, CGS, MILC, **ELA**, **SLS**. 생산 공정에서는 ELA와 SLS가 핵심.
 
-## 핵심 요약
+```text
+a-Si → (ELA: excimer laser로 표면만 순간 용융·재결정) → poly-Si
+grain boundary → TFT V_th ↑, I_off ↑, mobility ↓
+laser energy density → partial / complete / near-complete melting (SLG)
+```
 
-- Si 박막 결정화는 비정질 Si를 poly-Si로 바꾸어 TFT 이동도와 전류 구동 능력을 높이는 공정이다.
-- 대표 방법에는 furnace anneal, SPC, RTA, CGS, MILC, ELA, SLS가 있다.
-- 생산 공정에서는 특히 ELA와 SLS가 중요하게 다루어진다.
-- ELA는 excimer laser로 표면 a-Si만 빠르게 녹이고 재결정화해 glass substrate 손상을 줄인다.
-- grain boundary는 TFT의 threshold voltage 상승, off current 증가, mobility 저하를 일으킨다.
-- laser energy density는 partial melting, complete melting, super lateral growth를 결정한다.
+---
 
-## Si 박막 결정화 방법
+## 1. 결정화 방법
 
-| 방법 | 의미 | 핵심 특징 |
+| 방법 | 의미 | 특징 |
 |---|---|---|
-| Furnace anneal | 노 전체 가열 | 긴 시간, 높은 thermal budget |
-| SPC | solid phase crystallization | 고상 상태에서 결정화 |
-| RTA | rapid thermal annealing | 짧은 시간 고온 열처리 |
-| CGS | continuous grain Si | 연속 grain 형성 |
-| MILC | metal induced lateral crystallization | 금속 촉매로 lateral crystallization 유도 |
-| ELA | excimer laser annealing | 표면만 순간 용융 후 재결정화 |
-| SLS | sequential lateral solidification | lateral growth를 순차적으로 제어 |
+| **Furnace anneal** | 노 전체 가열 | 긴 시간, 높은 thermal budget |
+| **SPC** | solid phase crystallization | 고상에서 결정화 (~600°C, 수 시간) |
+| **RTA** | rapid thermal annealing | 짧은 시간 고온 |
+| **CGS** | continuous grain Si | 연속 grain |
+| **MILC** | metal-induced lateral crystallization | 금속 촉매(Ni 등)로 lateral 결정화 유도, 저온 |
+| **ELA** | excimer laser annealing | 표면만 순간 용융 후 재결정 |
+| **SLS** | sequential lateral solidification | lateral growth를 순차 제어 |
 
-## Rapid Thermal Annealing
+## 2. Rapid Thermal Annealing (RTA)
 
-- RTA는 dopant activation과 metal contact의 interfacial reaction에 쓰이는 반도체 공정이다.
-- wafer를 상온에서 약 1000-1500 K까지 빠르게 가열한다.
-- 목표 온도에서 몇 초만 유지한 뒤 빠르게 냉각한다.
-- 긴 furnace anneal보다 diffusion broadening을 줄이면서 필요한 열처리 효과를 얻을 수 있다.
+- dopant activation, metal contact의 interfacial reaction에 사용
+- wafer를 상온 → **1000–1500 K**까지 빠르게 가열, 목표 온도에서 수 초 유지 후 급랭
+- 긴 furnace anneal 대비 **diffusion broadening 최소화** (짧은 thermal budget)
 
-## Excimer Laser Annealing
+## 3. Excimer Laser Annealing (ELA)
 
-### 공정 단계
+### 공정
+1. glass substrate 위에 a-Si layer 증착
+2. **pulsed rectangular UV laser** (XeCl 308 nm 등) 스캔
+3. a-Si 표면층이 순간 용융
+4. 냉각 중 재결정화 → poly-Si
+5. laser 에너지는 주로 표면 a-Si가 흡수 → **glass substrate는 영향 적음** (저온 공정 → LTPS)
 
-1. glass substrate 위에 amorphous silicon layer를 증착한다.
-2. pulsed rectangular UV laser beam을 스캔한다.
-3. a-Si 표면층이 빠르게 녹는다.
-4. 냉각 중 재결정화되어 poly-Si가 된다.
-5. laser 에너지는 주로 표면 a-Si에서 흡수되므로 glass substrate는 상대적으로 영향을 덜 받는다.
+### 장점 / 문제
+- 장점: 결정화 시간 매우 짧음, 저온 기판 가능, 다중 shot·overlap으로 grain size 확대 (예: **95% overlap, 20 shots**)
+- 문제: OLED / large-area display에서 shot 간 균일도 확보 어려움 → mura
 
-### ELA의 장점과 문제
+## 4. Poly-Si TFT
 
-- 장점: 결정화 시간이 매우 짧고, 저온 기판에서도 poly-Si 형성이 가능하다.
-- 장점: 여러 shot과 overlap 조건을 이용해 grain size를 키울 수 있다.
-- 문제: OLED 또는 large-area display에서 균일도 문제가 생기기 쉽다.
-- 예시 조건으로 95% overlap, 20 shots on a-Si 같은 다중 조사 조건이 다뤄진다.
-
-## Polycrystalline Silicon TFT
-
-### Poly-Si의 의미
-
-- poly-Si는 여러 결정 grain이 모인 Si 박막이다.
-- grain 내부는 결정질에 가깝지만, grain boundary에서는 결합 불완전성과 defect state가 많다.
-- a-Si보다 carrier conduction이 좋아 TFT 성능을 높일 수 있지만, grain boundary 품질이 성능을 제한한다.
+- poly-Si = 여러 결정 grain + grain boundary. grain 내부는 결정질에 가깝고, 경계에는 결합 불완전·defect state 다수.
+- a-Si보다 carrier conduction 좋아 TFT 성능 ↑, 그러나 **grain boundary 품질이 성능을 제한**.
 
 ### Grain boundary 효과
+- threshold voltage $V_{th}$ ↑
+- off current $I_{off}$ ↑
+- carrier mobility ↓
+- trap state 많아 subthreshold 특성 악화
 
-- threshold voltage `V_th`가 증가할 수 있다.
-- off current `I_off`가 증가할 수 있다.
-- carrier mobility가 감소한다.
-- trap state가 많아 transfer curve의 subthreshold 특성이 나빠질 수 있다.
+**Transfer curve**: $V_D$ 고정, $V_G$ 스윕하며 $I_D$ 측정. n-type / p-type TFT는 carrier·mobility 차이로 전류 수준·기울기가 다름.
 
-### TFT transfer curve
+## 5. Energy Density의 역할
 
-- transfer curve는 drain voltage 조건을 고정하고 gate voltage를 변화시키며 drain current를 측정한 곡선이다.
-- n-type TFT와 p-type TFT는 carrier 종류와 mobility 차이 때문에 전류 수준과 기울기가 다르다.
+### 분석
+- **TEM**: ex-situ로 grain 구조
+- **TR (transient reflectance)**: in-situ로 melting/solidification dynamics
+- energy density별 average grain radius + melt duration → 결정화 regime 판단
 
-## ELA에서 energy density의 역할
-
-### 분석 방법
-
-- TEM은 ex-situ로 grain 구조를 관찰한다.
-- TR, transient reflectance는 in-situ로 laser 조사 중 melting과 solidification dynamics를 본다.
-- energy density에 따른 average grain radius와 melt duration을 비교하면 결정화 regime을 판단할 수 있다.
-
-### 세 가지 결정화 regime
+### 세 가지 regime
 
 | Energy density | 상태 | 결과 grain |
 |---|---|---|
-| 낮음 | partial melting | vertical regrowth, small grains |
-| 너무 높음 | complete melting | copious nucleation, fine grains |
-| 적절함 | near complete melting | super lateral growth, large grains |
+| 낮음 | **partial melting** | vertical regrowth, small grains |
+| 너무 높음 | **complete melting** | copious nucleation, fine grains |
+| 적절함 | **near-complete melting** | **super lateral growth (SLG)**, large grains |
 
-## Super Lateral Growth
+## 6. Super Lateral Growth (SLG)
 
-- SLG는 거의 완전히 녹은 영역에서 남은 seed를 중심으로 lateral growth가 길게 진행되는 regime이다.
-- seed가 가까우면 lateral growth가 서로 만나 continuous large-grained poly-Si를 만든다.
-- seed가 너무 멀면 완전 용융 영역에서 copious nucleation이 먼저 발생해 isolated disk 또는 fine grain이 생길 수 있다.
-- 따라서 energy density, pulse overlap, seed spacing 제어가 grain size와 균일도에 직접 연결된다.
+거의 완전히 녹은 영역에서 **남은 seed**를 중심으로 lateral growth가 길게 진행.
+- seed가 가까움 → lateral growth가 서로 만나 continuous large-grained poly-Si
+- seed가 너무 멂 → 완전 용융 영역에서 copious nucleation 먼저 → isolated disk / fine grain
 
-## Multiple Pulse Irradiation
+→ **energy density, pulse overlap, seed spacing** 제어가 grain size·균일도에 직결.
 
-- 여러 번 laser pulse를 조사하면 melt-mediated grain growth가 반복되어 grain enlargement가 일어날 수 있다.
-- 하지만 pulse마다 국부 용융과 재고화가 반복되므로 공정 윈도우가 좁고, 균일도 확보가 중요하다.
+## 7. Multiple Pulse & Phase Transformation
 
-## Phase Transformation
+- 여러 pulse → melt-mediated grain growth 반복 → grain enlargement 가능. 단 국부 용융·재고화 반복 → **공정 윈도우 좁음**.
+- **Heating**: laser pulse → a-Si 온도 급상승, 용융 깊이는 fluence·흡수율.
+- **Cooling**: pulse 후 열이 기판·주변으로 → 재고화. 냉각 속도·seed 유무가 nucleation vs growth 경쟁 결정. **Recalescence**: 결정화 잠열 방출로 온도 변화가 일시적으로 완만.
 
-### Heating
+## 8. Grain Boundary 위치 제어
 
-- laser pulse가 들어오면 a-Si의 온도가 급격히 상승한다.
-- energy density가 충분하면 표면층이 녹고, 용융 깊이는 laser fluence와 흡수율에 따라 달라진다.
+TFT channel 내부에 grain boundary가 놓이면 carrier 경로가 trap·barrier를 만나 성능 편차 ↑. **SLS / artificially controlled SLG**는 grain boundary를 channel 밖으로 유도해 device uniformity 향상. source/drain/gate 배치와 grain boundary 위치의 관계가 최적화 핵심.
 
-### Cooling
+---
 
-- pulse 이후 열이 기판과 주변으로 빠져나가며 재고화가 진행된다.
-- 냉각 속도와 seed 존재 여부가 nucleation과 growth의 경쟁을 결정한다.
-- recalescence는 결정화 중 방출되는 잠열 때문에 온도 변화가 일시적으로 완만해지는 현상으로 이해할 수 있다.
+## 복습 질문
 
-## Grain Boundary 위치 제어
-
-- TFT channel 내부에 grain boundary가 놓이면 carrier 이동 경로가 trap과 barrier를 만나 성능 편차가 커진다.
-- SLS나 artificially controlled SLG는 grain boundary 위치를 channel 밖으로 유도해 device uniformity를 높이려는 접근이다.
-- source, drain, gate 배치와 grain boundary 위치의 관계가 TFT 특성 최적화에서 중요하다.
-
-## 시험 포인트
-
-- RTA와 ELA의 공정 차이.
-- ELA가 glass substrate를 크게 손상시키지 않는 이유.
-- grain boundary가 TFT의 `V_th`, `I_off`, mobility에 주는 영향.
-- partial melting, complete melting, SLG regime의 차이.
-- TR analysis로 melt duration과 energy density 관계를 보는 이유.
-- grain boundary 위치 제어가 TFT 균일도에 중요한 이유.
-
+- RTA와 ELA의 공정 차이, ELA가 glass substrate를 크게 손상시키지 않는 이유는?
+- grain boundary가 TFT의 $V_{th}$, $I_{off}$, mobility에 주는 영향은?
+- partial melting / complete melting / near-complete melting(SLG) regime의 차이와, energy density와의 관계는?
+- SLG에서 seed spacing이 grain size에 미치는 영향은?
+- grain boundary 위치 제어(SLS)가 TFT 균일도에 중요한 이유는?
 {% endraw %}
 
 ---
 
-이전: [06. Electrical and Thermal Conduction - 전기 열 전도](06-electrical-and-thermal-conduction.md) · 다음: [08. Molecular Orbital and Energy Bands - 분자궤도 에너지밴드](08-molecular-orbital-and-energy-bands.md)
+이전: [06. 전기·열 전도](06-electrical-and-thermal-conduction.md) · 다음: [08. 분자궤도와 에너지밴드](08-molecular-orbital-and-energy-bands.md)

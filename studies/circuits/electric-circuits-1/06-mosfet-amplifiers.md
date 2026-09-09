@@ -5,217 +5,141 @@ permalink: /studies/circuits/electric-circuits-1/06-mosfet-amplifiers/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/06%20MOSFET%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/06%20MOSFET%20%EC%A6%9D%ED%8F%AD%EA%B8%B0.md) · 교재: Razavi Ch.7
 
 {% raw %}
 ## 한눈에 보기
 
-이 장은 MOSFET를 이용한 증폭기 해석을 정리한다. DC bias로 saturation 동작점을 잡고, 소신호 모델로 바꾼 뒤 common-source, source degeneration, 다단 MOS 증폭기 이득을 계산한다.
+MOSFET 증폭기. DC bias로 **saturation** 동작점을 잡고 → 소신호 모델 → common-source, source degeneration, 능동 부하, 다단.
 
 ```text
-DC bias -> saturation check -> gm, ro 계산
--> small signal equivalent -> common-source gain
--> source degeneration -> multi-stage MOS amplifier
+DC bias → saturation check → gm, ro
+→ small signal equivalent → common-source gain
+→ source degeneration → active load → multi-stage
 ```
 
-## MOSFET 증폭기의 기본 구조
+---
 
-NMOS common-source 증폭기는 drain에 저항 $R_D$가 있고, gate에 입력을 넣으며, drain에서 출력을 뽑는다.
+## 1. Common-Source 기본
 
-출력 전압은 drain current 변화가 $R_D$를 지나며 만들어진다.
-
-$$
-v_{out}=-i_d R_D
-$$
-
-소신호에서
+NMOS CS: gate 입력, drain 출력, drain에 $R_D$. **위상 반전**.
 
 $$
-i_d=g_m v_{gs}
+v_{out} = -i_d R_D, \qquad i_d = g_m v_{gs} \;\Rightarrow\; A_v = -g_m R_D
 $$
 
-이므로 이상적인 common-source 이득은
-
+$r_o$ 고려:
 $$
-A_v=-g_m R_D
+A_v = -g_m (R_D \parallel r_o)
 $$
 
-이다.
+$R_D$ 대신 **이상적 전류원 부하**면 $A_v = -g_m r_o$ = **intrinsic gain** (그 소자로 낼 수 있는 최대). 부호 −: $v_{gs}\uparrow \to I_D\uparrow \to R_D$ 강하 ↑ $\to V_D\downarrow$.
 
-## DC bias
+- $R_{in} = \infty$ (gate, bias 저항 병렬 시 그 값)
+- $R_{out} = R_D \parallel r_o$
 
-MOSFET 증폭기에서도 BJT와 마찬가지로 먼저 DC 동작점을 정해야 한다.
+## 2. DC Bias
+
+BJT처럼 먼저 DC 동작점 → saturation 확인 ($V_{DS} > V_{OV}$).
 
 ### Resistive divider bias
-
-저항 분배기로 gate 전압을 정한다.
-
 $$
-V_G=\frac{R_2}{R_1+R_2}V_{DD}
+V_G = \frac{R_2}{R_1 + R_2}V_{DD}
 $$
+gate DC current ≈ 0 → **BJT보다 분압 설계 단순** ($I_X \gg I_B$ 조건 불필요, 매우 큰 저항 사용 가능).
+그다음 $V_{GS} = V_G - I_D R_S$, square-law 식과 연립해 $I_D$.
 
-gate DC current가 거의 0이므로 BJT보다 분압 설계가 단순하다.
-
-### Self bias
-
-drain과 gate를 저항으로 연결하는 self bias에서는 음의 피드백이 생겨 동작점이 안정화된다.
-
-DC에서
-
+### Self bias (drain–gate 연결)
+음의 피드백 → 동작점 안정. $V_G = V_D$ 이면 $V_{GS} = V_{DS}$ →
 $$
-V_{DS}=V_{GS}
+V_{DS} = V_{GS} > V_{GS} - V_{th} = V_{OV}
 $$
+→ **saturation을 자동 만족** (diode-connected 형태).
 
-가 되는 구조가 자주 나오며, 이 경우 saturation 조건
+### AC 해석 규칙
+- coupling capacitor → AC short
+- $V_{DD}$ → AC ground
+- gate DC current = 0
+- MOSFET → $g_m v_{gs}$ 전류원 ∥ $r_o$
 
+## 3. Gate Capacitance와 주파수
+
+MOS = conductor–insulator–conductor → **커패시터** ($C_{gs}, C_{gd}$).
 $$
-V_{DS}>V_{GS}-V_{th}
+Z_{C_{gs}} = \frac{1}{sC_{gs}}
 $$
+저주파: 임피던스 커서 입력 전달에 큰 영향 X; 고주파: 작아져 입력 감쇠·대역 제한 ($C_{gd}$는 Miller로 증폭). 강의 노트는 "주파수가 매우 낮지 않으면 입력 커패시턴스가 거의 short처럼 작동"하는 단순화된 상황을 다룬다.
 
-을 자연스럽게 만족하기 쉽다.
+---
 
-## AC 해석 규칙
+## 4. Source Degeneration이 있는 CS
 
-- coupling capacitor는 충분히 크면 AC short로 본다.
-- DC 전원 $V_{DD}$는 AC ground로 둔다.
-- gate DC current는 0으로 본다.
-- MOSFET는 $g_m v_{gs}$ 전류원과 $r_o$로 치환한다.
-
-## Common-source 이득
-
-$r_o$를 무시하면
-
+source에 $R_S$ 삽입:
 $$
-A_v=-g_m R_D
+A_v \approx -\frac{R_D}{1/g_m + R_S} \qquad (r_o \to \infty)
 $$
+$r_o$ 포함 시 출력저항은 $R_D \parallel [R_S + (1+g_m R_S)r_o]$로 커진다.
 
-$r_o$를 고려하면
-
-$$
-A_v=-g_m(R_D\parallel r_o)
-$$
-
-이다.
-
-입력에 source resistance $R_S$가 있고 gate 커패시턴스 효과를 단순 임피던스로 보면, 입력 감쇠가 이득에 반영된다.
-
-## Gate capacitance와 주파수 영향
-
-MOS 구조는 conductor-insulator-conductor 형태이므로 capacitor를 형성한다.
-
-주파수 영역에서 gate-source capacitance는
-
-$$
-Z_{C_{gs}}=\frac{1}{sC_{gs}}
-$$
-
-로 동작한다.
-
-저주파에서는 커패시터 임피던스가 커서 입력 전달에 영향을 줄 수 있고, 고주파에서는 작아진다. 강의 노트에서는 단순화해 주파수가 매우 작지 않으면 입력 커패시턴스가 거의 short처럼 작동하는 상황을 다룬다.
-
-## Source degeneration이 있는 common-source
-
-source에 저항 $R_S$ 또는 $R_2$가 들어가면 이득은 다음처럼 줄어든다.
-
-$$
-A_v\approx -\frac{R_D}{1/g_m+R_S}
-$$
-
-이는 BJT의 emitter degeneration과 같은 역할을 한다.
-
-효과:
-
-- 이득 감소
+BJT emitter degeneration과 동일한 역할:
+- 이득 감소 ($R_S \gg 1/g_m$이면 $\approx -R_D/R_S$, $g_m$에 둔감)
 - 선형성 증가
 - 동작점 안정화
-- 입력 신호 대비 출력 전류 변화 완화
+- 입력 대비 출력 전류 변화 완화 (effective $G_m = g_m/(1+g_m R_S)$)
 
-## 다단 MOS 증폭기
-
-다단 MOS 증폭기에서는 각 단의 이득을 따로 구하고 곱한다.
-
-예를 들어 2단이면
+## 5. 부하 종류별 CS 이득
 
 $$
-A_v=A_{v1}A_{v2}
+A_v = -g_m R_{out}
 $$
 
-각 단의 이득 계산 시 이전 단의 출력저항이 다음 단을 구동하는 Thevenin resistance로 작용할 수 있다.
+| drain 부하 | $R_{out}$ | 특징 |
+|---|---|---|
+| 저항 $R_D$ | $R_D \parallel r_o$ | headroom 소모, 이득 제한 |
+| **이상 전류원** | $r_o$ | $A_v = -g_m r_o$ (intrinsic gain) |
+| **전류원 부하** (PMOS) | $r_{o,n} \parallel r_{o,p}$ | 실제 능동 부하, 큰 이득 |
+| **diode-connected MOS** | $\approx 1/g_{m,load}$ | $A_v \approx -g_{m1}/g_{m2} = -\sqrt{(W/L)_1/(W/L)_2}$, 이득은 작지만 매우 선형·안정 |
 
-## BJT와 MOSFET 증폭기 토폴로지 대응
+> current source load에서 $\lambda = 0$이면 $r_o = \infty$ → 이득 무한대(이상). 실제 $\lambda \ne 0$이라 유한.
 
-BJT와 MOSFET의 대표 구성은 서로 대응된다.
+## 6. BJT ↔ MOSFET 토폴로지 대응
 
 | BJT | MOSFET | 기능 |
 |---|---|---|
-| Common-emitter | Common-source | 전압 증폭, 위상 반전 |
-| Common-base | Common-gate | 낮은 입력저항, 높은 출력저항 |
-| Common-collector | Common-drain | source follower, voltage buffer |
+| Common-emitter | **Common-source** | 전압 증폭, 위상 반전 |
+| Common-base | **Common-gate** | 낮은 $R_{in}$($1/g_m$), 높은 $R_{out}$, 고주파 |
+| Common-collector | **Common-drain (source follower)** | $A_v \lesssim 1$, voltage buffer |
 
-## Current source load가 있는 MOS 증폭기
+**Source follower**: $A_v = \dfrac{g_m(R_L\parallel r_o)}{1 + g_m(R_L\parallel r_o)} \lesssim 1$, $R_{out} \approx 1/g_m$.
 
-저항 대신 current source 또는 active load를 drain에 놓으면 출력저항이 커져 이득이 증가한다.
+## 7. 다단 MOS 증폭기
 
-기본적으로
+각 단 이득 곱: $A_v = A_{v1}A_{v2}\cdots$. 이전 단 출력저항이 다음 단의 Thevenin 구동저항. MOSFET는 $R_{in} = \infty$라 CS단 사이 loading이 없어 계산이 BJT보다 단순 (CG·CD 단이 끼면 loading 발생).
 
-$$
-A_v=-g_m R_{out}
-$$
+### 예제형 이득 절차
+1. 각 MOSFET saturation 확인
+2. 각 소자 $g_m$, $r_o$ 계산
+3. 출력 노드에서 보이는 등가저항 $R_{out}$
+4. $A_v = -g_m R_{out}$ 또는 degeneration 식
+5. 다단이면 단별 곱
 
-이므로 $R_{out}$을 크게 만드는 구조가 중요하다.
-
-## Diode-connected MOS 부하
-
-gate와 drain이 연결된 MOSFET는 소신호에서 저항처럼 보인다.
-
-대략적인 저항은
-
-$$
-R\approx \frac{1}{g_m}
-$$
-
-이다.
-
-이를 부하 또는 bias 소자로 사용할 수 있다.
-
-## 예제형 이득 공식 감각
-
-자료에 등장하는 여러 예제는 공통적으로 다음 방식으로 정리된다.
-
-1. 각 MOSFET가 saturation인지 확인한다.
-2. 각 소자의 $g_m$, $r_o$를 계산한다.
-3. 출력 노드에서 보이는 등가저항을 구한다.
-4. $A_v=-g_m R_{out}$ 또는 source degeneration 공식을 적용한다.
-5. 다단이면 단계별 이득을 곱한다.
-
-예를 들어 current source load가 있고 $\lambda=0$이면 이상적으로 출력저항이 무한대가 되어 이득이 매우 커진다. 실제로는 $\lambda\neq 0$이므로 $r_o$가 유한하고 이득도 제한된다.
+---
 
 ## 핵심 정리
 
-- MOSFET 증폭기는 saturation region에서 사용한다.
-- common-source 이득은 기본적으로 $-g_m R_D$이다.
-- $r_o$를 고려하면 $R_D\parallel r_o$가 출력저항이 된다.
-- source degeneration은 이득을 낮추지만 선형성을 높인다.
-- gate capacitance는 주파수 응답에 영향을 준다.
-- active load와 current source load는 출력저항을 키워 이득을 높인다.
-- 다단 증폭기는 각 단의 loading을 고려해 이득을 곱한다.
+- MOSFET 증폭기는 **saturation**에서 사용.
+- CS 이득 = $-g_m(R_D \parallel r_o)$; 이상 전류원 부하면 $-g_m r_o$ (intrinsic gain).
+- Source degeneration: $A_v \approx -R_D/(1/g_m + R_S)$, 이득↓ 선형성·안정성·$R_{out}$↑, $G_m = g_m/(1+g_m R_S)$.
+- 능동 부하(current source, diode-connected)로 $R_{out}$을 키워 이득 확보.
+- CS/CG/CD ↔ CE/CB/CC 대응. source follower $A_v \lesssim 1$, $R_{out} \approx 1/g_m$.
+- 다단: 단별 이득 곱, MOS는 gate $R_{in}=\infty$라 CS-CS 간 loading 없음.
 
-## 연결되는 노트
+## 복습 질문
 
-- [MOSFET 기본 동작](05-mosfet-operation.md)
-- [BJT 증폭기](04-bjt-amplifiers.md)
-- [캐스코드와 전류 미러](07-cascode-and-current-mirrors.md)
-- [CMOS 인버터](08-cmos-inverter.md)
-
-## 복습 체크리스트
-
-- [ ] MOSFET 증폭기의 DC bias와 AC 해석을 분리할 수 있다.
-- [ ] common-source 이득의 부호가 음수인 이유를 설명할 수 있다.
-- [ ] $A_v=-g_m(R_D\parallel r_o)$를 적용할 수 있다.
-- [ ] source degeneration이 이득에 미치는 영향을 계산할 수 있다.
-- [ ] diode-connected MOS의 소신호 저항을 설명할 수 있다.
-- [ ] BJT CE/CB/CC와 MOS CS/CG/CD의 대응을 말할 수 있다.
-
+- CS 이득 부호가 −인 이유, $-g_m(R_D\parallel r_o)$를 소신호 등가회로에서 유도할 수 있나?
+- self bias(drain–gate 단락)가 saturation을 자동 보장하는 이유는?
+- source degeneration이 effective $G_m$과 이득·$R_{out}$에 주는 영향은?
+- diode-connected MOS 부하의 소신호 저항이 $1/g_m$이고, CS 이득이 $-\sqrt{(W/L)_1/(W/L)_2}$인 것을 보일 수 있나?
+- source follower의 $A_v$와 $R_{out}$ 식, buffer로 쓰는 이유는?
 {% endraw %}
 
 ---

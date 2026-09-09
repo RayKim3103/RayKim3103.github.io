@@ -5,350 +5,175 @@ permalink: /studies/circuits/electric-circuits-1/03-bjt-operation/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/03%20BJT%20%EA%B8%B0%EB%B3%B8%20%EB%8F%99%EC%9E%91.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/03%20BJT%20%EA%B8%B0%EB%B3%B8%20%EB%8F%99%EC%9E%91.md) · 교재: Razavi Ch.4
 
 {% raw %}
 ## 한눈에 보기
 
-이 장은 BJT를 전압제어 전류원으로 이해한다. 증폭기의 핵심인 transconductance, forward active 동작, collector current, base/emitter current, current gain, small signal model, Early effect, 동작 영역을 다룬다.
+BJT를 **전압제어 전류원(VCCS)**으로 이해한다. transconductance, forward active 동작, $I_C$, $\beta$, hybrid-π 소신호 모델, Early effect, 동작 영역, PNP.
 
 ```text
-좋은 전압원/전류원 -> VCCS -> BJT 구조
--> collector current -> beta -> small signal model
--> Early effect -> operation region -> PNP
+좋은 전압원/전류원 → VCCS → BJT 구조 → collector current → β
+→ small signal model (gm, rπ, ro) → Early effect → operation region → PNP
 ```
 
-## 증폭기의 기본 아이디어
+---
 
-증폭기는 입력 신호를 더 큰 출력 신호로 만드는 회로이다.
+## 1. 증폭기의 기본 아이디어
 
-전압 이득은 다음처럼 정의한다.
-
-$$
-A_v=\frac{v_{out}}{v_{in}}
-$$
-
-BJT 증폭기는 입력 전압 변화가 출력 전류 변화를 만들고, 그 전류가 부하 저항을 지나며 출력 전압으로 바뀌는 구조이다.
+전압 이득 $A_v = v_{out}/v_{in}$. BJT 증폭기: **입력 전압 변화 → 출력 전류 변화 → 부하저항 통과 → 출력 전압**.
 
 ```text
-v_in -> i_out -> i_out R -> v_out
+v_in → i_out = gm·v_in → i_out·R → v_out
 ```
 
-따라서 좋은 증폭기를 만들려면 다음이 중요하다.
+좋은 증폭기 조건:
+- 입력 전압 변화 대비 출력 전류 변화($g_m$)가 커야
+- 출력단 부하/출력저항이 적절히 커야
+- **DC bias**로 트랜지스터를 원하는 동작점(Q point)에
 
-- 입력 전압 변화에 대한 출력 전류 변화가 커야 한다.
-- 출력단의 부하 또는 출력 저항이 적절히 커야 한다.
-- DC bias로 트랜지스터를 원하는 동작점에 두어야 한다.
+### 좋은 전압원 / 좋은 전류원
+| | 조건 |
+|---|---|
+| 좋은 전압원 | 부하 변해도 전압 유지 → **출력저항 작아야** |
+| 좋은 전류원 | 부하 변해도 전류 유지 → **출력저항 커야** |
 
-## 좋은 전압원과 좋은 전류원
+트랜지스터는 특정 영역에서 VCCS처럼 동작 → $i_{out} = g_m v_{in}$, $v_{out} = i_{out}R$ → 이득 크게 하려면 $g_m \uparrow$, $R \uparrow$.
 
-좋은 전압원은 부하가 바뀌어도 전압을 잘 유지해야 한다. 이를 위해 출력저항이 작아야 한다.
+---
 
-좋은 전류원은 부하가 바뀌어도 전류를 잘 유지해야 한다. 이를 위해 출력저항이 커야 한다.
+## 2. BJT 구조와 forward active
 
-트랜지스터는 특정 동작 영역에서 전압제어 전류원처럼 동작한다.
+npn = emitter / base / collector.
+- **emitter**: 강하게 도핑, 캐리어 방출
+- **base**: 매우 얇고 약하게 도핑된 제어 영역
+- **collector**: 약하게 도핑, 캐리어 수집
 
-## VCCS
+**Forward active** 조건:
+- base–emitter 접합: **순방향** ($V_{BE} > 0$, npn)
+- base–collector 접합: **역방향** ($V_{BC} < 0$, 즉 $V_C > V_B$)
 
-BJT는 작은 신호 관점에서 voltage controlled current source로 볼 수 있다.
+npn 기준 $V_B > V_E$ 그리고 $V_C > V_B$.
 
-$$
-i_{out}=g_m v_{in}
-$$
+물리: emitter가 base로 전자를 injection → 얇은 base를 대부분 통과(재결합 소량) → collector가 수집. base 전류는 (a) 재결합분 (b) base→emitter 정공 injection.
 
-여기서 $g_m$은 transconductance이다.
-
-출력 전압은 부하 저항 $R$에 의해
-
-$$
-v_{out}=i_{out}R
-$$
-
-로 변환된다.
-
-따라서 이득을 크게 하려면
+## 3. Collector Current
 
 $$
-g_m \uparrow,\quad R \uparrow
+I_C = I_S\,e^{V_{BE}/V_T} \qquad (\text{정확히는 } I_S(e^{V_{BE}/V_T}-1),\ \text{forward에서 }-1\ \text{무시})
 $$
 
-가 유리하다.
+$V_{BE}$가 지수적으로 $I_C$를 제어 → BJT = VCCS의 핵심. $I_C$를 10배 늘리려면 $\Delta V_{BE} = V_T\ln10 \approx 60\,\text{mV}$. $\partial V_{BE}/\partial T \approx -2\,\text{mV/°C}$ (일정 $I_C$).
 
-## BJT 구조와 바이어스
-
-npn BJT는 emitter, base, collector로 구성된다.
-
-- emitter: carrier를 방출하는 쪽
-- base: 매우 얇고 약하게 도핑된 제어 영역
-- collector: carrier를 수집하는 쪽
-
-forward active region에서 조건은 다음과 같다.
-
-- base-emitter 접합: 순방향 바이어스
-- base-collector 접합: 역방향 바이어스
-
-npn 기준으로는 보통
+## 4. 전류 이득 β, α
 
 $$
-V_B>V_E
+I_C = \beta I_B, \qquad I_B = \frac{I_C}{\beta}, \qquad I_E = I_C + I_B = (\beta+1)I_B
+$$
+$$
+\alpha = \frac{I_C}{I_E} = \frac{\beta}{\beta+1}, \qquad \beta = \frac{\alpha}{1-\alpha}
 $$
 
-$$
-V_C>V_B
-$$
+$\beta$(보통 50~300)는 **공정·도핑·온도·$I_C$에 크게 의존** → 정확한 상수로 믿지 말 것. 설계는 $\beta$에 둔감하게(bias 안정화, degeneration).
 
-이면 forward active region으로 본다.
+## 5. 동작점 예시
 
-## Collector current
+$I_S = 5\times10^{-19}\,\text{A}$, $V_{BE} = 800\,\text{mV}$, $\beta = 100$, $V_T = 26\,\text{mV}$:
 
-BJT의 collector current는 base-emitter 전압에 의해 지수적으로 제어된다.
+1. $I_C = I_S\,e^{0.8/0.026} = 5\times10^{-19}\times e^{30.8} \approx 5\times10^{-19}\times2.4\times10^{13} \approx 1.2\times10^{-5}\,\text{A}$ ($\approx$ 1.2 mA 스케일; 정확값은 계산기로)
+2. $I_B = I_C/100$
+3. $I_E = I_C + I_B$
+4. collector에 $R_C$ 있으면 $V_C = V_{CC} - I_C R_C$ → $V_C > V_B$ 확인해 active 검증.
 
-$$
-I_C=I_S e^{V_{BE}/V_T}
-$$
+---
 
-정확히는
-
-$$
-I_C=I_S(e^{V_{BE}/V_T}-1)
-$$
-
-이지만 forward bias에서 $e^{V_{BE}/V_T}$가 충분히 커지면 $-1$을 무시한다.
-
-이 식은 BJT가 전압제어 전류원으로 동작한다는 핵심을 보여준다.
-
-## 전류 이득 beta
-
-BJT에서는 base current가 작고 collector current가 크다.
+## 6. Transconductance
 
 $$
-I_C=\beta I_B
+g_m = \frac{\partial I_C}{\partial V_{BE}} = \frac{I_S e^{V_{BE}/V_T}}{V_T} = \boxed{\frac{I_C}{V_T}}
 $$
 
-따라서
+상온: $g_m \approx I_C/(26\,\text{mV})$ → 예: $I_C = 1\,\text{mA}$ → $g_m \approx 38.5\,\text{mS}$ ($1/g_m \approx 26\,\Omega$).
+**DC 동작점 $I_C$가 정해지면 $g_m$이 정해진다** — MOSFET과 달리 소자 크기와 무관.
 
-$$
-I_B=\frac{I_C}{\beta}
-$$
+## 7. Hybrid-π 소신호 모델
 
-emitter current는
+| 요소 | 값 | 의미 |
+|---|---|---|
+| $r_\pi$ | $\beta/g_m = \beta V_T/I_C = V_T/I_B$ | base–emitter 입력저항 |
+| $g_m v_\pi$ | 제어 전류원 | collector–emitter 사이 |
+| $r_o$ | $V_A/I_C$ | Early effect 출력저항 |
 
-$$
-I_E=I_C+I_B=(\beta+1)I_B
-$$
+기본 관계: $i_c = g_m v_\pi$, $v_\pi = i_b r_\pi$, $\;g_m r_\pi = \beta$.
 
-이다.
-
-$\beta$는 공정과 도핑에 크게 의존하므로 설계에서 너무 정확한 상수처럼 믿으면 안 된다.
-
-## 동작점 예시 감각
-
-예를 들어
-
-$$
-I_S=5\times 10^{-19}A,\quad V_{BE}=800mV,\quad \beta=100
-$$
-
-상온에서 $V_T=26mV$이면
-
-$$
-I_C=I_S e^{V_{BE}/V_T}
-$$
-
-로 collector current를 구한다. 이후
-
-$$
-I_B=\frac{I_C}{100}
-$$
-
-$$
-I_E=I_C+I_B
-$$
-
-를 계산한다.
-
-collector에 저항 $R_C$가 있으면
-
-$$
-V_C=V_{CC}-I_C R_C
-$$
-
-로 collector 전압을 구하고, $V_C>V_B$인지 확인해 active region인지 검증한다.
-
-## Transconductance
-
-소신호 해석에서 가장 중요한 파라미터는 $g_m$이다.
-
-$$
-g_m=\frac{\partial I_C}{\partial V_{BE}}
-$$
-
-$$
-I_C=I_S e^{V_{BE}/V_T}
-$$
-
-이므로
-
-$$
-g_m=\frac{I_C}{V_T}
-$$
-
-이다.
-
-상온에서는 $V_T\approx 26mV$이므로
-
-$$
-g_m\approx \frac{I_C}{26mV}
-$$
-
-이다. DC 동작점의 $I_C$가 정해지면 $g_m$도 정해진다.
-
-## Small signal model
-
-BJT의 소신호 hybrid-pi 모델은 다음 요소를 사용한다.
-
-- base-emitter 사이 입력저항 $r_\pi$
-- collector-emitter 사이 제어전류원 $g_m v_\pi$
-- Early effect를 고려한 출력저항 $r_o$
-
-기본 관계는 다음과 같다.
-
-$$
-i_c=g_m v_\pi
-$$
-
-$$
-v_\pi=i_b r_\pi
-$$
-
-$$
-g_m r_\pi=\beta
-$$
-
-따라서
-
-$$
-r_\pi=\frac{\beta}{g_m}
-$$
-
-이다.
-
-## Large signal과 small signal
-
-large signal 모델은 $I_C=I_S e^{V_{BE}/V_T}$ 같은 비선형 식을 그대로 사용한다. DC 동작점과 큰 변화 분석에 필요하다.
-
-small signal 모델은 동작점 주변에서 곡선을 선형화한다. 작은 AC 신호의 이득을 계산할 때 사용한다.
-
+**Large signal** ($I_C = I_S e^{V_{BE}/V_T}$): DC 동작점·큰 변화.
+**Small signal**: 동작점 주변 선형화, 작은 AC 이득 계산.
 ```text
-DC bias로 Q point 결정 -> Q point에서 gm, r_pi, r_o 계산 -> AC 등가회로 해석
+DC bias로 Q point → Q point에서 gm, rπ, ro → AC 등가회로 해석
 ```
 
-## Early effect
+## 8. Early Effect
 
-이상적인 전류원은 $V_{CE}$가 변해도 $I_C$가 일정해야 한다. 실제 BJT에서는 $V_{CE}$가 커지면 base width가 변하고 collector current도 조금 증가한다. 이를 Early effect라고 한다.
-
-모델은 다음처럼 쓴다.
+이상적 전류원은 $V_{CE}$ 변해도 $I_C$ 일정. 실제로는 $V_{CE} \uparrow$ → 공핍층이 base로 확장 → **effective base width 감소**(base-width modulation) → $I_C$ 소폭 증가.
 
 $$
-I_C=I_S e^{V_{BE}/V_T}\left(1+\frac{V_{CE}}{V_A}\right)
+I_C = I_S e^{V_{BE}/V_T}\left(1 + \frac{V_{CE}}{V_A}\right), \qquad r_o = \frac{\partial V_{CE}}{\partial I_C} \approx \frac{V_A}{I_C}
 $$
 
-출력저항은
+Early voltage $V_A$ (보통 20~100 V)가 클수록 $r_o$ ↑ → 더 이상적인 전류원. **Intrinsic gain** $g_m r_o = V_A/V_T$ — $I_C$와 무관한 소자 고유 상한 (BJT는 보통 1000~4000).
 
+## 9. 소신호 파라미터 요약
+
+DC 동작점의 $I_C$만 알면:
 $$
-r_o=\frac{V_A}{I_C}
+g_m = \frac{I_C}{V_T}, \qquad r_\pi = \frac{\beta}{g_m}, \qquad r_o = \frac{V_A}{I_C}
 $$
+→ 이후 [BJT 증폭기](04-bjt-amplifiers.md) 해석의 출발점.
 
-로 근사한다.
+---
 
-Early voltage $V_A$가 클수록 $r_o$가 커지고, 더 이상적인 전류원에 가까워진다.
+## 10. 동작 영역
 
-## 소신호 파라미터 요약
+| 영역 | B–E 접합 | B–C 접합 | 동작 |
+|---|---|---|---|
+| **Cutoff** | 역/무바이어스 | 역 | off, $I_C \approx 0$ |
+| **Forward active** | 순방향 | 역방향 | **VCCS** (증폭) |
+| **Saturation** | 순방향 | 순방향 | $V_{CE}$ 작음, $I_C$가 $V_{CE}$에 의존 (스위치 on) |
+| **Reverse active** | 역 | 순 | 거의 사용 안 함, β 매우 작음 |
 
-DC 동작점에서 $I_C$를 알면 다음을 계산할 수 있다.
+- **Edge of active**: $V_{BC} = 0$ ($V_{CE} = V_{BE} \approx 0.8\,\text{V}$) 근처가 경계. $V_{CE}$가 더 낮아지면 soft → hard saturation.
+- Saturation에서 $V_{CE,sat} \approx 0.1\text{–}0.2\,\text{V}$, $\beta_{forced} = I_C/I_B < \beta$.
 
-$$
-g_m=\frac{I_C}{V_T}
-$$
+## 11. PNP Transistor
 
-$$
-r_\pi=\frac{\beta}{g_m}
-$$
+NPN의 complementary. 전류 방향·전압 극성이 모두 반대: emitter가 최고 전위, $V_{EB} > 0$로 켜짐, $I_C$는 collector에서 나옴. 소신호 모델의 **형태**는 npn과 동일($g_m, r_\pi, r_o$ 식 같음) — 기준 전압·전류 방향만 주의.
 
-$$
-r_o=\frac{V_A}{I_C}
-$$
+## 12. BJT 해석 절차
 
-이 세 값은 이후 BJT 증폭기 해석의 출발점이다.
+1. DC bias 해석
+2. $V_{BE}$ 또는 회로 방정식으로 $I_C$
+3. $V_C, V_B, V_E$ 계산 → active region 확인
+4. $g_m, r_\pi, r_o$ 계산
+5. AC 소신호 등가회로로 치환 (DC원 → ground, 큰 커패시터 → short)
+6. $v_{out}/v_{in}$, $R_{in}$, $R_{out}$
 
-## 동작 영역
-
-### Forward active region
-
-트랜지스터가 VCCS처럼 동작하는 영역이다.
-
-npn 기준:
-
-$$
-V_{BE}>0
-$$
-
-$$
-V_{BC}<0
-$$
-
-즉 base-emitter는 forward bias, base-collector는 reverse bias이다.
-
-### Edge of active region
-
-$V_{BC}=0$ 근처가 active 영역의 경계이다. $V_{CE}$가 낮아지면 collector-base 접합의 역바이어스가 약해진다.
-
-### Saturation region
-
-$V_{CE}$가 너무 낮아지면 BJT가 더 이상 좋은 전류원처럼 동작하지 않는다. 이때 collector current가 $V_{CE}$의 영향을 크게 받는다.
-
-실무적으로는 soft saturation과 hard saturation을 구분하기도 한다.
-
-## PNP transistor
-
-PNP는 NPN의 complementary device이다. 전류 방향과 전압 극성이 NPN과 반대이다.
-
-PNP에서도 소신호 등가회로의 형태는 NPN과 비슷하게 사용할 수 있지만, 기준 전압과 전류 방향을 주의해야 한다.
-
-## BJT 해석 절차
-
-1. 회로의 DC bias를 해석한다.
-2. $V_{BE}$ 또는 회로 방정식으로 $I_C$를 구한다.
-3. $V_C$, $V_B$, $V_E$를 계산해 active region인지 확인한다.
-4. $g_m$, $r_\pi$, $r_o$를 계산한다.
-5. AC 소신호 등가회로로 바꾼다.
-6. $v_{out}/v_{in}$, $R_{in}$, $R_{out}$을 구한다.
+---
 
 ## 핵심 정리
 
-- BJT는 forward active region에서 전압제어 전류원처럼 동작한다.
-- $I_C$는 $V_{BE}$에 지수적으로 의존한다.
-- $\beta$는 $I_C$와 $I_B$의 비이다.
-- $g_m=I_C/V_T$는 증폭 능력을 나타내는 핵심 파라미터이다.
-- $r_\pi=\beta/g_m$이다.
-- Early effect는 유한한 출력저항 $r_o=V_A/I_C$로 모델링된다.
-- 증폭기 해석은 DC 동작점 결정 후 소신호 등가회로로 넘어간다.
+- BJT는 forward active에서 VCCS: $I_C = I_S e^{V_{BE}/V_T}$, 10× 전류 = +60 mV.
+- $\beta = I_C/I_B$, $\alpha = \beta/(\beta+1)$, $I_E = (\beta+1)I_B$. $\beta$는 불안정한 파라미터.
+- $g_m = I_C/V_T$ (동작점만으로 결정), $r_\pi = \beta/g_m$, $r_o = V_A/I_C$.
+- Early effect = base-width modulation → 유한 $r_o$, intrinsic gain $g_m r_o = V_A/V_T$.
+- 4영역: cutoff / forward active / saturation / reverse active. 증폭은 forward active.
 
-## 연결되는 노트
+## 복습 질문
 
-- [반도체와 PN 접합](01-semiconductors-and-pn-junction.md)
-- [BJT 증폭기](04-bjt-amplifiers.md)
-- [MOSFET 기본 동작](05-mosfet-operation.md)
-
-## 복습 체크리스트
-
-- [ ] forward active region의 바이어스 조건을 설명할 수 있다.
-- [ ] $I_C=I_S e^{V_{BE}/V_T}$를 이용해 전류를 계산할 수 있다.
-- [ ] $\beta$, $I_B$, $I_C$, $I_E$의 관계를 쓸 수 있다.
-- [ ] $g_m$, $r_\pi$, $r_o$를 DC 동작점에서 계산할 수 있다.
-- [ ] Early effect가 출력저항을 만드는 이유를 설명할 수 있다.
-- [ ] NPN과 PNP의 전압/전류 방향 차이를 구분할 수 있다.
-
+- forward active의 두 접합 바이어스 조건, npn에서 $V_B, V_C, V_E$ 부등식은?
+- $g_m = I_C/V_T$가 소자 크기와 무관한 이유, MOSFET과의 차이는?
+- $r_\pi, r_o$를 $I_C, \beta, V_A, V_T$로 표현하고, intrinsic gain $g_m r_o$가 $V_A/V_T$인 것을 보일 수 있나?
+- Early effect의 물리적 원인(base-width modulation)을 설명할 수 있나?
+- saturation과 forward active의 경계($V_{BC}=0$)와, saturation에서 $\beta_{forced}$의 의미는?
 {% endraw %}
 
 ---

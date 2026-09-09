@@ -1,117 +1,101 @@
 ---
 layout: page
-title: "01. Introduction - 전자회로 II 개요"
+title: "01. Introduction — 전자회로 II 개요"
 permalink: /studies/circuits/electric-circuits-2/01-introduction-ii/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes/01%20Introduction%20-%20%EC%A0%84%EC%9E%90%ED%9A%8C%EB%A1%9C%20II%20%EA%B0%9C%EC%9A%94.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%202/lecture_notes) · 교재: Razavi, *Fundamentals of Microelectronics*, 2nd Edition
 
 {% raw %}
-## 핵심 요약
+## 개요
 
-전자회로 II는 MOS 전자회로를 복습하고, 증폭기, 주파수 응답, 필터, 피드백, 발진기, 설계 프로젝트까지 확장하는 과목이다. 전자공학의 목적은 전자 또는 전하 운반자의 흐름을 제어하여 amplification, filtering, logic, memory, computing 같은 유용한 기능을 수행하는 것이다.
+전자회로 II는 MOS 전자회로를 복습하고 **증폭기 → 주파수 응답 → 필터 → 피드백 → 발진기 → 설계 프로젝트**로 확장한다. 전자공학의 목적은 전자/전하 운반자의 흐름을 제어해 **amplification, filtering, logic, memory, computing** 같은 유용한 기능을 수행하는 것.
 
-## Electronics란 무엇인가
+---
 
-Electronics는 고유한 V-I 특성을 가진 소자를 이용해 전자의 흐름을 제어하는 과학과 기술이다.
+## 1. Electronics란
 
-기본 소자:
+고유한 **V–I 특성**을 가진 소자로 전자의 흐름을 제어하는 과학·기술.
 
-- resistor
-- capacitor
-- inductor
-- diode
-- transistor
+| 기본 소자 | 회로 기능 |
+|---|---|
+| resistor, capacitor, inductor | amplification |
+| diode | filtering |
+| transistor | logic / memory / computing |
 
-회로 기능:
-
-- amplification
-- filtering
-- logic operation
-- memory
-- computing
-
-## 전자공학 역사 흐름
+## 2. 전자공학 역사
 
 | 시기 | 사건 | 의미 |
 |---|---|---|
-| 1904 | Fleming tube | 최초의 전자 소자, diode, rectification |
+| 1904 | Fleming tube | 최초의 전자 소자 (diode, rectification) |
 | 1906 | Audion triode | vacuum tube amplifier 시작 |
 | 1946 | ENIAC | vacuum tube computer |
-| 1947 | transistor 발명 | Bell Labs, Bardeen/Shockley/Brattain |
-| 1958-1959 | first IC | Kilby의 Ge IC, Noyce의 Si IC |
-| 1968 | Fairchild uA741 | op-amp IC |
-| 1970-1971 | Intel memory/CPU | DRAM과 microprocessor |
+| 1947 | transistor 발명 | Bell Labs (Bardeen / Shockley / Brattain) |
+| 1958–1959 | first IC | Kilby(Ge), Noyce(Si) |
+| 1968 | Fairchild μA741 | op-amp IC |
+| 1970–1971 | Intel DRAM / CPU | memory, microprocessor |
 
-## CMOS Scaling과 현대 반도체
+## 3. CMOS Scaling과 현대 반도체
 
-강의는 Moore's Law와 CMOS scaling을 통해 반도체 산업이 얼마나 커졌는지 설명한다.
-
-예시:
-
-- 3nm CMOS
+Moore's Law에 따라 산업이 폭발적으로 성장.
+- 3 nm CMOS 공정
 - Apple A17 Bionic: 16 billion transistors
 - Nvidia A100: 52.2 billion transistors
-- 대규모 AI data center와 GPU 사용
+- 대규모 AI datacenter·GPU
 
-## 왜 전자회로를 공부하는가
+## 4. 왜 전자회로를 공부하는가
 
-핵심 이유:
+- 반도체는 한국 경제·전기전자공학의 핵심
+- 전자회로 = 모든 하드웨어의 building block
+- engineering design 감각 훈련
+- analog / digital / semiconductor 전 분야가 MOS 회로 이해를 요구
 
-- 반도체 산업은 한국 경제와 전기전자공학에서 매우 중요하다.
-- 전자회로는 모든 하드웨어의 기본 building block이다.
-- 회로 설계는 engineering design 감각을 훈련하기 좋다.
-- analog/digital/semiconductor 분야 모두 MOS 회로 이해가 필요하다.
-
-## 과목 목표
+## 5. 과목 목표
 
 1. MOS basic electronic circuits 복습
-2. MOS amplifier, filter, feedback, oscillator 학습
-3. MOS electronic circuit design practice
+2. MOS **amplifier / filter / feedback / oscillator** 학습
+3. MOS electronic circuit **design practice** (설계 프로젝트)
 
-교재는 Razavi의 `Fundamentals of Microelectronics, 2nd Edition`을 사용한다.
+---
 
-## 강의 주제 구성
+## 6. 강의 주제 구성
 
-| 파트 | 강의 |
-|---|---|
-| Introduction | Lect. 1 |
-| Electronic Circuits I review | Lect. 2-9 |
-| Frequency responses of MOS circuits | Lect. 10-15 |
-| Filters | Lect. 16-22 |
-| Feedback | Lect. 23-26 |
-| Oscillators and PLL | Lect. 27-30 |
+| 파트 | 강의 | 대응 노트 |
+|---|---|---|
+| Introduction | Lect. 1 | 01 |
+| Electronic Circuits I review | Lect. 2–9 | 02–08 |
+| Frequency responses of MOS circuits | Lect. 10–15 | 09–12 |
+| Filters | Lect. 16–22 | 13, 17 |
+| Feedback | Lect. 23–26 | 14 |
+| Oscillators and PLL | Lect. 27–30 | 15 |
+| Design Project | — | 16 |
 
-## 평가 방식
+## 7. 평가
 
 | 항목 | 점수 |
 |---|---:|
-| Attendance and participation | 25 |
+| Attendance & participation | 25 |
 | Tests | 50 |
 | Design Project | 25 |
 
-시험:
+- Test #1: 4월 23일 · Test #2: 6월 18일
+- Tuesday 결석 −1 / 지각 −0.5 / Thursday 과제 미제출 −2 / 과제 부실 −1 / copying 의심 관련자 전원 −10
 
-- Test #1: 4월 23일
-- Test #2: 6월 18일
+---
 
-출석/과제 규칙:
+## 핵심 정리
 
-- Tuesday lecture 결석: -1
-- 지각: -0.5
-- Thursday lecture 과제 미제출: -2
-- 과제 부실: -1
-- copying 의심: 관련자 모두 -10
+- 전자회로 II = MOS 증폭기·주파수 응답·필터·피드백·발진기 + 설계 프로젝트.
+- 교재는 Razavi, *Fundamentals of Microelectronics* 2nd ed.
+- 전자공학의 본질 = V–I 특성을 가진 소자로 전자 흐름을 제어해 유용한 기능(증폭·필터·논리·기억·연산)을 수행.
 
-## 같이 보면 좋은 노트
+## 복습 질문
 
-- [MOS Large-Signal Characteristics - MOS 대신호 특성](02-mos-large-signal-characteristics.md)
-- [MOS Small-Signal Characteristics - MOS 소신호 모델](03-mos-small-signal-characteristics.md)
-- [Project Design Guide - TIA CTLE 설계 가이드](23-project-design-guide-tia-ctle.md)
-
+- 전자공학 역사에서 diode(1904) → triode(1906) → transistor(1947) → IC(1958) → op-amp/DRAM/CPU 흐름을 설명할 수 있나?
+- 이 과목의 5개 주제 블록(review / frequency response / filters / feedback / oscillators)은?
 {% endraw %}
 
 ---
 
-이전: [00. Design Project Summary - Optical Receiver PD TIA CTLE](00-design-project-summary-optical-receiver-pd-tia-ctle.md) · 다음: [02. MOS Large-Signal Characteristics - MOS 대신호 특성](02-mos-large-signal-characteristics.md)
+다음: [02. MOS 소자 특성 (대신호·소신호)](02-mos-large-signal-characteristics.md)

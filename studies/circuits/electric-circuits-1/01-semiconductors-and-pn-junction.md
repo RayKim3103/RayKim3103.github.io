@@ -5,313 +5,221 @@ permalink: /studies/circuits/electric-circuits-1/01-semiconductors-and-pn-juncti
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/01%20%EB%B0%98%EB%8F%84%EC%B2%B4%EC%99%80%20PN%20%EC%A0%91%ED%95%A9.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electric_Circuits%201/lecture_notes/01%20%EB%B0%98%EB%8F%84%EC%B2%B4%EC%99%80%20PN%20%EC%A0%91%ED%95%A9.md) · 교재: Razavi, *Fundamentals of Microelectronics* Ch.2
 
 {% raw %}
 ## 한눈에 보기
 
-이 장은 전자회로 1의 출발점인 반도체 물성을 정리한다. 원자 결합, 도핑, 캐리어 농도, drift 전류, diffusion 전류, PN 접합의 built-in potential, 순방향/역방향 바이어스, 다이오드 전류식까지 이어진다.
+전자회로 1의 출발점. 원자 결합 → 도핑 → 캐리어 농도 → drift/diffusion 전류 → PN 접합의 built-in potential → 순방향/역방향 바이어스 → 다이오드 전류식.
 
 ```text
-원자와 공유결합 -> intrinsic/extrinsic semiconductor
--> n형/p형 도핑 -> drift/diffusion current
--> PN junction -> built-in potential -> diode equation
+원자와 공유결합 → intrinsic/extrinsic semiconductor → n형/p형 도핑
+→ drift/diffusion current → PN junction → built-in potential → diode equation
 ```
 
-## 강의 전체 흐름
+전자회로 1은 기초회로이론의 선형 수동소자로 설명 못 하는 **능동소자**(다이오드, BJT, MOSFET, 증폭기, 전류원/전류미러, CMOS 인버터)를 다룬다. 회로 문제는 **동작 영역을 먼저 판단하고 그 영역의 등가모델을 적용**하는 순서가 핵심이다.
 
-전자회로 1에서는 기초회로이론에서 다룬 선형 수동소자만으로는 설명하기 어려운 능동소자를 다룬다.
+---
 
-- 반도체 기초
-- 다이오드
-- 트랜지스터
-- BJT
-- MOSFET
-- 증폭기
-- 전류원과 전류 미러
-- CMOS 인버터
+## 1. 원자와 최외각 전자
 
-회로 문제는 그림을 직접 그리며 푸는 훈련이 중요하다. 특히 동작 영역을 먼저 판단하고, 그 영역에 맞는 등가모델을 적용해야 한다.
+원자의 화학적 성질은 최외각 전자(valence electron)로 결정된다. 원자는 안정한 전자 배치를 위해 전자를 잃거나(→ 양이온) 얻거나(→ 음이온) **공유**한다.
 
-## 원자와 최외각 전자
+- Na → $Na^+$ (전자 1개 잃음), Cl → $Cl^-$ (전자 1개 얻음)
+- Ne/He/Ar: 이미 안정한 최외각 구조 (비활성)
+- **Si**: 4족, 최외각 전자 4개 → 이웃 Si와 **공유결합**해 다이아몬드형 결정 구조
 
-원자의 화학적 성질은 최외각 껍질의 전자, 즉 valence electron에 의해 결정된다. 원자는 안정한 전자 배치를 만들기 위해 전자를 잃거나 얻거나 공유한다.
+## 2. 공유결합과 캐리어
 
-예시는 다음과 같다.
+Si 결정에서 전자가 공유결합에 묶여 있으면 이동 불가. **에너지(열·빛)를 받으면 결합이 끊겨** 자유전자가 생기고 그 자리에 **정공(hole)**이 남는다.
 
-- Na는 전자를 하나 잃어 $Na^+$가 되기 쉽다.
-- Cl은 전자를 하나 얻어 $Cl^-$가 되기 쉽다.
-- Ne, He, Ar 같은 비활성 기체는 이미 안정한 최외각 전자 구조를 갖는다.
+| 캐리어 | 전하 |
+|---|---|
+| 자유전자 | 음전하 |
+| 정공 | 양전하처럼 거동 |
 
-Si는 4족 원소로 최외각 전자가 4개이다. Si 원자들은 서로 공유결합을 형성하여 결정 구조를 만든다.
+밴드 관점: 결합 전자 = valence band, 자유전자 = conduction band, 그 사이가 **band gap** $E_g$ (Si ≈ 1.12 eV). 전자–정공 쌍 생성률은 온도에 지수적으로 의존한다.
 
-## 공유결합과 자유전자
-
-Si 결정에서 전자가 공유결합에 묶여 있으면 자유롭게 이동하지 못한다. 하지만 에너지를 받으면 공유결합이 끊어져 자유전자가 생기고, 전자가 빠져나간 자리에 정공이 생긴다.
-
-- 자유전자: 음전하 캐리어
-- 정공: 양전하처럼 움직이는 캐리어
-
-공유결합이 끊어져 자유전자와 정공이 생기면 전류가 흐를 수 있다.
-
-## 캐리어 농도 표기
-
-앞으로 자주 쓰는 농도 표기는 다음과 같다.
+## 3. 캐리어 농도
 
 | 기호 | 의미 |
 |---|---|
-| $n$ | 전자 농도 |
-| $p$ | 정공 농도 |
-| $n_i$ | intrinsic semiconductor의 전자 농도 |
-| $p_i$ | intrinsic semiconductor의 정공 농도 |
-| $N_D$ | donor 도핑 농도 |
-| $N_A$ | acceptor 도핑 농도 |
+| $n$ / $p$ | 전자 / 정공 농도 |
+| $n_i$ | intrinsic 캐리어 농도 |
+| $N_D$ / $N_A$ | donor / acceptor 도핑 농도 |
 
-순수 반도체에서는 전자와 정공이 쌍으로 생성되므로
+순수 반도체: 전자·정공이 쌍생성 → $n_i = p_i$.
 
-$$
-n_i=p_i
-$$
-
-이다.
-
-질량작용 법칙은 다음과 같다.
+**질량작용 법칙** (열평형에서 항상 성립):
 
 $$
-np=n_i^2
+np = n_i^2
 $$
 
-상온의 Si는 $n_i \approx 1.08\times 10^{10}/cm^3$ 정도로 매우 작다. Si 원자 수에 비해 자유 캐리어가 매우 적으므로 도핑이 필요하다.
+상온 Si: $n_i \approx 1.08\times10^{10}\,\text{cm}^{-3}$ — Si 원자 밀도($5\times10^{22}\,\text{cm}^{-3}$)에 비해 극히 작다 → **도핑 필요**. $n_i^2 = B\,T^3 e^{-E_g/kT}$ 형태로 온도에 강하게 의존.
 
-## 도핑
+## 4. 도핑
 
-도핑은 Si에 불순물을 넣어 캐리어 농도를 의도적으로 조절하는 과정이다.
-
-### n형 반도체
-
-n형 반도체는 donor를 넣어 전자를 다수 캐리어로 만든다. 대표적으로 P 같은 5족 원소를 넣으면 공유결합 후 남는 전자가 생긴다.
-
-- majority carrier: electron
-- minority carrier: hole
-
-$N_D \gg n_i$이면
-
+### n형 (donor, 5족 예: P, As)
+공유결합 후 전자 1개가 남음 → 다수 캐리어 = 전자.
+$N_D \gg n_i$ 이면
 $$
-n \approx N_D
+n \approx N_D, \qquad p \approx \frac{n_i^2}{N_D}
 $$
 
+### p형 (acceptor, 3족 예: B)
+전자가 부족한 자리 → 다수 캐리어 = 정공.
+$N_A \gg n_i$ 이면
 $$
-p \approx \frac{n_i^2}{N_D}
-$$
-
-### p형 반도체
-
-p형 반도체는 acceptor를 넣어 정공을 다수 캐리어로 만든다. 대표적으로 B 같은 3족 원소를 넣으면 전자가 부족한 자리가 생긴다.
-
-- majority carrier: hole
-- minority carrier: electron
-
-$N_A \gg p_i$이면
-
-$$
-p \approx N_A
+p \approx N_A, \qquad n \approx \frac{n_i^2}{N_A}
 $$
 
-$$
-n \approx \frac{n_i^2}{N_A}
-$$
+> **예**: $N_D = 10^{16}$ → $n = 10^{16}$, $p = (1.08\times10^{10})^2/10^{16} \approx 1.2\times10^{4}\,\text{cm}^{-3}$. minority 농도가 majority보다 12자리 작다.
 
-## Drift current
+도핑은 캐리어 농도를 높일 뿐 아니라 **전기적 중성**을 유지한다: $n + N_A^- = p + N_D^+$.
 
-Drift 전류는 전기장에 의해 캐리어가 이동하면서 생기는 전류이다. 전압 차이가 있으면 전기장이 생기고, 전자와 정공이 이동한다.
+---
 
-캐리어 속도는 전기장에 비례한다.
+## 5. Drift Current (전기장에 의한 전류)
 
-$$
-v_e=-\mu_n E
-$$
+전기장 $E$ 안에서 캐리어가 표류(drift). 속도는 저농도 field에서 $E$에 비례:
 
 $$
-v_h=\mu_p E
+v_e = -\mu_n E, \qquad v_h = \mu_p E
 $$
 
-여기서 $\mu_n$, $\mu_p$는 각각 전자와 정공의 mobility이다.
+$\mu_n, \mu_p$ = 이동도(mobility). Si에서 $\mu_n \approx 1350$, $\mu_p \approx 480\,\text{cm}^2/\text{V·s}$ (전자가 더 빠름).
 
-전류밀도는 다음처럼 정리된다.
-
+전류밀도:
 $$
-J_e=q n \mu_n E
+J_e = q n \mu_n E, \qquad J_h = q p \mu_p E
 $$
-
 $$
-J_h=q p \mu_p E
+\boxed{J_{\text{drift}} = q(n\mu_n + p\mu_p)\,E} \quad\Rightarrow\quad \sigma = q(n\mu_n + p\mu_p),\;\; \rho = 1/\sigma
 $$
 
-따라서 총 drift 전류밀도는
+고전계에서는 $v$가 $v_{sat}\approx10^7\,\text{cm/s}$로 포화(velocity saturation).
+
+## 6. Diffusion Current (농도 기울기에 의한 전류)
+
+캐리어는 농도 높은 곳 → 낮은 곳으로 확산.
 
 $$
-J_{\text{drift}}=q(n\mu_n+p\mu_p)E
+J_{e,\text{diff}} = q D_n \frac{dn}{dx}, \qquad
+J_{h,\text{diff}} = -q D_p \frac{dp}{dx}
+$$
+$$
+J_{\text{diff}} = q D_n \frac{dn}{dx} - q D_p \frac{dp}{dx}
 $$
 
-이다.
+부호 차이는 캐리어 전하 부호 × conventional current 방향 때문. (전자는 −전하라 농도 감소 방향으로 확산해도 전류는 +방향.)
 
-## Diffusion current
+## 7. Einstein Relation
 
-Diffusion 전류는 캐리어 농도 차이에 의해 생기는 전류이다. 캐리어는 농도가 높은 곳에서 낮은 곳으로 확산된다.
-
-전자 diffusion 전류밀도:
+drift와 diffusion 계수는 독립이 아니다:
 
 $$
-J_{e,\text{diff}}=qD_n\frac{dn}{dx}
+\frac{D_n}{\mu_n} = \frac{D_p}{\mu_p} = \frac{kT}{q} \equiv V_T
 $$
 
-정공 diffusion 전류밀도:
+$V_T$ = **thermal voltage**, 상온(300 K)에서 $\approx 26\,\text{mV}$. 다이오드·BJT 식에 계속 등장한다.
+
+---
+
+## 8. PN 접합 — 세 가지 상태
+
+| 상태 | 특징 |
+|---|---|
+| **평형** (bias 0) | built-in potential $V_0$, 전체 전류 0 |
+| **순방향 바이어스** | 장벽 낮아짐, diffusion 전류 지수적 증가 |
+| **역방향 바이어스** | depletion 확장, 가변 커패시터 거동, 미소 누설전류 |
+
+### 평형과 depletion region
+
+p·n을 접합하면 농도차로 전자는 p쪽, 정공은 n쪽으로 확산 → 접합 근처에서 재결합 → **움직이지 못하는 이온만 남음** = depletion region(공핍층).
+
+- n쪽: 양전하 donor 이온
+- p쪽: 음전하 acceptor 이온
+- 고정 이온 → 내부 전기장 → drift 전류(확산과 반대 방향)
+
+평형에서 **diffusion 전류 = drift 전류** → 순 전류 0.
+
+### Built-in potential
 
 $$
-J_{h,\text{diff}}=-qD_p\frac{dp}{dx}
+\boxed{V_0 = V_T \ln\!\left(\frac{N_A N_D}{n_i^2}\right)}
 $$
 
-총 diffusion 전류밀도:
+> **예**: $N_A = 2\times10^{16}$, $N_D = 4\times10^{16}$, $n_i = 1.08\times10^{10}$, $V_T = 26\,\text{mV}$
+> $V_0 = 0.026 \times \ln\!\dfrac{8\times10^{32}}{1.17\times10^{20}} \approx 0.026 \times 29.5 \approx \mathbf{768\ mV}$
+
+도핑을 10배 올려도 $V_0$는 $2V_T\ln10 \approx 120\,\text{mV}$만 증가 (로그 의존).
+
+### 공핍층 폭 (참고)
 
 $$
-J_{\text{diff}}=qD_n\frac{dn}{dx}-qD_p\frac{dp}{dx}
+W = \sqrt{\frac{2\varepsilon_s}{q}\left(\frac{1}{N_A} + \frac{1}{N_D}\right)(V_0 - V_D)}
 $$
 
-부호는 캐리어의 전하와 conventional current 방향 때문에 달라진다.
+$V_D$ = 인가 전압(순방향 +, 역방향 −). 순방향이면 $W$ 감소, 역방향이면 $W$ 증가.
 
-## Einstein relation
+## 9. 역방향 바이어스 — 접합 커패시턴스
 
-Drift와 diffusion은 서로 연결되어 있다.
+역방향 전압 $V_R$을 걸면 depletion이 넓어지고 캐리어가 접합을 못 넘어 **전류 ≈ 0** (미소 saturation 누설 $I_S$ + 온도 민감).
 
-$$
-\frac{D_n}{\mu_n}=\frac{kT}{q}
-$$
+depletion = 절연체, 양쪽 중성영역 = 도체 → **커패시터**:
 
 $$
-\frac{D_p}{\mu_p}=\frac{kT}{q}
+C_j = \varepsilon \frac{S}{W}, \qquad
+C_j(V_R) = \frac{C_{j0}}{\sqrt{1 + V_R/V_0}}
 $$
 
-여기서
+$V_R \uparrow$ → $W \uparrow$ → $C_j \downarrow$. 이 **전압 가변 커패시터**가 **varactor(varicap) diode**의 원리 (VCO, 튜너).
+
+역방향 전압이 매우 커지면 **breakdown**: Zener(터널링, 낮은 전압, 음의 온도계수) 또는 avalanche(충돌 이온화, 높은 전압, 양의 온도계수).
+
+## 10. 순방향 바이어스 — Shockley 식
+
+순방향 전압은 내부 장벽을 낮추고 depletion을 좁힌다 → 다수 캐리어가 접합을 넘어 minority injection → diffusion 전류 급증.
 
 $$
-V_T=\frac{kT}{q}
+\boxed{I = I_S\!\left(e^{V_F/V_T} - 1\right)}
 $$
 
-를 thermal voltage라고 하며, 상온에서 약 $26mV$이다. BJT와 다이오드 식에서 매우 자주 등장한다.
-
-## PN 접합
-
-PN 접합은 p형 반도체와 n형 반도체를 붙인 구조이다. 이 장에서는 세 상태를 구분한다.
-
-- 평형 상태: built-in potential 형성
-- 순방향 바이어스: 다이오드 전류 발생
-- 역방향 바이어스: depletion region 확장과 가변 커패시터 동작
-
-## 평형 상태와 depletion region
-
-p형과 n형을 접합하면 농도 차이 때문에 전자와 정공이 서로 반대쪽으로 확산된다. 접합 근처에서 전자와 정공이 재결합하면 움직일 수 없는 이온만 남는다.
-
-이 영역을 depletion region이라고 한다.
-
-- n쪽에는 양전하 donor ion이 남는다.
-- p쪽에는 음전하 acceptor ion이 남는다.
-- 고정 이온들이 전기장을 만든다.
-- 전기장은 drift 전류를 만든다.
-
-평형 상태에서는 diffusion 전류와 drift 전류가 같아져 전체 전류가 0이 된다.
-
+$V_F \gtrsim 4V_T$ 이면 $-1$ 무시:
 $$
-I_{\text{diff}}=I_{\text{drift}}
+I \approx I_S\, e^{V_F/V_T}
 $$
 
-## Built-in potential
+- $I_S$ (역포화 전류): 접합 면적·도핑·$n_i^2$에 비례 → **온도에 매우 민감**, 대략 5°C마다 2배.
+- 전류를 10배 늘리려면 $V_F$는 $V_T\ln10 \approx 60\,\text{mV}$만 증가 → 순방향 강하가 "거의 일정"(≈0.7 V)해 보이는 이유.
+- $\partial V_F/\partial T \approx -2\,\text{mV/°C}$ (일정 전류에서).
 
-PN 접합의 내부 전위 장벽은 다음과 같다.
+## 11. 실용적 다이오드 모델
 
-$$
-V_0=V_T\ln\left(\frac{N_A N_D}{n_i^2}\right)
-$$
+| 모델 | 켜짐 | 꺼짐 | 용도 |
+|---|---|---|---|
+| **Ideal** | 단락, $V_D = 0$ | 개방, $I_D = 0$ | 빠른 정성 해석 |
+| **Constant-voltage** | $V_D = V_{D,on}$ (≈0.7~0.8 V) | $I_D = 0$ | 정확도·복잡도 타협 (표준) |
+| **Exponential** | $I = I_S(e^{V/V_T}-1)$ | — | 정밀 해석, 반복 계산 |
 
-예를 들어
-
-$$
-N_A=2\times 10^{16}/cm^3
-$$
-
-$$
-N_D=4\times 10^{16}/cm^3
-$$
-
-$$
-n_i=1.08\times 10^{10}/cm^3
-$$
-
-상온에서 $V_T\approx 26mV$이면 built-in potential은 약 $768mV$가 된다.
-
-## 역방향 바이어스
-
-역방향 바이어스를 걸면 depletion region이 넓어진다. 캐리어가 접합을 통과하기 어려워져 전류가 거의 흐르지 않는다.
-
-이때 depletion region은 절연체처럼 동작하고, p/n 양쪽의 도전 영역은 도체처럼 동작한다. 따라서 PN 접합은 커패시터처럼 볼 수 있다.
-
-$$
-C=\epsilon\frac{S}{d}
-$$
-
-역방향 전압 $V_R$이 커지면 depletion width $d$가 커지고, 커패시턴스는 작아진다. 이 성질은 varactor diode의 원리이다.
-
-## 순방향 바이어스
-
-순방향 바이어스를 걸면 내부 장벽이 낮아지고 depletion region이 좁아진다. 이때 다수 캐리어가 접합을 넘어가면서 diffusion current가 크게 증가한다.
-
-다이오드 전류는 Shockley 식으로 모델링된다.
-
-$$
-I=I_S\left(e^{V_F/V_T}-1\right)
-$$
-
-순방향 전압이 충분히 크면 $-1$은 무시할 수 있어
-
-$$
-I\approx I_S e^{V_F/V_T}
-$$
-
-로 근사한다.
-
-## 실용적 다이오드 모델
-
-실제 회로 해석에서는 이상적인 지수식을 그대로 쓰기보다 근사 모델을 사용한다.
-
-- ideal diode model: 켜지면 전압강하 0V, 꺼지면 전류 0
-- constant voltage model: 켜지면 약 $0.7V$ 또는 $0.8V$ 전압강하
-- exponential model: $I=I_S(e^{V/V_T}-1)$ 사용
+---
 
 ## 핵심 정리
 
-- 반도체 전류는 drift와 diffusion으로 나뉜다.
-- 도핑은 캐리어 농도를 제어한다.
-- n형은 전자가 다수 캐리어이고 p형은 정공이 다수 캐리어이다.
-- PN 접합의 평형 상태에서는 diffusion 전류와 drift 전류가 균형을 이룬다.
-- built-in potential은 $V_0=V_T\ln(N_A N_D/n_i^2)$로 주어진다.
-- 순방향 바이어스에서는 지수적으로 전류가 증가한다.
-- 역방향 바이어스에서는 depletion region이 넓어지고 커패시터처럼 동작한다.
+- 반도체 전류 = **drift**(전기장) + **diffusion**(농도 기울기), 둘은 Einstein 관계 $D/\mu = V_T$로 연결.
+- 도핑으로 캐리어 농도 제어: n형 → 전자 다수, p형 → 정공 다수. 항상 $np = n_i^2$.
+- PN 접합 평형: diffusion = drift, $V_0 = V_T\ln(N_A N_D/n_i^2) \approx 0.7\text{–}0.8\,\text{V}$.
+- 역방향: depletion 확장 → $C_j = C_{j0}/\sqrt{1+V_R/V_0}$ (varactor). 큰 역전압 → breakdown.
+- 순방향: $I \approx I_S e^{V_F/V_T}$, 10× 전류 = +60 mV, $I_S$는 5°C당 2배.
 
-## 연결되는 노트
+## 복습 질문
 
-- [다이오드 응용](02-diode-applications.md)
-- [BJT 기본 동작](03-bjt-operation.md)
-- [MOSFET 기본 동작](05-mosfet-operation.md)
-
-## 복습 체크리스트
-
-- [ ] $np=n_i^2$의 의미를 설명할 수 있다.
-- [ ] n형과 p형 반도체의 majority carrier를 구분할 수 있다.
-- [ ] drift 전류와 diffusion 전류의 발생 원인을 비교할 수 있다.
-- [ ] Einstein relation과 thermal voltage를 쓸 수 있다.
-- [ ] PN 접합의 depletion region 형성 과정을 설명할 수 있다.
-- [ ] built-in potential 식을 적용할 수 있다.
-- [ ] Shockley diode equation을 회로 해석에 사용할 수 있다.
-
+- $np = n_i^2$이 성립하는 조건(열평형)과, 도핑 후 minority 농도를 구하는 법은?
+- drift와 diffusion 전류의 발생 원인·식, 그리고 Einstein relation이 말하는 것은?
+- depletion region이 형성되는 과정과, 평형에서 순 전류가 0인 이유는?
+- $V_0$ 식에 도핑을 10배 넣으면 얼마나 변하나? built-in potential ≈ 768 mV 예를 재현할 수 있나?
+- 순방향 전류를 10배 키우는 데 필요한 $\Delta V_F$는? 다이오드 3가지 모델의 차이는?
 {% endraw %}
 
 ---

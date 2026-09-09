@@ -1,199 +1,129 @@
 ---
 layout: page
-title: "06. Electrical and Thermal Conduction - 전기 열 전도"
+title: "06. 전기·열 전도 (Electrical & Thermal Conduction)"
 permalink: /studies/circuits/electronic-materials/06-electrical-and-thermal-conduction/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/06%20Electrical%20and%20Thermal%20Conduction%20-%20%EC%A0%84%EA%B8%B0%20%EC%97%B4%20%EC%A0%84%EB%8F%84.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes) · 교재: Kasap Ch.2
+- 이전: [05. 터널링·흑체·레이저](05-tunneling-blackbody-laser.md) · 다음: [07. Si 박막 결정화](07-silicon-thin-film-crystallization-si.md)
 
 {% raw %}
-tags: #ElectronicMaterials #Conduction #Resistivity #HallEffect #ThermalConductivity
-
-이전: [Tunneling Blackbody Laser - 터널링 흑체 레이저](05-tunneling-blackbody-laser.md)  
-다음: [Silicon Thin Film Crystallization - Si 박막 결정화](07-silicon-thin-film-crystallization-si.md)
-
-## 핵심 요약
-
-- 전기전도는 자유롭게 이동 가능한 carrier와 전기장에 의한 drift로 설명한다.
-- 금속은 페르미 준위 근처 전자의 drift가 전류를 만들고, 반도체는 전자와 정공이 모두 전도에 참여한다.
-- 저항률은 열진동, 불순물, grain boundary, dislocation 같은 산란 메커니즘의 합으로 증가한다.
-- Hall effect는 carrier type, carrier concentration, mobility를 판단하는 핵심 측정법이다.
-- 금속의 열전도와 전기전도는 Wiedemann-Franz-Lorenz 법칙으로 연결된다.
-
-## Conduction electron
-
-- 금속에서는 전도 전자가 이미 부분적으로 찬 밴드 안에 존재하며, 작은 전기장에도 이동할 수 있다.
-- 반도체에서는 전도대의 전자와 가전자대의 정공이 carrier가 된다.
-- 도체는 자유전자가 내부에서 비교적 자유롭게 이동할 수 있는 물질이다.
-
-## Drift 전도
-
-### 전류밀도
-
-- 전류밀도는 단위 면적을 단위 시간에 통과하는 전하량이다.
-- 전자 농도 `n`, 전하량 `q`, drift velocity `v_d`가 전류밀도를 정한다.
+## 개요
 
 ```text
-J = n q v_d
+drift 전도 J = nqv_d → μ = eτ/m*, σ = neμ
+Matthiessen 법칙 ρ = ρ_T + ρ_I, grain boundary·Nordheim ρ_I = CX(1-X)
+Hall effect → carrier type/concentration/mobility
+열전도: 금속(전자) vs 비금속(phonon), Wiedemann–Franz–Lorenz
 ```
 
-- 전자는 음전하이므로 전자 drift 방향과 관습적 전류 방향은 반대다.
+---
 
-### 전기장이 없을 때와 있을 때
+## 1. Conduction Electron
 
-- 전기장이 없을 때 전자는 열운동으로 무작위 운동을 하지만 평균 drift는 0이다.
-- 전기장이 걸리면 무작위 열운동 위에 작은 평균 drift velocity가 생겨 순전류가 흐른다.
-- 전자의 평균 자유행로 `l`은 충돌 사이 평균 이동거리이며 `l = u tau`로 쓸 수 있다.
+- **금속**: 전도 전자가 이미 부분적으로 찬 밴드에 존재 → 작은 전기장에도 이동 (Fermi 준위 근처).
+- **반도체**: 전도대 전자 + 가전자대 정공이 carrier.
+- **이온 결정·유리**: mobile ion (예: Na⁺)이 있으면 전도도 ≠ 0.
 
-## 반도체와 절연체의 전도
+## 2. Drift 전도
 
-- 반도체에서는 열진동이나 광흡수로 공유결합이 끊어지면 electron-hole pair가 생긴다.
-- 전기장이 걸리면 conduction band 전자와 valence band 정공이 모두 전류에 기여한다.
-- 이온 결정과 유리에서도 mobile ion이 있으면 전도도가 0이 아니며, 특히 Na+ 같은 이온 이동이 기여할 수 있다.
-- 절연체도 완전한 0 전도도를 갖는 것은 아니지만, 전도도 범위가 금속과 반도체보다 훨씬 낮다.
+$$
+J = n q v_d, \qquad v_d = \mu E, \qquad \mu = \frac{e\tau}{m^*}, \qquad \sigma = n q \mu = \frac{1}{\rho}
+$$
+($\tau$ = 평균 자유시간, $m^*$ = 유효질량.)
 
-## 박막 저항률과 Matthiessen 법칙
+- 전기장 없을 때: 열운동으로 무작위, 평균 drift = 0.
+- 전기장 있을 때: 무작위 열운동 위에 작은 $v_d$ → 순전류.
+- 평균 자유행로: $\ell = u\tau$ ($u$ = 열속도).
+- 반도체: $\sigma = q(n\mu_n + p\mu_p)$.
+
+## 3. 박막 저항률과 Matthiessen 법칙
 
 ### Grain boundary scattering
-
-- 다결정 박막에서는 grain boundary에서 전자가 산란되어 저항률이 증가한다.
-- grain이 매우 작으면 평균 자유행로가 grain diameter에 의해 제한된다.
-- 따라서 같은 재료라도 박막의 결정립 크기와 공정 이력에 따라 저항률이 달라진다.
+다결정 박막에서 grain boundary가 전자를 산란 → 저항률 ↑. grain이 매우 작으면 $\ell$이 grain 지름으로 제한 → 같은 재료도 결정립 크기·공정 이력에 따라 저항률이 다름.
 
 ### Matthiessen 법칙
+독립적인 산란 과정의 저항률은 **더해진다**:
+$$
+\rho = \rho_T + \rho_I \;(+\, \rho_{GB} + \rho_{disl} + \cdots)
+$$
+$\rho_T$ = 열진동(phonon) 산란, $\rho_I$ = 불순물 산란.
 
-- 서로 독립적인 산란 과정이 있을 때 전체 저항률은 각 산란 기여의 합으로 근사한다.
+## 4. 금속 저항률의 온도 의존성
 
-```text
-rho = rho_T + rho_I
-rho_T: thermal vibration scattering
-rho_I: impurity scattering
-```
+충분히 높은 온도: $\;\rho \propto T$.
+- Cu: 100 K 이상 $\rho \propto T$, 100 K 이하 더 급함, **10 K 이하 → residual resistivity $\rho_R$** (불순물·결함으로 온도가 낮아도 남음).
+- **TCR** (thermal coefficient of resistivity): $\alpha_0 = \dfrac{1}{\rho_0}\dfrac{d\rho}{dT}$. NiCr = 높은 $\rho$ + 작은 TCR → heating wire.
 
-- 실제로는 grain boundary, defect, dislocation에 의한 항도 추가적으로 고려할 수 있다.
+## 5. Nordheim 법칙 (합금 저항률)
 
-## 금속 저항률의 온도 의존성
+고용 합금에서 불순물이 host lattice를 흐트러뜨려 산란:
+$$
+\rho_I = C\,X(1 - X)
+$$
+$X$ = solute 농도, $C$ = Nordheim coefficient (solute–solvent 크기·퍼텐셜 차 클수록 큼). dilute alloy($X \ll 1$): $\rho_I \approx CX$. alloy scattering이 커지면 $\rho_I > \rho_T$ → 저항률의 온도 의존성 약해짐.
 
-- 순수 금속은 충분히 높은 온도에서 저항률이 대체로 온도에 비례한다.
+**열처리**: 급랭 amorphous/변형 금속은 무질서 많아 $\rho$ 높음; annealing으로 결정성 회복 → $\rho$ ↓.
 
-```text
-rho proportional to T  at high enough T
-```
+**Eutectic**: 두 원소 합금의 최저 녹는점 조성. solubility limit까지 조성 ↑ → Nordheim으로 $\rho$ ↑; 그 이후 두 상 공존 → 단상 법칙만으로 설명 어려움.
 
-- Cu는 100 K 이상에서 `rho proportional to T`, 100 K 이하에서 더 급한 온도 의존성을 보이며, 10 K 이하에서는 residual resistivity에 접근한다.
-- residual resistivity는 불순물과 결함처럼 온도가 낮아도 남는 산란 때문이다.
-
-### TCR
-
-- thermal coefficient of resistivity는 온도 변화에 따른 저항률 변화의 기울기다.
-- NiCr은 높은 저항률과 작은 TCR을 가져 heating wire에 적합하다.
-
-## Nordheim 법칙과 합금 저항률
-
-- 고용 합금에서 불순물 원자가 host lattice를 흐트러뜨려 impurity scattering을 만든다.
-
-```text
-rho_I = C X (1 - X)
-```
-
-- `X`는 solute concentration, `C`는 Nordheim coefficient다.
-- dilute alloy에서는 `X << 1`이므로 `rho_I ≈ C X`로 볼 수 있다.
-- solute와 solvent의 원자 크기나 퍼텐셜 차이가 클수록 `C`가 커진다.
-- alloy scattering이 커지면 `rho_I`가 `rho_T`보다 우세해져 저항률의 온도 의존성이 약해진다.
-
-### 열처리 효과
-
-- 급랭된 amorphous 또는 변형된 금속은 결함과 무질서가 많아 저항률이 높다.
-- annealing으로 결정성이 회복되면 산란이 줄고 저항률이 낮아질 수 있다.
-
-## Eutectic phase diagram
-
-- eutectic composition은 두 원소 합금에서 가장 낮은 녹는점을 만드는 조성이다.
-- 조성이 solubility limit까지 증가하면 Nordheim 법칙에 따라 저항률이 증가한다.
-- 특정 조성 이후에는 두 상이 공존하고, 저항률은 단순한 단상 고용체 법칙만으로 설명하기 어렵다.
-
-## Hall effect
+## 6. Hall Effect
 
 ### 원리
-
-- x 방향 전류와 z 방향 자기장 `B_z`가 있을 때 carrier는 Lorentz force를 받아 y 방향으로 분리된다.
-- 이 전하 분리가 Hall electric field `E_H`를 만든다.
-
-```text
-F = q v x B
-```
+$x$ 방향 전류 + $z$ 방향 자기장 $B_z$ → carrier가 Lorentz 힘 $\vec{F} = q\vec{v}\times\vec{B}$로 $y$ 방향 분리 → **Hall electric field $E_H$**.
 
 ### Hall coefficient
-
-```text
-R_H = E_y / (J_x B_z)
-For electrons: R_H = -1 / (e n)
-For holes: R_H = +1 / (e p)
-```
-
-- `R_H < 0`이면 n-type, `R_H > 0`이면 p-type으로 판단한다.
-- carrier concentration은 Hall coefficient의 크기에서 구할 수 있다.
+$$
+R_H = \frac{E_y}{J_x B_z}, \qquad
+\text{전자: } R_H = -\frac{1}{en}, \qquad
+\text{정공: } R_H = +\frac{1}{ep}
+$$
+- $R_H < 0$ → **n-type**, $R_H > 0$ → **p-type**
+- carrier 농도는 $|R_H|$에서
 
 ### Hall mobility
+$$
+\sigma = q\mu n \;\Rightarrow\; \mu = |R_H|\,\sigma
+$$
+(강의는 n-type 전자 기준 $\mu = -R_H\sigma$ 형태.)
 
-```text
-sigma = q mu n
-mu = |R_H| sigma
-```
+## 7. 열전도
 
-- 강의 슬라이드에서는 n-type 전자 기준으로 `mu = -R_H sigma` 형태를 사용한다.
+| | Carrier | |
+|---|---|---|
+| **금속** | conduction electron | $\sigma$ 크면 $\kappa$도 큼 |
+| **비금속** | **phonon** (격자진동) | 결합 강도·coupling·결함 산란에 좌우 |
 
-## 열전도
+### Ohm ↔ Fourier
+$$
+I = -A\sigma\frac{dV}{dx}, \qquad Q' = -A\kappa\frac{dT}{dx}
+$$
+전위구배 ↔ 온도구배가 각각 driving force.
 
-### 금속의 열전도
-
-- 금속에서는 conduction electron이 뜨거운 영역에서 차가운 영역으로 에너지를 전달한다.
-- 그래서 금속의 전기전도도가 높으면 대체로 열전도도도 높다.
-
-### 비금속의 열전도
-
-- 비금속은 자유전자가 거의 없으므로 lattice vibration, 즉 phonon이 열을 운반한다.
-- 열전도 효율은 결합 강도, 원자 간 coupling, phonon propagation, 결함 산란에 좌우된다.
-
-### Ohm 법칙과 Fourier 법칙
-
-```text
-I = -A sigma (dV/dx)
-Q' = -A kappa (dT/dx)
-```
-
-- 전위구배는 전기전도의 driving force다.
-- 온도구배는 열전도의 driving force다.
-
-### Wiedemann-Franz-Lorenz 법칙
-
-```text
-kappa = C_WFL sigma T
-```
-
-- 순수 금속에서 `sigma proportional to 1/T`이면 `kappa`가 온도에 대해 비교적 일정해질 수 있다.
+### Wiedemann–Franz–Lorenz
+$$
+\kappa = C_{WFL}\,\sigma\,T, \qquad \frac{\kappa}{\sigma T} = L \approx 2.44\times10^{-8}\,\text{W·Ω/K}^2 \;(\text{Lorenz number})
+$$
+순수 금속에서 $\sigma \propto 1/T$ 이면 $\kappa$가 온도에 비교적 일정.
 
 ### 열저항
+$$
+Q' = \frac{\Delta T}{\theta}
+$$
+$\theta$ = 열저항 (전기저항과 유사, 직렬·병렬 규칙 적용).
 
-```text
-Q' = Delta T / theta
-```
+---
 
-- 열저항 `theta`는 전기저항처럼 온도차와 열유량의 비로 모델링할 수 있다.
+## 복습 질문
 
-## 시험 포인트
-
-- drift velocity와 전류밀도 관계.
-- Matthiessen 법칙의 물리적 의미.
-- grain boundary가 박막 저항률을 키우는 이유.
-- Nordheim 법칙 `rho_I = C X (1-X)` 해석.
-- Hall coefficient 부호로 n-type과 p-type을 구분하는 방법.
-- Ohm 법칙과 Fourier 법칙의 대응 관계.
-- 금속과 비금속의 열전도 carrier 차이.
-
+- $J = nqv_d$, $\mu = e\tau/m^*$, $\sigma = nq\mu$의 연결과, 전기장 유무에서 전자의 운동 차이는?
+- Matthiessen 법칙의 물리적 의미와, grain boundary가 박막 저항률을 키우는 이유는?
+- Nordheim 법칙 $\rho_I = CX(1-X)$의 해석, alloy scattering이 커지면 온도 의존성이 왜 약해지나?
+- Hall coefficient 부호로 n/p type을 구분하는 법, carrier 농도·mobility를 어떻게 얻나?
+- 금속과 비금속의 열전도 carrier 차이, Wiedemann–Franz–Lorenz 법칙이 말하는 것은?
 {% endraw %}
 
 ---
 
-이전: [05. Tunneling Blackbody Laser - 터널링 흑체 레이저](05-tunneling-blackbody-laser.md) · 다음: [07. Silicon Thin Film Crystallization - Si 박막 결정화](07-silicon-thin-film-crystallization-si.md)
+이전: [05. 터널링·흑체·레이저](05-tunneling-blackbody-laser.md) · 다음: [07. Si 박막 결정화](07-silicon-thin-film-crystallization-si.md)

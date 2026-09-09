@@ -1,170 +1,138 @@
 ---
 layout: page
-title: "10. Intrinsic Extrinsic Semiconductors - 반도체 캐리어"
+title: "10. 반도체 캐리어 (Intrinsic / Extrinsic Semiconductors)"
 permalink: /studies/circuits/electronic-materials/10-intrinsic-extrinsic-semiconductors/
 sitemap: false
 ---
 
-- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes/10%20Intrinsic%20Extrinsic%20Semiconductors%20-%20%EB%B0%98%EB%8F%84%EC%B2%B4%20%EC%BA%90%EB%A6%AC%EC%96%B4.md)
+- **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Electronic_Materials/lecture_notes) · 교재: Kasap Ch.5
+- 이전: [09. 페르미 통계·방출·포논](09-fermi-statistics-emission-phonons.md) · 다음: [11. 확산·흡수·접촉·PN접합](11-diffusion-optical-absorption-contacts-pn-junction.md)
 
 {% raw %}
-tags: #ElectronicMaterials #Semiconductor #Doping #CarrierGeneration #Recombination
+## 개요
 
-이전: [Fermi Statistics Emission Phonons - 페르미 방출 포논](09-fermi-statistics-emission-phonons.md)  
-다음: [Diffusion Optical Absorption Contacts PN Junction - 확산 흡수 접촉 PN접합](11-diffusion-optical-absorption-contacts-pn-junction.md)
+```text
+intrinsic: 열/광 여기로 e–h pair, n = p = n_i
+extrinsic: donor(E_C 바로 아래) → n-type / acceptor(E_V 바로 위) → p-type
+열평형: np = n_i²
+온도 영역: freeze-out → extrinsic → intrinsic
+recombination·minority carrier lifetime → photoresponse
+```
 
-## 핵심 요약
+---
 
-- 반도체는 금속과 절연체 사이의 band gap을 가지며, 온도, 빛, doping에 따라 carrier 농도가 크게 변한다.
-- intrinsic semiconductor에서는 thermal 또는 optical excitation으로 electron-hole pair가 생성된다.
-- n-type doping은 donor level을 통해 electron을 제공하고, p-type doping은 acceptor level을 통해 hole을 만든다.
-- 열평형에서는 mass action law `np = n_i^2`가 성립한다.
-- 온도에 따라 freeze-out, extrinsic, intrinsic 영역이 나타난다.
-- recombination과 minority carrier lifetime은 photoconductivity와 photoresponse를 결정한다.
+## 1. Intrinsic Semiconductor
 
-## Intrinsic semiconductor
-
-### Si 결정과 band diagram
-
-- Si 원자는 네 개의 sp3 hybrid orbital로 이웃 Si와 공유결합을 이룬다.
-- 0 K에서는 valence band가 가득 차고 conduction band는 비어 있다.
-- 유한 온도나 photon absorption으로 전자가 valence band에서 conduction band로 올라가면 electron-hole pair가 생긴다.
+### Si 결정과 band
+- Si는 네 sp³ hybrid로 이웃과 공유결합
+- 0 K: VB 가득, CB 비어 있음
+- 유한 온도 / photon 흡수 → 전자가 VB → CB → **electron–hole pair**
 
 ### Carrier generation
+$$
+h\nu \ge E_g \;\Rightarrow\; e^- + h^+ \text{ 생성}
+$$
+- 열진동도 공유결합을 깨 e–h pair 생성
+- **정공**은 실제 양전하 입자가 아니라, 이웃 결합 전자가 빈 자리로 이동하며 양전하처럼 거동하는 유효 carrier
 
-- photon energy가 band gap보다 크면 전자가 valence band에서 conduction band로 여기된다.
+### intrinsic 농도
+$$
+n_i = \sqrt{N_C N_V}\, e^{-E_g/2kT}
+$$
+Si 상온 $n_i \approx 1.0\times10^{10}\,\text{cm}^{-3}$. 온도에 지수적으로 강하게 의존.
 
-```text
-h nu >= E_g
-```
+## 2. 열평형과 Mass Action Law
 
-- photon이 Si-Si 결합을 깨면 자유전자와 정공이 동시에 생성된다.
-- 열진동도 공유결합을 깨 electron-hole pair를 만들 수 있다.
-- 정공은 실제 양전하 입자가 아니라, 이웃 결합 전자가 빈 결합 자리로 이동하면서 양전하처럼 이동하는 유효 carrier다.
+$$
+\boxed{np = n_i^2} \quad (\text{intrinsic, n-type, p-type 모두})
+$$
+- intrinsic: $n = p = n_i$
+- n-type: 전자 = majority, 정공 = minority
+- p-type: 정공 = majority, 전자 = minority
 
-### 전기장 아래의 전도
-
-- 전기장이 걸리면 conduction band 전자와 valence band 정공이 drift하며 전류에 기여한다.
-- 전위 `V(x)`가 변하면 전자의 electrostatic potential energy `-eV(x)`도 변해 band diagram이 공간적으로 기울어진다.
-
-## 열평형과 mass action law
-
-- 열평형에서 intrinsic, n-type, p-type 모두 다음 관계를 만족한다.
-
-```text
-n p = n_i^2
-```
-
-- intrinsic semiconductor에서는 `n = p = n_i`.
-- n-type에서는 electron이 majority carrier, hole이 minority carrier다.
-- p-type에서는 hole이 majority carrier, electron이 minority carrier다.
-
-## Extrinsic semiconductor
+## 3. Extrinsic Semiconductor
 
 ### n-type doping
-
-- As 같은 Group V 원소는 Si 자리에 치환되면 네 전자는 결합에 참여하고 다섯 번째 전자가 약하게 묶인다.
-- 작은 에너지만으로 이 전자가 conduction band로 올라가 자유전자가 된다.
-- donor level은 `E_C` 바로 아래에 존재한다.
-- ionized donor는 양전하 `D+`로 남는다.
+As, P 같은 **Group V**: Si 자리 치환 → 네 전자는 결합, 다섯 번째가 약하게 묶임 → 작은 에너지로 CB로 → 자유전자.
+- **donor level은 $E_C$ 바로 아래** ($E_C - E_D \sim$ 수십 meV)
+- ionized donor = $D^+$
+- $n \approx N_D$ ($N_D \gg n_i$), $\;p \approx n_i^2/N_D$
 
 ### p-type doping
+B 같은 **Group III**: 원자가전자 하나 부족 → 결합 하나에 전자 비어 hole.
+- **acceptor level은 $E_V$ 바로 위**
+- ionized acceptor = $A^-$
+- $p \approx N_A$, $\;n \approx n_i^2/N_A$
 
-- B 같은 Group III 원소는 Si보다 원자가전자가 하나 부족하다.
-- 결합 하나에 전자가 비어 hole이 생긴다.
-- acceptor level은 `E_V` 바로 위에 존재하며, valence band에서 전자를 받아 hole을 만든다.
-- ionized acceptor는 음전하 `A-`로 남는다.
+### 전압 인가와 band tilting
+전압 → 전자의 electrostatic potential energy $-eV(x)$ 변화 → energy band 전체 기울어짐 → carrier drift.
 
-### 전압 공급과 band tilting
+## 4. 온도 의존성
 
-- 반도체에 전압을 연결하면 electron의 electrostatic potential energy가 위치에 따라 변한다.
-- energy band 전체가 기울어지고, carrier drift가 발생한다.
+### Carrier 농도 세 영역
 
-## 온도 의존성
-
-### Carrier concentration의 세 영역
-
-| 온도 영역 | carrier 농도 지배 요인 | 특징 |
+| 온도 | 지배 요인 | 특징 |
 |---|---|---|
-| 낮은 온도, freeze-out | donor 또는 acceptor ionization | dopant가 완전히 이온화되지 않음 |
-| 중간 온도, extrinsic | dopant concentration | majority carrier 농도 ≈ dopant 농도 |
-| 높은 온도, intrinsic | thermal generation across band gap | intrinsic carrier가 dopant carrier보다 많아짐 |
+| 낮음 — **freeze-out** | donor/acceptor ionization | dopant가 완전히 이온화 안 됨 |
+| 중간 — **extrinsic (saturation)** | dopant 농도 | majority carrier ≈ dopant 농도 |
+| 높음 — **intrinsic** | band gap 넘는 thermal generation | $n_i >$ dopant carrier |
 
-- `T_s`는 donor가 거의 모두 이온화되는 saturation temperature로 볼 수 있다.
-- `T_i` 이상에서는 intrinsic carrier generation이 우세하다.
+$T_s$ = donor가 거의 다 이온화되는 saturation 온도, $T_i$ 이상에서 intrinsic 우세.
 
-### Mobility의 온도 의존성
+### Mobility 온도 의존성
+- 낮은 온도: **ionized impurity scattering** 지배 ($\mu \propto T^{3/2}$)
+- 높은 온도: **lattice(phonon) scattering** 지배 ($\mu \propto T^{-3/2}$)
+- doping 농도 ↑ → impurity scattering ↑ → $\mu$ ↓
 
-- 낮은 온도에서는 ionized impurity scattering이 중요하다.
-- 높은 온도에서는 lattice vibration scattering이 커진다.
-- doping 농도가 높을수록 impurity scattering이 커져 mobility가 낮아진다.
+## 5. 전도도의 온도 의존성
 
-## 전도도의 온도 의존성
+$$
+\sigma = q(n\mu_n + p\mu_p)
+$$
+온도 ↑ → carrier 농도 ↑ 이지만 mobility ↓ → 경쟁. **intrinsic 영역**에서는 carrier 농도 증가가 압도적 → $\sigma$ 급증.
 
-```text
-sigma = q (n mu_n + p mu_p)
-```
+## 6. Degenerate Semiconductor
 
-- 온도 상승은 carrier concentration을 증가시킬 수 있지만 mobility를 감소시킬 수도 있다.
-- doped semiconductor의 전도도는 carrier 농도 변화와 mobility 변화가 함께 결정한다.
-- intrinsic 영역에서는 carrier 농도 증가가 매우 커서 전도도가 급격히 증가한다.
+매우 높은 doping ($\gtrsim 10^{19}\,\text{cm}^{-3}$): donor level들이 겹쳐 band처럼 되고 CB와 overlap.
+- degenerate n-type: $E_F$가 **CB 안**으로
+- degenerate p-type: $E_F$가 **VB 안**으로
+→ 금속처럼 높은 carrier 농도·낮은 저항 (Ohmic contact, tunnel diode에 활용).
 
-## Degenerate semiconductor
-
-- 매우 높은 doping에서는 donor level들이 서로 겹쳐 band처럼 되고 conduction band와 overlap할 수 있다.
-- degenerate n-type에서는 Fermi level이 conduction band 안으로 들어갈 수 있다.
-- degenerate p-type에서는 Fermi level이 valence band 안으로 들어갈 수 있다.
-- 이 경우 반도체가 금속처럼 높은 carrier concentration과 낮은 저항을 보인다.
-
-## Recombination과 trapping
+## 7. Recombination과 Trapping
 
 ### Direct recombination
+전자·정공이 직접 재결합 → 에너지를 **photon** 또는 lattice vibration으로. GaAs 등 **direct band gap**(CB min과 VB max의 $k$ 같음) → momentum conservation 잘 맞음 → radiative recombination → LED, laser.
+(Si는 **indirect** → phonon 관여 필요 → radiative 효율 낮음.)
 
-- 전자와 정공이 직접 재결합하며 에너지를 photon 또는 lattice vibration으로 방출한다.
-- GaAs처럼 direct band gap 재료에서는 conduction band minimum과 valence band maximum의 `k`가 같아 momentum conservation이 잘 맞는다.
-- 그래서 radiative recombination과 LED, laser 응용에 유리하다.
+### Trap-assisted (SRH) recombination
+band gap 내부 defect level이 전자/정공을 포획 → 재결합 촉진. dangling bond, impurity, grain boundary가 trap center.
 
-### Trap-assisted recombination
+## 8. Low-Level Injection과 Minority Carrier
 
-- band gap 내부의 defect level이 전자나 정공을 포획해 재결합을 돕는다.
-- dangling bond, impurity, grain boundary는 trap center로 작동할 수 있다.
+n-type에 약한 빛 → excess $\Delta n_n$, $\Delta p_n$ 생성. **low-level injection**: $\Delta n_n \ll n_{n0}$.
+- majority 전자 농도는 거의 불변
+- minority 정공 농도는 상대적으로 크게 변함
+→ 광응답·recombination dynamics는 **minority carrier lifetime $\tau_h$**에 민감.
 
-## Low-level injection과 minority carrier
+## 9. Photoresponse와 Photocurrent
 
-- n-type 반도체에 약한 빛을 비추면 excess electron `Delta n_n`과 excess hole `Delta p_n`이 생긴다.
-- low-level injection에서는 majority carrier 변화가 평형 majority concentration보다 작다.
+$$
+\Delta p_n(t): \; \text{조명 ON → } \tau_h \text{로 steady state까지 상승}, \; \text{OFF → } \tau_h \text{로 지수 감소}
+$$
+- photoconductor/photodiode 응답속도는 carrier lifetime + transport time으로 제한
+- photocurrent = 광생성 carrier가 전기장에 수집되며 흐르는 전류
 
-```text
-Delta n_n < n_n0
-```
+---
 
-- majority electron 농도는 거의 변하지 않지만, minority hole 농도는 상대적으로 크게 변한다.
-- 따라서 광응답과 recombination dynamics는 주로 minority carrier lifetime에 민감하다.
+## 복습 질문
 
-## Photoresponse와 photocurrent
-
-- 조명을 켜면 excess minority carrier concentration이 시간상수 `tau_h`로 steady state까지 증가한다.
-- 조명을 끄면 같은 시간상수에 의해 equilibrium value로 지수적으로 감소한다.
-
-```text
-Delta p_n(t) rises or decays exponentially with lifetime tau_h
-```
-
-- photoconductor나 photodiode의 응답속도는 carrier lifetime과 transport time에 의해 제한된다.
-- photocurrent는 광생성 carrier가 전기장에 의해 수집되며 생기는 전류다.
-
-## 시험 포인트
-
-- intrinsic semiconductor에서 electron-hole pair가 생기는 방식.
-- donor level과 acceptor level의 band diagram 위치.
-- `np = n_i^2`가 열평형에서 의미하는 것.
-- freeze-out, extrinsic, intrinsic 온도 영역 구분.
-- impurity scattering과 lattice scattering이 mobility에 주는 반대 경향.
-- direct recombination과 trap-assisted recombination의 차이.
-- low-level injection에서 minority carrier 변화가 중요한 이유.
-
+- intrinsic에서 e–h pair가 생기는 방식, $n_i = \sqrt{N_C N_V}\,e^{-E_g/2kT}$의 온도 의존성은?
+- donor level($E_C$ 아래)과 acceptor level($E_V$ 위)의 band diagram 위치, $np = n_i^2$가 열평형에서 의미하는 것은?
+- freeze-out / extrinsic / intrinsic 온도 영역의 구분 기준은?
+- impurity scattering과 lattice scattering이 mobility의 온도 의존성에 주는 반대 경향은?
+- direct vs trap-assisted recombination의 차이, low-level injection에서 minority carrier 변화가 중요한 이유는?
 {% endraw %}
 
 ---
 
-이전: [09. Fermi Statistics Emission Phonons - 페르미 방출 포논](09-fermi-statistics-emission-phonons.md) · 다음: [11. Diffusion Optical Absorption Contacts PN Junction - 확산 흡수 접촉 PN접합](11-diffusion-optical-absorption-contacts-pn-junction.md)
+이전: [09. 페르미 통계·방출·포논](09-fermi-statistics-emission-phonons.md) · 다음: [11. 확산·흡수·접촉·PN접합](11-diffusion-optical-absorption-contacts-pn-junction.md)

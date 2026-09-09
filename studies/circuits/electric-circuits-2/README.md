@@ -2,7 +2,7 @@
 layout: page
 title: Electric Circuits 2
 description: >
-  Electric Circuits 2 강의 노트.
+  전자회로 2 강의 노트. MOS 증폭기(CS·SF·CG·cascode·차동)부터 주파수 응답, 필터, 음귀환, 발진기, 그리고 광수신기 TIA/CTLE 설계 프로젝트까지. 교재는 Razavi, Fundamentals of Microelectronics 2nd ed.
 hide_description: false
 sitemap: false
 permalink: /studies/circuits/electric-circuits-2/
@@ -10,33 +10,23 @@ permalink: /studies/circuits/electric-circuits-2/
 
 원본: [GitHub — Electric Circuits 2](https://github.com/RayKim3103/Undergraduate-Course/tree/main/%5BUndergraduate%5D_Electric_Circuits%202)
 
+> 원본 28개 노트를 16개로 통합했습니다. "revised" 중복 PDF는 없었지만, **한 주제를 여러 파일로 나눈 강의 세트**(차동 증폭기 1·2, CS/Degeneration/Cascode 주파수 응답, 필터 5개, 음귀환+I/O 저항 1·2, Ring/LC 발진기, 프로젝트 가이드+결과)를 교재의 syllabus 블록 단위로 하나씩 합치고 보강했습니다. **설계 프로젝트의 수치·회로 파라미터는 원문 그대로**입니다.
+
 ## 강의 노트
 
-1. [00. Design Project Summary - Optical Receiver PD TIA CTLE](00-design-project-summary-optical-receiver-pd-tia-ctle.md)
-2. [01. Introduction - 전자회로 II 개요](01-introduction-ii.md)
-3. [02. MOS Large-Signal Characteristics - MOS 대신호 특성](02-mos-large-signal-characteristics.md)
-4. [03. MOS Small-Signal Characteristics - MOS 소신호 모델](03-mos-small-signal-characteristics.md)
-5. [04. Common-Source Amplifier - CS 증폭기](04-common-source-amplifier-cs.md)
-6. [05. Source Follower and Common-Gate - SF CG 증폭기](05-source-follower-and-common-gate-sf-cg.md)
-7. [06. Cascode Amplifier - 캐스코드 증폭기](06-cascode-amplifier.md)
-8. [07. Bias Circuits and Current Mirrors - 바이어스와 전류미러](07-bias-circuits-and-current-mirrors.md)
-9. [08. Differential Amplifiers 1 - 차동 증폭기 기본](08-differential-amplifiers-1.md)
-10. [09. Differential Amplifiers 2 - CMRR와 Active Load](09-differential-amplifiers-2-cmrr-active-load.md)
-11. [10. Pole Zero Bode Plot - 극점 영점 보드선도](10-pole-zero-bode-plot.md)
-12. [11. MOSFET High-Frequency Model - 고주파 모델](11-mosfet-high-frequency-model.md)
-13. [12. Frequency Response of CS - CS 주파수 응답](12-frequency-response-of-cs.md)
-14. [13. Frequency Response of CS Degeneration and CG - Degeneration CG 응답](13-frequency-response-of-cs-degeneration-and-cg.md)
-15. [14. Frequency Response of Cascode SF Differential - 고주파 응답 비교](14-frequency-response-of-cascode-sf-differential.md)
-16. [15. OTA and Op-Amp - OTA와 연산증폭기](15-ota-and-op-amp.md)
-17. [16. First-Order Filters - 1차 필터](16-first-order-filters-1.md)
-18. [17. Passive Second-Order Filters - 수동 2차 필터](17-passive-second-order-filters-2.md)
-19. [18. Filters with Inductor Simulator - 인덕터 시뮬레이터 필터](18-filters-with-inductor-simulator.md)
-20. [19. Filters with Integrators - KHN Tow-Thomas Biquad](19-filters-with-integrators-khn-tow-thomas-biquad.md)
-21. [20. Higher-Order Filters - Butterworth 고차 필터](20-higher-order-filters-butterworth.md)
-22. [21. Feedback - 음귀환 기초](21-feedback.md)
-23. [22. LTSpice Tutorial - 시뮬레이션 튜토리얼](22-ltspice-tutorial.md)
-24. [23. Project Design Guide - TIA CTLE 설계 가이드](23-project-design-guide-tia-ctle.md)
-25. [24. IO Resistance Improvement with Feedback 1 - 전압 증폭기 피드백](24-io-resistance-improvement-with-feedback-1.md)
-26. [25. IO Resistance Improvement with Feedback 2 - 증폭기별 저항 개선](25-io-resistance-improvement-with-feedback-2.md)
-27. [26. Ring Oscillators - 링 발진기](26-ring-oscillators.md)
-28. [27. LC Oscillators - LC 발진기](27-lc-oscillators.md)
+1. [Introduction — 전자회로 II 개요](01-introduction-ii.md)
+2. [MOS 소자 특성 — 대신호·소신호](02-mos-device-characteristics.md) — 원본 `02`+`03`
+3. [Common-Source 증폭기 (CS)](03-common-source-amplifier-cs.md)
+4. [Source Follower & Common-Gate (SF·CG)](04-source-follower-and-common-gate-sf-cg.md)
+5. [Cascode 증폭기](05-cascode-amplifier.md)
+6. [Bias 회로와 Current Mirror](06-bias-circuits-and-current-mirrors.md)
+7. [Differential Amplifiers — DM/CM · CMRR · Active Load](07-differential-amplifiers.md) — 원본 `08`+`09`
+8. [Pole·Zero & Bode Plot](08-pole-zero-bode-plot.md)
+9. [MOSFET 고주파 모델 (Capacitance · fT)](09-mosfet-high-frequency-model.md)
+10. [증폭기 주파수 응답 — CS·Degeneration·CG·Cascode·SF·Differential](10-amplifier-frequency-response.md) — 원본 `12`+`13`+`14`
+11. [OTA & Op-Amp](11-ota-and-op-amp.md)
+12. [필터 — 1차·2차 수동·인덕터 시뮬레이터·Biquad·고차 Butterworth](12-filters.md) — 원본 `16`~`20`
+13. [음귀환 (Feedback) — 기초·I/O 저항 개선](13-feedback.md) — 원본 `21`+`24`+`25`
+14. [발진기 — Ring·LC](14-oscillators.md) — 원본 `26`+`27`
+15. [설계 프로젝트 — Optical Receiver (PD·TIA·CTLE)](15-design-project-tia-ctle.md) — 원본 `23`+`00`
+16. [LTspice 튜토리얼](16-ltspice-tutorial.md)
