@@ -8,13 +8,13 @@ sitemap: false
 permalink: /studies/arch/
 ---
 
-* [Computer Architecture]{:.heading.flip-title} --- 6개 노트 (챕터+과제 통합·보강)
+* [Computer Architecture]{:.heading.flip-title} --- 6개 노트
 {:.related-posts.faded}
 
-* [Microprocessor]{:.heading.flip-title} --- 6개 노트 (주제 단위 통합·보강)
+* [Microprocessor]{:.heading.flip-title} --- 6개 노트
 {:.related-posts.faded}
 
-* [Intelligent System Design]{:.heading.flip-title} --- 9개 노트 (주제 단위 통합·보강)
+* [Intelligent System Design]{:.heading.flip-title} --- 9개 노트
 {:.related-posts.faded}
 
 * [NPU]{:.heading.flip-title} --- 프로젝트 코드 (강의 노트 없음)

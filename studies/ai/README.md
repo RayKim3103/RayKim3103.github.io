@@ -8,16 +8,16 @@ sitemap: false
 permalink: /studies/ai/
 ---
 
-* [Machine Learning]{:.heading.flip-title} --- 13개 노트 (주제 단위 통합·보강)
+* [Machine Learning]{:.heading.flip-title} --- 13개 노트
 {:.related-posts.faded}
 
-* [Deep Learning Experiment]{:.heading.flip-title} --- 12개 노트 (Lab 단위 통합·보강)
+* [Deep Learning Experiment]{:.heading.flip-title} --- 12개 노트
 {:.related-posts.faded}
 
-* [Computer Vision]{:.heading.flip-title} --- 16개 노트 (통합·보강)
+* [Computer Vision]{:.heading.flip-title} --- 16개 노트
 {:.related-posts.faded}
 
-* [Reinforcement Learning]{:.heading.flip-title} --- 13개 노트 (주제 단위 통합·보강)
+* [Reinforcement Learning]{:.heading.flip-title} --- 13개 노트
 {:.related-posts.faded}
 
 [Machine Learning]: /studies/ai/machine-learning/
