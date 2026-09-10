@@ -27,10 +27,10 @@ $$
 \text{Attn}(Q,K,V) = \operatorname{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
 $$
 
-- $QK^\top$: 토큰 쌍의 유사도(attention score) → shape $(n\times n)$.
-- $\sqrt{d_k}$로 나누는 이유: $d_k$가 크면 내적 분산이 커져 softmax가 포화(gradient 소실). 분산을 1로 맞춘다.
-- softmax 행별 합 = 1 → 각 토큰의 출력은 $V$ 행들의 가중 평균.
-- **temperature**: softmax에 $1/\tau$를 곱하면 $\tau$↓일수록 분포가 뾰족(결정적), $\tau$↑일수록 평탄.
+- $$QK^\top$$: 토큰 쌍의 유사도(attention score) → shape $$(n\times n)$$.
+- $$\sqrt{d_k}$$로 나누는 이유: $$d_k$$가 크면 내적 분산이 커져 softmax가 포화(gradient 소실). 분산을 1로 맞춘다.
+- softmax 행별 합 = 1 → 각 토큰의 출력은 $$V$$ 행들의 가중 평균.
+- **temperature**: softmax에 $$1/\tau$$를 곱하면 $$\tau$$↓일수록 분포가 뾰족(결정적), $$\tau$$↑일수록 평탄.
 
 ### Multi-head attention
 $$
@@ -54,9 +54,9 @@ $$
 
 ## 3. Vision Transformer (ViT)
 
-- 이미지를 $16\times16$ 패치로 잘라 flatten → 선형사상으로 토큰 임베딩 → `[CLS]` 토큰 + positional embedding → Transformer encoder → `[CLS]`로 분류.
+- 이미지를 $$16\times16$$ 패치로 잘라 flatten → 선형사상으로 토큰 임베딩 → `[CLS]` 토큰 + positional embedding → Transformer encoder → `[CLS]`로 분류.
 - CNN의 inductive bias(지역성·translation equivariance)가 **없다** → 데이터가 적으면 CNN보다 약하고, **대규모 사전학습**하면 능가.
-- **Swin Transformer**: window 안에서만 attention + window를 shift → 계산량 $O(n)$, 계층적 feature(피라미드) → detection/segmentation에 적합.
+- **Swin Transformer**: window 안에서만 attention + window를 shift → 계산량 $$O(n)$$, 계층적 feature(피라미드) → detection/segmentation에 적합.
 
 ## 4. CNN vs Transformer
 
@@ -65,19 +65,19 @@ $$
 | inductive bias | 강함(지역성, 가중치 공유) | 약함(거의 없음) |
 | receptive field | 층수에 비례해 성장 | 1층에서 전역 |
 | 데이터 요구량 | 상대적으로 적음 | 많음(또는 강한 사전학습) |
-| 계산량 | $O(n)$ | self-attn $O(n^2)$ |
+| 계산량 | $$O(n)$$ | self-attn $$O(n^2)$$ |
 
 ## 자주 틀리는 지점
 
-- Q/K/V의 shape와 역할: score $QK^\top$는 $(n\times n)$, 출력은 $V$의 가중합이라 $(n\times d_v)$.
-- $\sqrt{d_k}$ 스케일링을 빼면 큰 차원에서 softmax가 포화된다.
+- Q/K/V의 shape와 역할: score $$QK^\top$$는 $$(n\times n)$$, 출력은 $$V$$의 가중합이라 $$(n\times d_v)$$.
+- $$\sqrt{d_k}$$ 스케일링을 빼면 큰 차원에서 softmax가 포화된다.
 - positional encoding을 빼면 Transformer는 입력을 **집합**으로 취급(순서 무시).
 - ViT가 "무조건 CNN보다 좋다"가 아니다 — 소규모 데이터에서는 inductive bias가 있는 CNN이 유리.
 - decoder의 masked attention은 학습 시 teacher forcing과 짝을 이룬다.
 
 ## 복습 질문
 
-- scaled dot-product attention 식을 쓰고 각 항의 shape와 $\sqrt{d_k}$의 이유를 설명하라.
+- scaled dot-product attention 식을 쓰고 각 항의 shape와 $$\sqrt{d_k}$$의 이유를 설명하라.
 - multi-head가 single-head보다 나은 이유는?
 - ViT가 이미지를 어떻게 토큰화하며, CNN 대비 데이터 요구량이 큰 이유는?
 - encoder self-attention과 decoder masked self-attention의 차이는?

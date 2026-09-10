@@ -34,7 +34,7 @@ CARE의 핵심: **representation adaptation**과 **classifier rebalancing**을 �
 
 ## 2. 실습 설계
 
-- CIFAR-100 train에서 class당 **50장을 validation**으로 분리, 나머지에 $n_c=450-4c$ 규칙으로 long-tail split.
+- CIFAR-100 train에서 class당 **50장을 validation**으로 분리, 나머지에 $$n_c=450-4c$$ 규칙으로 long-tail split.
 - **ResNet18CIFAR**: 첫 conv를 3×3 stride 1로 바꾸고 maxpool 제거. classifier는 **cosine classifier**(feature·weight normalize → logit을 angular similarity로, head bias 완화).
 - **Stage 1**: label smoothing + MixUp + CutMix + RandomErasing + cosine schedule → regularized representation.
 - **Stage 2**: early visual layer freeze, layer3/layer4 + expert head fine-tuning.

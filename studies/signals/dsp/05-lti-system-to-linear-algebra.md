@@ -47,10 +47,10 @@ $$
 
 가 된다. 이 표현은 다음 문제들을 같은 수학적 틀에서 다룰 수 있게 한다.
 
-- filtering: $H$와 $\mathbf{x}$가 주어졌을 때 $\mathbf{y}$ 계산
-- filter design: $\mathbf{x}$와 $\mathbf{y}$가 주어졌을 때 $H$ 추정
-- inverse filtering: $H$와 $\mathbf{y}$가 주어졌을 때 $\mathbf{x}$ 복원
-- blind deconvolution: $\mathbf{y}$만 주어지고 $H,\mathbf{x}$를 동시에 추정
+- filtering: $$H$$와 $$\mathbf{x}$$가 주어졌을 때 $$\mathbf{y}$$ 계산
+- filter design: $$\mathbf{x}$$와 $$\mathbf{y}$$가 주어졌을 때 $$H$$ 추정
+- inverse filtering: $$H$$와 $$\mathbf{y}$$가 주어졌을 때 $$\mathbf{x}$$ 복원
+- blind deconvolution: $$\mathbf{y}$$만 주어지고 $$H,\mathbf{x}$$를 동시에 추정
 
 ## 1D Convolution의 Toeplitz Matrix 표현
 
@@ -145,17 +145,17 @@ $$
 C = W^{-1}\Lambda W
 $$
 
-여기서 $W$는 DFT matrix이고, $\Lambda$의 대각 성분은 impulse response의 DFT 값이다.
+여기서 $$W$$는 DFT matrix이고, $$\Lambda$$의 대각 성분은 impulse response의 DFT 값이다.
 
 ## Similarity와 Diagonalization
 
-두 행렬 $A,B$가
+두 행렬 $$A,B$$가
 
 $$
 B = P^{-1}AP
 $$
 
-를 만족하면 similar하다고 한다. $A$가 충분한 eigenvector를 가지면
+를 만족하면 similar하다고 한다. $$A$$가 충분한 eigenvector를 가지면
 
 $$
 A=PDP^{-1}

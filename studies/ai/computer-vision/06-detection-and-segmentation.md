@@ -21,7 +21,7 @@ image-level classification을 **pixel-level**(segmentation) 또는 **object-leve
 - **encoder–decoder + skip**(U-Net류): encoder의 고해상도 feature를 decoder에 이어붙여 경계 디테일 복원.
 - **dilated/atrous conv**: 해상도를 덜 줄이면서 receptive field 확대.
 - loss: pixel-wise cross-entropy(클래스 불균형 시 weighted / focal).
-- 평가: **mIoU** = 클래스별 $\dfrac{\lvert P\cap G\rvert}{\lvert P\cup G\rvert}$ 의 평균, pixel accuracy.
+- 평가: **mIoU** = 클래스별 $$\dfrac{\lvert P\cap G\rvert}{\lvert P\cup G\rvert}$$ 의 평균, pixel accuracy.
 
 ## 2. Object Detection
 
@@ -34,7 +34,7 @@ image-level classification을 **pixel-level**(segmentation) 또는 **object-leve
 
 ### One-stage
 - **YOLO / SSD**: 격자 위 anchor마다 클래스+box를 한 번에 회귀. 빠름(실시간). 초기엔 작은 객체에 약함.
-- **RetinaNet**: one-stage인데 **focal loss** $-(1-p_t)^\gamma \log p_t$ 로 극심한 foreground/background 불균형(쉬운 배경 예제가 loss를 지배하는 문제)을 해결.
+- **RetinaNet**: one-stage인데 **focal loss** $$-(1-p_t)^\gamma \log p_t$$ 로 극심한 foreground/background 불균형(쉬운 배경 예제가 loss를 지배하는 문제)을 해결.
 
 ### 공통 요소
 - **anchor box**: 다양한 크기/비율의 기준 박스. 예측은 anchor에 대한 offset.

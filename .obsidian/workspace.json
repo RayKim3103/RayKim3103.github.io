@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "25f877ae63991446",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3bd5a95fbd28f39",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "beac677dba413f83",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "studies/circuits/electric-circuits-1/01-semiconductors-and-pn-junction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01-semiconductors-and-pn-junction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "455664e92f196727",
+    "type": "split",
+    "children": [
+      {
+        "id": "a755f395f844d991",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5dfc8f9bf11b6544",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "bddb61dfd29e5db7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "976141e79ff99a5d",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b99be48f53969b18",
+    "type": "split",
+    "children": [
+      {
+        "id": "542e59230d79f53d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c60e10e6750f9fb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "studies/circuits/electric-circuits-1/01-semiconductors-and-pn-junction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "백링크"
+            }
+          },
+          {
+            "id": "7e9fa07151ee5823",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "studies/circuits/electric-circuits-1/01-semiconductors-and-pn-junction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
+          },
+          {
+            "id": "1933c5200ed9fda2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "784c1f7ad46b7634",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "401c9ef7d7f7767e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "studies/circuits/electric-circuits-1/01-semiconductors-and-pn-junction.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "beac677dba413f83",
+  "lastOpenFiles": [
+    "studies/ai/reinforcement-learning/hw7-rlhf.md",
+    "studies/ai/reinforcement-learning/hw6-model-based-rl.md",
+    "studies/ai/reinforcement-learning/hw5-offline-rl.md",
+    "studies/ai/reinforcement-learning/hw4-soft-actor-critic.md",
+    "studies/ai/reinforcement-learning/hw3-q-learning.md",
+    "studies/ai/reinforcement-learning/02-imitation-learning.md",
+    "studies/ai/reinforcement-learning/hw2-policy-gradients.md",
+    "studies/ai/reinforcement-learning/hw2-policy-gradients.md.tmp.18112.7b4e5cfe43d7",
+    "studies/ai/machine-learning/06-decision-tree.md",
+    "studies/ai/machine-learning/03-linear-regression.md",
+    "studies/ai/reinforcement-learning/hw1-imitation-learning.md",
+    "studies/ai/machine-learning/02-point-estimation-mle.md",
+    "studies/ai/machine-learning/11-dimension-reduction-pca-lda.md",
+    "studies/ai/machine-learning/10-clustering-k-means.md",
+    "studies/ai/machine-learning/01-introduction.md"
+  ]
+}

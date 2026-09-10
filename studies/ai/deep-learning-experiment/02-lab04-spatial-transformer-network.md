@@ -17,13 +17,13 @@ CNN은 translation에는 어느 정도 강하지만 회전·스케일·shear 같
 
 STN은 세 부분으로 구성된다.
 
-1. **Localization network** — 입력을 보고 변환 파라미터 $\theta$(affine이면 6개) 예측.
-2. **Grid generator** — $\theta$로 출력 격자 각 점에 대응하는 **source 좌표**를 계산.
+1. **Localization network** — 입력을 보고 변환 파라미터 $$\theta$$(affine이면 6개) 예측.
+2. **Grid generator** — $$\theta$$로 출력 격자 각 점에 대응하는 **source 좌표**를 계산.
    $$
    \begin{bmatrix}x_s\\y_s\end{bmatrix}
    = A_\theta \begin{bmatrix}x_t\\y_t\\1\end{bmatrix}
    $$
-3. **Sampler** — source 좌표 주변 픽셀을 **bilinear interpolation**(네 점 거리 가중합)으로 읽어 출력 생성. bilinear이라 **미분 가능** → $\theta$와 입력 feature 양쪽으로 gradient 전달 → end-to-end 학습.
+3. **Sampler** — source 좌표 주변 픽셀을 **bilinear interpolation**(네 점 거리 가중합)으로 읽어 출력 생성. bilinear이라 **미분 가능** → $$\theta$$와 입력 feature 양쪽으로 gradient 전달 → end-to-end 학습.
 
 - annotation 없이 classification loss만으로 "task에 도움이 되는 변환"만 학습.
 - distorted/cluttered MNIST, fine-grained recognition처럼 **geometric nuisance가 큰** 문제에서 효과가 크다.
@@ -32,7 +32,7 @@ STN은 세 부분으로 구성된다.
 ## 2. 실습 설계
 
 - MNIST를 **80×80**으로 키우고 회전·이동·크기 변화를 준 **distorted setting** 구성.
-- `STN_CNN` = CNN backbone 앞에 localization network → affine $\theta$ 예측.
+- `STN_CNN` = CNN backbone 앞에 localization network → affine $$\theta$$ 예측.
 - `F.affine_grid` → sampling grid, `F.grid_sample`(bilinear) → transformed input.
 - localization network 마지막 FC를 **identity로 초기화**: weight = 0, bias = `[1,0,0, 0,1,0]`.
 - STN이 있는 모델 vs 없는 일반 CNN을 각각 학습해 accuracy·시각화 비교. lr은 `ReduceLROnPlateau`.

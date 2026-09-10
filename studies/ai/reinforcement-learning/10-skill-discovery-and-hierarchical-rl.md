@@ -16,11 +16,11 @@ sitemap: false
 
 ## 1. Skill의 의미
 
-skill = 여러 time step에 걸친 행동 패턴(걷기, 점프, 물체 잡기). policy가 skill latent $z$ 를 조건으로:
+skill = 여러 time step에 걸친 행동 패턴(걷기, 점프, 물체 잡기). policy가 skill latent $$z$$ 를 조건으로:
 $$
 \pi(a\mid s, z)
 $$
-목표: 서로 다른 $z$ 가 서로 다른 **관찰 가능한** 행동을 만들도록.
+목표: 서로 다른 $$z$$ 가 서로 다른 **관찰 가능한** 행동을 만들도록.
 
 ## 2. 정보이론 도구
 
@@ -37,16 +37,16 @@ $$
 
 ## 3. MI 기반 Skill Discovery
 
-skill latent $z$ 와 방문 state $s$ 사이의 MI를 최대화:
+skill latent $$z$$ 와 방문 state $$s$$ 사이의 MI를 최대화:
 $$
 \max\; I(z; s)
 $$
-서로 다른 skill이 서로 다른 state 분포를 만들면 $s$ 를 보고 $z$ 를 잘 맞힐 수 있다 → diverse skill.
+서로 다른 skill이 서로 다른 state 분포를 만들면 $$s$$ 를 보고 $$z$$ 를 잘 맞힐 수 있다 → diverse skill.
 
 **구조**:
-1. skill latent $z$ sample
-2. $\pi(a\mid s, z)$ 로 rollout
-3. **discriminator**가 최종 state/trajectory에서 $z$ 예측
+1. skill latent $$z$$ sample
+2. $$\pi(a\mid s, z)$$ 로 rollout
+3. **discriminator**가 최종 state/trajectory에서 $$z$$ 예측
 4. 예측이 잘 되도록 **intrinsic reward**
 5. policy는 서로 구분되는 행동을 학습
 
@@ -75,16 +75,16 @@ $$
 좋은 skill은 종료 state가 다음 skill의 시작 조건과 맞아야(transition feasibility).
 
 ### Goal-conditioned policy
-$\pi(a\mid s, g)$ — 상위 policy가 목표 $g$ 선택, 하위 policy가 그 목표까지.
+$$\pi(a\mid s, g)$$ — 상위 policy가 목표 $$g$$ 선택, 하위 policy가 그 목표까지.
 
 ### 어려움
 어떤 skill abstraction이 좋은지 정의 어려움 / 상·하위 policy 동시 학습 시 **nonstationarity** / skill duration·termination 조건이 성능에 큰 영향 / 잘못된 skill set은 policy를 제한.
 
 ## 복습 질문
 
-- $I(z;s)$ 를 최대화하는 skill discovery의 구조(policy + discriminator + intrinsic reward)는?
+- $$I(z;s)$$ 를 최대화하는 skill discovery의 구조(policy + discriminator + intrinsic reward)는?
 - entropy·KL·MI 각각이 RL에서 어떻게 쓰이는가?
-- HRL이 long-horizon exploration을 줄이는 방식($\pi_{\text{high}}(z\mid s)$)과, 상·하위 동시 학습의 nonstationarity란?
+- HRL이 long-horizon exploration을 줄이는 방식($$\pi_{\text{high}}(z\mid s)$$)과, 상·하위 동시 학습의 nonstationarity란?
 - skill chaining에서 transition feasibility가 중요한 이유는?
 {% endraw %}
 

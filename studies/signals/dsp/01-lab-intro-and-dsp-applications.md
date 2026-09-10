@@ -44,12 +44,12 @@ $$
 \mathbf{y}_k = D_k B_k M_k \mathbf{x} + \mathbf{n}_k
 $$
 
-- $\mathbf{x}$: 복원하고 싶은 고해상도 영상
-- $\mathbf{y}_k$: $k$번째 저해상도 관측 영상
-- $M_k$: motion/warping
-- $B_k$: blur
-- $D_k$: down-sampling
-- $\mathbf{n}_k$: noise
+- $$\mathbf{x}$$: 복원하고 싶은 고해상도 영상
+- $$\mathbf{y}_k$$: $$k$$번째 저해상도 관측 영상
+- $$M_k$$: motion/warping
+- $$B_k$$: blur
+- $$D_k$$: down-sampling
+- $$\mathbf{n}_k$$: noise
 
 이 모델은 뒤의 [LTI System to Linear Algebra](05-lti-system-to-linear-algebra.md)와 직접 연결된다. 영상처리 문제를 행렬 방정식으로 쓰면 복원은 inverse problem이 된다.
 
@@ -63,7 +63,7 @@ $$
 y[m,n] = h[m,n] * x[m,n] + v[m,n]
 $$
 
-여기서 $h[m,n]$은 blur point-spread function, $v[m,n]$은 noise이다. 복원은 단순히 $1/H$를 곱하는 문제가 아니라, 잡음 증폭과 안정성 문제를 함께 다뤄야 한다. 이 때문에 [Wiener Optimal Filter](10-wiener-optimal-filter.md)가 중요해진다.
+여기서 $$h[m,n]$$은 blur point-spread function, $$v[m,n]$$은 noise이다. 복원은 단순히 $$1/H$$를 곱하는 문제가 아니라, 잡음 증폭과 안정성 문제를 함께 다뤄야 한다. 이 때문에 [Wiener Optimal Filter](10-wiener-optimal-filter.md)가 중요해진다.
 
 ### 의료영상
 
@@ -101,7 +101,7 @@ DSP 관점에서는 서로 다른 sampling grid, point-spread function, spectral
 
 - DSP는 오디오, 통신, 영상, 의료, 센서 등 거의 모든 공학 시스템의 기반 도구이다.
 - 영상처리에서는 “실제 장면”과 “센서 관측” 사이에 blur, sampling, noise가 개입한다.
-- 많은 복원 문제는 $\mathbf{y}=H\mathbf{x}+\mathbf{n}$ 형태의 inverse problem으로 정식화된다.
+- 많은 복원 문제는 $$\mathbf{y}=H\mathbf{x}+\mathbf{n}$$ 형태의 inverse problem으로 정식화된다.
 - 이 강의의 수학적 도구는 연구실의 초해상도/복원 문제를 이해하기 위한 언어이기도 하다.
 
 {% endraw %}

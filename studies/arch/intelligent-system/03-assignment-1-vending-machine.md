@@ -17,9 +17,9 @@ sitemap: false
 
 | item | 가격 | | coin | value |
 |---|---:|---|---|---:|
-| Item 1 | \$3 | | coin 1 | \$1 |
-| Item 2 | \$5 | | coin 2 | \$5 |
-| Item 3 | \$7 | | coin 3 | \$10 |
+| Item 1 | \$$3 | | coin 1 | \$$1 |
+| Item 2 | \$$5 | | coin 2 | \$$5 |
+| Item 3 | \$$7 | | coin 3 | \$$10 |
 
 **사용 절차**: turn on/reset → item stock 채움(최대 5) → coin 투입해 balance 증가(최대 50) → item 선택 시 stock·balance 감소.
 

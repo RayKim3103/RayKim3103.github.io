@@ -11,7 +11,7 @@ sitemap: false
 {% raw %}
 ## 개요
 
-environment와 **새로 상호작용하지 않고** static dataset $D = \{(s,a,r,s')\}$ 만으로 policy 학습. 목표는 online RL 수준의 return이지만, 새 action을 시도해 결과를 확인할 수 없다. 핵심 어려움: **dataset 밖(OOD) action의 Q가 부정확 → policy가 그걸 악용**.
+environment와 **새로 상호작용하지 않고** static dataset $$D = \{(s,a,r,s')\}$$ 만으로 policy 학습. 목표는 online RL 수준의 return이지만, 새 action을 시도해 결과를 확인할 수 없다. 핵심 어려움: **dataset 밖(OOD) action의 Q가 부정확 → policy가 그걸 악용**.
 
 ## 1. 설정
 
@@ -27,7 +27,7 @@ BC는 관측된 action만 모방하므로 이런 조합 능력이 제한.
 
 ## 3. 왜 어려운가
 
-Q-learning target의 $\max_{a'} Q(s',a')$ — 학습 안 된 OOD action이 우연히 높은 Q를 받으면:
+Q-learning target의 $$\max_{a'} Q(s',a')$$ — 학습 안 된 OOD action이 우연히 높은 Q를 받으면:
 $$
 \text{OOD action} \;\to\; \text{overestimated } Q \;\to\; \text{bad policy}
 $$
@@ -44,9 +44,10 @@ online RL은 그 action을 해보고 reward로 교정 가능하지만 offline은
 
 ### CQL (Conservative Q-Learning)
 $$
-\text{minimize high } Q \text{ on unseen actions} \;+\; \text{fit Bellman target on dataset actions}
+L_Q(\theta) = \underbrace{\frac{1}{N}\sum_i\Big(Q(s_i,a_i) - \big[r_i + \gamma\max_{a'}Q(s'_i,a')\big]\Big)^2}_{\text{표준 TD 오차}}
+\;+\; \alpha\,\underbrace{\frac{1}{N}\sum_i\Big[\log\sum_a e^{Q(s_i,a)} \;-\; Q(s_i,a_i)\Big]}_{\text{regularizer}}
 $$
-dataset 밖 action의 Q를 낮추고 dataset action의 Q를 상대적으로 높여, policy가 OOD 과대평가를 악용하지 못하게.
+logsumexp 항이 **모든** action의 Q를 낮추고 $$-Q(s_i,a_i)$$ 항이 dataset action의 Q만 올린다 → OOD 과대평가 억제. $$\alpha=0$$ 이면 정확히 vanilla DQN.
 
 ## 5. 유용한 경우
 
@@ -59,11 +60,16 @@ dataset 밖 action의 Q를 낮추고 dataset action의 Q를 상대적으로 높�
 - policy가 behavior distribution 밖으로 나가지 않게 제약했는가?
 - OOD action의 Q overestimation을 막는가? offline evaluation을 신뢰할 수 있는가?
 
+## 관련 과제
+
+[과제 5 — Offline RL (CQL)](hw5-offline-rl.md): PointmassMedium에서 CQL(discrete) 구현, random(100K) vs expert(20K) 데이터 비교. 실측 — **expert 데이터 + α=0(=DQN) → return 0 (실패)**, α=0.1 → 0.9+ (성공). random 데이터는 넓은 coverage라 α=0로도 성공. overestimation 곡선이 1.5 → 0.25로 떨어져 정규화 효과를 직접 확인. 결론: conservatism의 필요성은 데이터 coverage에 반비례.
+
 ## 복습 질문
 
 - offline RL이 일반 off-policy RL보다 어려운 이유(OOD action)는?
 - BC 대비 offline RL의 stitching 능력이란?
-- pessimism 계열 접근 네 가지와, CQL이 하는 일은?
+- CQL objective의 두 항이 각각 무엇을 하며, $$\alpha=0$$ 은 어떤 알고리즘인가?
+- 같은 α=0인데 왜 random 데이터에선 되고 expert 데이터에선 실패하나?
 {% endraw %}
 
 ---

@@ -122,7 +122,7 @@ $$
 
 - DTFT 샘플링으로 DFT 도입
 - circular shift, circular convolution, duality, symmetry
-- FFT: DFT 계산량을 $O(N^2)$에서 $O(N\log N)$으로 감소
+- FFT: DFT 계산량을 $$O(N^2)$$에서 $$O(N\log N)$$으로 감소
 - Decimation-in-Time, Decimation-in-Frequency
 
 ### 10. 2차원 DSP
@@ -145,8 +145,8 @@ $$
 
 | 관점 | 시간/공간 영역 | 주파수/z 영역 | 선형대수 영역 |
 |---|---|---|---|
-| 필터링 | $y[n]=x[n]*h[n]$ | $Y=XH$ | $\mathbf{y}=H\mathbf{x}$ |
-| 역문제 | $x$ 복원 | $1/H$ | $H^{-1}$ 또는 LS |
+| 필터링 | $$y[n]=x[n]*h[n]$$ | $$Y=XH$$ | $$\mathbf{y}=H\mathbf{x}$$ |
+| 역문제 | $$x$$ 복원 | $$1/H$$ | $$H^{-1}$$ 또는 LS |
 | 안정성 | impulse response 절대합 | unit circle 포함 ROC | 조건수/특이성 |
 | 계산 | convolution sum | DFT/FFT | 행렬 대각화 |
 

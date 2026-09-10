@@ -25,14 +25,14 @@ tags: [DSP, lecture-note, z-transform, LTI, minimum-phase]
 
 - inverse system
 - ROC와 inverse system의 안정성/인과성
-- $H(z)$와 frequency response
+- $$H(z)$$와 frequency response
 - magnitude와 phase의 관계
 - minimum phase system
 - all-pass system
 
 ## Inverse System
 
-LTI 시스템 $H(z)$에 inverse system $H_i(z)$를 cascade로 연결했을 때 전체 응답이 identity가 되려면
+LTI 시스템 $$H(z)$$에 inverse system $$H_i(z)$$를 cascade로 연결했을 때 전체 응답이 identity가 되려면
 
 $$
 H(z)H_i(z)=1
@@ -58,11 +58,11 @@ $$
 
 inverse system에서도 ROC 선택이 중요하다. convolution theorem을 적용하려면 원 시스템의 ROC와 inverse system의 ROC가 겹쳐야 한다.
 
-또한 같은 $1/H(z)$라도 ROC 선택에 따라 inverse impulse response가 causal/stable/noncausal/unstable로 달라질 수 있다.
+또한 같은 $$1/H(z)$$라도 ROC 선택에 따라 inverse impulse response가 causal/stable/noncausal/unstable로 달라질 수 있다.
 
 ## Zero와 Inverse Pole
 
-$H(z)$의 zero는 $H_i(z)$의 pole이 된다.
+$$H(z)$$의 zero는 $$H_i(z)$$의 pole이 된다.
 
 따라서 원 시스템의 zero가 unit circle 밖에 있으면 causal inverse를 만들 때 inverse pole도 unit circle 밖에 생긴다. 이 경우 causal inverse는 unstable할 수 있다.
 
@@ -79,7 +79,7 @@ $$
 H(e^{j\omega}) = H(z)\big|_{z=e^{j\omega}}
 $$
 
-pole-zero plot에서 unit circle 위의 점 $e^{j\omega}$와 zero/pole 사이의 거리와 각도를 보면 magnitude와 phase를 해석할 수 있다.
+pole-zero plot에서 unit circle 위의 점 $$e^{j\omega}$$와 zero/pole 사이의 거리와 각도를 보면 magnitude와 phase를 해석할 수 있다.
 
 유리 시스템:
 
@@ -154,8 +154,8 @@ $$
 
 ## 체크포인트
 
-- inverse system은 단순히 $1/H(z)$가 아니라 ROC까지 포함해 판단해야 한다.
-- $H(z)$의 zero는 inverse system의 pole이 된다.
+- inverse system은 단순히 $$1/H(z)$$가 아니라 ROC까지 포함해 판단해야 한다.
+- $$H(z)$$의 zero는 inverse system의 pole이 된다.
 - causal stable inverse가 필요하면 zero가 unit circle 안에 있어야 한다.
 - all-pass는 magnitude를 바꾸지 않고 phase만 바꾼다.
 - minimum phase system은 inverse도 stable/causal인 가장 다루기 좋은 시스템이다.

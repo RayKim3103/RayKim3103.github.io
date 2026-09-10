@@ -37,9 +37,9 @@ tags: [DSP, lecture-note, introduction]
 
 예:
 
-- 음성 신호: 시간 $t$ 또는 sample index $n$의 함수
-- 영상: 공간 좌표 $(m,n)$의 함수
-- 동영상: 공간과 시간 $(m,n,t)$의 함수
+- 음성 신호: 시간 $$t$$ 또는 sample index $$n$$의 함수
+- 영상: 공간 좌표 $$(m,n)$$의 함수
+- 동영상: 공간과 시간 $$(m,n,t)$$의 함수
 
 ### System
 

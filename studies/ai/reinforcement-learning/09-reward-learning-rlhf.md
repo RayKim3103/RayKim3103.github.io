@@ -28,11 +28,14 @@ $$
 
 ## 3. Preference Learning
 
-두 trajectory(또는 response) 중 어느 쪽이 더 좋은지 사람에게 묻고, 비교 data로 reward model 학습. **Bradley–Terry**:
+두 trajectory segment(또는 response) 중 어느 쪽이 더 좋은지 사람에게 묻고, 비교 data $$(\tau_A, \tau_B, \mu)$$ 로 reward model 학습 ($$\mu$$ 는 $$\{A,B\}$$ 위 분포: 한쪽 선호면 one-hot, 무승부면 $$(0.5,0.5)$$). segment 보상 합의 softmax = **Bradley–Terry**:
 $$
-P(\tau_A \succ \tau_B) = \frac{\exp(R_\phi(\tau_A))}{\exp(R_\phi(\tau_A)) + \exp(R_\phi(\tau_B))}
+\hat P[\tau_A \succ \tau_B] = \frac{\exp\big(\sum_t \hat r_\phi(s^A_t, a^A_t)\big)}{\exp\big(\sum_t \hat r_\phi(s^A_t, a^A_t)\big) + \exp\big(\sum_t \hat r_\phi(s^B_t, a^B_t)\big)}
 $$
-loss = 사람이 고른 쪽의 확률을 높이는 cross-entropy.
+$$
+L(\hat r) = -\sum_{(\tau_A,\tau_B,\mu)\in D}\Big[\mu(A)\log\hat P[\tau_A\succ\tau_B] + \mu(B)\log\hat P[\tau_B\succ\tau_A]\Big]
+$$
+(사람이 고른 쪽의 확률을 높이는 cross-entropy.) 목표: 선호 궤적을 생성하되 **질의 수 최소화**.
 
 ## 4. RLHF
 
@@ -43,7 +46,10 @@ $$
 2. 여러 output 생성 → 사람이 preference label
 3. preference data로 reward model 학습
 4. policy를 reward model 기준 PPO 등으로 최적화
-5. base policy에서 너무 멀어지지 않게 **KL penalty**
+5. base policy에서 너무 멀어지지 않게 **KL penalty**:
+$$
+\max_\pi\; \mathbb{E}_{a\sim\pi}[\hat r_\phi(s,a)] \;-\; \beta\, D_{\text{KL}}\big(\pi(\cdot\mid s)\,\Vert\, \pi_{\text{SFT}}(\cdot\mid s)\big)
+$$
 
 ## 5. DPO (Direct Preference Optimization)
 
@@ -55,12 +61,17 @@ preference data 편향 / reward model이 학습 data 밖에서 잘못된 점수 
 
 **실전 체크**: reward model을 별도 validation preference로 평가했는가? policy optimization 중 reward score만 오르고 실제 품질은 떨어지지 않는가? KL constraint / early stopping으로 policy drift를 막는가?
 
+## 관련 과제
+
+[과제 7 — RLHF](hw7-rlhf.md): Bradley–Terry 보상 모델 + PPO(과제 2 확장) 구현, Flask GUI로 직접 선호 라벨링. 실측 — PointMaze에서 **합성 선호(≈거리 기반)는 U자 미로 국소 정체**, 사람 선호는 "올바른 통로로 진행하는가" 판단을 줘 목표 도달 성공. Hopper는 5-step마다 사람 피드백으로 손수 만들기 어려운 **백플립** 학습(학습된 보상 기준 return −11 → +15). RLHF가 유용한 조건: 손수 만든 보상이 어렵거나 오해를 부를 때.
+
 ## 복습 질문
 
 - reward 설계가 현실 task에서 어려운 이유와 reward hacking이란?
-- Bradley–Terry preference 모델과 reward model 학습 loss는?
-- RLHF의 절차(SFT → reward model → PPO + KL)와, DPO가 이를 어떻게 단순화하는가?
-- reward learning의 대표적 실패 모드는?
+- Bradley–Terry preference 모델과 reward model 학습 cross-entropy loss를 쓰라 ($$\mu$$ 의 역할 포함).
+- RLHF의 절차(SFT → reward model → PPO + KL penalty)와, DPO가 이를 어떻게 단순화하는가?
+- 합성 선호와 사람 선호가 PointMaze에서 다른 결과를 낸 이유는?
+- reward learning의 대표적 실패 모드는? (학습된 보상으로 잰 return 상승을 성능이라 단정하면 안 되는 이유)
 {% endraw %}
 
 ---

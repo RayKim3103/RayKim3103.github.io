@@ -40,7 +40,7 @@ $$
 - 단점: input data가 반복 저장 → **memory footprint↑**.
 
 ### Multi-channel convolution 차원
-- input: $C \times H \times W$, filter: $M \times C \times R \times S$, output: $M \times E \times F$
+- input: $$C \times H \times W$$, filter: $$M \times C \times R \times S$$, output: $$M \times E \times F$$
 $$
 O[m,e,f] = \sum_{c=0}^{C-1} \sum_{r=0}^{R-1} \sum_{s=0}^{S-1} I[c,\, e+r,\, f+s]\, W[m,c,r,s]
 $$
@@ -81,11 +81,11 @@ continuous/넓은 범위 값을 discrete set으로 제한. 전통 구현은 FP32
 **단점**: 표현 범위 제한, quantization error.
 
 ### FP16 vs Fixed Point
-| FP16 | bit | | Fixed ($p{+}q{+}1$ bit) | bit |
+| FP16 | bit | | Fixed ($$p{+}q{+}1$$ bit) | bit |
 |---|---:|---|---|---:|
 | sign | 1 | | sign | 1 |
-| exponent | 5 | | integer part | $p$ |
-| mantissa | 10 | | fractional part | $q$ |
+| exponent | 5 | | integer part | $$p$$ |
+| mantissa | 10 | | fractional part | $$q$$ |
 
 - FP: 넓은 dynamic range, hardware cost 큼.
 - Fixed: FPGA/ASIC에서 arbitrary bit-width 정하기 쉽고 hardware cost 낮음. (예: −1~1 값은 integer bit 없이 fractional 중심.)
@@ -97,7 +97,7 @@ $$
 $$
 \textbf{Asymmetric (scale + shift): }\quad x_q = \operatorname{round}\big(s \cdot \operatorname{clip}(x, \beta, \alpha) + z\big)
 $$
-$s$ = scaling factor, $\alpha,\beta$ = clipping threshold, $z$ = zero point. symmetric은 zero-point 처리가 단순(MAC hardware 단순). asymmetric은 분포가 0 중심이 아닐 때 bit range를 더 효율적으로.
+$$s$$ = scaling factor, $$\alpha,\beta$$ = clipping threshold, $$z$$ = zero point. symmetric은 zero-point 처리가 단순(MAC hardware 단순). asymmetric은 분포가 0 중심이 아닐 때 bit range를 더 효율적으로.
 
 ### 무엇을 quantize?
 - quantize: matrix multiply, FC, convolution, ReLU, pooling.

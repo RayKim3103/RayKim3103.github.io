@@ -15,7 +15,7 @@ sitemap: false
 
 ## 1. 뉴런과 다층 신경망
 
-로지스틱 회귀는 1층 신경망($\sigma(w^\top x)$). 층을 쌓고 비선형 활성화를 끼우면 표현력이 커진다.
+로지스틱 회귀는 1층 신경망($$\sigma(w^\top x)$$). 층을 쌓고 비선형 활성화를 끼우면 표현력이 커진다.
 
 $$
 h^{(l)} = \phi\!\big(W^{(l)} h^{(l-1)} + b^{(l)}\big),\qquad h^{(0)}=x
@@ -24,9 +24,9 @@ $$
 ### 활성화 함수
 | | 식 | 특징 |
 |---|---|---|
-| sigmoid | $1/(1+e^{-z})$ | 포화 시 gradient 소실 |
-| tanh | $(e^z-e^{-z})/(e^z+e^{-z})$ | 0 중심, 여전히 포화 |
-| **ReLU** | $\max(0,z)$ | 계산 싸고 gradient 소실 완화, "dead ReLU" 주의 |
+| sigmoid | $$1/(1+e^{-z})$$ | 포화 시 gradient 소실 |
+| tanh | $$(e^z-e^{-z})/(e^z+e^{-z})$$ | 0 중심, 여전히 포화 |
+| **ReLU** | $$\max(0,z)$$ | 계산 싸고 gradient 소실 완화, "dead ReLU" 주의 |
 | Leaky/GELU | — | dead 문제 완화 |
 
 비선형이 없으면 층을 쌓아도 하나의 선형변환과 같다.
@@ -52,11 +52,11 @@ $$
 - **weight sharing** — 같은 커널을 전체 위치에 슬라이드 → translation equivariance, 파라미터 급감.
 
 ### 출력 크기
-입력 $W$, 커널 $K$, padding $P$, stride $S$:
+입력 $$W$$, 커널 $$K$$, padding $$P$$, stride $$S$$:
 $$
 W_{\text{out}} = \left\lfloor \frac{W - K + 2P}{S} \right\rfloor + 1
 $$
-채널: 커널은 $C_{\text{in}}\times K\times K$, 출력 채널 수만큼 커널이 있다.
+채널: 커널은 $$C_{\text{in}}\times K\times K$$, 출력 채널 수만큼 커널이 있다.
 
 ### 파라미터 수
 $$
@@ -74,7 +74,7 @@ $$
 $$
 \hat x = \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}},\qquad y = \gamma\,\hat x + \beta
 $$
-$\gamma,\beta$는 채널마다 학습되는 scale/shift.
+$$\gamma,\beta$$는 채널마다 학습되는 scale/shift.
 
 | | 통계 계산 축 | 배치 의존 |
 |---|---|---|
@@ -89,7 +89,7 @@ $\gamma,\beta$는 채널마다 학습되는 scale/shift.
 ## 5. 대표 architecture
 
 - **VGG**: 3×3 conv만 쌓아 단순·규칙적. 파라미터·연산량이 크다(FC층이 무겁다).
-- **ResNet**: **residual block** $y = x + F(x)$. skip connection이 gradient를 직통으로 흘려 **아주 깊은 네트워크**(50/101/152층)를 학습 가능하게 함. 채널/해상도가 바뀌는 지점은 1×1 conv로 shortcut을 맞춘다.
+- **ResNet**: **residual block** $$y = x + F(x)$$. skip connection이 gradient를 직통으로 흘려 **아주 깊은 네트워크**(50/101/152층)를 학습 가능하게 함. 채널/해상도가 바뀌는 지점은 1×1 conv로 shortcut을 맞춘다.
   - "identity를 배우기 쉽게" 만들어 degradation 문제(깊을수록 train 성능도 나빠지던 현상)를 해결.
 
 → 실제 파라미터 계산·학습 설정은 [27. ResNet (project)](27-resnet-project.md).
@@ -99,11 +99,11 @@ $\gamma,\beta$는 채널마다 학습되는 scale/shift.
 - 활성화 없이 층만 쌓으면 = 선형 모델. 비선형이 표현력의 원천.
 - conv 출력 크기 공식에서 stride·padding·dilation을 빠뜨리기 쉽다.
 - BatchNorm을 `eval()`로 안 바꾸면 추론이 배치 구성에 따라 흔들린다.
-- residual은 "정보를 더한다"가 아니라 "잔차 $F(x)$만 학습하게 해 최적화를 쉽게" 하는 것.
+- residual은 "정보를 더한다"가 아니라 "잔차 $$F(x)$$만 학습하게 해 최적화를 쉽게" 하는 것.
 
 ## 복습 질문
 
-- 역전파에서 $\delta^{(l)}$의 재귀식을 유도하고, forward 중간값을 왜 저장하는지 설명하라.
+- 역전파에서 $$\delta^{(l)}$$의 재귀식을 유도하고, forward 중간값을 왜 저장하는지 설명하라.
 - CNN의 두 inductive bias와 그 효과(파라미터 수, equivariance)는?
 - BatchNorm의 train/eval 동작 차이와 running statistics의 역할은?
 - ResNet의 residual connection이 해결한 문제와 그 메커니즘은?

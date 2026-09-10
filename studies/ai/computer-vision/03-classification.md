@@ -20,7 +20,7 @@ $$
 \hat y = w^\top x + b, \qquad
 L(w) = \tfrac{1}{N}\lVert Xw - y \rVert_2^2
 $$
-닫힌 해 $w=(X^\top X)^{-1}X^\top y$, 또는 경사하강.
+닫힌 해 $$w=(X^\top X)^{-1}X^\top y$$, 또는 경사하강.
 
 ### Logistic regression (이진 분류)
 $$
@@ -36,13 +36,13 @@ $$
 p_k = \frac{e^{s_k}}{\sum_j e^{s_j}},\quad s = Wx+b,\qquad
 L = -\frac{1}{N}\sum_i \log p_{i,\,y_i}
 $$
-cross-entropy는 예측 분포 $p$와 정답 원-핫 $q$의 KL divergence를 최소화하는 것과 같다.
+cross-entropy는 예측 분포 $$p$$와 정답 원-핫 $$q$$의 KL divergence를 최소화하는 것과 같다.
 
 ### 경사하강 (SGD)
 $$
 \theta \leftarrow \theta - \eta\,\nabla_\theta L_{\text{minibatch}}
 $$
-learning rate $\eta$, 미니배치 크기, epoch 수가 핵심 하이퍼파라미터.
+learning rate $$\eta$$, 미니배치 크기, epoch 수가 핵심 하이퍼파라미터.
 
 ## 2. 일반화와 정규화
 
@@ -59,10 +59,10 @@ $$
 ### Regularization
 | 방법 | 목적함수 | 효과 |
 |---|---|---|
-| **L2 (ridge)** | $\lVert y - Hw\rVert^2 + \lambda\lVert w\rVert_2^2$ | 큰 계수에 penalty, weight를 **부드럽게** 축소(0으로는 잘 안 감) |
-| **L1 (lasso)** | $\lVert y - Hw\rVert^2 + \lambda\lVert w\rVert_1$ | 일부 weight를 **정확히 0** → feature selection |
+| **L2 (ridge)** | $$\lVert y - Hw\rVert^2 + \lambda\lVert w\rVert_2^2$$ | 큰 계수에 penalty, weight를 **부드럽게** 축소(0으로는 잘 안 감) |
+| **L1 (lasso)** | $$\lVert y - Hw\rVert^2 + \lambda\lVert w\rVert_1$$ | 일부 weight를 **정확히 0** → feature selection |
 
-- $\lambda$↑ → variance↓, bias↑. $\lambda$는 validation으로 고른다.
+- $$\lambda$$↑ → variance↓, bias↑. $$\lambda$$는 validation으로 고른다.
 - regularization은 표현력을 없애는 게 아니라, 적은 데이터에서 불필요하게 큰 weight·불안정한 결정경계가 생기는 것을 막는 장치.
 - 딥러닝에서는 **weight decay(=L2), dropout, data augmentation, early stopping**이 같은 역할.
 - 데이터를 더 모으는 것이 가장 직접적인 해법이지만 항상 불가능.
@@ -101,7 +101,7 @@ $$
 ## 복습 질문
 
 - logistic regression의 손실이 왜 MSE가 아니라 cross-entropy인가?
-- $\lambda$를 키우면 bias/variance는 각각 어떻게 되는가? L1과 L2의 결과 차이는?
+- $$\lambda$$를 키우면 bias/variance는 각각 어떻게 되는가? L1과 L2의 결과 차이는?
 - 양성 클래스가 1%인 데이터에서 accuracy 대신 무엇을 봐야 하며 왜인가?
 - cross-entropy와 KL divergence의 관계를 설명하라.
 

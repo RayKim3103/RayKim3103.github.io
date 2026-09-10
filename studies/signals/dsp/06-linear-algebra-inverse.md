@@ -31,9 +31,9 @@ $$
 \mathbf{y}=H\mathbf{x}
 $$
 
-- $\mathbf{x}$: 입력 또는 원 신호
-- $H$: 시스템, 필터, 관측 행렬
-- $\mathbf{y}$: 출력 또는 관측 신호
+- $$\mathbf{x}$$: 입력 또는 원 신호
+- $$H$$: 시스템, 필터, 관측 행렬
+- $$\mathbf{y}$$: 출력 또는 관측 신호
 
 잡음이 있으면:
 
@@ -43,7 +43,7 @@ $$
 
 ## Direct Inverse
 
-$H$가 정방행렬이고 nonsingular이면
+$$H$$가 정방행렬이고 nonsingular이면
 
 $$
 \mathbf{x}=H^{-1}\mathbf{y}
@@ -53,10 +53,10 @@ $$
 
 하지만 실제 DSP에서는 direct inverse가 잘 되지 않는 경우가 많다.
 
-1. $H$가 정방행렬이 아닐 수 있다.
-2. $H$가 singular일 수 있다.
-3. $H$가 거의 singular라 noise가 크게 증폭될 수 있다.
-4. 관측 $\mathbf{y}$가 noise를 포함한다.
+1. $$H$$가 정방행렬이 아닐 수 있다.
+2. $$H$$가 singular일 수 있다.
+3. $$H$$가 거의 singular라 noise가 크게 증폭될 수 있다.
+4. 관측 $$\mathbf{y}$$가 noise를 포함한다.
 
 ## Overdetermined Case
 
@@ -66,7 +66,7 @@ $$
 H \in \mathbb{R}^{m\times n}, \quad m>n
 $$
 
-일반적으로 모든 방정식을 정확히 만족하는 $\mathbf{x}$가 없을 수 있다. 이때 residual을 최소화한다.
+일반적으로 모든 방정식을 정확히 만족하는 $$\mathbf{x}$$가 없을 수 있다. 이때 residual을 최소화한다.
 
 $$
 \hat{\mathbf{x}} = \arg\min_{\mathbf{x}}\|\mathbf{y}-H\mathbf{x}\|_2^2
@@ -108,11 +108,11 @@ $$
 +\lambda R(\mathbf{x})
 $$
 
-여기서 $R(\mathbf{x})$는 smoothness, sparsity 같은 prior를 반영한다.
+여기서 $$R(\mathbf{x})$$는 smoothness, sparsity 같은 prior를 반영한다.
 
 ## Ill-Posed/Singular Case
 
-$H$가 singular 또는 ill-conditioned이면 작은 noise가 복원 결과에서 크게 증폭된다.
+$$H$$가 singular 또는 ill-conditioned이면 작은 noise가 복원 결과에서 크게 증폭된다.
 
 예:
 
@@ -126,29 +126,29 @@ $$
 \hat{X}(e^{j\omega})=\frac{Y(e^{j\omega})}{H(e^{j\omega})}
 $$
 
-만약 $|H(e^{j\omega})|$가 매우 작으면 noise term도 크게 증폭된다.
+만약 $$|H(e^{j\omega})|$$가 매우 작으면 noise term도 크게 증폭된다.
 
 ## DSP 문제 유형
 
 | 주어진 것 | 구할 것 | 문제 이름 |
 |---|---|---|
-| $x$, $T\{\cdot\}$ | $y$ | filtering |
-| $x$, $y$ | $T\{\cdot\}$ | filter design/system identification |
-| $y$, $T\{\cdot\}$ | $x$ | inverse filtering/deconvolution |
-| $y$만 주어짐 | $x$, $T\{\cdot\}$ | blind deconvolution |
+| $$x$$, $$T\{\cdot\}$$ | $$y$$ | filtering |
+| $$x$$, $$y$$ | $$T\{\cdot\}$$ | filter design/system identification |
+| $$y$$, $$T\{\cdot\}$$ | $$x$$ | inverse filtering/deconvolution |
+| $$y$$만 주어짐 | $$x$$, $$T\{\cdot\}$$ | blind deconvolution |
 
 ## Norm
 
 ### Vector Norm
 
-대표적인 $p$-norm:
+대표적인 $$p$$-norm:
 
 $$
 \|\mathbf{x}\|_p =
 \left(\sum_i |x_i|^p\right)^{1/p}
 $$
 
-특히 least squares에서는 $L_2$ norm이 중요하다.
+특히 least squares에서는 $$L_2$$ norm이 중요하다.
 
 $$
 \|\mathbf{x}\|_2^2 = \sum_i |x_i|^2

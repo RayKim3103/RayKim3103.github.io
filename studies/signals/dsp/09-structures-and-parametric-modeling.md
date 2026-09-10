@@ -97,7 +97,7 @@ $$
 
 ## Direct Form I
 
-분자 $B(z)$와 분모 $A(z)$를 각각 별도 delay line으로 구현한다.
+분자 $$B(z)$$와 분모 $$A(z)$$를 각각 별도 delay line으로 구현한다.
 
 장점:
 
@@ -171,7 +171,7 @@ $$
 e[n]=x[n]-\hat{x}[n]
 $$
 
-목표는 error energy를 최소화하는 $a_k$를 찾는 것이다.
+목표는 error energy를 최소화하는 $$a_k$$를 찾는 것이다.
 
 ## Orthogonality Principle
 
@@ -233,9 +233,9 @@ long division을 사용하면 zero 하나도 무한 개의 pole을 가진 all-po
 
 ARMA는 pole과 zero를 모두 추정해야 하므로 AR보다 복잡하다. 전형적인 접근:
 
-1. 먼저 AR 부분 $A(z)$를 추정한다.
-2. $B(z)/A(z)$ 형태를 이용해 impulse response 또는 보조 수열을 계산한다.
-3. 남은 MA 계수 $b_k$를 least squares로 추정한다.
+1. 먼저 AR 부분 $$A(z)$$를 추정한다.
+2. $$B(z)/A(z)$$ 형태를 이용해 impulse response 또는 보조 수열을 계산한다.
+3. 남은 MA 계수 $$b_k$$를 least squares로 추정한다.
 
 ## 체크포인트
 

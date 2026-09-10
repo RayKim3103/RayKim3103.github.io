@@ -73,17 +73,17 @@ $$
 x[n] = Ae^{j\omega_0 n}
 $$
 
-이산시간 복소지수는 LTI 시스템의 eigenfunction이다. 즉 입력이 $e^{j\omega n}$이면 출력도 같은 주파수의 복소지수이고, 크기와 위상만 바뀐다.
+이산시간 복소지수는 LTI 시스템의 eigenfunction이다. 즉 입력이 $$e^{j\omega n}$$이면 출력도 같은 주파수의 복소지수이고, 크기와 위상만 바뀐다.
 
 ## Discrete-Time System의 성질
 
 ### Memory
 
-출력 $y[n]$이 같은 시점의 입력 $x[n]$에만 의존하면 memoryless이다. 과거/미래 입력에 의존하면 memory가 있다.
+출력 $$y[n]$$이 같은 시점의 입력 $$x[n]$$에만 의존하면 memoryless이다. 과거/미래 입력에 의존하면 memory가 있다.
 
 ### Linearity
 
-시스템 $T$가 선형이면 다음을 만족한다.
+시스템 $$T$$가 선형이면 다음을 만족한다.
 
 $$
 T\{a x_1[n] + b x_2[n]\}
@@ -92,7 +92,7 @@ $$
 
 ### Time Invariance
 
-입력을 $n_0$만큼 지연하면 출력도 동일하게 지연되어야 한다.
+입력을 $$n_0$$만큼 지연하면 출력도 동일하게 지연되어야 한다.
 
 $$
 x[n] \rightarrow y[n]
@@ -102,7 +102,7 @@ $$
 
 ### Causality
 
-출력 $y[n]$이 현재와 과거 입력에만 의존하면 causal이다.
+출력 $$y[n]$$이 현재와 과거 입력에만 의존하면 causal이다.
 
 ### Stability
 
@@ -116,7 +116,7 @@ $$
 
 ## LTI System과 Convolution
 
-LTI 시스템은 impulse response $h[n]$으로 완전히 결정된다.
+LTI 시스템은 impulse response $$h[n]$$으로 완전히 결정된다.
 
 $$
 y[n] = \sum_{k=-\infty}^{\infty} x[k]h[n-k]
@@ -125,14 +125,14 @@ $$
 
 ### Convolution 계산 절차
 
-1. $h[k]$를 원점 기준으로 뒤집어 $h[-k]$를 만든다.
-2. $n$만큼 이동시켜 $h[n-k]$를 만든다.
-3. $x[k]h[n-k]$를 곱한다.
-4. 모든 $k$에 대해 합산한다.
+1. $$h[k]$$를 원점 기준으로 뒤집어 $$h[-k]$$를 만든다.
+2. $$n$$만큼 이동시켜 $$h[n-k]$$를 만든다.
+3. $$x[k]h[n-k]$$를 곱한다.
+4. 모든 $$k$$에 대해 합산한다.
 
 ### LTI 안정성과 인과성
 
-- causal LTI: $h[n]=0$ for $n<0$
+- causal LTI: $$h[n]=0$$ for $$n<0$$
 - BIBO stable LTI:
 
 $$
@@ -165,7 +165,7 @@ $$
 
 ## DTFS
 
-주기 $N$인 이산시간 신호는 discrete-time Fourier series로 표현된다.
+주기 $$N$$인 이산시간 신호는 discrete-time Fourier series로 표현된다.
 
 합성식:
 
@@ -193,18 +193,18 @@ $$
 x[n] = \frac{1}{2\pi}\int_{-\pi}^{\pi}X(e^{j\omega})e^{j\omega n}d\omega
 $$
 
-DTFT는 $\omega$에 대해 $2\pi$ 주기이다.
+DTFT는 $$\omega$$에 대해 $$2\pi$$ 주기이다.
 
 ## DTFT 성질
 
 | 성질 | 시간 영역 | 주파수 영역 |
 |---|---|---|
-| 선형성 | $ax_1[n]+bx_2[n]$ | $aX_1+bX_2$ |
-| convolution | $x[n]*h[n]$ | $X(e^{j\omega})H(e^{j\omega})$ |
-| 시간 이동 | $x[n-n_0]$ | $e^{-j\omega n_0}X(e^{j\omega})$ |
-| 변조 | $e^{j\omega_0n}x[n]$ | $X(e^{j(\omega-\omega_0)})$ |
-| 시간 반전 | $x[-n]$ | $X(e^{-j\omega})$ |
-| Parseval | $\sum|x[n]|^2$ | $\frac1{2\pi}\int |X|^2d\omega$ |
+| 선형성 | $$ax_1[n]+bx_2[n]$$ | $$aX_1+bX_2$$ |
+| convolution | $$x[n]*h[n]$$ | $$X(e^{j\omega})H(e^{j\omega})$$ |
+| 시간 이동 | $$x[n-n_0]$$ | $$e^{-j\omega n_0}X(e^{j\omega})$$ |
+| 변조 | $$e^{j\omega_0n}x[n]$$ | $$X(e^{j(\omega-\omega_0)})$$ |
+| 시간 반전 | $$x[-n]$$ | $$X(e^{-j\omega})$$ |
+| Parseval | $$\sum|x[n]|^2$$ | $$\frac1{2\pi}\int |X|^2d\omega$$ |
 
 ## Frequency Selective Filter
 
@@ -222,7 +222,7 @@ $$
 
 ## Sampling과 Reconstruction
 
-연속시간 신호 $x_c(t)$를 주기 $T$로 샘플링하면
+연속시간 신호 $$x_c(t)$$를 주기 $$T$$로 샘플링하면
 
 $$
 x[n] = x_c(nT)
@@ -240,7 +240,7 @@ $$
 \Omega_s > 2\Omega_N
 $$
 
-여기서 $\Omega_N$은 원 신호의 최고 주파수이다. 조건을 만족하지 않으면 spectrum replica가 겹쳐 aliasing이 발생한다.
+여기서 $$\Omega_N$$은 원 신호의 최고 주파수이다. 조건을 만족하지 않으면 spectrum replica가 겹쳐 aliasing이 발생한다.
 
 ## 재구성
 
@@ -254,7 +254,7 @@ $$
 
 - LTI 시스템은 impulse response와 convolution으로 완전히 기술된다.
 - convolution은 주파수 영역에서 곱셈이므로 필터 해석의 핵심 도구이다.
-- DTFT는 연속 주파수 함수이고 $2\pi$ 주기이다.
+- DTFT는 연속 주파수 함수이고 $$2\pi$$ 주기이다.
 - 샘플링은 주파수 영역에서 spectrum replica를 만들며, replica가 겹치면 aliasing이다.
 - 이후 강의의 z-transform, DFT, Wiener filter는 모두 이 복습 내용을 기반으로 한다.
 

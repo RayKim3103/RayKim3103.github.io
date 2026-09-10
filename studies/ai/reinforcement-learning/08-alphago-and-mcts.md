@@ -11,7 +11,7 @@ sitemap: false
 {% raw %}
 ## 개요
 
-바둑은 state space $\sim 10^{170}$, action space $19\times19$, reward는 승패 중심(sparse). **MCTS**로 탐색 폭·깊이를 줄이고, **policy network**로 탐색 폭을, **value network**로 rollout 평가를 개선한다.
+바둑은 state space $$\sim 10^{170}$$, action space $$19\times19$$, reward는 승패 중심(sparse). **MCTS**로 탐색 폭·깊이를 줄이고, **policy network**로 탐색 폭을, **value network**로 rollout 평가를 개선한다.
 
 ## 1. 바둑의 어려움
 
@@ -21,18 +21,18 @@ sitemap: false
 
 | 단계 | 설명 |
 |---|---|
-| **Selection** | tree 안에서 promising action을 따라 내려감 (exploitation ↔ exploration 균형, 보통 UCT/PUCT) |
+| **Selection** | tree 안에서 promising action을 따라 내려감 (exploitation ↔ exploration 균형) |
 | **Expansion** | 미방문 node 추가 |
 | **Simulation** | 끝까지 rollout 또는 value로 평가 |
 | **Backup** | win rate/value를 부모 node로 전파 |
 
-충분히 반복 후 **visit count가 큰 action** 선택.
+Selection 규칙 — **UCT**: $$a = \arg\max_a \big[ \bar Q(s,a) + c\sqrt{\tfrac{\ln N(s)}{N(s,a)}} \big]$$. AlphaGo의 **PUCT**는 policy prior $$P(s,a)$$ 로 가중: $$a = \arg\max_a \big[ \bar Q(s,a) + c\,P(s,a)\tfrac{\sqrt{N(s)}}{1+N(s,a)} \big]$$. 충분히 반복 후 **visit count $$N(s,a)$$ 가 큰 action** 선택.
 
 ## 3. AlphaGo 구성
 
-- **SL policy network**: human expert move 예측 $p(a\mid s)$
+- **SL policy network**: human expert move 예측 $$p(a\mid s)$$
 - **RL policy network**: self-play로 policy 개선
-- **value network**: $V(s) \approx P(\text{win}\mid s)$
+- **value network**: $$V(s) \approx P(\text{win}\mid s)$$
 
 MCTS는 policy prior가 높은 action에 탐색 budget을 더 주고(큰 action space 대응), value network로 leaf를 빠르게 평가(느리고 noisy한 random rollout 완화).
 

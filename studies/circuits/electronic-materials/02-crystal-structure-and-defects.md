@@ -21,11 +21,11 @@ crystal structure = lattice + basis → unit cell
 
 ## 1. 열적으로 활성화된 과정
 
-한 안정 상태 → 다른 안정 상태로 가려면 에너지 장벽 $E_A$를 넘어야 한다. 원자 확산, 불순물 이동, vacancy 이동이 대표적:
+한 안정 상태 → 다른 안정 상태로 가려면 에너지 장벽 $$E_A$$를 넘어야 한다. 원자 확산, 불순물 이동, vacancy 이동이 대표적:
 $$
 \text{rate} \propto \nu_0\, e^{-E_A/kT}
 $$
-온도 ↑ → $E_A$ 넘는 입자 비율 급증 → 확산·반응 속도 ↑.
+온도 ↑ → $$E_A$$ 넘는 입자 비율 급증 → 확산·반응 속도 ↑.
 
 ## 2. Lattice · Basis · Unit Cell
 
@@ -36,7 +36,7 @@ $$
 | **crystal structure** | lattice + basis |
 | **unit cell** | 반복으로 전체 결정을 만드는 최소 셀 |
 
-격자 상수: 변 길이 $a, b, c$ + 각도 $\alpha, \beta, \gamma$ → 7개 결정계.
+격자 상수: 변 길이 $$a, b, c$$ + 각도 $$\alpha, \beta, \gamma$$ → 7개 결정계.
 
 ## 3. 대표 결정 구조
 
@@ -50,14 +50,14 @@ $$
 | **NaCl (rock salt)** | 상호 침투 두 FCC 이온 격자 | — / 6 | NaCl, MgO |
 | **CsCl** | 한 이온 중심, 반대 이온 모서리 | — / 8 | CsCl |
 
-**배위수** = 최근접 이웃 수. 이온 결정에서는 **반지름 비 $r_+/r_-$**가 가능한 배위수·구조를 제한 (radius ratio rule).
+**배위수** = 최근접 이웃 수. 이온 결정에서는 **반지름 비 $$r_+/r_-$$**가 가능한 배위수·구조를 제한 (radius ratio rule).
 
 ## 4. Miller Index
 
 ### 방향 [uvw]
 1. 축 x, y, z에 대한 방향 벡터 성분
 2. 분수 → 최소 정수비로 배수화
-3. 음수는 bar 표기 ($\bar{1}$)
+3. 음수는 bar 표기 ($$\bar{1}$$)
 4. 대괄호 `[uvw]`; 등가 방향 집합 `<uvw>` (예: cubic의 `<111>`)
 
 ### 면 (hkl)
@@ -82,7 +82,7 @@ $$
 
 | 결함 | 설명 |
 |---|---|
-| **Vacancy** | 빈 격자점 (표면 원자가 이동). 농도 $\propto e^{-E_v/kT}$ — 온도 민감 |
+| **Vacancy** | 빈 격자점 (표면 원자가 이동). 농도 $$\propto e^{-E_v/kT}$$ — 온도 민감 |
 | **Substitutional impurity** | 불순물이 host 자리 대체 |
 | **Interstitial impurity** | 불순물이 host 원자 사이 빈 공간 |
 | **Schottky defect** | 이온 결정에서 이온이 표면으로 이동 → vacancy (전하 중성 유지 위해 양·음이온 쌍) |

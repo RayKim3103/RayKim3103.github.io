@@ -30,17 +30,17 @@ special: Zener, varicap, PIN, LED, tunnel diode (NDR)
 
 ## 2. Ideal Diode Operation
 
-### 평형 ($V_A = 0$)
-$V_{bi}$와 depletion region 존재, 그러나 $E_F$ 같음 → **net current 0**, diffusion = drift 균형.
+### 평형 ($$V_A = 0$$)
+$$V_{bi}$$와 depletion region 존재, 그러나 $$E_F$$ 같음 → **net current 0**, diffusion = drift 균형.
 
-### Forward bias ($V_A = V_f > 0$)
+### Forward bias ($$V_A = V_f > 0$$)
 $$
 \text{barrier energy} = e(V_{bi} - V_f)
 $$
 - depletion width ↓
 - majority carrier가 junction 넘어 상대 영역으로 **주입** → 반대쪽 quasi-neutral region에서 minority carrier가 되어 확산하며 recombination으로 감소
 
-### Reverse bias ($V_A = V_r < 0$)
+### Reverse bias ($$V_A = V_r < 0$$)
 $$
 \text{barrier energy} = e(V_{bi} + |V_r|)
 $$
@@ -53,16 +53,16 @@ $$
 $$
 I = I_0\left[\exp\!\left(\frac{V_A}{V_{ref}}\right) - 1\right]
 $$
-- $I_0$ = reverse saturation current
-- $V_{ref}$ = thermal voltage(또는 ideality factor 포함 $nV_T$)
-- forward: 지수적 증가; reverse: $\to -I_0$
+- $$I_0$$ = reverse saturation current
+- $$V_{ref}$$ = thermal voltage(또는 ideality factor 포함 $$nV_T$$)
+- forward: 지수적 증가; reverse: $$\to -I_0$$
 
-이상적 Shockley: $\;I_0 = qA\left(\dfrac{D_p p_{n0}}{L_p} + \dfrac{D_n n_{p0}}{L_n}\right)$, $\;L = \sqrt{D\tau}$ (diffusion length).
+이상적 Shockley: $$\;I_0 = qA\left(\dfrac{D_p p_{n0}}{L_p} + \dfrac{D_n n_{p0}}{L_n}\right)$$, $$\;L = \sqrt{D\tau}$$ (diffusion length).
 
 ## 4. Junction Voltage Drop / Current Density
 
-- 인가 전압 $V_A$는 대부분 depletion region에 걸린다고 근사 (quasi-neutral region은 중성이라 전위 변화 작음)
-- forward bias: junction barrier = $V_{bi} - V_A$
+- 인가 전압 $$V_A$$는 대부분 depletion region에 걸린다고 근사 (quasi-neutral region은 중성이라 전위 변화 작음)
+- forward bias: junction barrier = $$V_{bi} - V_A$$
 - forward-biased diode 내부 전류 = electron current + hole current. 위치에 따라 비율이 달라도 **total current density는 일정** (연속).
 - depletion을 지난 minority carrier는 quasi-neutral region에서 확산하며 recombination.
 
@@ -81,13 +81,13 @@ $$
 | **Tunnel diode** | tunneling + negative differential resistance | 고속 스위칭, 고주파 |
 
 ### Zener diode
-heavily doped PN junction → reverse bias에서 breakdown voltage $V_{BR}$ 도달 시 전류 흐름. 일정 reverse voltage 유지 → voltage regulator. 높은 field 견딤 → ESD 보호. (낮은 $V_{BR}$은 Zener 터널링, 높은 $V_{BR}$은 avalanche.)
+heavily doped PN junction → reverse bias에서 breakdown voltage $$V_{BR}$$ 도달 시 전류 흐름. 일정 reverse voltage 유지 → voltage regulator. 높은 field 견딤 → ESD 보호. (낮은 $$V_{BR}$$은 Zener 터널링, 높은 $$V_{BR}$$은 avalanche.)
 
 ### Varicap diode
 $$
 V_R \uparrow \;\Rightarrow\; W_d \uparrow \;\Rightarrow\; C_d = \frac{\varepsilon_s A}{W_d} \downarrow
 $$
-N⁻ layer를 capacitance control layer로 넣어 전압–capacitance 곡선 설계. $C_j(V_R) = C_{j0}/(1 + V_R/V_{bi})^m$.
+N⁻ layer를 capacitance control layer로 넣어 전압–capacitance 곡선 설계. $$C_j(V_R) = C_{j0}/(1 + V_R/V_{bi})^m$$.
 
 ### PIN diode
 p–**intrinsic**–n. intrinsic layer가 reverse bias에서 넓은 depletion/absorption 영역 제공. forward: 낮은 RF resistance / reverse: 높은 resistance + 낮은 capacitance. photodiode에서는 intrinsic layer가 photo-absorption layer.
@@ -106,8 +106,8 @@ p·n 모두 **degenerate** doping → depletion region 매우 얇음 → tunneli
 
 **Negative Differential Resistance (NDR)**:
 1. 작은 forward bias: n-region CB 전자 상태와 p-region VB 빈 상태가 에너지상 잘 맞음 → direct tunneling current ↑
-2. 특정 bias에서 overlap 최대 → **peak current $I_P$**
-3. bias ↑ → overlap 감소 → tunneling current ↓ → **전압 ↑ 인데 전류 ↓ (NDR)**, valley current $I_V$
+2. 특정 bias에서 overlap 최대 → **peak current $$I_P$$**
+3. bias ↑ → overlap 감소 → tunneling current ↓ → **전압 ↑ 인데 전류 ↓ (NDR)**, valley current $$I_V$$
 4. 더 큰 forward bias → 일반 PN diode injection current 지배 → 전류 다시 ↑
 
 ## 6. PN diode vs Schottky diode

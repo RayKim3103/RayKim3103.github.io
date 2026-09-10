@@ -16,7 +16,7 @@ sitemap: false
 ## 1. 영상 형성 (image formation)
 
 ### Pinhole camera
-3D 점 $X=(X,Y,Z)$이 초점거리 $f$인 바늘구멍을 지나 상 평면에 맺힌다.
+3D 점 $$X=(X,Y,Z)$$이 초점거리 $$f$$인 바늘구멍을 지나 상 평면에 맺힌다.
 
 $$
 x = f\frac{X}{Z}, \qquad y = f\frac{Y}{Z}
@@ -31,27 +31,27 @@ s\begin{bmatrix}u\\v\\1\end{bmatrix}
 K=\begin{bmatrix}f_x & s & c_x\\ 0 & f_y & c_y\\ 0 & 0 & 1\end{bmatrix}
 $$
 
-$K$ = intrinsic matrix(초점거리 픽셀 단위 $f_x,f_y$, 주점 $c_x,c_y$), $[R\mid t]$ = extrinsic(카메라 자세). → 자세한 내용은 [12. Camera Calibration](12-camera-calibration.md).
+$$K$$ = intrinsic matrix(초점거리 픽셀 단위 $$f_x,f_y$$, 주점 $$c_x,c_y$$), $$[R\mid t]$$ = extrinsic(카메라 자세). → 자세한 내용은 [12. Camera Calibration](12-camera-calibration.md).
 
 ### 색 (color)
 사람 눈의 원추세포는 L/M/S 3종이므로 색은 3차원으로 근사된다. 디지털 카메라는 RGB Bayer filter로 이를 흉내낸다. 색공간(RGB, HSV, Lab)은 목적에 따라 선택한다.
 
 ## 2. 이미지 표현
 
-- grayscale 이미지 = 2D 배열 $I[y,x]\in[0,255]$ 또는 정규화하면 $[0,1]$.
-- 컬러 = 3D tensor $I[y,x,c]$, $c\in\{R,G,B\}$.
+- grayscale 이미지 = 2D 배열 $$I[y,x]\in[0,255]$$ 또는 정규화하면 $$[0,1]$$.
+- 컬러 = 3D tensor $$I[y,x,c]$$, $$c\in\{R,G,B\}$$.
 - 학습에서는 float, 0~1(또는 평균 0 정규화)로 유지하는 것이 안전하다.
 
 ## 3. 선형 filtering과 convolution
 
-출력 픽셀 = 커널 $k$로 가중한 이웃 픽셀의 합.
+출력 픽셀 = 커널 $$k$$로 가중한 이웃 픽셀의 합.
 
 $$
 (I * k)[y,x] = \sum_{i}\sum_{j} I[y-i,\,x-j]\,k[i,j]
 $$
 
-- **평균/박스 필터, Gaussian 필터** → blur(저역통과). Gaussian은 $k(i,j)\propto e^{-(i^2+j^2)/2\sigma^2}$.
-- **separable**: 2D Gaussian = (1D 수평) ∘ (1D 수직). $O(N^2 K^2)\to O(N^2 K)$ 로 연산량 감소.
+- **평균/박스 필터, Gaussian 필터** → blur(저역통과). Gaussian은 $$k(i,j)\propto e^{-(i^2+j^2)/2\sigma^2}$$.
+- **separable**: 2D Gaussian = (1D 수평) ∘ (1D 수직). $$O(N^2 K^2)\to O(N^2 K)$$ 로 연산량 감소.
 - **미분 필터**(Sobel 등) → gradient(고역통과).
 - correlation vs convolution: convolution은 커널을 뒤집는다. 대칭 커널(Gaussian)에서는 결과가 같다.
 - 경계 처리: zero-pad / reflect / replicate — 선택에 따라 가장자리 artifact가 달라진다.
@@ -59,7 +59,7 @@ $$
 ## 4. Edge detection — Canny
 
 1. **Gaussian smoothing** — 노이즈 억제(미분은 노이즈를 증폭하므로 필수).
-2. **gradient 계산** — 크기 $\lvert\nabla I\rvert=\sqrt{I_x^2+I_y^2}$, 방향 $\theta=\operatorname{atan2}(I_y,I_x)$.
+2. **gradient 계산** — 크기 $$\lvert\nabla I\rvert=\sqrt{I_x^2+I_y^2}$$, 방향 $$\theta=\operatorname{atan2}(I_y,I_x)$$.
 3. **non-maximum suppression (NMS)** — gradient 방향으로 국소 최대만 남겨 edge를 1픽셀 폭으로.
 4. **hysteresis thresholding** — 높은 임계값 이상은 확정 edge, 낮은 임계값 이상이면서 확정 edge에 연결된 것만 유지 → 끊김 없이 잡음 억제.
 
@@ -74,7 +74,7 @@ $$
 
 ## 6. Sampling과 Aliasing
 
-연속 신호를 격자에 sampling할 때, sampling 주파수가 낮으면 **서로 다른 연속 신호가 같은 샘플로 보인다**(aliasing). 이산 sinusoid는 $[-\pi,\pi]$ 범위의 주파수만 표현할 수 있어, 그 밖의 고주파는 낮은 주파수로 "접혀" 들어온다.
+연속 신호를 격자에 sampling할 때, sampling 주파수가 낮으면 **서로 다른 연속 신호가 같은 샘플로 보인다**(aliasing). 이산 sinusoid는 $$[-\pi,\pi]$$ 범위의 주파수만 표현할 수 있어, 그 밖의 고주파는 낮은 주파수로 "접혀" 들어온다.
 
 $$
 \textbf{Nyquist–Shannon: } \quad F_s > 2 F_{\max}
@@ -90,8 +90,8 @@ $$
 
 ## 7. Gaussian / Laplacian pyramid
 
-- **Gaussian pyramid**: $G_0 = I$, $G_{i+1} = \text{downsample}(G_i * g)$ — 해상도를 1/2씩 낮춘 **scale-space**. 크기가 다른 물체/특징을 같은 커널로 처리 가능.
-- **Laplacian pyramid**: $L_i = G_i - \text{upsample}(G_{i+1})$ — 각 레벨의 **고주파 residual**. 다시 위로 더하면 원본 복원 가능.
+- **Gaussian pyramid**: $$G_0 = I$$, $$G_{i+1} = \text{downsample}(G_i * g)$$ — 해상도를 1/2씩 낮춘 **scale-space**. 크기가 다른 물체/특징을 같은 커널로 처리 가능.
+- **Laplacian pyramid**: $$L_i = G_i - \text{upsample}(G_{i+1})$$ — 각 레벨의 **고주파 residual**. 다시 위로 더하면 원본 복원 가능.
 - **upsampling / interpolation**: 빈 격자값을 이웃으로 추정(nearest / bilinear / bicubic). upsample만으로는 잃은 detail을 되살릴 수 없다(그래서 Laplacian residual이나 학습 기반 super-resolution이 필요).
 
 → 구현은 [25. Gaussian Pyramid (project)](25-gaussian-pyramid-project.md).
@@ -101,7 +101,7 @@ $$
 - "subsampling"과 "downsampling"을 혼용하지만, 올바른 downsampling에는 **anti-aliasing 필터**가 포함되어야 한다.
 - convolution은 커널을 뒤집는다 — 비대칭 커널(미분)에서는 correlation과 부호가 달라진다.
 - 미분 전에 smoothing을 안 하면 노이즈가 gradient를 지배한다.
-- Gaussian blur는 $\sigma$가 클수록 저주파만 남긴다 — $\sigma$와 커널 반경을 함께 키워야 잘림 없이 근사된다(보통 반경 $\approx 3\sigma$).
+- Gaussian blur는 $$\sigma$$가 클수록 저주파만 남긴다 — $$\sigma$$와 커널 반경을 함께 키워야 잘림 없이 근사된다(보통 반경 $$\approx 3\sigma$$).
 
 ## 복습 질문
 

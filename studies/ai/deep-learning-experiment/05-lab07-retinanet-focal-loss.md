@@ -23,10 +23,10 @@ $$
 \text{CE}(p_t) = -\log p_t,\qquad
 \text{FL}(p_t) = -(1-p_t)^{\gamma}\log p_t
 $$
-alpha-balanced: $-\alpha_t(1-p_t)^{\gamma}\log p_t$.
+alpha-balanced: $$-\alpha_t(1-p_t)^{\gamma}\log p_t$$.
 
-- $(1-p_t)^\gamma$: 잘 맞춘(easy) 예제의 loss 기여를 낮추고 **hard example에 집중**.
-- $\gamma$↑ → easy 억제 강해짐. 너무 크면 학습 신호까지 줄어듦.
+- $$(1-p_t)^\gamma$$: 잘 맞춘(easy) 예제의 loss 기여를 낮추고 **hard example에 집중**.
+- $$\gamma$$↑ → easy 억제 강해짐. 너무 크면 학습 신호까지 줄어듦.
 - **hard negative mining을 loss 함수 안에 넣은** 방식으로 볼 수 있다.
 
 ### RetinaNet 구조
@@ -59,12 +59,12 @@ alpha-balanced: $-\alpha_t(1-p_t)^{\gamma}\log p_t$.
 - anchor 좌표 형식 ↔ transform 후 크기 보정 불일치.
 - Focal Loss(sigmoid multi-label) ↔ softmax CE target shape 혼동.
 - positive anchor 수 normalization 누락.
-- $\gamma$를 너무 키우면 학습 신호까지 억제.
+- $$\gamma$$를 너무 키우면 학습 신호까지 억제.
 
 ## 복습 질문
 
 - one-stage detector의 class imbalance 문제와 Focal Loss가 이를 다루는 방식은?
-- $\text{FL}(p_t) = -(1-p_t)^\gamma\log p_t$에서 $(1-p_t)^\gamma$ 항의 역할과 $\gamma$의 효과는?
+- $$\text{FL}(p_t) = -(1-p_t)^\gamma\log p_t$$에서 $$(1-p_t)^\gamma$$ 항의 역할과 $$\gamma$$의 효과는?
 - FPN이 작은 객체 검출에 도움이 되는 이유는?
 - classification head bias를 prior 0.01로 초기화하는 이유는?
 {% endraw %}

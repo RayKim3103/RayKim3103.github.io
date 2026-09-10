@@ -32,7 +32,7 @@ input: voltage,  output: current  →  transconductance amplifier
 $$
 V_{CM,min} = V_{GS3} - |V_{TH,p}|, \qquad V_{CM,max} = V_{DD} - V_{SG5} - V_{SG1} + |V_{TH,p}|
 $$
-큰 ICMR → bias current를 작게 해 필요한 overdrive를 줄임. 단 current를 너무 줄이면 $g_m$·bandwidth 감소.
+큰 ICMR → bias current를 작게 해 필요한 overdrive를 줄임. 단 current를 너무 줄이면 $$g_m$$·bandwidth 감소.
 
 ## 3. Transconductance / Voltage Gain
 
@@ -61,13 +61,13 @@ OTA는 output resistance가 크다 → voltage amplifier로 쓰려면 **output b
 ```text
 OTA + source follower  →  op-amp
 ```
-**Ideal op-amp**: $R_{in} = \infty$, $R_{out} = 0$, open-loop gain 매우 큼.
+**Ideal op-amp**: $$R_{in} = \infty$$, $$R_{out} = 0$$, open-loop gain 매우 큼.
 
 ## 6. Negative Feedback Op-Amp
 
 op-amp는 거의 항상 negative feedback과 함께.
 
-**Non-inverting** (ideal op-amp $V_+ = V_-$):
+**Non-inverting** (ideal op-amp $$V_+ = V_-$$):
 $$
 \frac{V_o}{V_s} = 1 + \frac{R_2}{R_1}
 $$
@@ -79,7 +79,7 @@ $$
 | 장점 | |
 |---|---|
 | gain이 transistor parameter가 아니라 **resistor ratio**로 결정 | gain 변경 쉬움 |
-| 안정성 향상 | $V_+ \approx V_-$ (loop gain 큼) |
+| 안정성 향상 | $$V_+ \approx V_-$$ (loop gain 큼) |
 
 ---
 
@@ -87,16 +87,16 @@ $$
 
 - OTA = transconductance amplifier (V in → I out), current mirror + diff pair + CS load.
 - ICMR은 입력 pair·current source·load의 saturation 조건으로 결정.
-- OTA voltage gain $\approx G_m R_{out}$ (2단이면 $g_{m1}g_{m6}$ × 저항곱).
-- Op-amp = OTA + voltage buffer(SF). Ideal: $R_{in}=\infty$, $R_{out}=0$, $A\to\infty$.
-- Negative feedback: gain = $1+R_2/R_1$ (non-inv) 또는 $-R_F/R_{in}$ (inv), $V_+ \approx V_-$.
+- OTA voltage gain $$\approx G_m R_{out}$$ (2단이면 $$g_{m1}g_{m6}$$ × 저항곱).
+- Op-amp = OTA + voltage buffer(SF). Ideal: $$R_{in}=\infty$$, $$R_{out}=0$$, $$A\to\infty$$.
+- Negative feedback: gain = $$1+R_2/R_1$$ (non-inv) 또는 $$-R_F/R_{in}$$ (inv), $$V_+ \approx V_-$$.
 
 ## 복습 질문
 
 - OTA와 op-amp의 차이(무엇을 붙이면 op-amp가 되나)?
 - ICMR의 상·하한이 어떤 소자의 saturation 조건으로 정해지나?
 - 2단 OTA에서 dominant pole이 2번째 stage에 생길 수 있는 이유는?
-- negative feedback에서 $V_+ \approx V_-$가 성립하는 이유를 loop gain으로 설명할 수 있나?
+- negative feedback에서 $$V_+ \approx V_-$$가 성립하는 이유를 loop gain으로 설명할 수 있나?
 {% endraw %}
 
 ---

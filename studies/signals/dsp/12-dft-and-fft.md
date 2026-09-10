@@ -33,7 +33,7 @@ tags: [DSP, lecture-note, DFT, FFT]
 
 ## DFS 복습
 
-주기 $N$인 이산시간 신호는 discrete Fourier series로 표현된다.
+주기 $$N$$인 이산시간 신호는 discrete Fourier series로 표현된다.
 
 $$
 x[n]=\sum_{k=0}^{N-1}a_k e^{j\frac{2\pi}{N}kn}
@@ -45,7 +45,7 @@ $$
 
 ## DFT 정의
 
-길이 $N$의 finite-duration sequence $x[n]$에 대해 N-point DFT:
+길이 $$N$$의 finite-duration sequence $$x[n]$$에 대해 N-point DFT:
 
 $$
 X[k]=\sum_{n=0}^{N-1}x[n]W_N^{kn},
@@ -59,7 +59,7 @@ $$
 x[n]=\frac1N\sum_{k=0}^{N-1}X[k]W_N^{-kn}
 $$
 
-DFT는 DTFT를 $N$개의 등간격 주파수에서 sampling한 것으로 볼 수 있다.
+DFT는 DTFT를 $$N$$개의 등간격 주파수에서 sampling한 것으로 볼 수 있다.
 
 $$
 X[k]=X(e^{j\omega})\big|_{\omega=2\pi k/N}
@@ -67,7 +67,7 @@ $$
 
 ## Frequency Sampling의 의미
 
-DTFT를 주파수 영역에서 $N$점 sampling하면 시간 영역에서는 원 신호가 $N$주기로 반복된다. 따라서 DFT는 finite sequence 하나를 다루는 동시에, 그 sequence가 주기적으로 반복된다고 보는 관점을 포함한다.
+DTFT를 주파수 영역에서 $$N$$점 sampling하면 시간 영역에서는 원 신호가 $$N$$주기로 반복된다. 따라서 DFT는 finite sequence 하나를 다루는 동시에, 그 sequence가 주기적으로 반복된다고 보는 관점을 포함한다.
 
 이 관점 때문에 DFT에서는 circular shift와 circular convolution이 자연스럽게 등장한다.
 
@@ -85,7 +85,7 @@ $$
 
 ### Circular Shift
 
-시간 영역에서 $n_0$만큼 circular shift하면
+시간 영역에서 $$n_0$$만큼 circular shift하면
 
 $$
 x[(n-n_0)_N]
@@ -115,7 +115,7 @@ $$
 
 ### Symmetry
 
-실수 신호 $x[n]$에 대해
+실수 신호 $$x[n]$$에 대해
 
 $$
 X[k]=X^*[(-k)_N]
@@ -157,7 +157,7 @@ $$
 
 ## FFT가 필요한 이유
 
-DFT 직접 계산은 각 $k$마다 $N$개의 곱셈이 필요하므로 전체 복소 곱셈 수가 $N^2$ 수준이다.
+DFT 직접 계산은 각 $$k$$마다 $$N$$개의 곱셈이 필요하므로 전체 복소 곱셈 수가 $$N^2$$ 수준이다.
 
 FFT는 대칭성과 주기성을 이용해 계산량을
 
@@ -200,7 +200,7 @@ $$
 X[k+N/2]=E[k]-W_N^kO[k]
 $$
 
-여기서 $E[k]$와 $O[k]$는 각각 even/odd subsequence의 $N/2$-point DFT이다.
+여기서 $$E[k]$$와 $$O[k]$$는 각각 even/odd subsequence의 $$N/2$$-point DFT이다.
 
 ## Decimation-in-Frequency FFT
 
@@ -220,7 +220,7 @@ $$
 B = E - W O
 $$
 
-여기서 $W$는 twiddle factor이다.
+여기서 $$W$$는 twiddle factor이다.
 
 ## 체크포인트
 

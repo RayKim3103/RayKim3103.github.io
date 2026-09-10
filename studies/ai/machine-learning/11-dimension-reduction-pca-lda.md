@@ -6,7 +6,6 @@ sitemap: false
 ---
 
 - **원본**: [GitHub — Artificial Intelligence](https://github.com/RayKim3103/Undergraduate-Course/tree/main/%5BUndergraduate%5D_Artificial_Intelligence) · 강의 노트 `16` 정리·보강
-- 표준 ML 교재(ESL) 수준으로 다듬음. 강의 슬라이드와 대조해 사용하세요.
 
 {% raw %}
 ## 개요
@@ -15,49 +14,59 @@ sitemap: false
 
 ## 1. Curse of Dimensionality
 
-차원↑ → 공간 부피 급증, 같은 granularity로 각 축을 나누면 필요 sample 수 지수 증가. → 데이터 희박, 거리 기반 방법 불안정, overfitting 쉬움, 계산·저장 증가.
+차원↑ → 공간 부피 급증. 같은 granularity로 각 축을 $$b$$구간으로 나누면 셀 수 $$b^D$$ → 필요 sample 수 지수 증가. 결과: 데이터 희박, 거리 균등화(거리 기반 방법 붕괴), overfitting 쉬움, 계산·저장 증가.
 
 ## 2. Feature Selection vs Extraction
 
 | | 설명 |
 |---|---|
-| Feature selection | 기존 feature 중 일부 선택 |
-| Feature **extraction** | 기존 feature를 조합해 새 feature 생성 — **PCA, LDA** |
+| Feature **selection** | 기존 feature 중 일부 선택 (Lasso, stepwise) |
+| Feature **extraction** | 기존 feature를 조합해 새 feature 생성 — **PCA, LDA**, autoencoder |
 
 $$
-x \in \mathbb{R}^N \;\longrightarrow\; y \in \mathbb{R}^M,\quad M < N
+x \in \mathbb{R}^N \;\xrightarrow{\;W \in \mathbb{R}^{M\times N}\;}\; y = Wx \in \mathbb{R}^M,\quad M < N
 $$
 
-## 3. PCA (Principal Components Analysis)
+## 3. PCA — 유도
 
-데이터의 variance를 가장 많이 보존하는 **직교 projection 축**을 찾음.
-
-1. 데이터 평균을 빼서 center
-2. covariance matrix $\Sigma = \frac{1}{N}\sum_i (x_i-\bar x)(x_i-\bar x)^\top$
-3. $\Sigma$의 eigen-분해: $\Sigma w = \lambda w$
-4. 큰 eigenvalue에 대응하는 eigenvector 선택 (= 분산이 큰 방향)
-5. 그 span으로 projection
-
-- 1st PC = 분산 최대 방향, 2nd PC = 1st와 직교하며 남은 분산 최대 …
-- 작은 eigenvalue 방향 = noise·중복 가능.
-- **한계**: label을 안 씀 → variance가 큰 방향이 classification에 좋은 방향이라는 보장 없음(구분 정보가 작은 분산 방향에 있을 수도).
-
-## 4. LDA (Linear Discriminant Analysis)
-
-**supervised**. class 평균 사이 거리는 크게, class 내부 scatter는 작게 만드는 방향.
-
-### Fisher criterion
+데이터를 중심화($$\tilde x_i = x_i - \bar x$$). 단위벡터 $$w$$에 투영한 값 $$w^\top\tilde x_i$$의 **표본 분산**:
 $$
-J(w) = \frac{w^\top S_B\, w}{w^\top S_W\, w}
-\qquad
-\begin{cases}
-S_B: \text{between-class scatter} \\
-S_W: \text{within-class scatter}
-\end{cases}
+\mathrm{Var} = \frac{1}{N}\sum_i (w^\top \tilde x_i)^2 = w^\top \Sigma w,
+\qquad \Sigma = \frac{1}{N}\sum_i \tilde x_i \tilde x_i^\top
 $$
-최대화 → **generalized eigenvalue problem** $S_B w = \lambda S_W w$.
+$$\max_w w^\top\Sigma w$$ s.t. $$\lVert w\rVert = 1$$ → Lagrangian $$w^\top\Sigma w - \lambda(w^\top w - 1)$$, 미분 = 0:
+$$
+\boxed{\;\Sigma w = \lambda w\;}
+$$
+→ $$w$$는 $$\Sigma$$의 **eigenvector**, 투영 분산 = eigenvalue $$\lambda$$. 따라서 **가장 큰 eigenvalue의 eigenvector = 1st PC**, 그다음 직교 방향 = 2nd PC …
 
-- **한계**: class별 분포가 Gaussian·unimodal이라는 가정. 구분 정보가 평균 차이가 아닌 분산 차이에 있으면 실패. nonlinear 경계엔 부적합.
+- **동치 관점**: PCA는 rank-$$M$$ 선형 **재구성 오차 $$\sum_i \lVert \tilde x_i - W^\top W \tilde x_i\rVert^2$$을 최소화**하는 부분공간과 같다 (분산 최대 = 잔차 최소).
+- **explained variance ratio**: $$\lambda_m / \sum_j \lambda_j$$. 누적이 90~95% 되는 $$M$$을 자주 선택.
+- **SVD로 계산**: $$\tilde X = U S V^\top$$ → PC = $$V$$의 열, $$\lambda_m = s_m^2/N$$. covariance를 직접 만들지 않아 수치적으로 안정.
+- **whitening**: 투영 후 각 축을 $$1/\sqrt{\lambda_m}$$로 스케일 → 등방 공분산.
+- **전처리**: feature scale이 다르면 표준화 후 PCA (아니면 큰 scale feature가 PC 지배).
+
+### 한계
+label을 안 씀 → variance가 큰 방향이 **classification에 좋은 방향이라는 보장 없음**. 구분 정보가 작은 분산 방향에 있을 수 있고, PCA가 그 방향을 버릴 수 있다. 선형이라 곡면 manifold엔 부적합(→ kernel PCA, t-SNE, UMAP).
+
+## 4. LDA — Fisher Criterion
+
+**supervised**. 2-class: class 평균 $$\mu_1, \mu_2$$, 각 class covariance. 투영 $$z = w^\top x$$ 후:
+$$
+J(w) = \frac{(w^\top(\mu_1 - \mu_2))^2}{w^\top S_W w}
+= \frac{w^\top S_B w}{w^\top S_W w}
+$$
+- **within-class scatter** $$S_W = \sum_{c}\sum_{i \in c}(x_i - \mu_c)(x_i - \mu_c)^\top$$ — 작게
+- **between-class scatter** $$S_B = \sum_c N_c (\mu_c - \bar\mu)(\mu_c - \bar\mu)^\top$$ — 크게
+
+최대화 → $$S_B w = \lambda S_W w$$ (**generalized eigenvalue problem**). 2-class 해:
+$$
+\boxed{\;w \propto S_W^{-1}(\mu_1 - \mu_2)\;}
+$$
+$$C$$개 class면 최대 $$C - 1$$개의 discriminant 방향 ($$S_B$$의 rank $$\le C - 1$$).
+
+### 한계
+class별 분포가 **Gaussian·unimodal·동일 공분산**이라는 가정. 구분 정보가 평균 차이가 아니라 **분산·모양 차이**에 있으면 실패. nonlinear 경계엔 부적합(→ QDA는 공분산 class별 허용, kernel LDA).
 
 ## 5. 비교
 
@@ -65,15 +74,18 @@ $$
 |---|---|---|
 | 학습 종류 | Unsupervised | Supervised |
 | label | 사용 안 함 | 사용 |
-| 보존 목표 | 전체 variance | class separability |
-| 한계 | 분류에 필요한 방향을 놓칠 수 있음 | 분포 가정·class 구조에 민감 |
+| 보존 목표 | 전체 variance | class separability (Fisher ratio) |
+| 최대 차원 | $$\min(N, D)$$ | $$C - 1$$ |
+| 해 | $$\Sigma$$의 eigen-분해 | $$S_W^{-1}S_B$$ generalized eigen-분해 |
+| 한계 | 분류에 필요한 방향을 놓칠 수 있음 | Gaussian·동일공분산 가정, class 구조 민감 |
 
 ## 복습 질문
 
-- curse of dimensionality가 왜 문제인가?
-- PCA에서 eigenvalue/eigenvector의 해석과, PCA가 label을 안 쓰는 한계는?
-- Fisher criterion에서 $S_B$, $S_W$의 의미와 최적화가 어떤 문제로 이어지는가?
-- PCA와 LDA를 목적·데이터 요구 관점에서 비교하라.
+- curse of dimensionality가 "필요 sample 수 지수 증가"로 이어지는 이유는?
+- PCA에서 $$\Sigma w = \lambda w$$를 "투영 분산 최대화 + $$\lVert w\rVert = 1$$"의 Lagrangian으로 유도하라. 재구성 오차 최소화와 왜 동치인가?
+- explained variance ratio로 $$M$$을 고르는 법, SVD로 PCA를 계산하는 이점은?
+- Fisher criterion $$J(w) = \frac{w^\top S_B w}{w^\top S_W w}$$에서 $$S_B$$, $$S_W$$의 정의와, 2-class 해 $$w \propto S_W^{-1}(\mu_1 - \mu_2)$$는?
+- PCA와 LDA를 목적·label 요구·최대 차원·한계로 비교하라.
 {% endraw %}
 
 ---

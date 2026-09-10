@@ -74,7 +74,7 @@ sitemap: false
 
 ## 과제 A2 — Functions: Tower of Hanoi (재귀)
 
-- 이동 횟수 $2^n - 1$.
+- 이동 횟수 $$2^n - 1$$.
 - Kite 설정: global `num_moves` → `x9`; A/B/C 배열 base address → `x18`, `x19`, `x20`; `x1`=return address, `x2`=stack pointer, `x8`=frame pointer; `x10–x13`=`TowerOfHanoi` 인자.
 - `x18–x27` 등 **saved register는 callee가 보존**.
 - 재귀 호출마다: 현재 인자 + return address + 필요한 saved register를 **stack에 저장** → base case에서 복귀하며 복원.

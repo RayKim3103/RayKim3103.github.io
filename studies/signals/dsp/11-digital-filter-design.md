@@ -119,7 +119,7 @@ Specification에는 다음이 포함된다.
 
 ## FIR 설계: Window Method
 
-이상적 필터의 impulse response $h_d[n]$는 보통 무한 길이이다. 이를 window $w[n]$로 잘라 FIR을 만든다.
+이상적 필터의 impulse response $$h_d[n]$$는 보통 무한 길이이다. 이를 window $$w[n]$$로 잘라 FIR을 만든다.
 
 $$
 h[n]=h_d[n]w[n]
@@ -163,7 +163,7 @@ equiripple passband/stopband 개념을 사용한다. 대표적으로 Parks-McCle
 
 ## FIR 설계: Frequency Sampling Method
 
-원하는 주파수 응답 $H_d(e^{j\omega})$를 등간격 주파수 지점에서 지정하고 IDFT로 impulse response를 얻는다.
+원하는 주파수 응답 $$H_d(e^{j\omega})$$를 등간격 주파수 지점에서 지정하고 IDFT로 impulse response를 얻는다.
 
 장점:
 
@@ -220,8 +220,8 @@ IIR 설계 단계도 FIR와 비슷하다.
 
 예: sampling frequency 500 Hz, 중심 125 Hz의 narrow bandpass, DC와 250 Hz 제거.
 
-- DC 제거: $z=1$에 zero
-- 250 Hz 제거: $z=-1$에 zero
+- DC 제거: $$z=1$$에 zero
+- 250 Hz 제거: $$z=-1$$에 zero
 - 125 Hz 중심 passband: unit circle의 해당 angle 근처에 conjugate pole pair
 
 ## Impulse Invariant Method
@@ -263,7 +263,7 @@ $$
 2. cutoff frequency를 digital frequency로 정리한다.
 3. prewarping으로 analog cutoff를 구한다.
 4. normalized analog prototype을 frequency scaling한다.
-5. bilinear transform을 적용해 $H(z)$를 얻는다.
+5. bilinear transform을 적용해 $$H(z)$$를 얻는다.
 6. difference equation으로 구현한다.
 
 ## Classical Analog Filters

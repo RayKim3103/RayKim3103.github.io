@@ -8,7 +8,7 @@ sitemap: false
 permalink: /studies/ai/
 ---
 
-* [Machine Learning]{:.heading.flip-title} --- 13개 노트
+* [Machine Learning]{:.heading.flip-title} --- 강의 노트 13 + 과제 3
 {:.related-posts.faded}
 
 * [Deep Learning Experiment]{:.heading.flip-title} --- 12개 노트
@@ -17,7 +17,7 @@ permalink: /studies/ai/
 * [Computer Vision]{:.heading.flip-title} --- 16개 노트
 {:.related-posts.faded}
 
-* [Reinforcement Learning]{:.heading.flip-title} --- 13개 노트
+* [Reinforcement Learning]{:.heading.flip-title} --- 강의 노트 13 + 과제 7
 {:.related-posts.faded}
 
 [Machine Learning]: /studies/ai/machine-learning/

@@ -16,7 +16,7 @@ CNN의 weight·activation을 **낮은 bit-width**로 양자화해 메모리·연
 ## 1. 이론 배경
 
 ### Binary/low-bit 계보
-- **BWN(Binary Weight Network)**: weight만 binary + scaling factor $\alpha$로 full-precision conv 근사.
+- **BWN(Binary Weight Network)**: weight만 binary + scaling factor $$\alpha$$로 full-precision conv 근사.
   $$
   W \approx \alpha B,\qquad B\in\{-1,+1\}
   $$

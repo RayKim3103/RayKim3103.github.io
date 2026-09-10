@@ -11,19 +11,19 @@ sitemap: false
 {% raw %}
 ## 개요
 
-생성 모델은 데이터 분포 $p_{\text{data}}(x)$를 근사해 **새 표본을 생성**한다. 이 노트는 discriminative와 generative의 차이, 그리고 주요 계열(autoregressive, VAE, GAN, diffusion)을 objective와 sampling 방식으로 비교한다.
+생성 모델은 데이터 분포 $$p_{\text{data}}(x)$$를 근사해 **새 표본을 생성**한다. 이 노트는 discriminative와 generative의 차이, 그리고 주요 계열(autoregressive, VAE, GAN, diffusion)을 objective와 sampling 방식으로 비교한다.
 
 ## 1. Discriminative vs Generative
 
-- **discriminative**: $p(y\mid x)$ 또는 결정경계만 학습. 분류/회귀에 직접적.
-- **generative**: $p(x)$ 또는 $p(x,y)$ 학습. 표본 생성, 밀도 추정, 이상탐지, 결측 보완 가능.
-- Bayes: $p(y\mid x) = \dfrac{p(x\mid y)\,p(y)}{p(x)}$ — generative는 $p(x\mid y),p(y)$를 모델링.
+- **discriminative**: $$p(y\mid x)$$ 또는 결정경계만 학습. 분류/회귀에 직접적.
+- **generative**: $$p(x)$$ 또는 $$p(x,y)$$ 학습. 표본 생성, 밀도 추정, 이상탐지, 결측 보완 가능.
+- Bayes: $$p(y\mid x) = \dfrac{p(x\mid y)\,p(y)}{p(x)}$$ — generative는 $$p(x\mid y),p(y)$$를 모델링.
 
 ## 2. 주요 계열 비교
 
 | 계열 | 학습 objective | sampling | likelihood | 특징 |
 |---|---|---|---|---|
-| **Autoregressive** | $-\sum_i \log p(x_i \mid x_{<i})$ (정확한 NLL) | 순차(픽셀/토큰 하나씩) → **느림** | tractable | 안정적 학습, 고품질, 느린 생성 |
+| **Autoregressive** | $$-\sum_i \log p(x_i \mid x_{<i})$$ (정확한 NLL) | 순차(픽셀/토큰 하나씩) → **느림** | tractable | 안정적 학습, 고품질, 느린 생성 |
 | **VAE** | ELBO(하한) = 복원 − KL | latent Gaussian에서 한 번에 decode → 빠름 | 근사(하한) | 학습 안정, 표본이 다소 흐림 |
 | **GAN** | minimax(adversarial) | 한 번에 generate → 빠름 | 없음(암시적) | 표본 선명, 학습 불안정·mode collapse |
 | **Diffusion** | noise 예측(denoising score matching) | 반복적 denoising(수십~수백 step) → 느림 | 하한/score | 현재 최고 품질, 학습 안정, 샘플링 비용 큼 |
@@ -44,7 +44,7 @@ GAN은 이 대신 분포 간 거리를 **판별자**로 암시적으로 추정�
 $$
 p_\theta(x) = \int p_\theta(x\mid z)\,p(z)\,dz
 $$
-잠재변수 $z$(저차원, 보통 Gaussian prior)로 데이터의 변동요인을 요약. VAE는 이 적분이 불가능하므로 **variational inference**로 하한(ELBO)을 최적화한다 → [09. Autoregressive & VAE](09-autoregressive-and-vae.md).
+잠재변수 $$z$$(저차원, 보통 Gaussian prior)로 데이터의 변동요인을 요약. VAE는 이 적분이 불가능하므로 **variational inference**로 하한(ELBO)을 최적화한다 → [09. Autoregressive & VAE](09-autoregressive-and-vae.md).
 
 ## 5. Foundation model 관점
 

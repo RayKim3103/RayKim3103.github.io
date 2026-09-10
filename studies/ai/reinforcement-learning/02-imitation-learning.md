@@ -19,7 +19,7 @@ $$
 \tau = (s_0, a_0, s_1, a_1, \dots, s_T),\qquad
 D = \{(s_i, a_i)\}_{\text{expert}}
 $$
-$\pi_\theta(a\mid s)$ 가 expert action에 가까워지도록.
+$$\pi_\theta(a\mid s)$$ 가 expert action에 가까워지도록.
 
 ## 2. Behavioral Cloning (BC)
 
@@ -38,17 +38,19 @@ $$
 p_{\text{data}}(s) \ne p_{\pi_\theta}(s)
 \quad(\text{모방학습의 핵심 어려움})
 $$
-horizon $T$가 길수록 나쁘고, 이론적으로 error가 $O(T^2)$까지 누적될 수 있다.
+horizon $$T$$가 길수록 나쁘고, 이론적으로 error가 $$O(T^2)$$까지 누적될 수 있다.
 
 ## 4. DAgger (Dataset Aggregation)
 
 learner가 **실제로 방문하는** state에서 expert label을 추가 수집 → learner 분포 위에서 supervised learning.
 
 1. expert demo로 초기 policy 학습
-2. 현재 policy rollout → state 수집
-3. 그 state들에 expert action query
-4. dataset에 추가 후 재학습
+2. 현재 policy rollout → state 수집: $$s \sim d_{\pi_\theta}$$
+3. 그 state들에 expert action query: $$a \leftarrow \pi^*(s)$$ (relabel)
+4. $$D \leftarrow D \cup \{(s, \pi^*(s))\}$$ 후 재학습
 5. 반복
+
+per-step error가 $$\epsilon$$ 이면 BC의 총 regret은 $$O(\epsilon T^2)$$, DAgger는 학습·실행 분포를 일치시켜 $$O(\epsilon T)$$ 로 낮춘다. 대가는 매 iteration마다 **online expert query**가 필요하다는 점.
 
 ## 5. IL vs RL
 
@@ -68,9 +70,13 @@ learner가 **실제로 방문하는** state에서 expert label을 추가 수집 
 - 사람 action과 policy output의 action space가 일관적인가?
 - rollout error가 누적되는 horizon이 긴가? DAgger처럼 learner 분포를 보정할 방법이 있는가?
 
+## 관련 과제
+
+[과제 1 — Imitation Learning](hw1-imitation-learning.md): MuJoCo 4개 환경에서 BC/DAgger 직접 구현. 실측 — Ant·HalfCheetah는 BC로도 expert의 90–97%(4575/4713), Hopper·Walker2d는 불안정하게 붕괴(Walker2d BC 602 ≈ expert의 11%, episode 조기 종료). DAgger 10 iter로 **Walker2d 602 → 5373 (96.5%)** — 불안정 환경일수록 relabel의 분포 보정이 결정적. gradient step 수는 적으면 underfit·과하면 overfit(Walker2d 최적 ≈ 5000).
+
 ## 복습 질문
 
-- behavioral cloning의 objective와, distribution shift가 왜·어떻게 오류를 누적시키는가?
+- behavioral cloning의 objective와, distribution shift가 왜·어떻게 오류를 누적시키는가? ($$O(\epsilon T^2)$$ vs $$O(\epsilon T)$$)
 - DAgger가 이를 해결하는 핵심 아이디어(누구의 분포 위에서 학습하는가)는?
 - IL과 RL을 supervision·탐색·장단점으로 비교하라.
 {% endraw %}

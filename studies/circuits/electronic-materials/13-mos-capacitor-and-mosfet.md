@@ -39,11 +39,11 @@ MOS capacitance = gate voltage 변화에 대한 **semiconductor surface charge �
 
 ## 2. Real MOS Capacitor
 
-$\Phi_M \ne \Phi_S$ → $V_G = 0$에서도 band bending. band를 평탄하게 만드는 gate voltage = **flat-band voltage**:
+$$\Phi_M \ne \Phi_S$$ → $$V_G = 0$$에서도 band bending. band를 평탄하게 만드는 gate voltage = **flat-band voltage**:
 $$
 V_{FB} = \Phi_{MS} - \frac{Q_i}{C_{ox}}, \qquad \Phi_{MS} = \Phi_M - \Phi_S
 $$
-$Q_i$ = interface state charge density, $C_{ox} = \varepsilon_{ox}/t_{ox}$. interface charge가 있으면 work function 차만으로 예측한 $V_{FB}$에서 추가 shift.
+$$Q_i$$ = interface state charge density, $$C_{ox} = \varepsilon_{ox}/t_{ox}$$. interface charge가 있으면 work function 차만으로 예측한 $$V_{FB}$$에서 추가 shift.
 
 ## 3. MOS Capacitor Operation
 
@@ -51,25 +51,25 @@ $Q_i$ = interface state charge density, $C_{ox} = \varepsilon_{ox}/t_{ox}$. inte
 
 | Gate bias | 동작 | 표면 |
 |---|---|---|
-| $V_G < 0$ | **accumulation** | hole 축적 |
-| 작은 $V_G > 0$ | **depletion** | hole 감소, ionized acceptor 노출 |
-| 큰 $V_G > 0$ ($> V_{TH}$) | **inversion** | electron inversion layer |
+| $$V_G < 0$$ | **accumulation** | hole 축적 |
+| 작은 $$V_G > 0$$ | **depletion** | hole 감소, ionized acceptor 노출 |
+| 큰 $$V_G > 0$$ ($$> V_{TH}$$) | **inversion** | electron inversion layer |
 
 ### n-type substrate
 
 | Gate bias | 동작 | 표면 |
 |---|---|---|
-| $V_G > 0$ | accumulation | electron 축적 |
-| 작은 $V_G < 0$ | depletion | electron 감소, ionized donor 노출 |
-| 큰 $V_G < 0$ | inversion | hole inversion layer |
+| $$V_G > 0$$ | accumulation | electron 축적 |
+| 작은 $$V_G < 0$$ | depletion | electron 감소, ionized donor 노출 |
+| 큰 $$V_G < 0$$ | inversion | hole inversion layer |
 
 ### Depletion width
 - depletion에서 majority carrier 농도 < background doping 농도
-- strong inversion 이후 depletion width는 **최대값 $W_{max}$**에서 포화, 이후 inversion charge가 주로 증가
+- strong inversion 이후 depletion width는 **최대값 $$W_{max}$$**에서 포화, 이후 inversion charge가 주로 증가
 $$
 W_{max} = \sqrt{\frac{4\varepsilon_s \phi_F}{q N_A}}, \qquad \phi_F = V_T \ln\frac{N_A}{n_i}
 $$
-- doping ↑ → $W_{max}$ ↓
+- doping ↑ → $$W_{max}$$ ↓
 
 ## 4. MOSFET Fundamentals
 
@@ -88,7 +88,7 @@ Audion vacuum tube(정류·증폭 but 크기·전력·발열·신뢰성 문제) 
 | substrate | p-type / P-well | n-type / N-well |
 | source/drain | n⁺ | p⁺ |
 | channel | electron inversion | hole inversion |
-| 동작 bias | $V_{GS} > V_{TH}$, $V_{DS} > 0$ | $V_{GS} < V_{TH}$, $V_{DS} < 0$ |
+| 동작 bias | $$V_{GS} > V_{TH}$$, $$V_{DS} > 0$$ | $$V_{GS} < V_{TH}$$, $$V_{DS} < 0$$ |
 | conventional current | drain → source | source → drain |
 | 전류 수준 | 큼 | **작음** (hole mobility) |
 
@@ -97,31 +97,31 @@ Audion vacuum tube(정류·증폭 but 크기·전력·발열·신뢰성 문제) 
 ## 6. MOSFET Operation
 
 ### Linear region
-$V_D < V_{D,sat}$: channel이 resistor처럼, $V_D$ ↑ → $I_D$ 거의 비례 증가.
+$$V_D < V_{D,sat}$$: channel이 resistor처럼, $$V_D$$ ↑ → $$I_D$$ 거의 비례 증가.
 $$
 V_{D,sat} = V_G - V_{TH}
 $$
 
 ### Pinch-off와 saturation
-- $V_D = V_{D,sat}$: drain 끝 inversion charge ≈ 0 → **pinch-off 시작**
-- $V_D > V_{D,sat}$: pinch-off region 생기지만 source→drain 도달 전자 수 거의 불변 → $I_D$ 포화. pinch-off 지점은 electric field·전자 속도 매우 큼.
+- $$V_D = V_{D,sat}$$: drain 끝 inversion charge ≈ 0 → **pinch-off 시작**
+- $$V_D > V_{D,sat}$$: pinch-off region 생기지만 source→drain 도달 전자 수 거의 불변 → $$I_D$$ 포화. pinch-off 지점은 electric field·전자 속도 매우 큼.
 
 ### Inversion charge
 $$
 Q_i(x) = -C_{ox}\big[V_{GS} - V_T - V(x)\big]
 $$
-$V(x) = V_{GS} - V_T$인 위치에서 $Q_i(x) \approx 0$ → pinch-off. (실제로 완전히 0이 아니라 매우 작아지고 전자가 high-field region을 빠르게 통과.)
+$$V(x) = V_{GS} - V_T$$인 위치에서 $$Q_i(x) \approx 0$$ → pinch-off. (실제로 완전히 0이 아니라 매우 작아지고 전자가 high-field region을 빠르게 통과.)
 
 ## 7. I–V Characteristics & Parameter Extraction
 
-- **transfer characteristics**: $V_D$ 고정, $V_G$ 스윕
-- **output characteristics**: $V_G$ 고정, $V_D$ 스윕
+- **transfer characteristics**: $$V_D$$ 고정, $$V_G$$ 스윕
+- **output characteristics**: $$V_G$$ 고정, $$V_D$$ 스윕
 
 ### Subthreshold swing
 $$
 S.S = \frac{dV_G}{d(\log_{10} I_D)} \quad [\text{V/dec}]
 $$
-$I_D$를 한 decade 바꾸는 데 필요한 $V_G$ 변화. **작을수록** off→on 전환이 급격 → 낮은 전압 동작·낮은 off leakage에 유리. 이론적 하한 **~60 mV/dec** (상온, $kT/q \cdot \ln 10$).
+$$I_D$$를 한 decade 바꾸는 데 필요한 $$V_G$$ 변화. **작을수록** off→on 전환이 급격 → 낮은 전압 동작·낮은 off leakage에 유리. 이론적 하한 **~60 mV/dec** (상온, $$kT/q \cdot \ln 10$$).
 
 ### Linear region 추출
 $$
@@ -142,7 +142,7 @@ $$
 \mu_{sat} = \frac{1}{C_{ox}}\frac{2L}{W}(\text{Grad}_{max})^2, \qquad
 V_{TH,sat} = V_G - \frac{\sqrt{I_D}}{\text{Grad}}\bigg|_{\text{Grad}_{max}}
 $$
-($\sqrt{I_D}$ vs $V_G$의 선형성 이용.)
+($$\sqrt{I_D}$$ vs $$V_G$$의 선형성 이용.)
 
 ## 8. High Drain Current를 얻는 방법
 
@@ -152,9 +152,9 @@ $$
 
 | 방법 | 효과 | 대가 |
 |---|---|---|
-| $V_{TH}$ ↓ | on-current ↑ | **off-current·standby power ↑** |
-| $W$ ↑ | current ↑ | 면적 ↑ (scaling 불리) |
-| $L$ ↓ | current ↑ | **short-channel effect·leakage ↑** |
+| $$V_{TH}$$ ↓ | on-current ↑ | **off-current·standby power ↑** |
+| $$W$$ ↑ | current ↑ | 면적 ↑ (scaling 불리) |
+| $$L$$ ↓ | current ↑ | **short-channel effect·leakage ↑** |
 
 ## 9. MOSFET Scaling Issues
 
@@ -163,9 +163,9 @@ $$
 
 | 문제 | 원인 | 결과 |
 |---|---|---|
-| **SCE (Short Channel Effect)** | 짧은 channel → 같은 $V_{DS}$에 channel field ↑; source/drain depletion이 가까워짐 | **punch-through leakage**, drain이 channel barrier를 강하게 흔듦 |
-| **HCE (Hot Carrier Effect)** | high field에서 전자가 큰 에너지 → gate oxide에 주입 | oxide trap·interface state → $S.S$, $V_{th}$, mobility 열화 |
-| **DIBL (Drain-Induced Barrier Lowering)** | short channel에서 높은 $V_D$가 source–drain barrier를 낮춤 | gate bias 없어도 $V_{th}$ ↓, $S.S$ 악화 |
+| **SCE (Short Channel Effect)** | 짧은 channel → 같은 $$V_{DS}$$에 channel field ↑; source/drain depletion이 가까워짐 | **punch-through leakage**, drain이 channel barrier를 강하게 흔듦 |
+| **HCE (Hot Carrier Effect)** | high field에서 전자가 큰 에너지 → gate oxide에 주입 | oxide trap·interface state → $$S.S$$, $$V_{th}$$, mobility 열화 |
+| **DIBL (Drain-Induced Barrier Lowering)** | short channel에서 높은 $$V_D$$가 source–drain barrier를 낮춤 | gate bias 없어도 $$V_{th}$$ ↓, $$S.S$$ 악화 |
 | **Gate leakage** | oxide가 얇아짐 | standby power·reliability ↓ |
 
 ### Gate leakage 메커니즘
@@ -180,11 +180,11 @@ $$
 
 ## 복습 질문
 
-- ideal MOS capacitor 가정과, real MOS의 flat-band voltage $V_{FB} = \Phi_{MS} - Q_i/C_{ox}$의 의미는?
+- ideal MOS capacitor 가정과, real MOS의 flat-band voltage $$V_{FB} = \Phi_{MS} - Q_i/C_{ox}$$의 의미는?
 - p-type / n-type substrate에서 accumulation / depletion / inversion의 gate bias 조건은?
 - MOSFET이 inversion channel에서만 전류를 잘 흘리는 이유, pinch-off와 saturation의 물리적 의미는?
 - subthreshold swing의 정의와 이론적 하한(~60 mV/dec), 작을수록 좋은 이유는?
-- linear·saturation region에서 $\mu$와 $V_{TH}$를 추출하는 식은?
+- linear·saturation region에서 $$\mu$$와 $$V_{TH}$$를 추출하는 식은?
 - SCE / HCE / DIBL / gate leakage의 원인과 결과를 각각 설명할 수 있나?
 {% endraw %}
 

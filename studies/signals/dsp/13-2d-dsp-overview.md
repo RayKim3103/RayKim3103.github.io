@@ -117,7 +117,7 @@ separable filter는 계산량을 크게 줄일 수 있다.
 
 ## 2D System
 
-2D 시스템은 입력 영상 $x[n_1,n_2]$를 출력 영상 $y[n_1,n_2]$로 mapping한다.
+2D 시스템은 입력 영상 $$x[n_1,n_2]$$를 출력 영상 $$y[n_1,n_2]$$로 mapping한다.
 
 $$
 y[n_1,n_2]=T\{x[n_1,n_2]\}
@@ -145,7 +145,7 @@ $$
 
 ## 2D Convolution
 
-LSI 시스템은 impulse response 또는 PSF(point-spread function) $h[n_1,n_2]$로 완전히 결정된다.
+LSI 시스템은 impulse response 또는 PSF(point-spread function) $$h[n_1,n_2]$$로 완전히 결정된다.
 
 $$
 y[n_1,n_2]
@@ -200,7 +200,7 @@ $$
 
 ## 2D Sampling과 Reconstruction
 
-analog 2D signal $x_c(t_1,t_2)$를 sampling period $T_1,T_2$로 샘플링하면
+analog 2D signal $$x_c(t_1,t_2)$$를 sampling period $$T_1,T_2$$로 샘플링하면
 
 $$
 x[n_1,n_2]=x_c(n_1T_1,n_2T_2)
@@ -227,7 +227,7 @@ $$
 
 ## 체크포인트
 
-- 1D의 time index가 2D에서는 spatial index $(n_1,n_2)$로 확장된다.
+- 1D의 time index가 2D에서는 spatial index $$(n_1,n_2)$$로 확장된다.
 - LTI는 2D에서 LSI/space-invariant system이 된다.
 - impulse response는 영상처리에서 PSF로 불린다.
 - 2D convolution은 blur/filtering의 기본 모델이다.

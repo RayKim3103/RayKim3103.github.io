@@ -56,7 +56,7 @@ encoder가 source를 hidden state sequence로 만들고, decoder가 target을 �
 ## 복습 질문
 
 - vanilla RNN의 long-term dependency 문제와, GRU/LSTM이 이를 완화하는 방식은?
-- Seq2Seq의 bottleneck 문제와 attention이 이를 해결하는 원리($\alpha_{t,i}$, $c_t$)는?
+- Seq2Seq의 bottleneck 문제와 attention이 이를 해결하는 원리($$\alpha_{t,i}$$, $$c_t$$)는?
 - teacher forcing의 이점과 exposure bias는?
 - attention map을 해석할 때 무엇을 확인하며, BLEU만으로 부족한 이유는?
 {% endraw %}

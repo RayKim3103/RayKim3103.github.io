@@ -46,7 +46,7 @@ ResNet의 shortcut = feature reuse + **gradient highway**. 깊은 모델 비교 
 ## 3. 구현 핵심
 
 - VGG는 구현이 직관적이지만 깊어질수록 gradient 흐름이 불안정 → **conv 뒤 BatchNorm**으로 안정화.
-- ResNet은 $F(x)+x$로 identity mapping 보존. 채널/해상도 변화 지점에서만 projection shortcut.
+- ResNet은 $$F(x)+x$$로 identity mapping 보존. 채널/해상도 변화 지점에서만 projection shortcut.
 - `nn.CrossEntropyLoss`는 **softmax 이전 logits** + 정수 class index를 받는다 → 모델 마지막에 softmax를 붙이지 않는 것이 올바른 구현.
 
 ## 4. 결과

@@ -16,7 +16,7 @@ sitemap: false
 ## 1. 정수 덧셈/뺄셈
 
 - 덧셈: bit별 sum + carry propagation.
-- 뺄셈 (2's complement): $A - B = A + (\sim B + 1)$.
+- 뺄셈 (2's complement): $$A - B = A + (\sim B + 1)$$.
 - **overflow 판정 (signed)**: **같은 부호**를 더했는데 결과 부호가 바뀌면 overflow. (carry_in ⊕ carry_out of MSB 로도 판정.)
 - unsigned overflow는 판정 기준이 다르다 (MSB에서 carry-out 발생).
 
@@ -24,14 +24,14 @@ sitemap: false
 
 | | 동작 | 지연 |
 |---|---|---|
-| **Ripple Carry Adder (RCA)** | carry가 LSB→MSB 순차 전달 | $O(n)$, 느림 |
-| **Carry Lookahead Adder (CLA)** | generate/propagate로 carry 병렬 계산 | $O(\log n)$, 빠름 |
+| **Ripple Carry Adder (RCA)** | carry가 LSB→MSB 순차 전달 | $$O(n)$$, 느림 |
+| **Carry Lookahead Adder (CLA)** | generate/propagate로 carry 병렬 계산 | $$O(\log n)$$, 빠름 |
 
 $$
 g_i = a_i \cdot b_i,\qquad p_i = a_i \oplus b_i,\qquad
 c_{i+1} = g_i + p_i \cdot c_i
 $$
-전개하면 $c_{i+1}$ 을 $c_0$ 로부터 직접(병렬로) 계산 → carry chain 지연 제거.
+전개하면 $$c_{i+1}$$ 을 $$c_0$$ 로부터 직접(병렬로) 계산 → carry chain 지연 제거.
 
 ## 3. 곱셈/나눗셈
 

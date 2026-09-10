@@ -27,7 +27,7 @@ sitemap: false
 | `din` / `dout` | write / read data |
 | `w_ptr` / `r_ptr` | 다음 write / read 위치 |
 
-depth $= 2^N$ → pointer는 **$N+1$ bit** (lower $N$ = memory address, MSB 1 bit = wrap-around 구분).
+depth $$= 2^N$$ → pointer는 **$$N+1$$ bit** (lower $$N$$ = memory address, MSB 1 bit = wrap-around 구분).
 
 $$
 \text{empty}: \quad w\_ptr == r\_ptr \quad(\text{MSB·lower bits 모두 같음})
@@ -72,13 +72,13 @@ data_out = {from_FIFO2, from_FIFO1, from_FIFO0};
 
 ## 자주 틀리는 지점
 
-- full/empty는 **$N+1$ bit pointer**로 안정적으로 구분.
+- full/empty는 **$$N+1$$ bit pointer**로 안정적으로 구분.
 - overflow/underflow 방지 logic 필수.
 - output concatenate **순서**와 BRAM latency를 testbench 기준에 맞춤.
 
 ## 복습 질문
 
-- $N+1$ bit pointer로 full과 empty를 구분하는 조건식은?
+- $$N+1$$ bit pointer로 full과 empty를 구분하는 조건식은?
 - AI accelerator pipeline에서 FIFO가 없으면 무엇이 문제이고, FIFO가 어떻게 해결하는가?
 - line buffer가 raster-scan stream을 어떻게 3×3 convolution에 맞게 재정렬하는가?
 - FIFO 내부 memory로 single-port BRAM이 부적합한 이유는?

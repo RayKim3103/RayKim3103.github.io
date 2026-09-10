@@ -24,8 +24,8 @@ sitemap: false
 $$
 \text{address} = [\ \text{tag}\ |\ \text{index}\ |\ \text{block offset}\ ]
 $$
-- **block offset**: block 내부 위치. block size $= 2^b$ byte → offset $b$ bit. ($2^m$ doubleword block이면 byte offset은 $m+3$ bit.)
-- **index**: 어느 set인가. set 수 $= 2^s$ → index $s$ bit.
+- **block offset**: block 내부 위치. block size $$= 2^b$$ byte → offset $$b$$ bit. ($$2^m$$ doubleword block이면 byte offset은 $$m+3$$ bit.)
+- **index**: 어느 set인가. set 수 $$= 2^s$$ → index $$s$$ bit.
 - **tag**: 같은 index로 들어오는 여러 memory block 구분. **valid bit**로 entry 유효성 표시.
 
 $$
@@ -35,7 +35,7 @@ $$
 | | 구조 | 특징 |
 |---|---|---|
 | **direct-mapped** | block이 갈 수 있는 entry가 **하나** | 단순·빠른 hit time, **conflict miss**에 취약 |
-| **n-way set-associative** | 한 set의 $n$개 way 중 아무 곳 | conflict miss↓, tag compare $n$개·hit time↑ |
+| **n-way set-associative** | 한 set의 $$n$$개 way 중 아무 곳 | conflict miss↓, tag compare $$n$$개·hit time↑ |
 | **fully associative** | 아무 entry나 | conflict miss 최소, 비교 비용 최대 |
 
 replacement policy: LRU, FIFO, random, pseudo-LRU.

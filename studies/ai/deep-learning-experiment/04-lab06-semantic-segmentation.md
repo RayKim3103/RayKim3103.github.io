@@ -24,7 +24,7 @@ sitemap: false
   \text{padding} = \frac{\text{dilation}\times(K-1)}{2}\ \Rightarrow\ \text{feature map 크기 유지}
   $$
 - **transposed convolution** = learnable upsampling.
-- 평가: **mIoU** = 클래스별 $\dfrac{TP}{TP+FP+FN}$의 평균. class imbalance(배경 픽셀 압도)에 pixel accuracy보다 강건.
+- 평가: **mIoU** = 클래스별 $$\dfrac{TP}{TP+FP+FN}$$의 평균. class imbalance(배경 픽셀 압도)에 pixel accuracy보다 강건.
 
 ## 2. 실습 설계
 

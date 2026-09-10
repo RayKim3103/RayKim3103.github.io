@@ -58,12 +58,12 @@ laser energy density → partial / complete / near-complete melting (SLG)
 - a-Si보다 carrier conduction 좋아 TFT 성능 ↑, 그러나 **grain boundary 품질이 성능을 제한**.
 
 ### Grain boundary 효과
-- threshold voltage $V_{th}$ ↑
-- off current $I_{off}$ ↑
+- threshold voltage $$V_{th}$$ ↑
+- off current $$I_{off}$$ ↑
 - carrier mobility ↓
 - trap state 많아 subthreshold 특성 악화
 
-**Transfer curve**: $V_D$ 고정, $V_G$ 스윕하며 $I_D$ 측정. n-type / p-type TFT는 carrier·mobility 차이로 전류 수준·기울기가 다름.
+**Transfer curve**: $$V_D$$ 고정, $$V_G$$ 스윕하며 $$I_D$$ 측정. n-type / p-type TFT는 carrier·mobility 차이로 전류 수준·기울기가 다름.
 
 ## 5. Energy Density의 역할
 
@@ -103,7 +103,7 @@ TFT channel 내부에 grain boundary가 놓이면 carrier 경로가 trap·barrie
 ## 복습 질문
 
 - RTA와 ELA의 공정 차이, ELA가 glass substrate를 크게 손상시키지 않는 이유는?
-- grain boundary가 TFT의 $V_{th}$, $I_{off}$, mobility에 주는 영향은?
+- grain boundary가 TFT의 $$V_{th}$$, $$I_{off}$$, mobility에 주는 영향은?
 - partial melting / complete melting / near-complete melting(SLG) regime의 차이와, energy density와의 관계는?
 - SLG에서 seed spacing이 grain size에 미치는 영향은?
 - grain boundary 위치 제어(SLS)가 TFT 균일도에 중요한 이유는?

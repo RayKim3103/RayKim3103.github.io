@@ -19,10 +19,10 @@ sitemap: false
 |---|---|
 | agent | 행동을 선택하는 학습 주체 |
 | environment | 행동 결과를 만드는 외부 세계 |
-| state $s$ | 현재 상황 정보 |
-| action $a$ | 제어 입력 |
-| reward $r$ | 행동 결과 피드백 |
-| policy $\pi(a\mid s)$ | state → action 규칙 |
+| state $$s$$ | 현재 상황 정보 |
+| action $$a$$ | 제어 입력 |
+| reward $$r$$ | 행동 결과 피드백 |
+| policy $$\pi(a\mid s)$$ | state → action 규칙 |
 
 $$
 s_0, a_0, r_0, s_1, a_1, r_1, \dots \quad(\text{순차 의사결정})
@@ -31,7 +31,7 @@ $$
 
 ## 2. 지도학습과의 차이
 
-지도학습: $y$가 주어지고 $x\to y$ 학습. RL: 특정 state에서 어떤 action이 정답인지 바로 알 수 없다.
+지도학습: $$y$$가 주어지고 $$x\to y$$ 학습. RL: 특정 state에서 어떤 action이 정답인지 바로 알 수 없다.
 
 - data가 **i.i.d.가 아님** — agent의 policy가 수집되는 data 분포를 바꾼다.
 - reward가 **sparse / delayed**일 수 있다.
@@ -58,6 +58,17 @@ flowchart TD
   J --> K["Sim2Real / Humanoid RL"]
   K --> L["Generative Models for RL"]
 ```
+
+## 5. 강의 노트 ↔ 프로그래밍 과제
+
+| 강의 노트 | 대응 과제 |
+|---|---|
+| 02 모방학습 | [과제 1 — BC · DAgger](hw1-imitation-learning.md) |
+| 03 정책 그래디언트·Actor-Critic | [과제 2 — REINFORCE·GAE·PPO](hw2-policy-gradients.md) |
+| 04 Q-learning·Off-policy | [과제 3 — DQN·Double DQN](hw3-q-learning.md) · [과제 4 — SAC](hw4-soft-actor-critic.md) |
+| 06 Offline RL | [과제 5 — CQL](hw5-offline-rl.md) |
+| 07 Model-Based RL | [과제 6 — MPC·CEM](hw6-model-based-rl.md) |
+| 09 Reward Learning·RLHF | [과제 7 — 선호 학습](hw7-rlhf.md) |
 
 ## 복습 질문
 

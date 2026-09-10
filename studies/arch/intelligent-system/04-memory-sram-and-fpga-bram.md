@@ -46,7 +46,7 @@ array = 행/열 구조. **address → decoder → wordline(WL, row 선택)**, **
 → **writeability**: write driver/access transistor가 feedback inverter를 이겨야. read stability ↔ writeability는 sizing trade-off.
 
 ### Decoder
-N-bit address → $2^N$ WL 중 하나. $2^N$개의 N-input gate가 필요 → N이 크면 큰 NAND/AND가 느려 **다단계 작은 gate**로 분해.
+N-bit address → $$2^N$$ WL 중 하나. $$2^N$$개의 N-input gate가 필요 → N이 크면 큰 NAND/AND가 느려 **다단계 작은 gate**로 분해.
 
 ## 3. Verilog SRAM model (simulation용)
 

@@ -117,8 +117,8 @@ inputs ─► next-state logic ─► next state ─► state register ─► cu
 
 | | 출력 | 장점 | 단점 |
 |---|---|---|---|
-| **Moore** | $\text{output} = f(\text{state})$ | 출력 안정, timing 분석 단순 | 입력 반영에 transition 대기 |
-| **Mealy** | $\text{output} = f(\text{state}, \text{input})$ | 입력에 빠르게 반응, state 수↓ | input glitch가 출력에 바로 → timing 관리 중요 |
+| **Moore** | $$\text{output} = f(\text{state})$$ | 출력 안정, timing 분석 단순 | 입력 반영에 transition 대기 |
+| **Mealy** | $$\text{output} = f(\text{state}, \text{input})$$ | 입력에 빠르게 반응, state 수↓ | input glitch가 출력에 바로 → timing 관리 중요 |
 
 ## 11. Verilog FSM 3-block 패턴 (권장)
 

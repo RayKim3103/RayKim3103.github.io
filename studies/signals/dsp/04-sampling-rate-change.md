@@ -33,17 +33,17 @@ tags: [DSP, lecture-note, sampling, multirate]
 
 ### Down-sampling
 
-정수 $M$만큼 샘플링률을 낮추는 decimator는 다음과 같이 정의된다.
+정수 $$M$$만큼 샘플링률을 낮추는 decimator는 다음과 같이 정의된다.
 
 $$
 y[n] = x[nM]
 $$
 
-즉 원래 수열에서 $M$번째 샘플만 남긴다.
+즉 원래 수열에서 $$M$$번째 샘플만 남긴다.
 
 ### 주파수 영역 효과
 
-down-sampling은 주파수축에서 spectrum을 $M$배 확장하고, $2\pi$ 주기 때문에 겹쳐 더해지는 효과를 만든다.
+down-sampling은 주파수축에서 spectrum을 $$M$$배 확장하고, $$2\pi$$ 주기 때문에 겹쳐 더해지는 효과를 만든다.
 
 $$
 Y(e^{j\omega})
@@ -69,9 +69,9 @@ $$
 
 절차:
 
-1. 원 신호 $x[n]$을 low-pass filter에 통과시킨다.
-2. cutoff를 $\pi/M$ 이하로 제한한다.
-3. 그 결과를 $M$배 down-sampling한다.
+1. 원 신호 $$x[n]$$을 low-pass filter에 통과시킨다.
+2. cutoff를 $$\pi/M$$ 이하로 제한한다.
+3. 그 결과를 $$M$$배 down-sampling한다.
 
 핵심은 decimation 자체가 aliasing을 없애지 못한다는 점이다. aliasing을 막는 역할은 앞단의 anti-aliasing filter가 담당한다.
 
@@ -79,7 +79,7 @@ $$
 
 ### Up-sampling
 
-정수 $L$배 sampling rate를 높일 때는 샘플 사이에 $L-1$개의 0을 삽입한다.
+정수 $$L$$배 sampling rate를 높일 때는 샘플 사이에 $$L-1$$개의 0을 삽입한다.
 
 $$
 x_u[n] =
@@ -97,7 +97,7 @@ $$
 X_u(e^{j\omega}) = X(e^{j\omega L})
 $$
 
-원 spectrum이 $L$개 image로 반복되어 보이므로, interpolation filter가 필요하다.
+원 spectrum이 $$L$$개 image로 반복되어 보이므로, interpolation filter가 필요하다.
 
 ## Interpolation Filter
 
@@ -113,11 +113,11 @@ L, & |\omega|\le \pi/L \\
 \end{cases}
 $$
 
-gain이 $L$인 이유는 zero insertion으로 평균 에너지가 희석된 것을 보상하기 위해서이다.
+gain이 $$L$$인 이유는 zero insertion으로 평균 에너지가 희석된 것을 보상하기 위해서이다.
 
 ## 비정수 배율 Sampling Rate 변환
 
-샘플링률을 $L/M$배로 바꾸려면 다음 순서를 사용한다.
+샘플링률을 $$L/M$$배로 바꾸려면 다음 순서를 사용한다.
 
 $$
 x[n] \xrightarrow{\uparrow L}

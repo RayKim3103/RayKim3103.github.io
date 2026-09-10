@@ -24,8 +24,8 @@ solid solution·zone refining, interconnect·electromigration
 
 | 상태 | 구조 | 특징 |
 |---|---|---|
-| **Crystalline** | 원자 주기 배열 | 장거리 질서, 뚜렷한 melting point $T_m$ |
-| **Amorphous** | 무작위에 가까움 | 단거리 질서만, glass transition $T_g$ (연속적 변화) |
+| **Crystalline** | 원자 주기 배열 | 장거리 질서, 뚜렷한 melting point $$T_m$$ |
+| **Amorphous** | 무작위에 가까움 | 단거리 질서만, glass transition $$T_g$$ (연속적 변화) |
 | **Polycrystalline** | 작은 grain들이 서로 다른 방향 | grain boundary 존재, 국소적으로만 결정성 |
 
 비정질에는 **void, strained bond, dangling bond**가 많아 → 전자 상태가 band gap 내부(gap state)로 들어옴.
@@ -68,7 +68,7 @@ solid solution·zone refining, interconnect·electromigration
 ### 냉각 속도와 상 변화
 - 느린 냉각: 원자 재배열 → 결정질
 - **빠른 냉각(quenching)**: 결정화 시간 부족 → supercooled liquid → amorphous solid
-- 결정질은 뚜렷한 $T_m$, 비정질은 $T_g$ 중심 연속 변화
+- 결정질은 뚜렷한 $$T_m$$, 비정질은 $$T_g$$ 중심 연속 변화
 
 ### 방법
 
@@ -85,12 +85,12 @@ solid solution·zone refining, interconnect·electromigration
 - **Cu–Ni isomorphous alloy**: 냉각 조건에 따라 균일 조성 또는 grain 내부 segregation. 빠른 냉각 → 먼저·나중 고화 영역의 조성 차 → grain boundary 근처 편차 (coring).
 
 ### Zone refining
-국부 용융 영역을 이동 → 불순물이 **액상에 더 많이 잔류** (segregation coefficient $k < 1$) → 재고화된 고체의 불순물 농도 낮음. 반복 → 불순물이 한쪽 끝으로 몰려 순도 ↑.
+국부 용융 영역을 이동 → 불순물이 **액상에 더 많이 잔류** (segregation coefficient $$k < 1$$) → 재고화된 고체의 불순물 농도 낮음. 반복 → 불순물이 한쪽 끝으로 몰려 순도 ↑.
 
 ## 8. Microelectronic Interconnect
 
 - IC는 M1, M2, M3 … 여러 금속 배선층 + via로 소자 연결
-- 배선 사이 **수직 capacitance $C_V$ + 수평 capacitance $C_H$**
+- 배선 사이 **수직 capacitance $$C_V$$ + 수평 capacitance $$C_H$$**
 - 미세화 → RC delay, crosstalk, **electromigration** ↑
 
 ### Electromigration
@@ -98,7 +98,7 @@ solid solution·zone refining, interconnect·electromigration
 - **void** 성장 → 배선 단선
 - **hillock** 형성 → 단락·신뢰성 저하
 
-Black's equation: MTTF $\propto J^{-n} e^{E_a/kT}$. → Cu(높은 EM 저항) + barrier layer.
+Black's equation: MTTF $$\propto J^{-n} e^{E_a/kT}$$. → Cu(높은 EM 저항) + barrier layer.
 
 ---
 
@@ -108,7 +108,7 @@ Black's equation: MTTF $\propto J^{-n} e^{E_a/kT}$. → Cu(높은 EM 저항) + b
 - a-Si와 a-Si:H에서 dangling bond와 localized state의 의미, H의 역할은?
 - Czochralski 공정 순서와 seed crystal의 역할은?
 - quenching / melt spinning / PVD / CVD가 각각 무엇을 만드나?
-- zone refining이 순도를 높이는 원리($k < 1$)는? electromigration이 배선을 망가뜨리는 과정은?
+- zone refining이 순도를 높이는 원리($$k < 1$$)는? electromigration이 배선을 망가뜨리는 과정은?
 {% endraw %}
 
 ---

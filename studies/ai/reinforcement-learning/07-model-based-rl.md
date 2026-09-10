@@ -22,27 +22,29 @@ action을 취했을 때 다음 state·reward가 어떻게 생기는지. (로봇�
 
 ## 2. Planning
 
-미래 action sequence를 평가해 가장 좋은 **첫 action**을 고름:
+무한·open-loop 최적화는 불가능(model 오차 누적) → 유한 horizon $$H$$, 유한 후보 $$K$$개 action sequence 위에서:
 $$
-a^*_{0:H} = \arg\max_{a_{0:H}} \sum_{t=0}^{H} r(s_t, a_t)
+A^* = \arg\max_{A^{(0)},\dots,A^{(K-1)}} \sum_{t'=t}^{t+H-1} r(\hat s_{t'}, a_{t'}),\qquad \hat s_{t'+1} = F_\phi(\hat s_{t'}, a_{t'})
 $$
-첫 action만 실행 → 다음 state에서 재계획 = **receding horizon / MPC**.
+첫 action만 실행 → 다음 state에서 재계획 = **receding horizon / MPC** (누적 오차 완화).
 
 ### Random shooting → CEM
-random action sequence를 sample → model로 rollout → return 큰 것 선택.
-**Cross-Entropy Method**: elite set(상위)을 뽑아 그 분포(평균·분산)를 갱신 → 반복.
+- **Random shooting**: $$K$$개 무작위 action sequence sample → model rollout → return 큰 것 선택.
+- **Cross-Entropy Method**: $$K$$개 중 상위 $$J$$개 **elite**를 뽑아 그 평균·분산으로 diagonal Gaussian을 refit → 다음 iteration 샘플 분포. $$M$$회 반복 후 최종 평균을 action으로. (반복적 분포 최적화라 random shooting보다 훨씬 강력.)
 
 ## 3. Model learning
 
+정규화된 **state 차분**을 예측 (다음 state 직접 예측보다 스케일·수치안정에 유리):
 $$
-\min_\phi \sum \lVert f_\phi(s_t, a_t) - s_{t+1} \rVert^2
+\min_\phi\; \mathbb{E}_{(s_t,a_t,s_{t+1})\sim D}\big\lVert \text{Normalize}(s_{t+1}-s_t) - f_\phi(s_t, a_t) \big\rVert^2,\qquad
+F_\phi(s,a) = s + \text{Unnormalize}(f_\phi(s,a))
 $$
-reward도 모르면 reward model 함께. **model error는 horizon이 길수록 누적** → 긴 full trajectory보다 **짧은 rollout을 자주**.
+reward도 모르면 reward model 함께. **model error는 horizon이 길수록 누적** → 긴 full trajectory보다 **짧은 rollout을 자주**. **Ensemble**($$N$$개 독립 network)로 후보마다 $$N$$개 rollout 평균 → model 편향 완화.
 
 ## 4. 심화 — Model 결합 기법
 
 ### MBPO (Model-Based Policy Optimization)
-실제 data $D_{\text{env}}$ 로 model 학습 → $D_{\text{env}}$ 의 여러 state에서 **짧은 imaginary rollout** → $D_{\text{model}}$ 을 policy/critic update에 추가 사용.
+실제 data $$D_{\text{env}}$$ 로 model 학습 → $$D_{\text{env}}$$ 의 여러 state에서 **짧은 imaginary rollout** → $$D_{\text{model}}$$ 을 policy/critic update에 추가 사용.
 
 ### Dyna
 model-free update + model-based planning update를 섞는 고전 구조:
@@ -68,9 +70,14 @@ latent dynamics + TD learning + MPC 결합. representation은 **control-relevant
 - long-horizon: 상상 rollout이 길수록 불확실성↑
 - representation: 예측에 필요한 정보 ≠ 제어에 필요한 정보
 
+## 관련 과제
+
+[과제 6 — Model-Based RL](hw6-model-based-rl.md): dynamics model + MPC(random shooting / CEM) 구현. 실측(HalfCheetah) — model loss < 0.2로 하강, **CEM 2500.27 ± 50.19 vs random shooting 847.05 ± 54.77** (약 3배). CEM 하이퍼파라미터: **H=1 → −15250 붕괴**(미래 못 봄 → 오차 누적), K=50 → 1302(후보 부족). horizon $$H$$·후보 수 $$K$$ 둘 다 결정적.
+
 ## 복습 질문
 
-- planning(MPC)과 CEM 절차, 그리고 왜 짧은 rollout을 자주 쓰는가?
+- 왜 다음 state 대신 (정규화된) state 차분을 예측하나? $$F_\phi$$ 정의를 쓰라.
+- planning(MPC)과 CEM 절차(elite refit), 그리고 왜 짧은 rollout을 자주 쓰는가?
 - MBPO/Dyna가 실제 경험과 상상 경험을 어떻게 결합하는가?
 - Dreamer/TD-MPC가 latent representation을 쓰는 이유와, "생성 품질 ≠ 제어 품질"의 의미는?
 - model-based RL에서 model error/exploitation이 왜 위험한가?

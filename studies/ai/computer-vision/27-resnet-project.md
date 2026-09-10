@@ -19,18 +19,18 @@ ResNet의 (1) layer별 **parameter 수** 계산, (2) **BatchNorm**의 역할과 
 $$
 \#\text{params} = C_{\text{out}}\,(C_{\text{in}}\,K_h\,K_w)\ \ (+\,C_{\text{out}}\ \text{if bias})
 $$
-보통 conv 뒤에 BN이 오면 conv bias는 생략(BN의 $\beta$가 대신).
+보통 conv 뒤에 BN이 오면 conv bias는 생략(BN의 $$\beta$$가 대신).
 
 ### BatchNorm layer
-채널마다 학습 파라미터 2개: scale $\gamma$, shift $\beta$ → $2C$.
-running mean/var($2C$)는 **버퍼**(학습 대상 아님)지만 eval에 직접 영향.
+채널마다 학습 파라미터 2개: scale $$\gamma$$, shift $$\beta$$ → $$2C$$.
+running mean/var($$2C$$)는 **버퍼**(학습 대상 아님)지만 eval에 직접 영향.
 
 ### FC layer
-$\#\text{params} = C_{\text{in}}\times C_{\text{out}} + C_{\text{out}}$.
+$$\#\text{params} = C_{\text{in}}\times C_{\text{out}} + C_{\text{out}}$$.
 
 ### ResNet 구조 요소
 - **stem**: 큰 conv(예: 7×7, stride 2) + BN + ReLU + maxpool.
-- **residual block**: (3×3 conv–BN–ReLU) ×2, 출력 $y = x + F(x)$.
+- **residual block**: (3×3 conv–BN–ReLU) ×2, 출력 $$y = x + F(x)$$.
   - 채널/해상도가 바뀌는 첫 block은 shortcut에 **1×1 conv(stride 2)** 를 넣어 차원 정합.
 - **bottleneck block**(ResNet-50+): 1×1(축소) → 3×3 → 1×1(확장), 연산량 절감.
 - **head**: global average pooling → FC(→ 클래스 수).
@@ -43,7 +43,7 @@ $$
 \hat x = \frac{x - \mu_B}{\sqrt{\sigma_B^2 + \epsilon}},\qquad y = \gamma\hat x + \beta
 $$
 
-- **train**: 현재 미니배치 통계 $\mu_B,\sigma_B^2$ 사용 + running stat을 EMA로 갱신.
+- **train**: 현재 미니배치 통계 $$\mu_B,\sigma_B^2$$ 사용 + running stat을 EMA로 갱신.
 - **eval**: 학습 중 누적한 **running mean/var** 사용(배치에 무관하게 결정적).
 - 효과: 더 큰 learning rate 허용, 초기화 민감도↓, 약한 정규화. `model.eval()`을 잊으면 추론이 배치 구성에 흔들린다.
 
@@ -56,7 +56,7 @@ lr_{\max}\cdot \dfrac{t}{T_{\text{warm}}}, & t \le T_{\text{warm}} \\[2mm]
 lr_{\min} + \tfrac12 (lr_{\max}-lr_{\min})\big(1 + \cos(\pi\,\text{progress})\big), & t > T_{\text{warm}}
 \end{cases}
 $$
-progress = $(t - T_{\text{warm}})/(T_{\text{total}} - T_{\text{warm}})$.
+progress = $$(t - T_{\text{warm}})/(T_{\text{total}} - T_{\text{warm}})$$.
 
 - **warmup**: 초반 불안정(큰 lr을 바로 쓰기 어려움, BN 통계 미성숙)을 선형 증가로 완화.
 - **cosine decay**: 이후 부드럽게 감소 → step decay보다 안정적 수렴.
@@ -73,7 +73,7 @@ $$
 \hat v_t = \frac{v_t}{1-\beta_2^t},\qquad
 \theta \leftarrow \theta - \eta\,\frac{\hat m_t}{\sqrt{\hat v_t} + \epsilon}
 $$
-- bias correction $\hat m,\hat v$: 초기 $m_0=v_0=0$ 편향 보정.
+- bias correction $$\hat m,\hat v$$: 초기 $$m_0=v_0=0$$ 편향 보정.
 - 파라미터별로 유효 학습률이 다르다(gradient 크기에 반비례).
 - Adam이 항상 SGD+momentum보다 **일반화**가 좋은 것은 아니다 — task/스케줄에 따라 비교(AdamW로 weight decay 분리 권장).
 
@@ -86,10 +86,10 @@ $$
 
 ## 복습 질문
 
-- $C_{\text{in}}{=}64, C_{\text{out}}{=}128, K{=}3$인 conv(BN 뒤따름)의 파라미터 수는?
+- $$C_{\text{in}}{=}64, C_{\text{out}}{=}128, K{=}3$$인 conv(BN 뒤따름)의 파라미터 수는?
 - BatchNorm의 학습 파라미터와 버퍼를 구분하고, train/eval 동작 차이를 설명하라.
 - cosine warmup의 두 구간 식과 각 구간의 목적은?
-- Adam의 $m_t, v_t$가 각각 무엇을 추정하며 bias correction의 역할은?
+- Adam의 $$m_t, v_t$$가 각각 무엇을 추정하며 bias correction의 역할은?
 
 {% endraw %}
 

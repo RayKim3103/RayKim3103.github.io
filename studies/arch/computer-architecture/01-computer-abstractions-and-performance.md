@@ -58,7 +58,7 @@ $$
 $$
 - **power**: 순간 소비율(W). 발열·냉각 한계.
 - **energy**: 일정 시간 동안 소비한 총량(J). 배터리·전기요금.
-- CMOS dynamic power $\propto C \cdot V^2 \cdot f$. → 전압을 못 낮추면서 주파수만 올리면 power가 급증(**power wall**) → multicore로 전환한 이유.
+- CMOS dynamic power $$\propto C \cdot V^2 \cdot f$$. → 전압을 못 낮추면서 주파수만 올리면 power가 급증(**power wall**) → multicore로 전환한 이유.
 - 데이터센터·모바일: **performance per watt**가 핵심 지표.
 
 ## 5. Amdahl's Law
@@ -66,7 +66,7 @@ $$
 $$
 \text{Speedup} = \frac{1}{(1-f) + \dfrac{f}{s}}
 $$
-$f$ = 개선되는 비율, $s$ = 그 부분의 속도 향상. **개선되지 않는 부분 $(1-f)$ 이 전체 speedup의 상한을 결정한다** ($s\to\infty$ 이면 speedup $\to 1/(1-f)$).
+$$f$$ = 개선되는 비율, $$s$$ = 그 부분의 속도 향상. **개선되지 않는 부분 $$(1-f)$$ 이 전체 speedup의 상한을 결정한다** ($$s\to\infty$$ 이면 speedup $$\to 1/(1-f)$$).
 
 ## 6. 자주 틀리는 지점
 
@@ -79,7 +79,7 @@ $f$ = 개선되는 비율, $s$ = 그 부분의 속도 향상. **개선되지 않
 
 - CPU time 식의 세 항과, 각각에 영향을 주는 요소는?
 - response time과 throughput의 차이를 예로 설명하라.
-- Amdahl's law를 쓰고, $f=0.9,\ s\to\infty$ 일 때 최대 speedup은?
+- Amdahl's law를 쓰고, $$f=0.9,\ s\to\infty$$ 일 때 최대 speedup은?
 - power wall이 multicore 전환을 유발한 이유는?
 {% endraw %}
 

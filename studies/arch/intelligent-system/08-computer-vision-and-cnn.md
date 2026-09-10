@@ -15,7 +15,7 @@ sitemap: false
 
 ## 1. Image와 Filtering
 
-2D digital image = 공간 sampling + quantization 결과. grayscale(pixel = intensity 1개), RGB(pixel = `[R,G,B]`), intensity 보통 1 byte(0–255). 수학적으로 $I(x,y)$.
+2D digital image = 공간 sampling + quantization 결과. grayscale(pixel = intensity 1개), RGB(pixel = `[R,G,B]`), intensity 보통 1 byte(0–255). 수학적으로 $$I(x,y)$$.
 
 이미지 필터링: kernel(mask)을 image 위로 이동하며 주변 pixel과 가중합. **딥러닝은 엄밀한 convolution 대신 cross-correlation**을 쓴다(kernel weight가 학습되므로 뒤집을 필요 없음):
 $$
@@ -27,7 +27,7 @@ $$
 | identity | 원본 유지 |
 | mean/blur | smoothing (low-pass) |
 | sharpening | high-frequency 강조 |
-| **Gaussian** | 부드러운 low-pass, $G_\sigma(x,y) = \dfrac{1}{2\pi\sigma^2} e^{-(x^2+y^2)/2\sigma^2}$ ($\sigma$↑ → 더 넓게 blur) |
+| **Gaussian** | 부드러운 low-pass, $$G_\sigma(x,y) = \dfrac{1}{2\pi\sigma^2} e^{-(x^2+y^2)/2\sigma^2}$$ ($$\sigma$$↑ → 더 넓게 blur) |
 
 ## 2. Edge & Gradient
 
@@ -88,7 +88,7 @@ Convolution → Activation → Pooling → ... → Fully Connected → Output
 - **stride**: kernel 이동 간격. stride↑ → output spatial size↓, 계산량↓, down-sampling.
 
 ### Multi-channel Convolution
-input channel $C$개 → kernel도 $C$ channel:
+input channel $$C$$개 → kernel도 $$C$$ channel:
 $$
 Y_o[i,j] = \sum_{c=0}^{C-1} \sum_m \sum_n X_c[i+m,\, j+n]\, K_{o,c}[m,n]
 $$

@@ -29,7 +29,7 @@ $$
 $$
 L_{\text{cyc}} = \mathbb{E}_x\lVert F(G(x)) - x\rVert_1 + \mathbb{E}_y\lVert G(F(y)) - y\rVert_1
 $$
-- $G:X\to Y$, $F:Y\to X$에 대해 $F(G(x))\approx x$, $G(F(y))\approx y$ 강제.
+- $$G:X\to Y$$, $$F:Y\to X$$에 대해 $$F(G(x))\approx x$$, $$G(F(y))\approx y$$ 강제.
 - paired target이 없으면 adversarial loss만으로는 **입력 content가 보존되지 않고** target 도메인 이미지로 collapse 가능 → cycle loss가 **구조 보존 장치**.
 - image buffer, least-squares GAN loss 등이 oscillation 완화에 도움. cycle consistency가 semantic correctness를 **완벽히 보장하진 않음**.
 

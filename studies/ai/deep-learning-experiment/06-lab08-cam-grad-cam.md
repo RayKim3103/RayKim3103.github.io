@@ -16,17 +16,17 @@ CNN의 예측 근거를 **시각화**한다. pretrained AlexNet·VGG16에 대해
 ## 1. 이론 배경
 
 ### CAM (Class Activation Mapping)
-마지막 conv feature map 뒤에 **GAP + linear classifier**가 있어야 함. class $c$의 map = class weight로 가중한 feature map 합.
+마지막 conv feature map 뒤에 **GAP + linear classifier**가 있어야 함. class $$c$$의 map = class weight로 가중한 feature map 합.
 → 구조 제약이 강하고 재학습이 필요할 수 있다.
 
 ### Grad-CAM
-target class score $y^c$의 gradient를 이용 → **GAP 구조가 없어도, architecture 변경·재학습 없이** 기존 CNN·detection·captioning·VQA에 적용.
+target class score $$y^c$$의 gradient를 이용 → **GAP 구조가 없어도, architecture 변경·재학습 없이** 기존 CNN·detection·captioning·VQA에 적용.
 $$
 \alpha_k^c = \frac{1}{Z}\sum_i\sum_j \frac{\partial y^c}{\partial A_{ij}^k},
 \qquad
 L^c = \operatorname{ReLU}\!\Big(\sum_k \alpha_k^c A^k\Big)
 $$
-$\alpha_k^c$ = feature map $k$의 중요도(gradient의 spatial 평균). ReLU로 양의 기여만 남김.
+$$\alpha_k^c$$ = feature map $$k$$의 중요도(gradient의 spatial 평균). ReLU로 양의 기여만 남김.
 
 ### Guided Backpropagation
 ReLU backward에서 **음수 gradient를 차단** → edge/detail 강조. 단독으로는 class-discriminative하지 않음.
@@ -38,7 +38,7 @@ Grad-CAM(coarse location) ⊙ Guided Backprop(fine detail) → 둘을 동시에.
 
 - AlexNet·VGG16 구조를 직접 정의하고 **ImageNet pretrained weight를 정확히 매핑**.
 - 관심 class score에 backward → 마지막 conv의 forward activation·backward gradient를 **hook**으로 저장.
-- gradient GAP → $\alpha_k^c$ → weighted sum + ReLU → heatmap → 원본에 overlay.
+- gradient GAP → $$\alpha_k^c$$ → weighted sum + ReLU → heatmap → 원본에 overlay.
 - Guided Backprop의 input gradient와 결합 → Guided Grad-CAM.
 
 ## 3. 구현 핵심
@@ -62,7 +62,7 @@ Grad-CAM(coarse location) ⊙ Guided Backprop(fine detail) → 둘을 동시에.
 ## 복습 질문
 
 - CAM과 Grad-CAM의 적용 조건 차이(GAP 구조 필요 여부)는?
-- Grad-CAM에서 $\alpha_k^c$와 $L^c$ 식의 의미와 ReLU의 역할은?
+- Grad-CAM에서 $$\alpha_k^c$$와 $$L^c$$ 식의 의미와 ReLU의 역할은?
 - Guided Backpropagation이 하는 일과, 단독으로 부족한 이유는?
 - pretrained weight 매핑이 Grad-CAM 품질에 직접 영향을 주는 이유는?
 {% endraw %}
