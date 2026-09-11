@@ -53,6 +53,19 @@ Boolean algebra는 집합 `B = {0, 1}`과 두 이항 연산 `+`, `.` 및 단항 
 
 Duality도 중요하다. 어떤 식에서 `+`와 `.`를 서로 바꾸고 `0`과 `1`을 서로 바꾸면 dual 식이 된다. Boolean algebra에서 하나의 정리가 성립하면 그 dual도 성립하므로, 한쪽 법칙을 알면 대응되는 법칙을 함께 얻는다.
 
+| 법칙 | 식 | Dual |
+|---|---|---|
+| 항등 | $$X + 0 = X$$ | $$X \cdot 1 = X$$ |
+| 영/일 | $$X + 1 = 1$$ | $$X \cdot 0 = 0$$ |
+| 멱등 | $$X + X = X$$ | $$X \cdot X = X$$ |
+| 보수 | $$X + X' = 1$$ | $$X \cdot X' = 0$$ |
+| 결합 | $$(X+Y)+Z = X+(Y+Z)$$ | $$(XY)Z = X(YZ)$$ |
+| 분배 | $$X(Y+Z) = XY+XZ$$ | $$X+YZ = (X+Y)(X+Z)$$ |
+| 흡수 | $$X + XY = X$$ | $$X(X+Y) = X$$ |
+| De Morgan | $$(X+Y)' = X'Y'$$ | $$(XY)' = X'+Y'$$ |
+
+**Consensus theorem**: $$XY + X'Z + YZ = XY + X'Z$$ (세 번째 항 $$YZ$$ 는 나머지 두 항에 이미 포함되어 제거 가능). 반대로 hazard를 없앨 때는 이 consensus 항을 **일부러 추가**한다 — 최소화와 hazard-free 설계가 반대 방향으로 작동하는 대표적인 예다.
+
 ## Boolean 식의 증명과 단순화
 
 Boolean 식은 대수 법칙을 이용해 다시 쓰면서 증명하거나 단순화한다. 예를 들어 `XY + XY' = X(Y + Y') = X`와 같이 보수 법칙과 항등 법칙을 적용할 수 있다. 슬라이드의 활동 문제처럼 `(XY) + (YZ) + (X'Z)`에서 consensus 항을 제거하는 과정은 이후 hazard 제거와도 연결된다.
@@ -65,10 +78,23 @@ Boolean 식은 대수 법칙을 이용해 다시 쓰면서 증명하거나 단�
 
 Full adder는 입력 `A`, `B`, `Cin`을 받아 `Sum`, `Cout`을 만든다.
 
-- `Sum = A xor B xor Cin`
-- `Cout = AB + ACin + BCin`
+| A | B | Cin | Sum | Cout |
+|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 1 | 0 |
+| 0 | 1 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 1 | 0 |
+| 1 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
 
-`Cout`은 세 입력 중 적어도 두 개가 1일 때 1이 되는 majority 함수로 볼 수 있다. Half adder 두 개와 OR 게이트를 조합해 full adder를 만들 수 있고, 여러 full adder를 직렬로 연결하면 2비트 이상의 binary adder가 된다.
+$$
+\text{Sum} = A \oplus B \oplus C_{in},\qquad
+C_{out} = AB + AC_{in} + BC_{in} = AB + C_{in}(A \oplus B)
+$$
+
+`Cout`은 세 입력 중 적어도 두 개가 1일 때 1이 되는 majority 함수로 볼 수 있다. 두 번째 형태 $$C_{in}(A\oplus B)$$ 는 $$\text{Sum}$$ 계산에 쓰인 $$A\oplus B$$ 를 재사용하므로, half adder 두 개(합·carry 각각)와 OR 게이트 하나로 full adder를 만들 수 있음을 그대로 보여준다. 여러 full adder를 직렬로 연결(carry를 다음 stage의 Cin으로 전달)하면 **ripple-carry adder**가 되며, `n`비트를 더할 때 최악 지연은 carry가 최하위에서 최상위까지 전파되는 시간 $$O(n)$$ 에 비례한다.
 
 ### BCD to 7-Segment Display Controller
 
@@ -122,7 +148,26 @@ K-map 최소화 절차:
 4. 모든 ON-set 1이 적어도 한 번 덮이도록 cover를 선택한다.
 5. 각 묶음에서 변하지 않는 변수만 남겨 product term을 만든다.
 
-K-map에서 중요한 감각은 큰 묶음일수록 식이 짧아진다는 것이다. 0-cube는 모든 변수를 포함한 minterm이고, 1-cube는 literal 하나가 줄어든 항, 2-cube는 두 literal이 줄어든 항으로 해석된다.
+K-map에서 중요한 감각은 큰 묶음일수록 식이 짧아진다는 것이다. 0-cube는 모든 변수를 포함한 minterm이고, 1-cube는 literal 하나가 줄어든 항, 2-cube는 두 literal이 줄어든 항으로 해석된다. 일반적으로 $$k$$-cube(칸 $$2^k$$개 묶음)는 원래 minterm에서 literal을 $$k$$개 제거한 product term에 대응한다.
+
+### 3변수 K-map worked example
+
+앞서 canonical form 예시로 든 $$F(A,B,C) = \Sigma m(1,3,5,6,7)$$ 을 실제로 최소화해 보자. K-map 배치(행 `A`, 열 `BC`는 Gray code 순서 `00,01,11,10`):
+
+| A\BC | 00 | 01 | 11 | 10 |
+|---|---|---|---|---|
+| 0 | 0 | **1**(m1) | **1**(m3) | 0 |
+| 1 | 0 | **1**(m5) | **1**(m7) | **1**(m6) |
+
+묶음:
+- $$m1, m3, m5, m7$$ (열 `01`+`11`, 2행 전체) → 4-cube: $$C$$ 만 남고 $$A,B$$ 소거 → 항 $$C$$
+- $$m6, m7$$ (행 `1`, 열 `11`+`10`) → 2-cube: $$AB$$
+
+$$
+F = C + AB
+$$
+
+$$m5$$ 는 $$C$$ 묶음이 이미 덮으므로 $$AB$$ 묶음에 필수적으로 포함될 이유가 없어 essential은 $$C$$ 묶음뿐이지만, $$m6$$ 을 덮으려면 $$AB$$ 가 필요하다 — 이렇게 **각 1을 누가 덮는지 표로 확인**하는 절차가 [essential prime implicant 판별](03-combinational-logic-applications.md)의 핵심이다.
 
 ## Two-Level과 Multi-Level Logic
 
@@ -134,6 +179,8 @@ Multi-level logic은 공통 부분식을 묶어 여러 단계로 구현한다. �
 
 논리식이 같아도 실제 게이트에는 propagation delay가 존재한다. 입력 변화가 여러 경로를 통해 서로 다른 시간에 출력으로 도달하면 순간적으로 잘못된 값, 즉 glitch가 발생할 수 있다. 슬라이드는 파형을 진리표를 옆으로 눕혀 본 것으로 설명하며, 동일한 Boolean function을 구현한 여러 회로가 정적 논리 값은 같아도 시간 응답은 다를 수 있음을 강조한다.
 
+**경로 지연 예시**: 게이트 하나의 지연을 $$t_{pd}$$ 라 하면, $$F = AB + CD$$ 를 2-level(AND 2개 + OR 1개)로 구현할 때 임의 입력에서 출력까지 최악 지연은 $$2\,t_{pd}$$ (AND → OR). 같은 함수를 여러 단으로 factoring한 multi-level 구현은 단수가 늘어날수록 $$t_{pd}$$ 배수도 커지므로, "게이트 수가 적다"와 "지연이 짧다"는 서로 다른 최적화 기준임에 유의해야 한다. Hazard 분석([다음 장](03-combinational-logic-applications.md))은 바로 이 경로별 지연 차이에서 출발한다.
+
 ## 복습 체크포인트
 
 - 조합논리와 순차논리의 차이를 현재 입력과 상태 관점에서 설명할 수 있는가?
@@ -142,6 +189,9 @@ Multi-level logic은 공통 부분식을 묶어 여러 단계로 구현한다. �
 - ON-set, OFF-set, don't-care set을 구분하고 K-map에 배치할 수 있는가?
 - K-map에서 edge wrap-around와 Gray code adjacency를 올바르게 사용할 수 있는가?
 - 최소화된 식이 실제 회로에서 항상 지연/hazard 측면까지 최적인 것은 아니라는 점을 설명할 수 있는가?
+- Full adder의 $$C_{out} = AB + C_{in}(A\oplus B)$$ 형태가 half adder 두 개로 구현 가능한 이유는?
+- $$F(A,B,C)=\Sigma m(1,3,5,6,7)$$ 을 K-map으로 직접 최소화해 $$F=C+AB$$ 를 유도할 수 있는가?
+- consensus term이 최소화에서는 제거되고 hazard 제거에서는 추가되는 이유는?
 
 {% endraw %}
 

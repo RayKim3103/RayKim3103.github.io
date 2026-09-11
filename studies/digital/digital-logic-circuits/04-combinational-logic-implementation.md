@@ -45,6 +45,17 @@ ROM의 장점은 최소화가 거의 필요 없다는 것이다. 진리표가 �
 
 단점은 입력이 하나 늘어날 때마다 필요한 row 수가 두 배가 된다는 점이다. 입력 수가 커지면 면적이 빠르게 증가하고, don't-care를 활용한 최적화 이득도 제한적이다.
 
+**worked example** — BCD to 7-segment: 입력 4비트(BCD) → address 16개($$2^4$$), 출력 7비트(segment `a`~`g`) → data width 7. ROM 크기는 $$16 \times 7$$. address 0(`0000`)~9(`1001`)는 실제 숫자를 저장하고, 10(`1010`)~15(`1111`)는 BCD에서 나타나지 않으므로 don't-care(보통 전부 0 또는 이전 값 유지로 채움)로 둔다.
+
+| Address (BCD) | 저장된 data (`abcdefg`, segment 켜짐=1) |
+|---|---|
+| 0 = `0000` | `1111110` |
+| 1 = `0001` | `0110000` |
+| 9 = `1001` | `1111011` |
+| 10~15 | (don't-care, 보통 `0000000`) |
+
+입력이 5비트로 늘면($$2^5=32$$ address) 저장 공간은 그대로 두 배가 된다 — **입력 하나당 면적 두 배**라는 ROM의 단점이 숫자로 바로 보인다.
+
 ## Multiplexer와 Selector
 
 `2^n:1` multiplexer는 `n`개의 select 입력으로 여러 data 입력 중 하나를 출력에 연결한다. 2:1 MUX의 기본식은 다음과 같다.
@@ -60,6 +71,17 @@ Z = A'I0 + AI1
 `2^n:1` MUX는 `n`변수 Boolean function을 구현할 수 있다. select 입력에 함수의 변수를 연결하고, data 입력에는 진리표 값에 따라 0 또는 1을 묶으면 된다. 이는 ROM처럼 lookup table 방식으로 동작한다.
 
 변수가 `n+1`개 이상이면 일부 변수를 select로 쓰고 남은 변수는 data 입력 쪽의 0, 1, 변수, 보수 변수 형태로 연결한다. 예를 들어 4변수 함수 `G(A,B,C,D)`를 8:1 MUX로 구현하려면 세 변수를 select로 두고, 나머지 변수에 따라 각 data input을 `0`, `1`, `D`, `D'` 중 하나로 배치할 수 있다.
+
+**worked example**: [02장](02-combinational-logic.md)의 $$F(A,B,C)=\Sigma m(1,3,5,6,7)$$ 을 4:1 MUX로 구현한다고 하자. $$A, B$$ 를 select, $$C$$ 를 data 쪽 변수로 두면 $$AB$$ 의 네 조합마다 $$C{=}0$$/$$C{=}1$$ 일 때의 $$F$$ 값 쌍을 진리표에서 읽어 data input을 정한다.
+
+| select $$AB$$ | $$C{=}0$$ | $$C{=}1$$ | data input |
+|---|---|---|---|
+| 00 | 0 (m0) | 1 (m1) | $$C$$ |
+| 01 | 0 (m2) | 1 (m3) | $$C$$ |
+| 10 | 0 (m4) | 1 (m5) | $$C$$ |
+| 11 | 1 (m6) | 1 (m7) | 1 |
+
+값 쌍이 같으면 상수($$0$$ 또는 $$1$$), 다르면 $$C$$ 또는 $$C'$$ 를 연결한다 — 이 절차를 **residue map**이라 부른다. 결과 data 배치 $$(C,C,C,1)$$ 은 K-map으로 구한 $$F=C+AB$$ 와 정확히 일치한다: $$AB=11$$ 일 때만 무조건 1, 나머지는 $$C$$ 를 그대로 통과. $$n{+}1$$ 변수 함수를 $$2^n{:}1$$ MUX 하나로 구현하는 일반 절차가 바로 이것이다.
 
 ## Decoder와 Demultiplexer
 
@@ -80,6 +102,18 @@ O3 = G S1 S0
 ```
 
 Demultiplexer는 control signal을 decode해 한 입력을 여러 출력 중 하나로 보낸다. Boolean function 구현 관점에서는 decoder 출력이 minterm을 생성하므로, 필요한 minterm들을 OR로 묶으면 함수를 만들 수 있다.
+
+2:4 decoder의 전체 진리표(enable $$G$$ 포함):
+
+| $$G$$ | $$S_1$$ | $$S_0$$ | $$O_3$$ | $$O_2$$ | $$O_1$$ | $$O_0$$ |
+|---|---|---|---|---|---|---|
+| 0 | × | × | 0 | 0 | 0 | 0 |
+| 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 0 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 0 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 | 0 |
+
+$$G{=}1$$ 일 때 각 출력은 정확히 하나의 minterm(=하나의 $$S_1S_0$$ 조합)에서만 1이 된다 — decoder는 곧 **minterm generator**다.
 
 ## Decoder를 이용한 함수 구현
 
@@ -104,6 +138,16 @@ PAL:
 - 각 출력에 연결 가능한 product term 수가 제한된다.
 
 ROM, PLA, PAL은 모두 regular logic 구조지만 프로그래밍 자유도가 다르다. ROM은 모든 minterm을 준비하고 출력 값을 저장한다. PLA는 필요한 product term만 만들고 여러 출력에 공유한다. PAL은 더 제한된 OR 구조로 실용성과 속도를 얻는다.
+
+**PLA personality matrix 예시** — 두 출력 $$F_1 = AB + A'C$$, $$F_2 = AB + BC'$$ 를 PLA에 넣으면, AND plane은 서로 다른 product term 3개($$AB$$, $$A'C$$, $$BC'$$)만 만들고 OR plane에서 필요한 조합으로 공유한다.
+
+| Product term | A | B | C | $$F_1$$ | $$F_2$$ |
+|---|---|---|---|---|---|
+| $$AB$$ | 1 | 1 | – | 1 | 1 |
+| $$A'C$$ | 0 | – | 1 | 1 | 0 |
+| $$BC'$$ | – | 1 | 0 | 0 | 1 |
+
+ROM이었다면 2개 출력 각각에 대해 $$2^3=8$$ 개 minterm 자리를 모두 준비해야 하지만, PLA는 **공유되는 $$AB$$ 항 하나**로 두 출력에 동시에 기여해 AND plane 자원을 절약한다. 만약 PAL이라면 OR plane이 고정이라 $$F_1$$, $$F_2$$ 각각에 할당된 고정된 수의 product term 안에서만 이 3개 항을 나눠 써야 한다.
 
 ## PLA/PAL 설계 예제
 
@@ -173,6 +217,9 @@ Open-collector gate는 출력을 낮은 값으로 끌어내릴 수는 있지만,
 - Decoder 출력이 minterm과 어떻게 대응되는지 이해했는가?
 - PLA와 PAL의 programmable plane 차이를 말할 수 있는가?
 - ROM, PLA, PAL 중 어떤 구현이 특정 문제에 적절한지 근거를 들어 선택할 수 있는가?
+- 4:1 MUX residue map 절차로 3변수 함수를 구현하는 과정을 직접 표로 만들 수 있는가?
+- BCD to 7-segment ROM 예제에서 입력이 1비트 늘면 address 공간이 왜 두 배가 되는가?
+- $$F_1=AB+A'C$$, $$F_2=AB+BC'$$ 를 PLA에 mapping할 때 어떤 product term이 공유되는가?
 - Tri-state의 `Z` 상태와 don't-care `X`를 혼동하지 않고 설명할 수 있는가?
 
 {% endraw %}

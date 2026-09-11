@@ -319,6 +319,18 @@ $$
 
 또 전사도 아니다. 예를 들어 네 성분이 $$(1,2,3,3)$$처럼 첫 두 성분이 같지 않은 벡터는 image에 들어가지 않는다.
 
+## Rank-nullity로 isomorphism 판별하기
+
+rank-nullity theorem은 단사·전사 여부를 판정하는 실용적 도구가 된다. $$f:V\to W$$, $$\dim V=n$$, $$\dim W=m$$ 이라 하자.
+
+| 조건 | 의미 |
+|---|---|
+| $$\text{nullity}(f)=0$$ | $$\text{Ker}(f)=\{0\}$$ $$\Leftrightarrow$$ 단사 |
+| $$\text{rank}(f)=m$$ | $$\text{Im}(f)=W$$ $$\Leftrightarrow$$ 전사 |
+| $$\text{rank}(f)=n=m$$ | 단사이면서 전사 $$\Leftrightarrow$$ isomorphism |
+
+위 회전 변환 $$R_\theta$$($$n=m=2$$)은 어떤 0이 아닌 벡터도 0으로 보내지 않으므로 $$\text{nullity}=0$$, 즉 $$\text{rank}=2=n=m$$ — isomorphism이다(회전은 되돌릴 수 있다: $$R_\theta^{-1}=R_{-\theta}$$). 반면 앞의 $$\mathbb{R}^3\to\mathbb{R}^4$$ 예시는 $$n=3\ne m=4$$이므로 애초에 isomorphism이 될 수 없다 — $$\text{rank}(f)\le\min(n,m)=3<m=4$$이라 전사가 불가능하기 때문이다.
+
 ## 선형변환의 행렬 표현
 
 위 변환은 행렬로 다음처럼 표현된다.
@@ -487,6 +499,7 @@ $$
 - [ ] image와 kernel이 부분공간인 이유를 설명할 수 있다.
 - [ ] 표준기저의 상으로 선형변환 행렬을 구성할 수 있다.
 - [ ] 선형변환 버전 rank-nullity theorem을 설명할 수 있다.
+- [ ] rank-nullity 조건으로 isomorphism 여부를 판별하고, 회전 변환과 $$\mathbb{R}^3\to\mathbb{R}^4$$ 예시에 각각 적용할 수 있다.
 - [ ] direct sum과 표현 유일성의 관계를 증명할 수 있다.
 
 {% endraw %}

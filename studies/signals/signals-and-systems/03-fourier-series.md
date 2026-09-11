@@ -50,6 +50,18 @@ ak = (1/T0) ∫T0 x(t)e-jkω0t dt
 
 첫 식은 synthesis equation이고, 둘째 식은 analysis equation이다.
 
+**숫자 예 — 구형파(square wave)**: 한 주기 $$T_0=4$$ 안에서 $$|t|<T_1=1$$일 때 $$1$$, 나머지는 $$0$$인 50% duty cycle 구형파($$\omega_0=2\pi/T_0=\pi/2$$)의 계수는
+
+$$
+a_0=\frac{2T_1}{T_0}=\frac12,\qquad a_k=\frac{\sin(k\omega_0T_1)}{k\pi}=\frac{\sin(k\pi/2)}{k\pi}\ (k\ne0)
+$$
+
+$$
+a_1=\frac{1}{\pi}\approx0.318,\quad a_2=0,\quad a_3=\frac{-1}{3\pi}\approx-0.106,\quad a_4=0,\ \ldots
+$$
+
+**짝수 harmonic이 전부 0**이 되는 것은 50% duty cycle 구형파가 흔히 아는 "구형파는 홀수 harmonic만 갖는다"는 결과 그대로다. $$a_0=0.5$$는 신호의 DC 성분(=한 주기 평균값)과 일치한다.
+
 ## 실수 주기 신호의 성질
 
 `x(t)`가 실수이면 푸리에 계수는 conjugate symmetry를 가진다.
@@ -141,6 +153,14 @@ bk = H(ej(2π/N)k) ak
 - [연속시간 푸리에 변환](04-continuous-time-fourier-transform.md)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [시간-주파수 특성](06-time-frequency-properties.md)
+
+## 복습 질문
+
+- 50% duty cycle 구형파의 $$a_k$$ 공식을 유도하고 $$k=1,2,3,4$$를 직접 계산할 수 있는가?
+- 짝수 harmonic이 0이 되는 이유를 duty cycle과 연결해 설명할 수 있는가?
+- Gibbs phenomenon이 왜 불연속점 근처에서만 나타나며, 항 수를 늘려도 overshoot 비율(약 9%)이 줄지 않는 이유는?
+
+
 
 {% endraw %}
 

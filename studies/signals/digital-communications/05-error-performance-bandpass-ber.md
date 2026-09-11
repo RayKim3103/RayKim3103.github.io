@@ -138,6 +138,17 @@ DPSK는 BPSK보다 성능이 떨어지지만 carrier phase recovery가 어려운
 | Noncoherent BFSK | `(1/2) exp(-E_b/(2N_0))` | phase 정보 불필요 |
 | DPSK | `(1/2) exp(-E_b/N_0)` | differential detection |
 
+### 숫자 예 — $$E_b/N_0=10\text{ dB}(=10)$$에서 네 방식 비교
+
+| 방식 | 식 | 근사값 |
+|---|---|---:|
+| Coherent BPSK | $$Q(\sqrt{20})=Q(4.47)$$ | $$\approx4\times10^{-6}$$ |
+| DPSK | $$\tfrac12 e^{-10}$$ | $$\approx2.3\times10^{-5}$$ |
+| Coherent BFSK | $$Q(\sqrt{10})=Q(3.16)$$ | $$\approx8\times10^{-4}$$ |
+| Noncoherent BFSK | $$\tfrac12 e^{-5}$$ | $$\approx3.4\times10^{-3}$$ |
+
+순위(BPSK < DPSK < 코히런트 BFSK < 비코히런트 BFSK)는 "carrier phase를 정확히 아는가"와 "antipodal인가 orthogonal인가" 두 축으로 설명된다: BPSK(코히런트+antipodal)가 최고, DPSK는 코히런트가 아니지만 antipodal 구조를 유지해 코히런트 BFSK(코히런트지만 orthogonal)보다도 오히려 좋다.
+
 ## M-ary Systems
 
 M-ary modulation은 `k`개의 bit를 하나의 symbol로 묶는다.
@@ -266,6 +277,7 @@ P_b ≈ (1/2) P_s
 - MPSK는 bandwidth 효율, MFSK는 power 효율에서 장점이 있음을 이해한다.
 - BPSK와 QPSK의 BER이 같은 이유를 I/Q 분해로 설명할 수 있어야 한다.
 - Gray coding이 BER을 낮추는 구조적 이유를 안다.
+- $$E_b/N_0=10\text{dB}$$에서 BPSK·DPSK·coherent BFSK·noncoherent BFSK의 BER을 계산해 순위를 매기고, DPSK가 coherent BFSK보다 좋은 이유를 설명할 수 있는가?
 
 ## 같이 보면 좋은 노트
 

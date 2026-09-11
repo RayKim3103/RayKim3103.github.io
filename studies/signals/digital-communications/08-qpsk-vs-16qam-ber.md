@@ -88,7 +88,16 @@ R_s,16QAM = R_b / 4
 B_QPSK ≈ 2 B_16QAM
 ```
 
-자료의 spectrum 비교에서도 QPSK 대역폭은 약 120 Hz, 16-QAM 대역폭은 약 60 Hz로 나타난다.
+**검산**: $$R_b=240\text{ bps}$$, $$r=0$$이면 $$B=R_s$$이므로
+
+$$
+R_{s,\text{QPSK}}=240/2=120\text{ symbols/s}\Rightarrow B_{\text{QPSK}}=120\text{ Hz}
+$$
+$$
+R_{s,16\text{QAM}}=240/4=60\text{ symbols/s}\Rightarrow B_{16\text{QAM}}=60\text{ Hz}
+$$
+
+자료의 spectrum 비교에서도 QPSK 대역폭은 약 120 Hz, 16-QAM 대역폭은 약 60 Hz로 나타나 위 계산과 정확히 일치한다.
 
 ## BER 비교
 
@@ -123,7 +132,7 @@ fading 환경에서는 두 방식 모두 AWGN보다 BER이 나빠지지만, 16-Q
 ## 시험 포인트
 
 - QPSK와 16-QAM의 bits/symbol 차이를 계산한다.
-- 같은 bit rate에서 16-QAM의 bandwidth가 QPSK의 절반이 되는 이유를 설명한다.
+- 같은 bit rate에서 16-QAM의 bandwidth가 QPSK의 절반이 되는 이유를 설명한다. $$R_b=240$$bps에서 두 bandwidth(120Hz, 60Hz)를 직접 계산할 수 있는가?
 - 16-QAM이 BER에서 불리한 이유를 constellation distance로 설명한다.
 - bandwidth efficiency와 error performance의 trade-off를 정리한다.
 

@@ -54,6 +54,26 @@ Row matching method는 state table의 행을 비교해 같은 동작을 하는 s
 
 슬라이드의 sequence detector 예제에서는 처음에 여러 state를 한 집합으로 두고, 출력과 next-state behavior를 기준으로 점점 더 작은 equivalent class로 나눈다.
 
+**worked example** (Mano, *Digital Design*의 고전 예제): 7-state FSM의 state table(입력 $$x$$, Moore 출력)이 다음과 같다고 하자.
+
+| state | next ($$x{=}0$$) | next ($$x{=}1$$) | output |
+|---|---|---|---|
+| a | a | b | 0 |
+| b | c | d | 0 |
+| c | a | d | 0 |
+| d | e | f | 1 |
+| e | a | f | 1 |
+| f | g | f | 1 |
+| g | a | f | 1 |
+
+Row matching(partition refinement)을 반복 적용한다.
+
+1. **출력 기준**: $$P_0 = \{a,b,c\} \mid \{d,e,f,g\}$$ (출력 0 vs 1)
+2. **$$P_0$$ 소속으로 next-state 재확인**: $$a\to(a,b)=(G_1,G_1)$$, $$b\to(c,d)=(G_1,G_2)$$, $$c\to(a,d)=(G_1,G_2)$$ → $$\{a\}\mid\{b,c\}$$. 같은 방식으로 $$d\to(G_2,G_2)$$, $$e\to(G_1,G_2)$$, $$f\to(G_2,G_2)$$, $$g\to(G_1,G_2)$$ → $$\{d,f\}\mid\{e,g\}$$. 종합: $$P_1=\{a\}\mid\{b,c\}\mid\{d,f\}\mid\{e,g\}$$
+3. **$$P_1$$ 로 재확인**: $$b\to(c,d)$$, $$c\to(a,d)$$ — $$c\in\{b,c\}$$ 이지만 $$a\notin\{b,c\}$$ 이므로 $$b\ne c$$ → $$\{b\},\{c\}$$ 로 분리. $$\{d,f\}$$ 와 $$\{e,g\}$$ 는 각각 재확인해도 그대로 유지된다.
+
+최종 partition: $$\{a\},\{b\},\{c\},\{d,f\},\{e,g\}$$ — **7-state가 5-state로 축소**된다 ($$d\equiv f$$, $$e\equiv g$$). Implication chart 방법은 같은 결론을 "mark되지 않은 쌍 찾기"로 얻는다 — row matching이 그룹을 점점 쪼개나가는 top-down이라면, implication chart는 모든 쌍에서 시작해 mark로 지워나가는 bottom-up이다.
+
 ## Implication Chart Method
 
 Implication chart method는 가능한 state 쌍을 모두 나열하고, 동등할 수 없는 쌍을 표시해 나가는 방식이다.
@@ -117,6 +137,22 @@ State table에 나온 순서대로 `00`, `01`, `10`, `11`처럼 번호를 붙인
 - Flip-flop이 비싼 환경에서는 부담이 된다.
 
 FPGA처럼 flip-flop이 상대적으로 풍부하고 LUT 기반 logic이 중요한 경우 one-hot이 유리할 수 있다.
+
+**worked example**: [07장](07-finite-state-machines.md)의 Mealy vending machine(3-state: $$S0\to S5\to S10\to S0$$, $$N$$ 입력, $$S10$$ 에서 $$N{=}1$$ 이면 `OPEN` 출력) 을 두 방식으로 encoding해 비교한다.
+
+*Binary (2 bit, $$S0{=}00,S5{=}01,S10{=}10$$, `11`은 미사용 don't-care)*:
+$$
+D_1 = Q_0N + Q_1N',\qquad D_0 = Q_1'Q_0'N + Q_0N',\qquad \text{OPEN} = Q_1Q_0'N
+$$
+flip-flop 2개, 식 3개·항 5개·literal 9개 (don't-care `11`을 활용해 이미 최소화됨).
+
+*One-hot (3 bit, $$y_0{=}S0, y_1{=}S5, y_2{=}S10$$)*:
+$$
+D_{y_0} = y_0N' + y_2N,\qquad D_{y_1} = y_0N + y_1N',\qquad D_{y_2} = y_1N + y_2N',\qquad \text{OPEN} = y_2N
+$$
+flip-flop 3개, 식 4개인데 **각 식이 정확히 같은 패턴** $$D_{y_i} = y_iN' + y_{i-1}N$$ 을 반복한다 — state를 추가해도 새 flip-flop 하나와 같은 패턴의 식 하나만 늘어난다.
+
+두 결과를 비교하면 이 강의 전체의 핵심 트레이드오프가 숫자로 드러난다: binary는 flip-flop이 적지만($$2$$개) 식의 구조가 state마다 달라 encoding을 바꿀 때마다 다시 최소화해야 한다. One-hot은 flip-flop이 많지만($$3$$개) 식이 규칙적이라 state 수가 늘어도 설계·검증이 선형적으로 쉬워진다.
 
 ### Output-Based Encoding
 
@@ -186,8 +222,10 @@ FSM 최적화는 하나의 숫자만 줄이는 문제가 아니다.
 
 - Equivalent state의 정의를 "모든 입력 sequence에 대한 동일 output behavior"로 설명할 수 있는가?
 - Row matching과 implication chart의 차이를 말할 수 있는가?
+- 7-state 예제에서 partition이 $$P_0\to P_1\to P_2$$ 로 refine되며 $$d\equiv f$$, $$e\equiv g$$ 로 수렴하는 과정을 재현할 수 있는가?
 - Incompletely specified FSM에서 compatibility가 왜 조심스러운지 이해했는가?
 - Sequential, random, one-hot, output-based encoding의 장단점을 비교할 수 있는가?
+- vending machine 예제에서 binary(2bit)와 one-hot(3bit) encoding의 next-state 식을 비교하고, 어느 쪽이 state 확장에 유리한지 설명할 수 있는가?
 - State assignment가 K-map grouping과 next-state equation에 미치는 영향을 설명할 수 있는가?
 - Programmable logic 제약 때문에 partitioning이 필요한 상황을 예로 들 수 있는가?
 

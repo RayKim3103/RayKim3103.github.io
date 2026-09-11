@@ -298,6 +298,17 @@ P_B = Q(sqrt(2E_b / N_0))
 
 같은 BER을 얻기 위해 bipolar signaling은 unipolar signaling보다 약 3 dB의 power를 절약할 수 있다.
 
+**숫자 예**: $$E_b/N_0=4$$($$\approx6\text{ dB}$$)일 때
+
+$$
+\text{Unipolar: } P_B=Q(\sqrt{4})=Q(2)\approx0.0228
+$$
+$$
+\text{Bipolar: } P_B=Q(\sqrt{8})=Q(2.83)\approx0.0023
+$$
+
+같은 $$E_b/N_0$$에서 bipolar BER이 unipolar보다 약 10배 낮다 — bipolar는 $$Q(\cdot)$$ 인자가 $$\sqrt2$$배 커지기 때문이며, 이는 정확히 3 dB의 전력 이득에 대응한다($$10\log_{10}2\approx3.01\text{ dB}$$).
+
 ## 시험 포인트
 
 - PSD와 autocorrelation의 관계를 이해한다.
@@ -305,7 +316,7 @@ P_B = Q(sqrt(2E_b / N_0))
 - MAP과 ML이 equal prior에서 같아지는 이유를 설명한다.
 - binary Gaussian decision threshold가 평균의 중간이 되는 조건을 안다.
 - matched filter가 SNR을 최대화하고 correlator와 동등하다는 점을 이해한다.
-- unipolar와 bipolar BER 차이 및 3 dB 이득을 기억한다.
+- unipolar와 bipolar BER 차이 및 3 dB 이득을 기억한다. $$E_b/N_0=4$$에서 두 BER을 직접 계산해 약 10배 차이를 확인할 수 있는가?
 
 ## 같이 보면 좋은 노트
 

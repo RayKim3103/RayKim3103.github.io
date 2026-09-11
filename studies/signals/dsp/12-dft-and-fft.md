@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/12%20DFT%20and%20FFT.md)
 
 {% raw %}
-﻿---
-title: "12. DFT and FFT"
-pages: 18
-tags: [DSP, lecture-note, DFT, FFT]
----
-
-# 12. DFT and FFT
-
-> 이전: [Digital Filter Design](11-digital-filter-design.md)
-> 다음: [2D DSP Overview](13-2d-dsp-overview.md)
-
 ## 학습 목표
 
 이 자료는 DFT와 FFT를 다룬다.
@@ -64,6 +53,23 @@ DFT는 DTFT를 $$N$$개의 등간격 주파수에서 sampling한 것으로 볼 �
 $$
 X[k]=X(e^{j\omega})\big|_{\omega=2\pi k/N}
 $$
+
+**숫자 예 — 4-point DFT**: [03장](03-review-of-signals-and-systems.md)에서 쓴 $$x=\{1,2,3,4\}$$를 그대로 DFT하면($$W_4=e^{-j\pi/2}=-j$$):
+
+$$
+X[0]=1+2+3+4=10
+$$
+$$
+X[1]=1+2(-j)+3(-1)+4(j)=-2+2j
+$$
+$$
+X[2]=1+2(-1)+3(1)+4(-1)=-2
+$$
+$$
+X[3]=1+2(j)+3(-1)+4(-j)=-2-2j
+$$
+
+$$X=\{10,\,-2+2j,\,-2,\,-2-2j\}$$. 실수 신호이므로 $$X[3]=X[1]^*$$(켤레 대칭)이 성립하고, $$X[0]=\sum x[n]=10$$(DC 성분 = 전체 합), $$X[2]$$(Nyquist 성분)는 실수 — 모두 "Symmetry" 절에서 말한 성질과 정확히 일치한다.
 
 ## Frequency Sampling의 의미
 
@@ -224,7 +230,7 @@ $$
 
 ## 체크포인트
 
-- DFT는 DTFT의 sampling이며 시간 영역 주기화를 동반한다.
+- DFT는 DTFT의 sampling이며 시간 영역 주기화를 동반한다. $$x=\{1,2,3,4\}$$의 4-point DFT를 직접 계산하고 켤레 대칭을 확인할 수 있는가?
 - DFT에서 convolution은 circular convolution이다.
 - linear convolution을 원하면 zero padding 길이를 충분히 잡아야 한다.
 - FFT는 새로운 변환이 아니라 DFT를 빠르게 계산하는 알고리즘이다.

@@ -65,6 +65,16 @@ Counter 설계 절차는 FSM 설계의 축소판이다.
 
 예를 들어 D flip-flop을 쓰면 각 state bit의 다음 값이 곧 D 입력이다. 현재 state `CBA`와 다음 state `C+B+A+`를 표로 만든 뒤, `D_C = C+`, `D_B = B+`, `D_A = A+` 식을 구하면 된다.
 
+**worked example — 3-bit binary up counter, T flip-flop**: state $$Q_2Q_1Q_0$$ 이 매 clock마다 1씩 증가($$000\to001\to\dots\to111\to000$$). [T flip-flop](06-sequential-logic-design.md)의 excitation은 "값을 바꾸려면 $$T{=}1$$"이므로, 각 bit가 언제 toggle하는지만 보면 된다.
+
+| bit | toggle 조건 | $$T$$ 입력 |
+|---|---|---|
+| $$Q_0$$ (LSB) | 매 clock마다 | $$T_0 = 1$$ |
+| $$Q_1$$ | $$Q_0{=}1$$ 일 때만 (carry) | $$T_1 = Q_0$$ |
+| $$Q_2$$ | $$Q_1{=}Q_0{=}1$$ 일 때만 | $$T_2 = Q_1 Q_0$$ |
+
+"하위 비트들이 모두 1일 때만 다음 비트가 toggle"이라는 이진 카운터의 잘 알려진 규칙이 그대로 식이 된다 — $$n$$비트로 확장하면 $$T_n = Q_{n-1}Q_{n-2}\cdots Q_0$$. Down counter는 반대로 "하위 비트들이 모두 0일 때 toggle"이 된다.
+
 ## Self-Starting Counter
 
 일부 counter는 사용하는 state보다 flip-flop encoding 공간이 더 크다. 예를 들어 3비트로 5개 state만 쓰면 나머지 3개 state는 invalid state가 된다. 전원을 켰을 때 회로가 invalid state에서 시작할 수 있으므로, 설계자는 결국 valid state sequence로 들어오도록 만들어야 한다.
@@ -130,6 +140,25 @@ Vending machine은 nickel과 dime 같은 coin 입력을 받아 일정 금액 이
 
 State table을 만들고 binary encoding을 부여한 뒤, D flip-flop 입력식과 output 식을 K-map으로 구한다.
 
+**단순화한 worked example**: nickel(5센트)만 받아 15센트가 모이면 `OPEN`을 내는 Moore machine. 상태 $$S0,S5,S10,S15$$ 는 지금까지 모인 금액, 입력 $$N$$ 은 이번 clock에 동전이 들어왔는지.
+
+| 현재 상태 | $$N{=}0$$ | $$N{=}1$$ | OPEN (Moore, 상태에만 의존) |
+|---|---|---|---|
+| S0 | S0 | S5 | 0 |
+| S5 | S5 | S10 | 0 |
+| S10 | S10 | S15 | 0 |
+| S15 | S0 | S0 | 1 |
+
+encoding $$S0{=}00, S5{=}01, S10{=}10, S15{=}11$$ ($$Q_1Q_0$$)로 D flip-flop을 쓰면, 8행 transition table을 K-map으로 최소화해:
+
+$$
+D_1 = Q_1 Q_0' + Q_1' Q_0 N,\qquad
+D_0 = Q_1'(Q_0 \oplus N) + Q_1 Q_0' N,\qquad
+\text{OPEN} = Q_1 Q_0
+$$
+
+`OPEN = Q1Q0`이 상태 `S15`(=`11`)에서만 1이 되는 것과 정확히 일치한다 — **Moore 출력은 항상 현재 state encoding의 함수로 바로 읽힌다**는 점을 이 예제가 직접 보여준다.
+
 ## Moore Machine과 Mealy Machine
 
 Moore machine:
@@ -147,6 +176,16 @@ Mealy machine:
 - 서로 연결된 FSM에서는 asynchronous feedback이나 glitch 위험이 커질 수 있다.
 
 Synchronous Mealy machine은 Mealy 출력을 register에 저장해 output timing을 clock에 맞춘다. Moore와 Mealy의 장단점을 절충하는 방식이다.
+
+**state 수 비교**: 위 vending machine을 Mealy로 다시 설계하면 $$S15$$ 상태 자체가 필요 없다. $$S10$$ 에서 $$N{=}1$$ 이 들어오는 **transition arc**에 `OPEN=1`을 붙이고 바로 $$S0$$ 로 돌아가면 되기 때문이다.
+
+| 현재 상태 | $$N{=}0$$ | $$N{=}1$$ / OPEN |
+|---|---|---|
+| S0 | S0 / 0 | S5 / 0 |
+| S5 | S5 / 0 | S10 / 0 |
+| S10 | S10 / 0 | **S0 / 1** |
+
+Moore 4-state → Mealy 3-state로 줄었다: Moore는 "OPEN을 낼 상태"를 위해 별도 state($$S15$$)를 하나 더 두지만, Mealy는 transition 자체에 출력을 실어 상태를 아낀다. 대신 Mealy의 `OPEN`은 $$S10$$ 에서 $$N$$ 이 들어오는 즉시(클럭을 기다리지 않고) 바뀔 수 있어 glitch에 더 취약하다.
 
 ## Moore/Mealy 변환과 Retiming
 
@@ -173,7 +212,10 @@ Traffic light controller는 highway와 farm road가 만나는 교차로를 제�
 - Counter를 FSM의 특수한 경우로 설명할 수 있는가?
 - Invalid state를 self-starting 방식으로 처리하는 이유를 말할 수 있는가?
 - D flip-flop 기반 next-state logic을 state table에서 구할 수 있는가?
+- 3-bit up counter에서 $$T_n = Q_{n-1}\cdots Q_0$$ 규칙이 나오는 이유를 설명할 수 있는가?
+- vending machine 예제에서 D flip-flop 식 $$D_1, D_0$$ 와 OPEN 식을 K-map으로 재유도할 수 있는가?
 - Moore와 Mealy machine의 출력 timing 차이를 설명할 수 있는가?
+- 같은 vending machine을 Moore(4-state)와 Mealy(3-state)로 각각 설계했을 때 state 수 차이가 나는 이유는?
 - Vending machine 또는 traffic light controller를 state diagram으로 모델링할 수 있는가?
 
 {% endraw %}

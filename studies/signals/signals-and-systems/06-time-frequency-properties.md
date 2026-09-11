@@ -74,6 +74,14 @@ group delay는 phase의 음의 기울기이다.
 
 narrowband 입력에서는 중심 주파수 근처의 group delay가 실제 시간 지연처럼 작용한다. group delay가 주파수에 따라 달라지면 주파수 성분들이 서로 다른 시간에 도착해 파형이 퍼지거나 왜곡된다. 통신망 품질 평가에서 중요한 지표이다.
 
+**숫자 예 — 선형 vs 비선형 위상**: $$\angle H_1(j\omega)=-3\omega$$(선형)이면 $$\tau_{g,1}=-d(-3\omega)/d\omega=3$$으로 **모든 주파수에서 동일** — 순수한 3초 지연일 뿐 왜곡이 없다. 반면 $$\angle H_2(j\omega)=-\omega-0.1\omega^3$$(비선형)이면
+
+$$
+\tau_{g,2}(\omega) = -\frac{d}{d\omega}(-\omega-0.1\omega^3) = 1+0.3\omega^2
+$$
+
+$$\omega=0$$에서 $$\tau_{g,2}=1$$, $$\omega=2$$에서 $$\tau_{g,2}=1+0.3(4)=2.2$$로 주파수마다 지연이 다르다 — 저주파 성분과 고주파 성분이 서로 다른 시각에 도착해 파형이 퍼지는 **dispersion**이 바로 이 숫자 차이에서 비롯된다.
+
 ## 로그 크기와 Bode plot
 
 크기 응답은 dB로 표현할 수 있다.
@@ -140,6 +148,12 @@ h[n] = sin(Ωc n) / (πn)
 - [연속시간 푸리에 변환](04-continuous-time-fourier-transform.md)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [샘플링](07-sampling.md)
+
+## 복습 질문
+
+- $$\angle H(j\omega)=-3\omega$$가 왜 순수 지연이고 왜곡이 없는지, group delay 계산으로 설명할 수 있는가?
+- $$\angle H(j\omega)=-\omega-0.1\omega^3$$에서 $$\omega=0$$과 $$\omega=2$$의 group delay 차이가 왜 dispersion을 만드는지 설명할 수 있는가?
+- 필터의 통과대역을 좁힐수록 시간 영역 응답이 길어지는 시간-주파수 trade-off를 이상적 LPF의 sinc impulse response로 설명할 수 있는가?
 
 {% endraw %}
 

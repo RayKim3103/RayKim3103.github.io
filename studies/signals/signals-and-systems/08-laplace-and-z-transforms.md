@@ -80,6 +80,20 @@ X(s) = N(s) / D(s)
 - ROC가 왼쪽이면 left-sided 신호
 - pole 사이 띠이면 two-sided 신호
 
+**숫자 예**: $$X(s)=\dfrac{1}{(s+1)(s+3)}$$, ROC $$\text{Re}\{s\}>-1$$(causal)이라 하자. 부분분수:
+
+$$
+X(s)=\frac{A}{s+1}+\frac{B}{s+3}
+$$
+
+$$s=-1$$ 대입: $$1=A(2)\Rightarrow A=0.5$$. $$s=-3$$ 대입: $$1=B(-2)\Rightarrow B=-0.5$$. ROC가 두 pole($$-1,-3$$) 중 오른쪽 pole보다도 오른쪽이므로 둘 다 right-sided:
+
+$$
+x(t) = 0.5e^{-t}u(t) - 0.5e^{-3t}u(t)
+$$
+
+검산: $$x(0^+)=0.5-0.5=0$$이고, initial value theorem $$x(0^+)=\lim_{s\to\infty}sX(s)=\lim_{s\to\infty}\dfrac{s}{(s+1)(s+3)}=0$$과 일치한다.
+
 ## 라플라스 변환의 의의
 
 라플라스 변환은 다음 상황에서 CTFT보다 강력하다.
@@ -229,6 +243,12 @@ X+(z) = Σ[n=0,∞] x[n]z-n
 - [연속시간 푸리에 변환](04-continuous-time-fourier-transform.md)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [샘플링](07-sampling.md)
+
+## 복습 질문
+
+- $$X(s)=1/[(s+1)(s+3)]$$을 ROC $$\text{Re}\{s\}>-1$$로 역변환해 $$x(t)$$를 구하고, initial value theorem으로 검산할 수 있는가?
+- 라플라스 변환이 CTFT보다 강력한 이유(수렴 안 하는 신호도 다룰 수 있는 이유)를 $$x(t)e^{-\sigma t}$$ 관점으로 설명할 수 있는가?
+- causal하고 stable한 시스템의 pole 위치 조건을 s-plane과 z-plane 각각에서 설명할 수 있는가?
 
 {% endraw %}
 

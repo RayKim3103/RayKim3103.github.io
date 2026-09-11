@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/11%20Digital%20Filter%20Design.md)
 
 {% raw %}
-﻿---
-title: "11. Digital Filter Design"
-pages: 18
-tags: [DSP, lecture-note, filter-design, FIR, IIR]
----
-
-# 11. Digital Filter Design
-
-> 이전: [Wiener Optimal Filter](10-wiener-optimal-filter.md)
-> 다음: [DFT and FFT](12-dft-and-fft.md)
-
 ## 학습 목표
 
 이 자료는 디지털 필터 설계의 전체 framework와 FIR/IIR 설계법을 정리한다.
@@ -257,6 +246,14 @@ $$
 \Omega_c = \frac{2}{T}\tan\left(\frac{\omega_c}{2}\right)
 $$
 
+**숫자 예**: $$T=1$$(정규화), 원하는 digital cutoff $$\omega_c=\pi/2$$(Nyquist의 절반)이면
+
+$$
+\Omega_c = 2\tan(\pi/4) = 2\times1 = 2\text{ rad/s}
+$$
+
+즉 analog prototype은 cutoff $$2$$ rad/s로 설계한 뒤 bilinear transform을 적용해야, warping으로 밀린 만큼을 보정해서 최종 digital cutoff가 정확히 $$\pi/2$$에 오게 된다. 만약 prewarping 없이 그냥 $$\Omega_c=\omega_c=\pi/2\approx1.57$$로 analog를 설계하면, bilinear transform 후 실제 digital cutoff는 $$\pi/2$$보다 낮은 곳에 맺혀 사양을 못 맞춘다.
+
 ## BZT 설계 절차
 
 1. digital filter specification을 정한다.
@@ -280,7 +277,7 @@ $$
 - FIR는 linear phase와 안정성이 장점이다.
 - IIR는 낮은 차수로 sharp한 응답을 만들 수 있지만 안정성과 양자화가 중요하다.
 - window method는 간단하지만 ripple/transition 제어가 제한적이다.
-- bilinear transform은 안정성을 보존하지만 frequency warping 때문에 prewarping이 필요하다.
+- bilinear transform은 안정성을 보존하지만 frequency warping 때문에 prewarping이 필요하다. $$T=1$$, $$\omega_c=\pi/2$$에서 prewarped $$\Omega_c$$를 계산할 수 있는가?
 
 {% endraw %}
 

@@ -98,6 +98,14 @@ x[n] = cos(ω0T n + φ)
 
 높은 주파수 성분이 낮은 주파수처럼 접혀 보인다. 회전하는 바퀴가 영화에서 천천히 돌거나 반대로 도는 것처럼 보이는 stroboscopic effect가 대표적이다.
 
+**숫자 예**: $$x(t)=\cos(2\pi\times150t)$$를 $$f_s=200\text{Hz}$$로 샘플링하면($$f_0=150\text{Hz} > f_s/2=100\text{Hz}$$이므로 Nyquist 조건 위반) 표본은
+
+$$
+x[n]=\cos\!\left(2\pi\cdot\frac{150}{200}n\right)=\cos(1.5\pi n) = \cos(2\pi n - 0.5\pi n) = \cos(0.5\pi n)
+$$
+
+($$\cos(2\pi n)=1,\sin(2\pi n)=0$$이 정수 $$n$$에서 항상 성립하므로) 마지막 식은 정확히 $$50\text{Hz}$$ 코사인을 $$200\text{Hz}$$로 샘플링한 것과 같은 수열이다. 즉 실제로는 $$150\text{Hz}$$였던 신호가 표본에서는 $$50\text{Hz}=f_s-f_0$$로 **접혀 보인다** — 이것이 aliasing의 구체적 숫자 사례다.
+
 aliasing을 막으려면 샘플링 전에 anti-aliasing low-pass filter로 입력 대역폭을 제한해야 한다.
 
 ## CT 신호의 DT 처리
@@ -163,6 +171,12 @@ upsampling은 sample 사이에 `N-1`개의 0을 삽입한 뒤 low-pass filtering
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [시간-주파수 특성](06-time-frequency-properties.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
+
+## 복습 질문
+
+- $$150$$Hz 신호를 $$200$$Hz로 샘플링하면 왜 $$50$$Hz로 접혀 보이는지, $$\cos(1.5\pi n)=\cos(0.5\pi n)$$ 유도로 설명할 수 있는가?
+- band-limited interpolation 공식에서 sinc 함수가 등장하는 이유와, 실제 구현이 이를 근사할 수밖에 없는 이유는?
+- CT differentiator를 DT로 옮길 때 $$\Omega=\omega T$$ 대응이 왜 필요한지 설명할 수 있는가?
 
 {% endraw %}
 

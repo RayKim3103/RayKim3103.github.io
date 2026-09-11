@@ -14,7 +14,7 @@ permalink: /studies/signals/
 * [Digital Signal Processing]{:.heading.flip-title} --- 14개 노트
 {:.related-posts.faded}
 
-* [Digital Communications]{:.heading.flip-title} --- 13개 노트
+* [Digital Communications]{:.heading.flip-title} --- 12개 노트
 {:.related-posts.faded}
 
 [Signals and Systems]: /studies/signals/signals-and-systems/

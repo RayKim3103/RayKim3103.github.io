@@ -60,6 +60,21 @@ y(t) = x(t) * h(t)
 
 사각 펄스끼리의 컨볼루션은 겹치는 길이나 면적이 시간에 따라 어떻게 바뀌는지 보는 문제이다.
 
+**숫자 예**: $$x(t)$$가 $$[0,2]$$에서 높이 1인 펄스, $$h(t)$$가 $$[0,1]$$에서 높이 1인 펄스라 하자. $$h(t-\tau)$$는 $$\tau\in[t-1,t]$$에서 1이므로, $$y(t)=\int x(\tau)h(t-\tau)d\tau$$는 두 구간의 **겹치는 길이**와 같다.
+
+$$
+y(t)=
+\begin{cases}
+0, & t<0\\
+t, & 0\le t\le1\\
+1, & 1\le t\le2\\
+3-t, & 2\le t\le3\\
+0, & t>3
+\end{cases}
+$$
+
+$$0\to1$$로 선형 증가, $$1\sim2$$에서 평평(높이 1), $$2\to3$$에서 선형 감소하는 **사다리꼴**이다. 검산: 전체 면적은 $$\int y(t)\,dt = 0.5+1+0.5=2$$이고, 이는 $$\left(\int x\,dt\right)\left(\int h\,dt\right)=2\times1=2$$와 일치한다(convolution은 넓이를 보존하지 않지만, 두 신호 넓이의 곱과는 항상 같다 — $$\int y = \left(\int x\right)\left(\int h\right)$$는 컨볼루션의 일반 성질).
+
 ## 컨볼루션의 대수 성질
 
 LTI 시스템에서 컨볼루션은 다음 성질을 가진다.
@@ -179,6 +194,12 @@ x(t) * u(t) = ∫[-∞,t] x(τ)dτ
 - [푸리에 급수](03-fourier-series.md)
 - [연속시간 푸리에 변환](04-continuous-time-fourier-transform.md)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
+
+## 복습 질문
+
+- $$[0,2]$$ 폭 1 펄스와 $$[0,1]$$ 폭 1 펄스의 convolution이 사다리꼴이 되는 이유를, 겹치는 구간 길이로 설명할 수 있는가?
+- $$\int y(t)dt = \left(\int x\,dt\right)\left(\int h\,dt\right)$$가 항상 성립하는 이유는?
+- causal LTI의 필요충분조건($$h(t)=0,\ t<0$$)과 BIBO 안정 조건($$\int|h(t)|dt<\infty$$)을 각각 설명할 수 있는가?
 
 {% endraw %}
 

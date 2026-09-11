@@ -114,10 +114,18 @@ odd:  x(t) = -x(-t), x[n] = -x[-n]
 
 임의의 신호는 짝성분과 홀성분으로 분해된다.
 
-```text
-xe(t) = (1/2)[x(t) + x(-t)]
-xo(t) = (1/2)[x(t) - x(-t)]
-```
+$$
+x_e(t) = \tfrac12[x(t)+x(-t)],\qquad x_o(t) = \tfrac12[x(t)-x(-t)]
+$$
+
+**숫자 예**: $$x(t)=e^{-t}u(t)$$(causal 지수감쇠)라 하자. $$x(-t)=e^{t}u(-t)$$이므로
+
+$$
+x_e(t) = \tfrac12\big[e^{-t}u(t)+e^{t}u(-t)\big] = \tfrac12 e^{-|t|},\qquad
+x_o(t) = \tfrac12\big[e^{-t}u(t)-e^{t}u(-t)\big] = \tfrac12\,\text{sgn}(t)\,e^{-|t|}
+$$
+
+검산: $$x_e(t)+x_o(t)$$가 $$t>0$$에서 $$\tfrac12e^{-t}+\tfrac12e^{-t}=e^{-t}$$, $$t<0$$에서 $$\tfrac12e^{t}-\tfrac12e^{t}=0$$이 되어 원래 $$x(t)=e^{-t}u(t)$$를 정확히 복원한다.
 
 ## 복소 지수와 정현파
 
@@ -212,6 +220,12 @@ LTI 시스템은 linearity와 time invariance를 모두 만족하는 시스템�
 
 - [LTI 시스템과 컨볼루션](02-lti-systems-and-convolution.md)
 - [푸리에 급수](03-fourier-series.md)
+
+## 복습 질문
+
+- $$x(t)=e^{-t}u(t)$$의 짝성분·홀성분을 구하고 합이 원신호로 복원됨을 검산할 수 있는가?
+- 에너지 신호와 전력 신호를 구분하는 기준과, 유한 펄스·주기 신호가 각각 어디에 속하는지 설명할 수 있는가?
+- CT와 DT에서 복소지수의 주기성 조건이 왜 다른지($$\Omega_0/2\pi$$ 유리수 조건) 설명할 수 있는가?
 
 {% endraw %}
 

@@ -97,17 +97,27 @@ C = W log2(1 + S/N)  [bits/s]
 
 bit energy와 연결하면:
 
-```text
+$$
 S = E_b C
-```
+$$
+
+### Worked example — 전화 채널 용량
+
+대역폭 $$W=3\text{ kHz}$$, $$S/N=1000$$($$=30\text{ dB}$$)인 전형적인 전화선을 생각하면
+
+$$
+C = 3000 \times \log_2(1+1000) = 3000\times\log_2(1001) \approx 3000\times9.97 \approx 29{,}900\text{ bps}
+$$
+
+즉 3 kHz짜리 좁은 아날로그 회선도 이론적으로는 약 **30 kbps**까지 무손실 전송이 가능하다 — 실제 56k 모뎀들이 이 한계 근처에서 동작했던 이유이기도 하다.
 
 ## Shannon Limit
 
 bandwidth를 무한히 키우는 한계에서 reliable communication에 필요한 최소 `Eb/N0`가 나온다.
 
-```text
-(E_b/N_0)_min = ln 2 ≈ 0.693 ≈ -1.6 dB
-```
+$$
+(E_b/N_0)_{min} = \ln2 \approx 0.693 \;\Longrightarrow\; 10\log_{10}(0.693)\approx -1.6\text{ dB}
+$$
 
 의미:
 
@@ -152,7 +162,7 @@ channel coding은 redundancy를 추가해 성능을 바꾸는 도구이다.
 
 - entropy와 mutual information의 정의를 구분한다.
 - channel capacity는 `max I(X;Y)`라는 점을 기억한다.
-- Shannon-Hartley capacity 식 `C = W log2(1 + S/N)`을 이해한다.
+- Shannon-Hartley capacity 식 $$C=W\log_2(1+S/N)$$을 이해한다. $$W=3\text{kHz}$$, $$S/N=30\text{dB}$$ 전화 채널의 용량(약 30 kbps)을 직접 계산할 수 있는가?
 - Shannon limit `-1.6 dB`의 의미를 설명할 수 있어야 한다.
 - coding은 bandwidth 비용으로 BER/power/data-rate 성능을 조절한다.
 

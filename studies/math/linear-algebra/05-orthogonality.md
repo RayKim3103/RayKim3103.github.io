@@ -354,6 +354,32 @@ $$
 
 이 식을 normal equation이라고 부른다.
 
+### Worked example — 직선 맞춤(line fitting)
+
+데이터 점 $$(t,b)=(0,6),(1,0),(2,0)$$ 을 직선 $$b\approx C+Dt$$ 로 맞추고 싶다고 하자. 각 점이 $$C+Dt_i=b_i$$ 를 만족하길 바라는 (과결정된) 시스템은
+
+$$
+A=\begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix},\qquad x=\begin{bmatrix}C\\D\end{bmatrix},\qquad b=\begin{bmatrix}6\\0\\0\end{bmatrix}
+$$
+
+Normal equation $$A^TA\,\hat{x}=A^Tb$$:
+
+$$
+A^TA=\begin{bmatrix}3&3\\3&5\end{bmatrix},\qquad A^Tb=\begin{bmatrix}6\\0\end{bmatrix}
+$$
+
+$$
+3C+3D=6,\qquad 3C+5D=0 \;\Longrightarrow\; D=-3,\ C=5
+$$
+
+최적 직선은 $$b=5-3t$$. 예측값은 $$t=0,1,2$$ 에서 각각 $$5,2,-1$$이고, 잔차는
+
+$$
+r = b-A\hat{x} = (6-5,\ 0-2,\ 0-(-1)) = (1,-2,1)
+$$
+
+검산(normal equation의 기하학적 의미 $$A^Tr=0$$, 즉 $$r\perp C(A)$$): $$r\cdot(1,1,1)=1-2+1=0$$, $$r\cdot(0,1,2)=0-2+2=0$$ — 잔차가 $$A$$의 두 열 모두와 직교한다. 이것이 정확히 "$$Ax$$가 $$b$$에 가장 가까워지는 지점에서 잔차는 $$C(A)$$에 수직"이라는 최소제곱의 기하학적 조건이다.
+
 ## 무선 채널 모델링 응용
 
 이산시간 선형 시불변 무선 채널은 다음처럼 모델링된다.
@@ -440,6 +466,7 @@ $$
 - [ ] 직교여공간이 부분공간인 이유를 말할 수 있다.
 - [ ] $$C(A^T)\perp N(A)$$와 $$C(A)\perp N(A^T)$$를 증명할 수 있다.
 - [ ] 최소제곱해 $$(A^TA)^{-1}A^Ty$$의 의미를 projection으로 설명할 수 있다.
+- [ ] $$(0,6),(1,0),(2,0)$$ 데이터로 직선 맞춤 worked example을 직접 풀어 $$C=5,D=-3$$을 얻고, 잔차가 $$C(A)$$와 직교함을 검산할 수 있다.
 - [ ] Toeplitz와 circulant 행렬이 통신 시스템에서 왜 중요한지 설명할 수 있다.
 
 {% endraw %}

@@ -11,7 +11,7 @@ permalink: /studies/math/
 * [Linear Algebra]{:.heading.flip-title} --- 5개 노트
 {:.related-posts.faded}
 
-* [Electromagnetics]{:.heading.flip-title} --- 10개 노트
+* [Electromagnetics]{:.heading.flip-title} --- 9개 노트
 {:.related-posts.faded}
 
 [Linear Algebra]: /studies/math/linear-algebra/

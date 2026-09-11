@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/02%20DSP%20Introduction.md)
 
 {% raw %}
-﻿---
-title: "02. Introduction to Digital Signal Processing"
-pages: 11
-tags: [DSP, lecture-note, introduction]
----
-
-# 02. DSP Introduction
-
-> 이전: [연구실 소개와 DSP 응용 맥락](01-lab-intro-and-dsp-applications.md)
-> 다음: [Review of Signals and Systems](03-review-of-signals-and-systems.md)
-
 ## 학습 목표
 
 이 자료는 DSP의 기본 개념과 응용 분야를 소개한다.
@@ -67,6 +56,14 @@ A/D converter는 두 단계를 포함한다.
 2. quantization: 진폭 값을 유한한 level로 근사한다.
 
 예를 들어 영상에서는 픽셀 위치가 공간 sampling이고, 8-bit grayscale의 0-255 값이 amplitude quantization이다.
+
+**숫자 예**: 입력 범위 $$\pm1\text{V}$$를 8-bit(256 level)로 균일 양자화하면 계단 간격은
+
+$$
+\Delta = \frac{2\text{V}}{2^8} = \frac{2}{256} \approx 7.8\text{ mV}
+$$
+
+bit 수를 10-bit로 늘리면 $$\Delta=2/1024\approx2.0\text{ mV}$$로 4배 더 정밀해진다 — bit 하나를 추가할 때마다 양자화 계단이 절반으로 줄어드는 이유가 $$2^{b}$$의 지수적 증가에 있음을 보여준다.
 
 ### D/A 변환
 
@@ -147,7 +144,7 @@ CCD/CMOS 센서로 획득한 디지털 영상은 필터링, 향상, 복원, 압�
 ## 핵심 정리
 
 - DSP는 신호를 digital domain으로 가져온 뒤 원하는 목적에 맞게 변환하는 학문이다.
-- A/D 변환에서 sampling과 quantization을 구분해야 한다.
+- A/D 변환에서 sampling과 quantization을 구분해야 한다. $$\pm1$$V를 8-bit로 양자화한 계단 간격을 계산할 수 있는가?
 - digital processing의 장점은 유연성, 반복성, 저장/전송 안정성이다.
 - 1D DSP는 시간 신호, 2D/3D DSP는 영상과 동영상으로 자연스럽게 확장된다.
 

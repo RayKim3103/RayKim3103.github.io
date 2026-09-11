@@ -54,12 +54,14 @@ Modulation은 신호 정보를 전송 매체의 특성에 맞는 파형으로 �
 
 안테나 크기 예시는 변조의 필요성을 잘 보여준다.
 
-```text
-lambda = c / f
-```
+$$
+\lambda = c/f
+$$
 
-- 4 kHz 음성 신호를 직접 보내면 파장이 매우 길어져 현실적인 안테나가 어렵다.
-- 1 GHz 대역으로 변조하면 파장이 약 `0.3 m`가 되어 소형 기기에 적합해진다.
+- $$f=4\text{ kHz}$$(음성)를 직접 안테나로 보내면 $$\lambda = (3\times10^8)/4000 = 75\text{ km}$$ — 효율적인 안테나 길이는 보통 $$\lambda/4$$ 수준이므로 약 $$19\text{ km}$$짜리 안테나가 필요해 현실적으로 불가능하다.
+- $$f=1\text{ GHz}$$ 대역으로 변조하면 $$\lambda=(3\times10^8)/10^9=0.3\text{ m}$$ — $$\lambda/4\approx7.5\text{ cm}$$로 휴대기기에 내장 가능해진다.
+
+즉 변조가 신호 주파수를 4 kHz에서 1 GHz로 옮기는 것만으로 필요한 안테나 크기를 **약 25만 배** 줄여준다.
 
 ## Analog Modulation
 
@@ -181,7 +183,7 @@ f_i(t) = k_PM dm(t)/dt + f_c
 
 ## 시험 포인트
 
-- modulation이 필요한 이유를 안테나 길이, 장거리 전송, 주파수 이동 관점에서 설명할 수 있어야 한다.
+- modulation이 필요한 이유를 안테나 길이, 장거리 전송, 주파수 이동 관점에서 설명할 수 있어야 한다. $$\lambda=c/f$$로 4 kHz와 1 GHz의 필요 안테나 길이 차이를 직접 계산할 수 있는가?
 - analog modulation과 digital modulation의 차이를 구분해야 한다.
 - AM, FM, PM에서 정보가 어떤 parameter에 실리는지 비교할 수 있어야 한다.
 - instantaneous frequency가 phase의 시간 미분이라는 점을 기억한다.
@@ -197,4 +199,4 @@ f_i(t) = k_PM dm(t)/dt + f_c
 
 ---
 
-이전: [00. Project Report - Rayleigh Fading 음성 통신 구현](00-project-report-rayleigh-fading.md) · 다음: [02. Baseband Transmission - 샘플링 PCM Quantization ISI](02-baseband-transmission-pcm-quantization-isi.md)
+이전: [00. Final Project - Rayleigh Fading 음성 통신 시스템](00-final-project-rayleigh-fading-voice-system.md) · 다음: [02. Baseband Transmission - 샘플링 PCM Quantization ISI](02-baseband-transmission-pcm-quantization-isi.md)

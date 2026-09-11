@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/03%20Review%20of%20Signals%20and%20Systems.md)
 
 {% raw %}
-﻿---
-title: "03. Review of Signals and Systems"
-pages: 32
-tags: [DSP, lecture-note, signals, systems, DTFT, sampling]
----
-
-# 03. Review of Signals and Systems
-
-> 이전: [DSP Introduction](02-dsp-introduction.md)
-> 다음: [Sampling Rate Change](04-sampling-rate-change.md)
-
 ## 자료의 범위
 
 이 강의는 DSP 본론에 들어가기 전 Signals and Systems의 핵심을 복습한다.
@@ -129,6 +118,14 @@ $$
 2. $$n$$만큼 이동시켜 $$h[n-k]$$를 만든다.
 3. $$x[k]h[n-k]$$를 곱한다.
 4. 모든 $$k$$에 대해 합산한다.
+
+**숫자 예**: $$x[n]=\{1,2,3,4\}$$($$n=0,1,2,3$$), $$h[n]=\{1,1,1\}$$($$n=0,1,2$$, 3-tap moving-sum filter)를 convolve하면 길이는 $$4+3-1=6$$:
+
+$$
+y[0]=1,\quad y[1]=1{+}2=3,\quad y[2]=1{+}2{+}3=6,\quad y[3]=2{+}3{+}4=9,\quad y[4]=3{+}4=7,\quad y[5]=4
+$$
+
+$$y[n]=\{1,3,6,9,7,4\}$$. 각 $$y[n]$$이 $$x$$의 이웃 3개 값의 합인 것은, $$h[n]=\{1,1,1\}$$이 정확히 "최근 3개 표본을 더하라"는 moving-sum 연산이기 때문 — FIR 필터의 계수 자체가 곧 "어떤 가중 평균을 할 것인가"의 명세라는 점을 보여준다.
 
 ### LTI 안정성과 인과성
 
@@ -252,7 +249,7 @@ $$
 
 ## 체크포인트
 
-- LTI 시스템은 impulse response와 convolution으로 완전히 기술된다.
+- LTI 시스템은 impulse response와 convolution으로 완전히 기술된다. $$x=\{1,2,3,4\}$$와 $$h=\{1,1,1\}$$의 convolution을 손으로 계산할 수 있는가?
 - convolution은 주파수 영역에서 곱셈이므로 필터 해석의 핵심 도구이다.
 - DTFT는 연속 주파수 함수이고 $$2\pi$$ 주기이다.
 - 샘플링은 주파수 영역에서 spectrum replica를 만들며, replica가 겹치면 aliasing이다.

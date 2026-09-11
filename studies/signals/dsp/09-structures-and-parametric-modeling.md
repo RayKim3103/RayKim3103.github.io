@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/09%20Structures%20and%20Parametric%20Modeling.md)
 
 {% raw %}
-﻿---
-title: "09. Structures and Parametric Modeling"
-pages: 18
-tags: [DSP, lecture-note, filter-structure, AR, MA, ARMA]
----
-
-# 09. Structures and Parametric Modeling
-
-> 이전: [Z-Transform Analysis of LTI Systems](08-z-transform-analysis-of-lti-systems.md)
-> 다음: [Wiener Optimal Filter](10-wiener-optimal-filter.md)
-
 ## 학습 목표
 
 이 자료는 discrete-time system의 구현 구조와 parametric signal modeling을 다룬다.
@@ -213,6 +202,22 @@ $$
 
 이 행렬은 Toeplitz 구조를 가지므로 효율적인 해법을 사용할 수 있다.
 
+**숫자 예**: 신호의 autocorrelation이 $$r_x[0]=1, r_x[1]=0.5, r_x[2]=0.25$$로 측정되었다고 하자(이는 실제로 pole $$0.5$$짜리 AR(1) 과정 $$r_x[k]=0.5^{|k|}$$의 값과 같다). $$P=2$$ Yule-Walker equation:
+
+$$
+\begin{bmatrix}1&0.5\\0.5&1\end{bmatrix}
+\begin{bmatrix}a_1\\a_2\end{bmatrix}
+= -\begin{bmatrix}0.5\\0.25\end{bmatrix}
+$$
+
+풀면 $$a_1=-0.5$$, $$a_2=0$$. 즉 $$P=2$$로 모델을 잡았는데도 데이터가 실제로는 AR(1)이므로 $$a_2$$가 정확히 0으로 나온다 — Yule-Walker가 불필요한 차수를 스스로 "꺼버린" 것이다. 결과 시스템 함수는
+
+$$
+H(z)=\frac{1}{1+a_1z^{-1}+a_2z^{-2}}=\frac{1}{1-0.5z^{-1}}
+$$
+
+로, [07장](07-z-transform-introduction.md)·[08장](08-z-transform-analysis-of-lti-systems.md)에서 다룬 pole $$0.5$$ 시스템과 정확히 같은 형태다.
+
 ## MA Modeling
 
 MA 모델은 all-zero system이다.
@@ -243,7 +248,7 @@ ARMA는 pole과 zero를 모두 추정해야 하므로 AR보다 복잡하다. 전
 - AR = all-pole = feedback
 - ARMA = pole-zero = feed-forward + feedback
 - Direct Form II는 memory를 줄이지만 수치적 민감성을 확인해야 한다.
-- AR modeling의 핵심은 orthogonality principle과 Yule-Walker equation이다.
+- AR modeling의 핵심은 orthogonality principle과 Yule-Walker equation이다. $$r_x=\{1,0.5,0.25\}$$에서 $$P=2$$ Yule-Walker를 풀어 $$a_2=0$$이 나오는 이유를 설명할 수 있는가?
 
 {% endraw %}
 

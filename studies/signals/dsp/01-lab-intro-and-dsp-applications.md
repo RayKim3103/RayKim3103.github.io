@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/01%20%EC%97%B0%EA%B5%AC%EC%8B%A4%20%EC%86%8C%EA%B0%9C%EC%99%80%20DSP%20%EC%9D%91%EC%9A%A9%20%EB%A7%A5%EB%9D%BD.md)
 
 {% raw %}
-﻿---
-title: "01. 연구실 소개와 DSP 응용 맥락"
-pages: 3
-tags: [DSP, lecture-note, applications, image-processing]
----
-
-# 01. 연구실 소개와 DSP 응용 맥락
-
-> 이전: [강의계획과 DSP 전체 개요](00-course-plan-and-overview.md)
-> 다음: [DSP Introduction](02-dsp-introduction.md)
-
 ## 자료의 위치
 
 이 PDF는 본격적인 수식 강의라기보다, Yonsei University SuperResolution Image Processing Lab의 연구 분야를 통해 DSP가 실제로 어디에 쓰이는지 보여주는 소개 자료이다. 텍스트 추출상 한글 인코딩이 많이 깨져 있지만, 자료의 중심 주제는 초해상도 영상처리, 복원, 의료영상, 원격탐사, 특수 센서 영상, 자율주행용 영상 인식 등이다.

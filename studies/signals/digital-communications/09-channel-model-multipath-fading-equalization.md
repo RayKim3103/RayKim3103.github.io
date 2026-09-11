@@ -46,11 +46,19 @@ multipath가 만드는 왜곡:
 
 Doppler shift는 이동 방향과 입사 방향 사이의 각도에 따라 달라진다.
 
-```text
-f_D ∝ v cos(theta) / lambda
-```
+$$
+f_D = \frac{v\cos\theta}{\lambda} = \frac{v f_c\cos\theta}{c}
+$$
 
 입사각이 여러 방향에 분포하면 주파수 영역에서도 신호가 퍼진다.
+
+**숫자 예**: 시속 $$100\text{km/h}$$($$v\approx27.8\text{m/s}$$)로 이동하며 $$f_c=2\text{ GHz}$$ 셀룰러 신호를 정면으로($$\theta=0$$) 수신하면
+
+$$
+f_{D,max} = \frac{27.8\times(2\times10^9)}{3\times10^8} \approx 185\text{ Hz}
+$$
+
+coherence time은 대략 $$f_{D,max}$$의 역수 오더($$\sim1/185\approx5.4\text{ms}$$)이다. symbol duration이 이보다 훨씬 짧으면(예: 수 $$\mu$$s급 심볼) slow fading, 비슷하거나 길면 fast fading으로 분류된다 — 아래 "Fast Fading vs Slow Fading" 조건과 직접 연결된다.
 
 ## Fading 규모 분류
 
@@ -234,13 +242,12 @@ X_hat(f) = Y(f) / H_hat(f)
 - large-scale fading과 small-scale fading을 구분한다.
 - Rayleigh와 Rician의 LOS 조건 차이를 기억한다.
 - flat fading과 frequency selective fading의 조건을 bandwidth/coherence bandwidth로 설명한다.
-- fast/slow fading을 coherence time과 symbol duration으로 판단한다.
+- fast/slow fading을 coherence time과 symbol duration으로 판단한다. $$v=100$$km/h, $$f_c=2$$GHz에서 최대 Doppler shift를 계산할 수 있는가?
 - channel estimation은 pilot 기반, equalization은 추정 채널 보상이다.
 
 ## 같이 보면 좋은 노트
 
-- [Final Project - 디지털 통신 시스템 시뮬레이션](00-final-project.md)
-- [Project Report - Rayleigh Fading 음성 통신 구현](00-project-report-rayleigh-fading.md)
+- [Final Project - Rayleigh Fading 음성 통신 시스템](00-final-project-rayleigh-fading-voice-system.md)
 - [Error Performance - Bandpass BER 성능](05-error-performance-bandpass-ber.md)
 
 {% endraw %}

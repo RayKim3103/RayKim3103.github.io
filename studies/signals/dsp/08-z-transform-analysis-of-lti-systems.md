@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/08%20Z-Transform%20Analysis%20of%20LTI%20Systems.md)
 
 {% raw %}
-﻿---
-title: "08. Z-Transform Analysis of LTI Systems"
-pages: 15
-tags: [DSP, lecture-note, z-transform, LTI, minimum-phase]
----
-
-# 08. Z-Transform Analysis of LTI Systems
-
-> 이전: [Z-Transform Introduction](07-z-transform-introduction.md)
-> 다음: [Structures and Parametric Modeling](09-structures-and-parametric-modeling.md)
-
 ## 학습 목표
 
 이 자료는 z-transform을 이용해 LTI 시스템을 분석한다.
@@ -152,13 +141,22 @@ $$
 
 처럼 minimum phase part와 all-pass part로 분해해 이해할 수 있다.
 
+**숫자 예**: $$H(z)=1-2z^{-1}$$는 zero가 $$z=2$$(unit circle 밖)에 있어 nonminimum phase다. reciprocal 위치 $$z=1/2$$로 반사한 $$H_{\min}(z)=1-0.5z^{-1}$$과 크기를 비교하면
+
+$$
+|H(e^{j\omega})|^2 = |1-2e^{-j\omega}|^2 = 5-4\cos\omega,\qquad
+4|H_{\min}(e^{j\omega})|^2 = 4|1-0.5e^{-j\omega}|^2 = 4(1.25-\cos\omega)=5-4\cos\omega
+$$
+
+두 식이 정확히 같다 — 즉 $$|H(e^{j\omega})| = 2|H_{\min}(e^{j\omega})|$$가 **모든** $$\omega$$에서 성립한다. 크기는 상수 배(2)만 다르고 완전히 같은 모양이며, 차이는 오직 phase(및 group delay)뿐이다 — zero를 unit circle 안으로 반사해도 magnitude가 보존된다는 주장을 숫자로 직접 확인한 것이다.
+
 ## 체크포인트
 
 - inverse system은 단순히 $$1/H(z)$$가 아니라 ROC까지 포함해 판단해야 한다.
 - $$H(z)$$의 zero는 inverse system의 pole이 된다.
 - causal stable inverse가 필요하면 zero가 unit circle 안에 있어야 한다.
 - all-pass는 magnitude를 바꾸지 않고 phase만 바꾼다.
-- minimum phase system은 inverse도 stable/causal인 가장 다루기 좋은 시스템이다.
+- minimum phase system은 inverse도 stable/causal인 가장 다루기 좋은 시스템이다. $$H(z)=1-2z^{-1}$$과 $$H_{\min}(z)=1-0.5z^{-1}$$의 크기가 $$|\omega|$$ 전체에서 $$2$$배 관계임을 직접 계산해 확인할 수 있는가?
 
 {% endraw %}
 

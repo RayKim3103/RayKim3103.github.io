@@ -195,9 +195,9 @@ MFSK는 보통 `M`개의 orthogonal frequency를 사용한다.
 
 coherent FSK의 최소 tone spacing:
 
-```text
-Delta f_min = 1 / (2T)
-```
+$$
+\Delta f_{min} = 1/(2T)
+$$
 
 수신기는 M개의 correlator output 중 가장 큰 값을 선택한다.
 
@@ -235,11 +235,13 @@ Noncoherent FSK는 energy detector 또는 envelope detector를 사용한다.
 
 noncoherent FSK 최소 tone spacing:
 
-```text
-Delta f_min = 1 / T
-```
+$$
+\Delta f_{min} = 1/T
+$$
 
 따라서 coherent FSK가 noncoherent FSK보다 bandwidth 효율이 2배 좋다.
+
+**숫자 예**: symbol duration $$T=1\text{ ms}$$인 BFSK라면 coherent 최소 tone spacing은 $$\Delta f_{min}=1/(2\times10^{-3})=500\text{ Hz}$$, noncoherent는 $$\Delta f_{min}=1/10^{-3}=1000\text{ Hz}$$ — 같은 $$T$$에서 noncoherent는 두 tone 사이에 정확히 2배 넓은 간격이 필요하다(위상 정보 없이도 tone을 구분하려면 더 멀리 떨어뜨려야 하기 때문).
 
 ## 시험 포인트
 
@@ -247,7 +249,7 @@ Delta f_min = 1 / T
 - MPSK는 2차원 I/Q basis로 표현된다.
 - MFSK는 M차원 orthogonal basis가 필요하다.
 - matched filter와 correlator가 sampling time에서 동등하다는 점을 이해한다.
-- coherent FSK와 noncoherent FSK의 tone spacing 차이 `1/(2T)` vs `1/T`를 기억한다.
+- coherent FSK와 noncoherent FSK의 tone spacing 차이 $$1/(2T)$$ vs $$1/T$$를 기억한다. $$T=1\text{ms}$$일 때 각각의 최소 tone spacing을 숫자로 계산할 수 있는가?
 
 ## 같이 보면 좋은 노트
 

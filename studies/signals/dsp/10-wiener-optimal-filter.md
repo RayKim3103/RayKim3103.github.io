@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/10%20Wiener%20Optimal%20Filter.md)
 
 {% raw %}
-﻿---
-title: "10. Wiener Optimal Filter"
-pages: 6
-tags: [DSP, lecture-note, Wiener-filter, least-squares]
----
-
-# 10. Wiener Optimal Filter
-
-> 이전: [Structures and Parametric Modeling](09-structures-and-parametric-modeling.md)
-> 다음: [Digital Filter Design](11-digital-filter-design.md)
-
 ## 학습 목표
 
 이 자료는 noisy observation으로부터 원 신호를 추정하는 Wiener least squares filter를 다룬다.
@@ -162,6 +151,15 @@ $$
 
 잡음 전력이 큰 주파수에서는 gain을 낮춰 noise amplification을 억제한다.
 
+**숫자 예 — 좋은 주파수 vs 나쁜 주파수**: 어떤 $$\omega$$에서 $$S_{xx}=1$$, $$S_{vv}=0.5$$로 고정하고 채널 크기만 바꿔보자.
+
+| $$|H|$$ | 단순 inverse $$1/H$$ | Wiener $$\hat H=\dfrac{H^*S_{xx}}{|H|^2S_{xx}+S_{vv}}$$ |
+|---:|---:|---:|
+| $$2$$ (좋은 채널) | $$0.5$$ | $$2/(4+0.5)=0.444$$ |
+| $$0.1$$ (나쁜 채널) | $$10$$ | $$0.1/(0.01+0.5)\approx0.196$$ |
+
+채널이 좋을 때($$|H|=2$$)는 두 값이 비슷하지만(0.5 vs 0.444), 채널이 거의 죽은 주파수($$|H|=0.1$$)에서는 단순 inverse가 $$10$$배 증폭을 요구하는 반면 Wiener filter는 $$0.196$$으로 오히려 gain을 낮춘다 — "신호가 잘 안 보이는 주파수는 굳이 복원하려 애쓰지 말고 억제하라"는 것이 Wiener filter의 핵심 전략이다.
+
 ## 구현 이슈
 
 강의자료는 prediction inverse filter의 구현 문제를 강조한다.
@@ -176,7 +174,7 @@ $$
 - Wiener filter는 MSE를 최소화하는 optimal linear filter이다.
 - 핵심 원리는 “오차가 관측 공간과 직교한다”는 orthogonality principle이다.
 - 단순 inverse와 달리 noise spectrum을 고려한다.
-- $$S_{vv}$$가 0이면 inverse filter에 가까워지고, $$S_{vv}$$가 크면 해당 주파수 성분을 억제한다.
+- $$S_{vv}$$가 0이면 inverse filter에 가까워지고, $$S_{vv}$$가 크면 해당 주파수 성분을 억제한다. $$|H|=0.1$$인 나쁜 채널에서 단순 inverse(10배 증폭)와 Wiener(0.196)가 왜 이렇게 다른지 설명할 수 있는가?
 
 {% endraw %}
 

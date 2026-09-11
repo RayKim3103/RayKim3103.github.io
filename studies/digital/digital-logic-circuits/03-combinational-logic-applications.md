@@ -33,6 +33,16 @@ tags: #digital-logic #logic-minimization #hazard #verilog #hdl
 
 `EQ`는 XNOR 구조로 자연스럽게 표현할 수 있지만, XNOR 자체가 여러 기본 게이트를 필요로 하므로 실제 비용 비교가 필요하다. 슬라이드는 XOR/XNOR를 쓴 구현과 순수 AND/OR/NOT 기반 구현이 모두 가능하다는 점을 보여준다.
 
+두 2비트 수를 $$A=A_1A_0$$, $$B=B_1B_0$$ 라 하면:
+
+$$
+EQ = (A_1 \odot B_1)(A_0 \odot B_0),\qquad
+GT = A_1 B_1' + (A_1\odot B_1)A_0 B_0',\qquad
+LT = A_1' B_1 + (A_1\odot B_1)A_0' B_0
+$$
+
+($$\odot$$ 는 XNOR.) $$GT$$ 의 두 항은 "상위 비트에서 이미 크다" 또는 "상위 비트가 같고 하위 비트에서 크다"는 두 경우를 그대로 옮긴 것 — **자리수가 높을수록 우선한다**는 비교기의 재귀적 구조가 식에 드러난다. 이 패턴은 `n`비트로 확장할 때 상위 비트 비교 결과를 하위 비교의 "동점 처리" 입력으로 cascade하는 회로로 일반화된다.
+
 ## 설계 예제 2: 2-bit Adder
 
 2비트 adder는 두 2비트 수를 더해 여러 출력 비트를 만든다. 각 출력에 대해 K-map을 작성하고 최소 SOP를 구할 수 있다.
@@ -95,6 +105,14 @@ Bubble pushing의 원칙은 간단하다.
 - bubble을 게이트 입력 또는 출력으로 이동하면 AND/OR의 의미가 De Morgan 쌍으로 바뀐다.
 - 입력 보수 신호는 보통 한 번 만들어 여러 곳에 배포하므로, 반복 inverter 비용을 따로 과대평가하지 않는다.
 
+**worked example**: $$F = AB + CD$$ (SOP, AND-OR 2-level). 각 AND의 출력에 bubble을 추가(NAND)하고, OR 입력에도 bubble을 추가해 상쇄시키면 inverted-input OR = NAND 이므로:
+
+$$
+F = AB + CD = \overline{\overline{AB}\cdot\overline{CD}} = \text{NAND}\big(\text{NAND}(A,B),\ \text{NAND}(C,D)\big)
+$$
+
+즉 1단 AND-OR를 **2단 NAND-NAND**로 그대로 대체할 수 있다 — 게이트 개수는 같고(AND 2개+OR 1개 → NAND 2개+NAND 1개), 최종 출력 bubble 하나만 다르므로 fan-in·delay 관점에서 동등하다.
+
 ## 시간 응답과 Propagation Delay
 
 논리 게이트는 입력 변화에 즉시 반응하지 않는다. 입력 변화 후 출력이 바뀌기까지 propagation delay가 있고, 상승 지연과 하강 지연이 다를 수도 있다. 따라서 진리표상 동일한 함수라도 게이트 구조가 다르면 파형은 다를 수 있다.
@@ -110,6 +128,16 @@ Glitch는 출력에서 발생하는 원하지 않는 순간적인 스위칭이�
 출력이 논리적으로 1에서 1로 유지되어야 하는 입력 변화 중 순간적으로 0이 되는 경우이다. SOP 구현에서 인접한 1들이 서로 다른 product term으로만 덮이고 하나의 공통 term으로 함께 덮이지 않으면 발생할 수 있다.
 
 해결 방법은 redundant term을 추가해 인접 transition을 하나의 term이 덮도록 만드는 것이다. 예를 들어 `F = A'D + AC'`에서 특정 transition에 1-hazard가 생기면 consensus term `C'D`를 추가해 `F = A'D + AC' + C'D`로 만들 수 있다.
+
+**구체적 발생 지점**: $$C{=}0, D{=}1$$ 로 고정하면 $$F = A'D + AC' = A' + A = 1$$ — 논리적으로는 $$A$$ 가 어떻게 바뀌든 $$F$$ 는 항상 1이어야 한다. 그런데 게이트 회로에서 $$A'$$ 는 인버터를 거쳐 $$A$$ 보다 $$t_{pd}$$ 만큼 **늦게** 갱신된다. $$A$$ 가 $$1\to0$$ 으로 바뀌는 순간을 시간순으로 보면:
+
+| 시각 | $$A$$ | $$A'$$(지연) | $$AC'$$ | $$A'D$$ | $$F$$ |
+|---|---|---|---|---|---|
+| 전 | 1 | 0 | 1 | 0 | 1 |
+| 직후 ($$A$$만 갱신) | 0 | 0 (아직) | 0 | 0 | **0** ← glitch |
+| $$t_{pd}$$ 후 | 0 | 1 | 0 | 1 | 1 |
+
+$$AC'$$ 는 즉시 0으로 떨어지는데 $$A'D$$ 는 인버터 지연만큼 늦게 1이 되므로, 그 사이 두 항이 동시에 0이 되어 $$F$$ 가 순간적으로 0으로 떨어진다 — 이것이 static 1-hazard다. Consensus term $$C'D$$ 는 $$A$$ 와 무관하므로 $$A$$ 가 바뀌는 동안에도 계속 $$C'D = 1$$ 을 유지해 그 틈을 메운다.
 
 ### Static 0-Hazard
 
@@ -137,9 +165,44 @@ Structural model은 게이트나 하위 모듈을 직접 instantiate하고 wire�
 - 내부 wire 선언
 - primitive gate 또는 하위 module instance 연결
 
+[02장](02-combinational-logic.md)의 full adder를 structural style로 옮기면:
+
+```verilog
+module full_adder(input A, B, Cin, output Sum, Cout);
+  wire ab_xor, w1, w2;
+  xor g1 (ab_xor, A, B);
+  xor g2 (Sum, ab_xor, Cin);
+  and g3 (w1, A, B);
+  and g4 (w2, ab_xor, Cin);
+  or  g5 (Cout, w1, w2);
+endmodule
+```
+
+게이트 3개(`and`/`or`/`xor`)를 직접 instantiate하고 wire(`ab_xor`, `w1`, `w2`)로 연결한 것이 회로도와 1:1로 대응된다.
+
 ### Behavioral Model
 
 Behavioral model은 `assign` 같은 continuous assignment나 `always` block으로 동작을 기술한다. 조합논리는 입력이 바뀌면 출력도 항상 해당 함수에 따라 바뀌어야 하므로 continuous assignment와 잘 맞는다.
+
+같은 full adder를 behavioral style로 쓰면 게이트 수준 구조를 전혀 언급하지 않고 함수만 기술한다:
+
+```verilog
+module full_adder(input A, B, Cin, output Sum, Cout);
+  assign Sum  = A ^ B ^ Cin;
+  assign Cout = (A & B) | (A & Cin) | (B & Cin);
+endmodule
+```
+
+`always @(*)` block도 동일하게 쓸 수 있다:
+
+```verilog
+always @(*) begin
+  Sum  = A ^ B ^ Cin;
+  Cout = (A & B) | (A & Cin) | (B & Cin);
+end
+```
+
+`@(*)`는 우변에 쓰인 모든 신호(`A`,`B`,`Cin`)가 바뀔 때마다 block을 재평가하라는 뜻 — 조합논리의 "입력이 바뀌면 출력도 즉시 재계산"이라는 정의를 그대로 옮긴 것이다. 만약 민감도 목록에 신호를 빠뜨리면 시뮬레이션과 합성 결과가 달라지는(의도치 않은 latch가 생기는) 대표적인 실수가 된다.
 
 주의할 점:
 
@@ -154,7 +217,9 @@ Behavioral model은 `assign` 같은 continuous assignment나 `always` block으�
 - 최소 cover를 선택할 때 don't-care를 어떻게 활용할지 설명할 수 있는가?
 - SOP를 NAND-NAND, POS를 NOR-NOR로 변환할 수 있는가?
 - Static 1-hazard와 static 0-hazard의 차이를 설명하고 redundant term을 추가할 수 있는가?
-- Verilog structural model과 behavioral model의 차이를 회로 관점에서 설명할 수 있는가?
+- $$F=A'D+AC'$$ 에서 $$C{=}0,D{=}1$$ 로 고정했을 때 $$A$$ 전이 중 glitch가 생기는 이유를 인버터 지연으로 설명할 수 있는가?
+- 2-bit comparator의 $$GT$$ 식이 "상위 비트 우선" 구조를 어떻게 반영하는지 설명할 수 있는가?
+- Verilog structural model과 behavioral model의 차이를 회로 관점에서 설명할 수 있는가? `always @(*)`의 민감도 목록을 빠뜨리면 왜 문제가 되는가?
 
 {% endraw %}
 

@@ -155,6 +155,16 @@ DSB-LC에서는 total power가 carrier power와 sideband power로 나뉜다.
 - modulation index가 1이어도 AM efficiency는 33%를 넘기 어렵다.
 - DSB-SC는 carrier power가 없으므로 이상적으로 information-bearing power efficiency가 높다.
 
+### Worked example — 톤 변조 효율
+
+$$m(t)=A_m\cos(\omega_m t)$$로 톤 변조하면 carrier power $$=A_c^2/2$$, 두 sideband의 합 power $$=\mu^2A_c^2/4$$ ($$\mu=A_m/A_c$$). 효율은
+
+$$
+\eta = \frac{\text{sideband power}}{\text{total power}} = \frac{\mu^2/2}{1+\mu^2/2} = \frac{\mu^2}{2+\mu^2}
+$$
+
+$$\mu=1$$(overmodulation 직전 최댓값)을 대입하면 $$\eta = 1/3 \approx 33.3\%$$ — 정보 없는 carrier가 전체 송신 전력의 **3분의 2**를 차지한다는 뜻이다. $$\mu=0.5$$면 $$\eta=0.25/2.25\approx11\%$$로 더 나빠진다 — DSB-LC의 효율은 $$\mu$$가 작을수록(안전하게 보낼수록) 오히려 떨어진다.
+
 ## AM Demodulation
 
 DSB-LC 복조 방식:
@@ -298,7 +308,7 @@ envelope detector는 nonlinear이다.
 
 - DSB-SC와 DSB-LC의 carrier 유무, power efficiency, receiver complexity를 비교한다.
 - DSB-SC에서 carrier synchronization이 왜 필요한지 설명한다.
-- AM envelope detection 조건 `A > |m(t)|` 또는 `mu <= 1`을 기억한다.
+- AM envelope detection 조건 `A > |m(t)|` 또는 `mu <= 1`을 기억한다. $$\eta=\mu^2/(2+\mu^2)$$로 $$\mu=1$$일 때 효율이 왜 33%인지 유도할 수 있는가?
 - FDM과 superheterodyne receiver의 IF 개념을 이해한다.
 - SSB는 bandwidth 절약, VSB는 구현 난이도와 bandwidth 사이 절충이라는 점을 안다.
 - bandpass noise의 I/Q 표현을 사용할 수 있어야 한다.

@@ -42,13 +42,22 @@ R-S latch의 기본 동작:
 - Hold: 이전 상태를 유지한다.
 - Forbidden 또는 race 상태: set과 reset이 동시에 활성화되어 결과가 불안정해지는 경우다.
 
+NOR 기반(active-high `S`, `R`) R-S latch의 전체 동작표:
+
+| S | R | Q(t+1) | 의미 |
+|---|---|---|---|
+| 0 | 0 | Q(t) | hold |
+| 0 | 1 | 0 | reset |
+| 1 | 0 | 1 | set |
+| 1 | 1 | 0/0 (양쪽 모두 0으로 강제, 해제 시 forbidden) | 금지 |
+
 NAND 기반 R-S latch의 characteristic equation은 다음과 같은 형태로 정리된다.
 
-```text
-Q(t + delta) = S + R' Q(t)
-```
+$$
+Q(t+\Delta) = S + R'\,Q(t)
+$$
 
-여기서 현재 상태 `Q(t)`와 입력이 함께 다음 상태를 결정한다는 점이 순차논리의 핵심이다.
+여기서 현재 상태 `Q(t)`와 입력이 함께 다음 상태를 결정한다는 점이 순차논리의 핵심이다. $$S{=}1$$ 이면 $$Q(t+\Delta)=1$$(set), $$R{=}1,S{=}0$$ 이면 $$Q(t+\Delta)=0$$(reset), 둘 다 0이면 $$Q(t+\Delta)=Q(t)$$(hold) — 표와 정확히 대응된다.
 
 ## Race Condition과 관측 동작
 
@@ -77,13 +86,26 @@ J-K flip-flop은 R-S latch의 금지 상태 문제를 줄이기 위해 output fe
 - `J=0, K=1`: reset
 - `J=1, K=1`: toggle
 
-J-K 구조는 유연하지만 입력과 feedback 경로가 복잡하고 timing 문제가 생길 수 있으므로, 실제 설계에서는 D flip-flop이 더 널리 쓰인다.
+Characteristic equation: $$Q(t+1) = J\,Q(t)' + K'\,Q(t)$$. J-K 구조는 유연하지만 입력과 feedback 경로가 복잡하고 timing 문제가 생길 수 있으므로, 실제 설계에서는 D flip-flop이 더 널리 쓰인다.
+
+**T flip-flop**(toggle)은 J-K의 $$J=K=T$$ 특수 경우다: $$T{=}0$$ 이면 hold, $$T{=}1$$ 이면 toggle. $$Q(t+1) = T \oplus Q(t)$$. Counter 설계([다음 장](07-finite-state-machines.md))에서 각 bit가 특정 조건에서 반전하는 회로를 만들 때 자연스럽게 등장한다.
 
 ## D Latch와 D Flip-Flop
 
 D latch/flip-flop은 set과 reset 입력이 동시에 활성화되는 문제를 피하기 위해 `S`와 `R`이 서로 보수가 되도록 만든다. 저장하려는 값은 하나의 입력 `D`로 제공되고, clocking event에서 그 값이 저장된다.
 
 D flip-flop의 핵심은 clock edge 직전에 D가 안정되어 있어야 하고, edge 직후에도 일정 시간 유지되어야 한다는 점이다. 이 시간 창을 어기면 저장 값이 잘못되거나 metastability가 생길 수 있다.
+
+Characteristic equation: $$Q(t+1) = D$$ — D flip-flop은 다음 상태가 곧 입력이므로 가장 단순하다. 네 flip-flop을 한눈에 비교하면:
+
+| Flip-flop | Characteristic equation | Excitation (Q(t)→Q(t+1)일 때 필요한 입력) |
+|---|---|---|
+| S-R | $$Q(t+1) = S + R'Q(t)$$ | 0→0: `S=0,R=×` · 0→1: `S=1,R=0` · 1→0: `S=0,R=1` · 1→1: `S=×,R=0` |
+| J-K | $$Q(t+1) = JQ(t)' + K'Q(t)$$ | 0→0: `J=0,K=×` · 0→1: `J=1,K=×` · 1→0: `J=×,K=1` · 1→1: `J=×,K=0` |
+| D | $$Q(t+1) = D$$ | 항상 `D = Q(t+1)` |
+| T | $$Q(t+1) = T \oplus Q(t)$$ | 0→0: `T=0` · 0→1: `T=1` · 1→0: `T=1` · 1→1: `T=0` |
+
+Excitation table은 characteristic equation의 **역**이다 — "현재 상태에서 원하는 다음 상태로 가려면 입력을 어떻게 줘야 하는가"를 묻는다. [FSM 설계](07-finite-state-machines.md)에서 state table로부터 flip-flop 입력식을 구할 때 이 표를 직접 사용한다. `×`는 don't-care로, K-map 최소화에 활용할 수 있다.
 
 ## Setup Time, Hold Time, Propagation Delay
 
@@ -119,17 +141,23 @@ Timing methodology는 저장 소자와 조합논리를 안전하게 연결하는
 
 기본적인 clock period 제약:
 
-```text
-Tclk >= Tclk-to-Q(max) + Tcomb(max) + Tsetup + Tskew_margin
-```
+$$
+T_{clk} \;\ge\; T_{co(max)} + T_{comb(max)} + T_{su} + T_{skew}
+$$
 
 Hold 제약은 너무 빠른 경로에서도 문제가 생길 수 있음을 보여준다.
 
-```text
-Tclk-to-Q(min) + Tcomb(min) >= Thold + skew_effect
-```
+$$
+T_{co(min)} + T_{comb(min)} \;\ge\; T_{hold} + T_{skew}
+$$
 
 즉 회로는 너무 느려도 실패하지만, 특정 경로가 너무 빨라도 hold violation이 생길 수 있다.
+
+**숫자 예시**: $$T_{co(max)}=0.3\text{ns}$$, $$T_{su}=0.2\text{ns}$$, $$T_{skew}=0.1\text{ns}$$ 인 flip-flop 사이에 조합논리 지연 $$T_{comb(max)}=1.5\text{ns}$$ 가 있다면:
+$$
+T_{clk} \ge 0.3+1.5+0.2+0.1 = 2.1\text{ns} \;\Rightarrow\; f_{max} = 1/T_{clk} \approx 476\text{MHz}
+$$
+조합논리를 절반으로 줄이면($$T_{comb(max)}=0.75$$ns) $$T_{clk}\ge 1.35$$ns, $$f_{max}\approx 741$$MHz로 — **critical path인 $$T_{comb}$$ 를 줄이는 것이 클럭 속도를 올리는 가장 직접적인 방법**임을 숫자로 확인할 수 있다.
 
 ## Clock Skew
 
@@ -192,6 +220,8 @@ Shift register 응용:
 - Setup time, hold time, clock-to-Q delay를 timing diagram에서 표시할 수 있는가?
 - Clock skew가 setup/hold 제약에 어떤 영향을 주는가?
 - Metastability가 왜 완전히 제거되지 않고 synchronizer로 완화되는지 설명할 수 있는가?
+- S-R·J-K·D·T 네 flip-flop의 characteristic equation과 excitation table을 서로 변환할 수 있는가?
+- $$T_{clk} \ge T_{co}+T_{comb}+T_{su}+T_{skew}$$ 식에서 각 항을 줄이면 $$f_{max}$$ 가 어떻게 바뀌는지 숫자로 계산할 수 있는가?
 
 {% endraw %}
 

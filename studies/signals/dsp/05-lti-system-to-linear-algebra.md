@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/05%20LTI%20System%20to%20Linear%20Algebra.md)
 
 {% raw %}
-﻿---
-title: "05. LTI System to Linear Algebra"
-pages: 18
-tags: [DSP, lecture-note, linear-algebra, convolution]
----
-
-# 05. LTI System to Linear Algebra
-
-> 이전: [Sampling Rate Change](04-sampling-rate-change.md)
-> 다음: [Linear Algebra Inverse](06-linear-algebra-inverse.md)
-
 ## 학습 목표
 
 이 강의는 convolution과 LTI 시스템을 선형대수의 행렬-벡터 형태로 바꾸는 방법을 다룬다.
@@ -91,6 +80,19 @@ x[2]\\
 $$
 
 Toeplitz matrix는 각 대각선 성분이 일정한 행렬이다. convolution의 shift-invariant 성질이 행렬의 반복 구조로 나타난 것이다.
+
+**숫자 예**: [03장](03-review-of-signals-and-systems.md)의 $$h=\{1,1,1\}$$, $$x=\{1,2,3,4\}$$를 그대로 행렬로 쓰면($$6\times4$$ Toeplitz)
+
+$$
+H=\begin{bmatrix}
+1&0&0&0\\ 1&1&0&0\\ 1&1&1&0\\ 0&1&1&1\\ 0&0&1&1\\ 0&0&0&1
+\end{bmatrix},
+\qquad
+H\mathbf{x}=H\begin{bmatrix}1\\2\\3\\4\end{bmatrix}
+=\begin{bmatrix}1\\3\\6\\9\\7\\4\end{bmatrix}
+$$
+
+정확히 03장에서 직접 convolution으로 계산한 $$y=\{1,3,6,9,7,4\}$$와 같다 — "행마다 $$h$$를 한 칸씩 아래로 밀어 쓴다"는 Toeplitz 구조가 convolution의 sliding-window 연산 그 자체임을 보여준다.
 
 ## Lexicographical Ordering
 
@@ -189,7 +191,7 @@ $$
 
 ## 체크포인트
 
-- Toeplitz: linear convolution
+- Toeplitz: linear convolution. $$h=\{1,1,1\}$$, $$x=\{1,2,3,4\}$$의 $$6\times4$$ Toeplitz $$H$$를 직접 쓰고 $$H\mathbf{x}$$가 convolution 결과와 같음을 확인할 수 있는가?
 - Circulant: circular convolution, periodic boundary
 - DFT matrix: circulant matrix의 eigenvector 행렬
 - convolution을 행렬로 쓰면 inverse problem과 least squares가 자연스럽게 등장한다.

@@ -8,16 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/13%202D%20DSP%20Overview.md)
 
 {% raw %}
-﻿---
-title: "13. 2D Digital Signal Processing Overview"
-pages: 13
-tags: [DSP, lecture-note, 2D-DSP, image-processing]
----
-
-# 13. 2D DSP Overview
-
-> 이전: [DFT and FFT](12-dft-and-fft.md)
-
 ## 학습 목표
 
 이 자료는 1차원 DSP 개념을 2차원 디지털 신호, 특히 영상 신호로 확장한다.
@@ -100,6 +90,15 @@ x[n_1,n_2]=x_1[n_1]x_2[n_2]
 $$
 
 separable filter는 계산량을 크게 줄일 수 있다.
+
+**숫자 예**: $$5\times5$$ 필터 kernel을 $$512\times512$$ 영상에 convolution한다고 하자. 픽셀당 곱셈 수는 non-separable이면 $$5\times5=25$$, separable(가로 1D 필터 + 세로 1D 필터로 분해)이면 $$5+5=10$$이다. 전체 영상 기준:
+
+$$
+\text{non-separable}:\ 512^2\times25 \approx 6.55\times10^6,\qquad
+\text{separable}:\ 512^2\times10 \approx 2.62\times10^6
+$$
+
+**약 2.5배**($$=25/10=N_1N_2/(N_1{+}N_2)$$) 계산량 절감이다. kernel이 커질수록($$N\times N$$이면 비율이 $$N/2$$) 이 절감 효과는 더 커진다 — Gaussian blur 같은 대칭 kernel을 실무에서 거의 항상 두 개의 1D 필터로 분해해 구현하는 이유다.
 
 ## Digital Image와 Quantization
 
@@ -230,7 +229,7 @@ $$
 - 1D의 time index가 2D에서는 spatial index $$(n_1,n_2)$$로 확장된다.
 - LTI는 2D에서 LSI/space-invariant system이 된다.
 - impulse response는 영상처리에서 PSF로 불린다.
-- 2D convolution은 blur/filtering의 기본 모델이다.
+- 2D convolution은 blur/filtering의 기본 모델이다. $$5\times5$$ separable filter가 $$512\times512$$ 영상에서 몇 배 계산량을 줄이는지 계산할 수 있는가?
 - DSFT는 2D frequency 성분을 분석하는 도구이다.
 - sampling/reconstruction과 aliasing 개념은 축별로 적용된다.
 

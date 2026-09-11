@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/06%20Linear%20Algebra%20Inverse.md)
 
 {% raw %}
-﻿---
-title: "06. Linear Algebra Inverse"
-pages: 5
-tags: [DSP, lecture-note, inverse-problem, least-squares]
----
-
-# 06. Linear Algebra Inverse
-
-> 이전: [LTI System to Linear Algebra](05-lti-system-to-linear-algebra.md)
-> 다음: [Z-Transform Introduction](07-z-transform-introduction.md)
-
 ## 학습 목표
 
 이 자료는 DSP 문제를 행렬 방정식으로 보았을 때 inverse가 언제 가능한지, 불가능할 때 least squares inverse를 어떻게 쓰는지 정리한다.
@@ -89,6 +78,14 @@ $$
 $$
 \hat{\mathbf{x}}=(H^HH)^{-1}H^H\mathbf{y}
 $$
+
+**숫자 예 — system identification**: 미지의 이득 $$a$$를 가진 시스템 $$y[n]=a\,u[n]$$에 $$u=1,2,3$$을 넣어 $$y=2.1,3.9,6.2$$를 관측했다고 하자. $$H=[1,2,3]^T$$(스칼라 미지수 $$x=a$$인 $$3\times1$$ 문제)이므로
+
+$$
+\hat a = (H^TH)^{-1}H^T\mathbf{y} = \frac{1\cdot2.1+2\cdot3.9+3\cdot6.2}{1^2+2^2+3^2} = \frac{28.5}{14} \approx 2.036
+$$
+
+즉 잡음 섞인 세 측정값을 "이상적으로는 $$a=2$$였을 것"이라는 하나의 추정치로 압축한다 — $$H^TH$$가 스칼라인 이 예시가 일반 $$(H^TH)^{-1}H^T\mathbf{y}$$ 공식의 가장 단순한 경우다.
 
 ## Underdetermined Case
 
@@ -174,7 +171,7 @@ condition number가 크면 작은 오차가 해에서 크게 증폭된다.
 
 - direct inverse는 이상적인 경우에만 안전하다.
 - least squares는 정확히 맞추기보다 residual energy를 최소화한다.
-- overdetermined 문제는 보통 LS로 안정적으로 풀 수 있다.
+- overdetermined 문제는 보통 LS로 안정적으로 풀 수 있다. $$u=1,2,3$$, $$y=2.1,3.9,6.2$$에서 최소제곱 이득 $$\hat a\approx2.036$$을 직접 계산할 수 있는가?
 - underdetermined 문제는 prior나 regularization 없이는 해가 결정되지 않는다.
 - inverse filtering은 수학적으로 가능해도 noise 때문에 실용적으로 불안정할 수 있다.
 

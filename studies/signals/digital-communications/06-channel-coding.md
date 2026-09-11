@@ -213,14 +213,25 @@ Hamming code는 `k = 4` message bits, `n = 7` codeword bits를 사용한다.
 
 syndrome table을 이용하면 syndrome별 error pattern을 바로 찾을 수 있다.
 
-예:
+### Worked example — 실제 G, H로 인코딩·오류정정
 
-```text
-Tx code vector = [1110010]
-Rx code vector = [1100010]
-```
+$$
+P=\begin{bmatrix}1&1&0\\0&1&1\\1&1&1\\1&0&1\end{bmatrix},\qquad
+G=[P\mid I_4]=\begin{bmatrix}1&1&0&1&0&0&0\\0&1&1&0&1&0&0\\1&1&1&0&0&1&0\\1&0&1&0&0&0&1\end{bmatrix},\qquad
+H=[I_3\mid P^T]=\begin{bmatrix}1&0&0&1&0&1&1\\0&1&0&1&1&1&0\\0&0&1&0&1&1&1\end{bmatrix}
+$$
 
-한 비트 오류가 발생하면 syndrome이 해당 bit 위치를 가리키고, 그 bit를 뒤집어 correction한다.
+메시지 $$m=(1,0,1,1)$$을 인코딩: $$c=mG=(1,0,0,1,0,1,1)$$(패리티 $$p_1p_2p_3=100$$ + 메시지 $$1011$$). 검산: $$Hc^T=(0,0,0)$$ — 유효한 codeword.
+
+이제 5번째 비트($$m_2$$)에 오류가 생겨 $$r=(1,0,0,1,\mathbf{1},1,1)$$을 수신했다고 하자.
+
+$$
+s=Hr^T=(0,1,1)
+$$
+
+$$H$$의 다섯 번째 열이 정확히 $$(0,1,1)^T$$이므로 오류 위치는 5번째 비트. 그 비트를 뒤집으면 $$\hat c=(1,0,0,1,0,1,1)=c$$로 완전히 복원된다 — [프로젝트 노트](00-final-project-rayleigh-fading-voice-system.md)의 Hamming decoding이 바로 이 절차다.
+
+한 비트 오류는 이렇게 항상 correction되지만, 2비트 이상 오류는 다른 유효 codeword로 잘못 "정정"될 수 있다($$d_{min}=3$$이라 1개 오류까지만 보장).
 
 ## Cyclic Code
 
@@ -279,13 +290,14 @@ trade-off:
 - `(n,k)` code에서 code rate와 redundancy를 계산한다.
 - syndrome이 error pattern에만 의존한다는 점을 이해한다.
 - Hamming distance와 correction/detection 능력의 관계를 기억한다.
+- $$G$$, $$H$$ worked example을 직접 재현해 $$m=(1,0,1,1)$$을 인코딩하고, 5번째 비트 오류를 syndrome으로 찾아 정정할 수 있는가?
 - cyclic code에서 generator polynomial의 역할을 안다.
 - coding gain은 BER 기준 `Eb/N0` 절감량이다.
 
 ## 같이 보면 좋은 노트
 
 - [Channel Coding Supplement - Entropy와 Shannon Limit](07-channel-coding-supplement-entropy-shannon-limit.md)
-- [Final Project - 디지털 통신 시스템 시뮬레이션](00-final-project.md)
+- [Final Project - Rayleigh Fading 음성 통신 시스템](00-final-project-rayleigh-fading-voice-system.md)
 - [Channel Model - Multipath Fading과 Equalization](09-channel-model-multipath-fading-equalization.md)
 
 {% endraw %}

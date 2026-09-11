@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/04%20Sampling%20Rate%20Change.md)
 
 {% raw %}
-﻿---
-title: "04. Sampling Rate Change"
-pages: 14
-tags: [DSP, lecture-note, sampling, multirate]
----
-
-# 04. Sampling Rate Change
-
-> 이전: [Review of Signals and Systems](03-review-of-signals-and-systems.md)
-> 다음: [LTI System to Linear Algebra](05-lti-system-to-linear-algebra.md)
-
 ## 학습 목표
 
 이 자료는 discrete-time processing으로 sampling rate를 바꾸는 방법을 다룬다.
@@ -134,6 +123,14 @@ $$
 
 실제 구현에서는 interpolation filter와 anti-aliasing filter를 하나의 low-pass filter로 합쳐 계산량을 줄인다.
 
+**숫자 예**: $$8\text{kHz}$$ 신호를 $$12\text{kHz}$$로 바꾸려면 $$12/8=3/2$$이므로 $$L=3$$, $$M=2$$. 먼저 3배 up-sampling(zero 2개씩 삽입, 유효 sampling rate가 $$24\text{kHz}$$가 됨) 후 2배 down-sampling한다. 공용 low-pass cutoff는
+
+$$
+\omega_c=\min(\pi/3,\pi/2)=\pi/3
+$$
+
+($$\pi/L$$이 더 작아 imaging 방지 조건이 aliasing 방지 조건보다 더 엄격하므로 그것이 결정한다.) 이 필터 하나가 up-sampling의 image 제거와 down-sampling의 anti-aliasing을 동시에 수행한다.
+
 ## Simulation에서 관찰할 점
 
 강의자료의 simulation 그림들은 다음을 보여준다.
@@ -149,7 +146,7 @@ $$
 - interpolation 후: anti-imaging filter
 - down-sampling은 spectrum folding/aliasing 위험을 만든다.
 - up-sampling은 spectrum image를 만든다.
-- 비정수 변환은 항상 “먼저 up-sample, filter, 나중에 down-sample” 순서로 생각한다.
+- 비정수 변환은 항상 “먼저 up-sample, filter, 나중에 down-sample” 순서로 생각한다. $$8$$kHz$$\to$$12kHz 변환에서 $$L,M$$과 공용 cutoff $$\omega_c$$를 구할 수 있는가?
 
 {% endraw %}
 

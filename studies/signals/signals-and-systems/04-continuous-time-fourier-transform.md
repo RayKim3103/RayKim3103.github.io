@@ -97,6 +97,21 @@ X(-jω) = X*(jω)
 
 `|X(jω)|^2`는 주파수별 에너지 밀도 스펙트럼으로 해석할 수 있다.
 
+**숫자 예 — Parseval 검산**: $$x(t)=e^{-2t}u(t)$$($$a=2$$)이면 $$X(j\omega)=1/(2+j\omega)$$.
+
+시간 영역 에너지:
+$$
+\int_0^\infty (e^{-2t})^2\,dt = \int_0^\infty e^{-4t}dt = \frac14
+$$
+
+주파수 영역: $$|X(j\omega)|^2=1/(4+\omega^2)$$이고 $$\int_{-\infty}^{\infty}\frac{d\omega}{4+\omega^2}=\frac{\pi}{2}$$(표준 적분 $$\int d\omega/(a^2+\omega^2)=\pi/a$$)이므로
+
+$$
+\frac{1}{2\pi}\int_{-\infty}^{\infty}|X(j\omega)|^2\,d\omega = \frac{1}{2\pi}\cdot\frac{\pi}{2}=\frac14
+$$
+
+두 값이 정확히 $$1/4$$로 일치한다 — Parseval 관계가 실제로 성립함을 확인한 것이다.
+
 ## 컨볼루션 성질
 
 시간 영역 컨볼루션은 주파수 영역 곱셈으로 바뀐다.
@@ -157,6 +172,12 @@ H(jω) = Y(jω)/X(jω)
 - [이산시간 푸리에 변환](05-discrete-time-fourier-transform.md)
 - [시간-주파수 특성](06-time-frequency-properties.md)
 - [라플라스 변환과 z 변환](08-laplace-and-z-transforms.md)
+
+## 복습 질문
+
+- $$x(t)=e^{-2t}u(t)$$의 시간 영역 에너지와 주파수 영역 에너지를 각각 계산해 Parseval 관계를 검산할 수 있는가?
+- 좁은 펄스일수록 스펙트럼이 넓어지는 시간-주파수 반비례 관계를 CTFT 쌍 표로 설명할 수 있는가?
+- 이상적 LPF의 impulse response가 noncausal인 이유와, 그것이 실제 필터 설계에 주는 함의는?
 
 {% endraw %}
 

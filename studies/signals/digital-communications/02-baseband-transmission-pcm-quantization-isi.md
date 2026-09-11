@@ -229,8 +229,16 @@ B = (1 + r) R_s / 2
 
 해석:
 
-- `r = 0`: minimum bandwidth, ideal case, `2 symbols/s/Hz`
-- `r = 1`: bandwidth가 두 배가 되어 `1 symbol/s/Hz`
+- $$r=0$$: minimum bandwidth, ideal case, $$2\text{ symbols/s/Hz}$$
+- $$r=1$$: bandwidth가 두 배가 되어 $$1\text{ symbol/s/Hz}$$
+
+**숫자 예**: 위 예제 흐름의 $$R_s=9000$$ symbols/s에 raised cosine filter를 적용하면
+
+$$
+r=0:\ B=4500\text{ Hz} \qquad r=0.25:\ B=5625\text{ Hz} \qquad r=1:\ B=9000\text{ Hz}
+$$
+
+실제 시스템은 $$r=0$$(ideal LPF, 물리적으로 구현 불가)과 $$r=1$$(bandwidth 2배, 구현 쉬움) 사이에서 $$r\approx0.2\sim0.5$$ 정도를 절충으로 선택하는 경우가 많다.
 
 ## 시험 포인트
 
@@ -238,7 +246,7 @@ B = (1 + r) R_s / 2
 - quantization error variance `q^2/12`의 의미를 이해한다.
 - multi-level signaling은 bandwidth를 줄이는 대신 power 요구량을 키운다.
 - ISI는 pulse shaping과 sampling time의 문제로 이해한다.
-- raised cosine filter의 roll-off factor가 bandwidth에 미치는 영향을 기억한다.
+- raised cosine filter의 roll-off factor가 bandwidth에 미치는 영향을 기억한다. $$R_s=9000$$ symbols/s일 때 $$r=0,0.25,1$$ 각각의 $$B$$를 계산할 수 있는가?
 
 ## 같이 보면 좋은 노트
 

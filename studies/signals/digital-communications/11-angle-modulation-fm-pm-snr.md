@@ -130,6 +130,14 @@ B_T ≈ 2(beta + 1) f_m
 - frequency deviation이 커지면 noise 성능은 좋아질 수 있다.
 - 대신 필요한 bandwidth가 증가한다.
 
+**숫자 예 — 상업 FM 방송**: 아래 "FM Receiver" 절의 스펙대로 $$\Delta f=75\text{kHz}$$, 음성 대역 $$W=15\text{kHz}$$를 대입하면
+
+$$
+B_T \approx 2(75+15) = 180\text{ kHz}
+$$
+
+실제 채널 간격 $$200\text{ kHz}$$와 거의 일치한다(guard band 여유를 위해 Carson 근사치보다 약간 더 넉넉하게 잡은 것). modulation index는 $$\beta=\Delta f/W=75/15=5$$로, $$\beta\gg1$$이라 WBFM으로 분류된다.
+
 ## Average Power in FM
 
 angle modulation은 amplitude가 일정하므로 평균 power가 modulation index와 무관하게 일정하다.
@@ -292,7 +300,7 @@ receiver: 원래 spectrum으로 되돌림 (de-emphasis)
 - PM은 phase가 message에 비례하고, FM은 instantaneous frequency가 message에 비례한다.
 - NBFM은 linear approximation이 가능하고 bandwidth가 AM과 비슷하다.
 - WBFM spectrum은 Bessel function sideband로 표현된다.
-- Carson's rule `B_T ≈ 2(Delta f + W)`를 기억한다.
+- Carson's rule `B_T ≈ 2(Delta f + W)`를 기억한다. 상업 FM($$\Delta f=75$$kHz, $$W=15$$kHz)의 $$B_T$$를 계산해 실제 채널 간격 200kHz와 비교할 수 있는가?
 - FM은 amplitude 일정, total power 일정이다.
 - discriminator와 PLL의 FM demodulation 원리를 비교한다.
 - threshold effect와 pre/de-emphasis의 목적을 설명할 수 있어야 한다.

@@ -8,17 +8,6 @@ sitemap: false
 - **원본 노트**: [GitHub](https://github.com/RayKim3103/Undergraduate-Course/blob/main/%5BUndergraduate%5D_Digital_Signal_Processing/lecture_notes/07%20Z-Transform%20Introduction.md)
 
 {% raw %}
-﻿---
-title: "07. Z-Transform Introduction"
-pages: 16
-tags: [DSP, lecture-note, z-transform, ROC]
----
-
-# 07. Z-Transform Introduction
-
-> 이전: [Linear Algebra Inverse](06-linear-algebra-inverse.md)
-> 다음: [Z-Transform Analysis of LTI Systems](08-z-transform-analysis-of-lti-systems.md)
-
 ## 학습 목표
 
 이 자료는 z-transform의 정의, ROC, inverse z-transform, 주요 성질을 다룬다.
@@ -125,6 +114,20 @@ $$
 
 유리함수 $$X(z)$$를 1차 항들의 합으로 분해한 뒤 표준쌍을 적용한다. 이때 각 항의 ROC가 전체 ROC와 일관되어야 한다.
 
+**숫자 예**: $$X(z)=\dfrac{1}{(1-0.5z^{-1})(1-0.25z^{-1})}$$, ROC $$|z|>0.5$$(causal)라 하자. 부분분수 분해:
+
+$$
+X(z) = \frac{A}{1-0.5z^{-1}} + \frac{B}{1-0.25z^{-1}}
+$$
+
+$$z^{-1}=2$$를 대입($$1-0.5z^{-1}=0$$ 되는 점)하면 $$1=A(1-0.25\cdot2)=0.5A \Rightarrow A=2$$. $$z^{-1}=4$$를 대입하면 $$1=B(1-0.5\cdot4)=-B \Rightarrow B=-1$$. ROC가 두 pole($$0.5,0.25$$) 중 큰 쪽보다 바깥이므로 두 항 모두 right-sided:
+
+$$
+x[n] = \big[2(0.5)^n - (0.25)^n\big]u[n]
+$$
+
+검산: $$x[0]=2-1=1$$, $$x[1]=1-0.25=0.75$$ — 급수 전개 $$(1+0.5z^{-1}+\cdots)(1+0.25z^{-1}+\cdots)$$의 $$z^{-1}$$ 계수 $$0.5+0.25=0.75$$와 일치.
+
 ### 3. Power Series Expansion
 
 $$X(z)$$를 $$z^{-1}$$ 또는 $$z$$의 급수로 전개해 계수에서 $$x[n]$$을 읽는다.
@@ -168,7 +171,7 @@ causal and stable LTI:
 
 - z-transform은 식 + ROC가 하나의 쌍이다.
 - 같은 $$X(z)$$라도 ROC가 다르면 완전히 다른 $$x[n]$$이다.
-- DTFT는 z-transform의 unit circle evaluation이다.
+- DTFT는 z-transform의 unit circle evaluation이다. $$X(z)=1/[(1-0.5z^{-1})(1-0.25z^{-1})]$$를 부분분수로 분해해 $$x[n]$$을 구할 수 있는가?
 - causal/stable 판단은 pole 위치와 ROC를 함께 봐야 한다.
 
 {% endraw %}
