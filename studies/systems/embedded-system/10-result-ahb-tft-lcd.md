@@ -103,6 +103,17 @@ XPAR_M_AHB_BASEADDR + y * 960 + x * 4
 
 따라서 `x` loop는 0~239까지만 돈다.
 
+## 숫자로 확인하기 — 두 줄의 address가 겹치지 않는지 검증
+
+`y * 960 + x * 4`에서 `x`는 0~239까지만 돈다. 한 줄(row)이 차지하는 address 범위를 직접 구하면:
+
+- `y=0` 행: `x=0`일 때 `base+0`, `x=239`일 때 `base + 239*4 = base+956`. 즉 `base+0 ~ base+956` (총 960byte 폭, `956+4=960`).
+- `y=1` 행: `base + 960 + 0 ~ base + 960 + 956 = base+960 ~ base+1916`.
+
+`y=0` 행의 마지막 주소(`base+956`, 4byte 접근이므로 `base+959`까지 사용)와 `y=1` 행의 시작 주소(`base+960`)가 정확히 맞닿아 있어 겹치거나 빈틈이 생기지 않는다 — `960 = 480pixel \times 2byte/pixel`이라는 한 줄의 정확한 byte 크기가 stride로 쓰였기 때문이다.
+
+**Stripe band 계산 검증**: $$272 \div 8 = 34$$이고 나머지가 0이므로, 272줄을 정확히 8개의 34줄짜리 band로 나눌 수 있다(마지막 band가 더 짧아지는 경우가 없다).
+
 ## Quiz 이미지 구성
 
 Quiz에서는 5가지 출력 상태를 구현했다.
@@ -120,6 +131,12 @@ stripe는 272 line을 8개 band로 나누기 위해 `34 = 272/8`을 사용했다
 ## Memory Mapped I/O
 
 AHB는 memory mapped 방식이다. Processor는 I/O device와 memory를 별도 명령으로 구분하지 않고, 특정 address에 read/write하여 device register나 BRAM에 접근한다.
+
+## 복습 질문
+
+- `y=0` 행의 마지막 주소와 `y=1` 행의 시작 주소가 왜 정확히 맞닿아 겹치지 않는지 직접 계산해 확인할 수 있는가?
+- `960 = 480 \times 2`라는 값이 어디서 나오는지(pixel 수 × pixel당 byte 수) 설명할 수 있는가?
+- $$272 \div 8 = 34$$가 나머지 없이 나누어떨어지는 것이 8개 band로 나누는 stripe 구현에 왜 중요한지 설명할 수 있는가?
 
 ## 정리
 

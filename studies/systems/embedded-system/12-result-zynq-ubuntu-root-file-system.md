@@ -102,6 +102,22 @@ Windows는 ext4를 기본 인식하지 못하므로 rootfs partition 작업은 L
 
 `/proc`은 실제 파일 모음이 아니라 kernel이 runtime에 제공하는 virtual file system이다. rootfs를 SD 카드로 복사할 때 `/proc` 내용은 의미가 없고, 오히려 예기치 않은 오류를 만들 수 있으므로 복사하지 않는다.
 
+## SD 카드 partition 구조를 실제 사용 흐름으로 정리
+
+두 partition의 역할을 boot 시점 기준으로 다시 정리하면 왜 두 개로 나뉘어야 하는지 분명해진다.
+
+1. 전원 인가 시 Zynq는 우선 SD 카드의 **1번 FAT32 partition**만 인식해 `BOOT.bin`, `uEnv.txt`, `system-top.dtb`, `uImage`를 읽는다 (13주차에서 다룰 요소들이다).
+2. U-Boot가 kernel(`uImage`)과 device tree를 memory에 올린 뒤 kernel을 실행하면, kernel은 `uEnv.txt`나 커널 커맨드라인에 지정된 root partition(**2번 ext4 partition**)을 mount한다.
+3. 이후 `/bin`, `/etc`, `/lib` 등 이번 주차에서 구성한 rootfs 내용이 실제 사용자 공간으로 나타난다.
+
+즉 FAT32 partition은 "부팅에 필요한 파일 몇 개"만 담고, ext4 partition은 "OS 전체"를 담는다 — 이 역할 분리 때문에 부트로더가 아직 이해하지 못하는 ext4 파일시스템 driver 없이도 최소한의 부팅이 가능해진다.
+
+## 복습 질문
+
+- FAT32 partition과 ext4 partition이 boot 과정에서 각각 언제 사용되는지 순서대로 설명할 수 있는가?
+- `chroot` 환경에서 `/proc`을 mount해야 하는 이유와, 반대로 rootfs를 SD 카드에 복사할 때는 `/proc`을 복사하지 않는 이유를 설명할 수 있는가?
+- `qemu-user-static` 없이 x86 host에서 ARM용 `apt-get install`을 실행하면 어떤 문제가 생기는지 설명할 수 있는가?
+
 ## 정리
 
 12주차 결과의 핵심은 embedded Linux boot를 위해 boot image뿐 아니라 제대로 구성된 root file system이 필요하다는 점이다. 이번 주차는 SD 카드의 root partition을 준비하고, 다음 주차에서 boot image와 kernel, device tree를 결합해 실제 Linux boot로 이어진다.

@@ -82,6 +82,22 @@ Top RTL의 역할:
 - PL 쪽 LED/7-segment 출력 포트 노출
 - AXI register 출력과 사용자 IP 입력 연결
 
+## Register 주소 간격 확인
+
+`7-Segment Control`(`0x43C0_0000`)과 `LED Control`(`0x43C0_0004`)의 주소 차이는
+
+$$
+0x43C0\_0004 - 0x43C0\_0000 = 0x4 = 4\text{byte}
+$$
+
+AXI-Lite의 데이터 폭이 32비트(4byte)이므로, 두 register는 word 단위로 정확히 연속 배치되어 있다 — 이는 우연이 아니라 32비트 AXI-Lite에서 register map을 만들 때의 표준 관례(각 register가 4byte 경계에 정렬)다. 만약 세 번째 register가 추가된다면 `0x43C0_0008`에 위치할 것으로 예측할 수 있다.
+
+## 복습 질문
+
+- 두 register 주소가 4씩 차이나는 이유를 AXI-Lite의 데이터 폭과 연결해 설명할 수 있는가?
+- AXI-Lite가 burst transfer를 지원하는 AXI-Full 대신 사용되는 이유를 LED/7-segment register 접근 특성과 연결해 설명할 수 있는가?
+- `M_AXI_GP0`가 AXI master로 동작한다는 것이 무슨 의미인지, PS와 PL 중 누가 transaction을 시작하는지 설명할 수 있는가?
+
 ## 정리
 
 7주차 예비의 핵심은 PS가 단순히 보조 역할을 하는 것이 아니라, AXI-Lite를 통해 PL에 만든 IP를 직접 제어하는 master가 된다는 점이다. 이후 주차의 Text-LCD, TFT-LCD, interrupt, Linux device driver 실습은 모두 이 memory mapped I/O 개념 위에서 확장된다.

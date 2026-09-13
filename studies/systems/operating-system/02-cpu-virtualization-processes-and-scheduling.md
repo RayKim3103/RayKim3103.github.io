@@ -150,6 +150,39 @@ MLFQ는 job runtime을 미리 모르는 상황에서 interactive job에 좋은 r
 - I/O로 자주 양보하는 job은 높은 priority에 머물 수 있다.
 - Starvation 방지를 위해 주기적으로 priority boost를 수행한다.
 
+## 숫자로 비교하기 — 같은 job 집합에 정책 4개 적용
+
+다음 4개 job으로 FIFO, SJF, STCF, Round Robin(quantum 1)을 비교한다.
+
+| Job | 도착 시각 | 실행 시간 |
+|---|---:|---:|
+| A | 0 | 5 |
+| B | 1 | 3 |
+| C | 2 | 8 |
+| D | 3 | 2 |
+
+**FIFO**(도착 순서대로 끝까지 실행): A(0~5) → B(5~8) → C(8~16) → D(16~18).
+
+| Job | 완료 시각 | Turnaround(완료−도착) | Response(첫 실행−도착) |
+|---|---:|---:|---:|
+| A | 5 | 5 | 0 |
+| B | 8 | 7 | 4 |
+| C | 16 | 14 | 6 |
+| D | 18 | 15 | 13 |
+
+평균 turnaround = $$(5+7+14+15)/4 = 10.25$$. D처럼 늦게 도착한 짧은 job(실행시간 2)이 앞의 긴 job(C, 8) 때문에 오래 기다리는 **convoy effect**가 turnaround 15로 드러난다.
+
+**STCF**(도착 시 남은 시간이 가장 짧은 job으로 preempt, 각 시점의 선택을 추적): 시각 0에 A만 있어 A 실행. 시각 1, B 도착(남은 3) vs A(남은 4) → B가 더 짧으므로 preempt해 B 실행. 시각 2, C 도착(8)은 B의 남은 시간(2)보다 기므로 유지. 시각 3, D 도착(2)은 B의 남은 시간(1)보다 기므로 유지. 시각 4, B 완료. 남은 후보 A(4), C(8), D(2) 중 D가 최소 → D 실행(4~6). 시각 6, A(4) vs C(8) → A 실행(6~10). 시각 10, C만 남아 실행(10~18).
+
+| Job | 완료 시각 | Turnaround | Response |
+|---|---:|---:|---:|
+| B | 4 | 3 | 0 |
+| D | 6 | 3 | 1 |
+| A | 10 | 10 | 0 |
+| C | 18 | 16 | 8 |
+
+평균 turnaround = $$(3+3+10+16)/4 = 8$$로 FIFO(10.25)보다 짧다 — 짧은 job을 먼저 끝내 평균을 낮추는 SJF/STCF 계열의 특징이 숫자로 드러난다. 다만 C는 turnaround(16)가 FIFO(14)보다 오히려 길고 response time도 8로 크게 늘어난다 — 계속 도착하는 더 짧은 job들에 밀려 실행이 미뤄지는 **starvation 경향**이 이 숫자로 드러난다. "평균은 개선되지만 특정 job(특히 가장 긴 job)은 손해볼 수 있다"는 trade-off를 보여주는 예다.
+
 ## 복습 체크포인트
 
 - Process와 program의 차이를 설명할 수 있는가?
@@ -157,6 +190,8 @@ MLFQ는 job runtime을 미리 모르는 상황에서 interactive job에 좋은 r
 - Context switch에서 저장하고 복원해야 하는 정보는 무엇인가?
 - FIFO, SJF, STCF, RR의 장단점을 metric 관점에서 비교할 수 있는가?
 - MLFQ가 job runtime을 모르는 상황에서 어떤 heuristic을 쓰는지 설명할 수 있는가?
+- 위 4-job 예제에서 FIFO와 STCF의 평균 turnaround(10.25 vs 8)를 직접 계산해 비교할 수 있는가?
+- 같은 예제에서 STCF가 job C에게 불리한 이유(starvation 경향)를 도착 시각과 실행 시간으로 설명할 수 있는가?
 
 {% endraw %}
 

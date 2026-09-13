@@ -67,6 +67,21 @@ Race condition은 실행 순서에 따라 결과가 달라지는 오류다. 예�
 
 Race condition이 발생하는 영역을 critical section이라고 한다. Critical section에는 한 번에 하나의 thread만 들어가야 한다.
 
+## 숫자로 확인하기 — counter++가 손실되는 순간
+
+`counter`가 초기값 50이고, 두 thread가 각각 `counter++`를 한 번씩 실행한다고 하자. `counter++`는 기계어 수준에서 `load`, `add`, `store` 3단계로 나뉜다. 두 thread의 명령이 다음처럼 겹치면:
+
+| 시각 | Thread 1 | Thread 2 | `counter` (memory) |
+|---|---|---|---:|
+| t1 | `load counter` (reg1=50) | | 50 |
+| t2 | | `load counter` (reg2=50) | 50 |
+| t3 | `add reg1, 1` (reg1=51) | | 50 |
+| t4 | | `add reg2, 1` (reg2=51) | 50 |
+| t5 | `store reg1 → counter` | | 51 |
+| t6 | | `store reg2 → counter` | 51 |
+
+두 thread가 각각 `counter++`를 한 번씩 실행했으므로 기대값은 $$50+2=52$$지만, 실제로는 **51**이 된다 — Thread 2가 t2에서 이미 낡은 값(50)을 읽어버려서 Thread 1의 증가분이 덮어써진다. 이 표가 "load, add, store의 중간 순서가 섞이면 증가가 누락될 수 있다"는 문장을 정확히 재현한다. `pthread_mutex_lock/unlock`으로 이 3단계를 critical section으로 묶으면 t2가 t1의 `store` 이후로 밀려나 51이 아니라 52가 보장된다.
+
 ## Mutual Exclusion과 Lock
 
 Mutex lock은 critical section을 보호한다.
@@ -158,6 +173,22 @@ Producer는 `empty`를 먼저 기다린 뒤 `mutex`를 잡고 item을 넣고, `m
 
 순서가 중요하다. `mutex`를 먼저 잡고 `empty`나 `full`을 기다리면, 조건을 바꿔야 할 반대편 thread가 buffer lock을 얻지 못해 deadlock이 생길 수 있다.
 
+## 숫자로 확인하기 — bounded buffer semaphore 값 추적
+
+buffer 크기 3인 producer-consumer에서 `empty=3`, `full=0`, `mutex=1`로 시작한다고 하자. Producer가 연속 2개 item을 넣고, Consumer가 1개를 꺼내는 순서를 추적한다.
+
+| 단계 | 동작 | `empty` | `full` | buffer 상태 |
+|---|---|---:|---:|---|
+| 초기 | - | 3 | 0 | `[]` |
+| 1 | Producer: `sem_wait(empty)` | 2 | 0 | `[]` |
+| 2 | Producer: item A 삽입, `sem_post(full)` | 2 | 1 | `[A]` |
+| 3 | Producer: `sem_wait(empty)` | 1 | 1 | `[A]` |
+| 4 | Producer: item B 삽입, `sem_post(full)` | 1 | 2 | `[A,B]` |
+| 5 | Consumer: `sem_wait(full)` | 1 | 1 | `[A,B]` |
+| 6 | Consumer: A 꺼냄, `sem_post(empty)` | 2 | 1 | `[B]` |
+
+각 단계에서 `empty + full + (사용 중인 slot 수)`가 항상 buffer 크기 3과 일치하는 것을 확인할 수 있다(예: 6단계에서 `empty=2, full=1`, buffer에 남은 item은 1개 → $$2+1=3$$). 만약 buffer가 이미 가득 찬 상태(`empty=0`)에서 Producer가 `mutex`를 먼저 잡고 `empty`를 기다렸다면, Consumer가 꺼내려 해도 `mutex`를 얻지 못해 영원히 멈추는 **deadlock**이 되었을 것이다 — `empty`/`full`을 `mutex`보다 먼저 기다리는 순서가 왜 중요한지 이 추적이 보여준다.
+
 ## Reader-Writer Lock
 
 Reader-writer lock은 여러 reader가 동시에 critical section에 들어갈 수 있지만 writer는 단독으로 들어가게 한다. Read-mostly workload에서 concurrency를 높일 수 있다.
@@ -176,6 +207,8 @@ Reader-writer lock은 여러 reader가 동시에 critical section에 들어갈 �
 - Race condition을 instruction interleaving 관점에서 설명할 수 있는가?
 - Lock, condition variable, semaphore의 역할 차이를 말할 수 있는가?
 - Producer-consumer에서 `empty`, `full`, `mutex` semaphore의 순서가 왜 중요한가?
+- 위 counter++ 표에서 왜 최종 값이 52가 아니라 51이 되는지 load/add/store 단계로 설명할 수 있는가?
+- bounded buffer 예제에서 매 단계마다 `empty + full + 사용 중인 slot 수`가 항상 buffer 크기와 같은 이유를 설명할 수 있는가?
 
 {% endraw %}
 

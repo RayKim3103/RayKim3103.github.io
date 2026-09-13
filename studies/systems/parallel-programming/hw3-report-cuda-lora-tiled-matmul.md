@@ -33,6 +33,22 @@ sitemap: false
 
 Compile option으로 register usage를 확인했고, thread당 약 40 register 사용을 기준으로 block size별 occupancy를 비교했다.
 
+## 숫자로 확인하기 — register 사용량으로 occupancy 상한 계산
+
+RTX 3090(Ampere, SM당 register file 65,536개, SM당 최대 thread 1536개라고 가정)에서 thread당 register 40개를 쓴다면, SM 하나가 동시에 수용할 수 있는 thread 수는 register 제약으로
+
+$$
+\frac{65{,}536}{40} = 1638\text{개}
+$$
+
+인데, 이는 SM당 최대 thread 수(1536)보다 크므로 이 경우는 **register가 병목이 아니다** — occupancy 100%(1536 thread)가 register 제약 없이 가능하다. 하지만 만약 최적화를 더 밀어붙여 thread당 register가 96개로 늘어난다면
+
+$$
+\frac{65{,}536}{96} = 682\text{개}
+$$
+
+로 줄어, SM이 동시에 수용 가능한 thread 수가 1536에서 682로 떨어져 occupancy가 $$682/1536 \approx 44.4\%$$로 급락한다. 이것이 "register usage per thread"가 왜 tile size, unrolling 정도와 함께 신중히 검토해야 할 자원인지 보여준다 — code optimization(예: loop unrolling, 더 많은 local 변수)이 오히려 register pressure를 높여 occupancy를 깎아 먹는 역효과를 낼 수 있다.
+
 ## Tiled MatMul Kernel
 
 Input A와 B를 받아 `A x B.T = C`를 계산하는 kernel을 작성했다. Tile size는 template으로 조절 가능하게 두었다.
@@ -100,6 +116,12 @@ y[i] = a[i] + scale * b[i];
 ## 남은 개선 여지
 
 `x @ A.T @ B.T` 부분에서 non-square tiling이 완벽하지 않아 일부 redundant computation이 남았다. 결과 store 시 boundary check를 위한 if-else도 완전히 제거하지 못해 추가 performance margin이 존재한다고 분석했다.
+
+## 복습 질문
+
+- SM register file 65,536개, thread당 register 40개일 때 register 제약이 왜 occupancy 병목이 아닌지 계산할 수 있는가?
+- thread당 register가 96개로 늘어나면 occupancy가 왜 약 44.4%로 떨어지는지 설명할 수 있는가?
+- Loop unrolling 같은 code optimization이 왜 때로는 register pressure를 높여 occupancy를 오히려 낮출 수 있는지 설명할 수 있는가?
 
 ## 정리
 

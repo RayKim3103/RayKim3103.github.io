@@ -94,6 +94,19 @@ APB는 AHB보다 단순하므로, bridge는 복잡한 bus transaction을 periphe
 
 button별로 서로 다른 LED 2개가 켜지도록 mapping되어 있다.
 
+## 숫자로 확인하기 — LED bit mask 계산
+
+`(1 << 7) | (1 << 6)`이 실제로 어떤 LED를 켜는지 비트 단위로 계산하면:
+
+$$
+(1 \ll 7) = 0\text{b}1000\_0000, \qquad (1 \ll 6) = 0\text{b}0100\_0000
+$$
+$$
+(1 \ll 7) \,|\, (1 \ll 6) = 0\text{b}1100\_0000 = 0\text{x}\text{C0} = 192_{10}
+$$
+
+즉 8개 LED 중 최상위 2개(bit 7, bit 6에 해당하는 LED)만 켜고 나머지 6개는 끈다는 뜻이다. button마다 서로 다른 LED 2개가 켜지도록 mapping했다는 것은, 이런 `(1<<a)|(1<<b)` 형태의 서로 다른 bit 조합을 handler 안에서 `Xil_Out32`로 write한다는 의미다.
+
 ## Quiz: LED 2개 번갈아 점등
 
 목표는 특정 button이 눌리면 해당하는 LED 2개가 1초 간격으로 번갈아 켜지고, 다른 button이 눌리면 즉시 해당 동작으로 전환되는 것이다.
@@ -112,6 +125,12 @@ button별로 서로 다른 LED 2개가 켜지도록 mapping되어 있다.
 - `XScuGic_Enable`은 GIC에서 특정 interrupt ID를 enable하는 함수다.
 - `sleep(1)`은 구현은 간단하지만 sleep 중 다른 button interrupt에 즉시 반응하기 어려워 quiz 요구사항에는 부적합하다.
 - `ReadRTC` 기반 구현은 timing은 좋지만 `xil_printf()` 유무에 따라 동작이 바뀌는 문제가 있었다. system call delay가 register update timing에 영향을 준 것으로 추정된다.
+
+## 복습 질문
+
+- `(1<<7)|(1<<6) = 0xC0 = 192`가 어떤 2개의 LED를 켜는지 비트 단위로 설명할 수 있는가?
+- `pb_2d[i] && !pb_1d[i]`(뗀 순간 감지, [2주차](02-result-vivado-ps-pl-led.md)의 `RegPushButton` edge 검출과 유사한 패턴)와 `PWDATA[i]=1`로 상태를 복원하는 과정을 설명할 수 있는가?
+- `Xil_ExceptionEnable`(processor 전체 enable)과 `XScuGic_Enable`(특정 interrupt ID enable)이 왜 서로 다른 계층의 enable인지 설명할 수 있는가?
 
 ## 정리
 

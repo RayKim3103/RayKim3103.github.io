@@ -73,6 +73,25 @@ Zynq 보드는 Boot/JTAG mode switch로 부팅 방식을 선택한다. 이번 �
 - T-flash 제거
 - JTAG 연결 후 bitstream 다운로드
 
+## `RS`/`R-W` 조합으로 접근 종류 구분하기
+
+두 신호의 4가지 조합을 표로 정리하면 LCD controller가 어떤 접근을 구분하는지 명확해진다.
+
+| `RS` | `R/W` | 의미 |
+|:---:|:---:|---|
+| 0 | 0 | 명령어 write (function set, display on/off 등) |
+| 0 | 1 | Busy flag/address counter read |
+| 1 | 0 | DDRAM/CGRAM에 문자 데이터 write |
+| 1 | 1 | DDRAM/CGRAM 데이터 read |
+
+이번 실습(4주차 결과)은 문자열을 LCD에 "쓰기만" 하므로 실제로는 `RS=0,R/W=0`(명령)과 `RS=1,R/W=0`(문자 데이터) 두 조합만 순환하며 사용된다 — read 관련 조합은 이번 실습 범위 밖이다.
+
+## 복습 질문
+
+- 위 표에서 이번 실습이 실제로 사용하는 두 조합과, 사용하지 않는 두 조합을 구분할 수 있는가?
+- counter x2000이 만드는 `lcd_en`의 timing과, counter x40이 만드는 mode 진행이 서로 다른 계층의 timing이라는 것을 설명할 수 있는가? (구체적인 cycle 수는 [04주차 결과](04-result-text-lcd.md)에서 확인한다.)
+- Function set 명령이 8비트/4비트, 1행/2행, font 크기를 왜 "가장 먼저" 설정해야 하는 명령으로 분류되는지 설명할 수 있는가?
+
 ## 정리
 
 4주차 예비의 핵심은 Text-LCD가 내부 controller를 가진 장치이므로, 문자 데이터뿐 아니라 **명령 순서와 timing** 이 설계의 중심이라는 점이다. 다음 결과 실습에서는 이 개념이 `lcd_mode`, `count_lcd`, `set_data`로 구현된다.

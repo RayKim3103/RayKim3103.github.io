@@ -40,6 +40,22 @@ Parallel reduction은 배열 원소를 결합해 하나의 값을 만드는 알�
 
 `main()`은 수정할 수 없고, 필요한 추가 allocation은 `reduction_optimized()` 내부에서 수행해야 한다. Host-device copy와 기본 device memory allocation/deallocation은 main에서 처리된다.
 
+## 숫자로 확인하기 — `2^24`개 원소의 block 구성
+
+$$2^{24}=16{,}777{,}216$$개 원소를 block당 256 thread, thread당 원소 2개(first-add-during-load)로 처리한다고 하면, thread 하나가 원소 2개를 담당하므로 필요한 thread 수는
+
+$$
+16{,}777{,}216 / 2 = 8{,}388{,}608\text{개}
+$$
+
+필요한 block 수는
+
+$$
+8{,}388{,}608 / 256 = 32{,}768\text{개} = 2^{15}\text{개}
+$$
+
+이는 하나의 kernel launch로 처리 가능한 grid 크기(x축 최대 $$2^{31}-1$$) 안에 충분히 들어간다. 이 32,768개 block 각각이 만든 partial sum은 다시 global memory에 저장되고, 두 번째 kernel launch(또는 남은 32,768개를 다시 reduce하는 단계)에서 최종 하나의 값으로 합쳐진다 — "block 간 global sync가 없어 kernel decomposition이 필요하다"는 문장이 실제로 요구하는 두 번째 launch가 바로 이 32,768개 partial sum을 다시 reduce하는 단계다.
+
 ## 실행 및 실험
 
 제공된 Makefile로 여러 version을 실행한다.
@@ -65,6 +81,12 @@ make run
 ## 관련 강의 연결
 
 - [CUDA Reduction - Parallel Reduction 최적화](08-cuda-reduction-parallel.md)
+
+## 복습 질문
+
+- $$2^{24}$$개 원소, block당 256 thread, thread당 2개 원소 처리일 때 필요한 block 수(32,768)를 직접 계산할 수 있는가?
+- 이 32,768개 block이 만든 partial sum을 왜 두 번째 kernel launch로 다시 reduce해야 하는지, CUDA의 global synchronization 제약과 연결해 설명할 수 있는가?
+- 7가지 reduction version 중 어떤 것이 이 정도 규모(`2^24`)에서 가장 빠를지 예상하고, 그 근거를 memory bandwidth 관점에서 설명할 수 있는가?
 
 ## 정리
 

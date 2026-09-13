@@ -94,6 +94,31 @@ File system은 file의 logical block이 disk의 어느 physical block에 있는�
 
 Multi-level indexing은 작은 파일에는 낮은 overhead를 유지하고, 큰 파일에는 확장성을 제공한다.
 
+## 숫자로 확인하기 — xv6 inode의 최대 파일 크기
+
+xv6의 실제 설계값(`BSIZE=1024`byte 블록, direct pointer 12개, single indirect block 1개)을 대입하면 multi-level indexing이 표현할 수 있는 최대 파일 크기를 직접 계산할 수 있다.
+
+**Direct pointer로 커버하는 크기**:
+$$
+12 \times 1024\text{byte} = 12{,}288\text{byte} \,(12\text{KB})
+$$
+
+**Single indirect block이 추가로 커버하는 크기**: 하나의 indirect block(1024byte)에 4byte 크기 block 주소를 몇 개나 담을 수 있는지 먼저 구하면
+$$
+1024 / 4 = 256\text{개}
+$$
+포인터를 담을 수 있고, 각각이 1024byte block을 가리키므로
+$$
+256 \times 1024\text{byte} = 262{,}144\text{byte} \,(256\text{KB})
+$$
+
+**전체 최대 파일 크기**:
+$$
+12{,}288 + 262{,}144 = 274{,}432\text{byte} \approx 268\text{KB}
+$$
+
+이 계산에서 direct pointer(12KB)가 전체 최대 크기의 채 5%도 되지 않는다는 것을 알 수 있다 — "Direct pointer는 작은 파일을 빠르게 접근하고, indirect pointer가 훨씬 더 큰 영역을 커버한다"는 원리가 실제 xv6 상수로 정확히 재현된다. 12KB보다 큰 파일 하나를 만드는 순간 반드시 indirect block 하나가 추가로 할당되어야 한다는 것도 이 경계값(12,288byte)으로 확인할 수 있다.
+
 ## Directory Organization
 
 Directory는 file name을 inode number로 바꾸는 table이다. 단순 구현에서는 directory file 안에 fixed-size entry를 나열한다. 큰 directory에서는 lookup 성능을 위해 hash나 tree 구조가 쓰일 수 있다.
@@ -108,6 +133,8 @@ Path resolution은 `/a/b/c`를 해석할 때 root inode에서 시작해 `a`, `b`
 - `lseek()`이 random access를 어떻게 가능하게 하는가?
 - `write()`와 `fsync()`의 durability 차이를 말할 수 있는가?
 - Hard link와 unlink의 동작을 link count로 설명할 수 있는가?
+- xv6의 `BSIZE=1024`, direct pointer 12개, indirect pointer 1개 조건에서 최대 파일 크기(약 268KB)를 직접 계산할 수 있는가?
+- 12,288byte(direct pointer가 커버하는 한계)를 넘는 순간 파일 시스템이 왜 추가로 indirect block을 할당해야 하는지 설명할 수 있는가?
 
 {% endraw %}
 

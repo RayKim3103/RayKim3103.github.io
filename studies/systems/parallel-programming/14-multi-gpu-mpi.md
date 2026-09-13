@@ -51,6 +51,16 @@ GPU 간 통신 성능은 topology에 영향을 받는다.
 
 Multi-GPU 성능은 compute 분할뿐 아니라 data movement 경로가 중요하다.
 
+## 숫자로 확인하기 — PCIe vs NVLink로 GPU 간 전송 시간 비교
+
+두 GPU 사이에 1GB(약 $$10^9$$byte) data를 옮긴다고 하자. PCIe Gen4 x16의 실효 대역폭은 대략 25GB/s, NVLink 3세대는 GPU당 최대 약 600GB/s 수준이다(topology에 따라 실효값은 달라질 수 있다).
+
+$$
+T_{PCIe} = \frac{1\text{GB}}{25\text{GB/s}} = 40\text{ms}, \qquad T_{NVLink} = \frac{1\text{GB}}{600\text{GB/s}} \approx 1.67\text{ms}
+$$
+
+같은 1GB 전송이 PCIe에서는 40ms, NVLink에서는 약 1.67ms로 **약 24배** 차이가 난다. "GPU 간 통신 성능은 topology에 영향을 받는다"는 문장이 실제로 의미하는 바는, 같은 코드라도 두 GPU가 NVLink로 직접 연결되어 있는지, 아니면 PCIe switch나 CPU socket을 거쳐야 하는지에 따라 통신 구간의 실행 시간이 수십 배 달라질 수 있다는 것이다. DNN 학습처럼 GPU 간 gradient를 자주 주고받는 workload에서는 이 topology 차이가 전체 학습 시간을 좌우할 수 있다.
+
 ## CUDA Events
 
 Event는 timing 측정뿐 아니라 stream/device 작업 완료를 기다리는 데도 사용한다.
@@ -86,6 +96,12 @@ Message passing에서는 data 교환이 명시적 send/receive로 이루어진�
 ## GPU와 MPI
 
 현대 MPI/CUDA 환경에서는 host/device memory copy가 모두 가능하며, GPU buffer를 MPI 통신에 직접 사용할 수 있는 기능도 발전했다. 과거에는 host staging이 필요했지만, 최신 환경에서는 GPU-aware MPI가 성능을 개선할 수 있다.
+
+## 복습 질문
+
+- 1GB 전송에서 PCIe(25GB/s)와 NVLink(600GB/s)의 시간 차이가 왜 약 24배인지 계산할 수 있는가?
+- GPU 간 topology(같은 PCIe switch, CPU socket 경유, NVLink)가 왜 compute 분할 못지않게 성능에 중요한지 설명할 수 있는가?
+- `MPI_Send`/`MPI_Recv`가 GPU-aware가 아니라면 GPU 데이터를 주고받을 때 어떤 추가 단계(host staging)가 필요한지 설명할 수 있는가?
 
 ## 정리
 

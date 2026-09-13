@@ -82,9 +82,33 @@ Runtime에는 switch문으로 block size별 specialized kernel을 호출한다.
 
 Brent's theorem 관점에서 너무 많은 thread가 너무 적은 일을 하면 cost가 커진다. 각 thread가 여러 원소를 sequential하게 더한 뒤 shared memory tree reduction에 참여하면 cost efficiency가 좋아진다.
 
+## 숫자로 확인하기 — Algorithm Cascading이 줄이는 thread 수
+
+$$N=2^{20}=1{,}048{,}576$$개 원소를 block당 256 thread, block 하나가 shared memory tree reduction으로 처리한다고 하자.
+
+**Tree reduction만 사용**(thread 하나가 원소 하나씩 담당): 필요한 thread 수는 원소 수와 같은 $$1{,}048{,}576$$개이며, block 수는
+
+$$
+1{,}048{,}576 / 256 = 4096\text{개}
+$$
+
+**Algorithm cascading 적용**(thread 하나가 먼저 원소 8개를 순차적으로 더한 뒤 tree reduction에 참여): 필요한 thread 수는
+
+$$
+1{,}048{,}576 / 8 = 131{,}072\text{개}, \quad \text{block 수} = 131{,}072/256 = 512\text{개}
+$$
+
+thread 수가 $$1{,}048{,}576 \to 131{,}072$$로 **8배 감소**하고 block 수도 $$4096\to512$$로 8배 줄어든다. 이 8개는 "각 thread가 sequential하게 더하는 원소 수"이므로 늘어난 순차 작업량이지만, 그 대가로 tree reduction 단계에 참여하는 thread/block 수가 확 줄어 launch overhead와 idle-thread 비율이 낮아진다 — 이것이 Brent's theorem이 말하는 "thread 수를 줄이고 thread당 작업을 늘리면 cost efficiency가 좋아진다"는 원리의 구체적인 숫자다.
+
 ## 정리
 
 Reduction 최적화는 CUDA 성능 최적화의 축소판이다. divergent branch, bank conflict, idle thread, instruction overhead, launch decomposition, algorithmic cost를 모두 보여준다. 좋은 reduction kernel은 단순히 병렬 step 수를 줄이는 것이 아니라 memory bandwidth와 instruction overhead를 함께 최적화한다.
+
+## 복습 질문
+
+- $$N=2^{20}$$ 원소를 thread당 8개씩 처리하도록 바꾸면 필요한 thread 수와 block 수가 왜 각각 8배 줄어드는지 계산할 수 있는가?
+- Thread당 작업을 늘리는 것이 왜 "더 적은 병렬성"이 아니라 "더 나은 cost efficiency"로 이어지는지 Brent's theorem 관점에서 설명할 수 있는가?
+- Interleaved addressing(`tid % (2*s)`)이 sequential addressing보다 나쁜 이유를 modulo 연산과 divergence 관점에서 설명할 수 있는가?
 
 {% endraw %}
 

@@ -87,6 +87,18 @@ File system은 inode, directory entry, block allocation, free space management�
 - Thread와 synchronization: [A6 xv6 Thread 과제](a6-xv6-thread.md)
 - Shell과 fork/exec/wait: [A1 xv6 Shell 과제](a1-xv6-shell.md)
 
+## System Call 하나로 흐름 전체 추적하기
+
+"운영체제가 하드웨어와 사용자 프로그램 사이의 중간 계층"이라는 정의를 `write(fd, buf, n)` 호출 하나에 대입해 단계별로 추적하면 이 장의 개념들이 어떻게 이어지는지 보인다.
+
+1. **User mode**: 프로그램이 `write(fd, buf, n)`를 호출한다 — 이 시점까지는 privileged instruction이 전혀 필요 없다.
+2. **Trap**: C library wrapper가 system call 번호와 인자를 register에 싣고 trap instruction을 실행해 kernel mode로 전환한다.
+3. **Kernel mode**: OS의 system call handler가 `fd`가 가리키는 open file(또는 device)을 확인하고, 요청이 유효한지(권한, 범위) 검사한다 — 바로 이 검사가 "임의의 program이 privileged instruction을 직접 실행하면 안 되는" 이유를 실제로 구현하는 부분이다.
+4. **Device/File 계층**: 대상이 파일이면 file system이, 터미널이나 소켓이면 해당 driver가 실제 쓰기를 수행한다.
+5. **Return**: kernel이 처리 결과(쓴 byte 수 또는 오류)를 register에 담아 user mode로 복귀시킨다.
+
+이 5단계 중 2~4단계가 커널 안에서 일어나고, 이것이 "user program은 하드웨어를 직접 제어하지 않는다"는 문장의 구체적인 의미다. 5주차([IO와 디스크 드라이브](05-io-and-disk-drives.md))와 6주차([파일 시스템](06-file-systems.md))는 4번 단계를 각각 장치 관점, 파일 관점에서 더 깊이 다룬다.
+
 ## 복습 체크포인트
 
 - 운영체제를 hardware manager와 abstraction provider 관점에서 설명할 수 있는가?
@@ -94,6 +106,7 @@ File system은 inode, directory entry, block allocation, free space management�
 - User mode와 kernel mode를 분리하는 이유를 말할 수 있는가?
 - System call이 일반 함수 호출과 어떻게 다른가?
 - CPU virtualization과 memory virtualization의 공통점과 차이를 설명할 수 있는가?
+- `write()` 호출의 5단계 흐름에서 user mode와 kernel mode가 각각 어디서 시작하고 끝나는지 설명할 수 있는가?
 
 {% endraw %}
 

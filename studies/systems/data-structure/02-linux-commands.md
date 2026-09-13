@@ -71,6 +71,8 @@ sitemap: false
 
 입출력 리디렉션은 자동 채점 환경과 거의 같은 방식으로 프로그램을 테스트하게 해준다.
 
+**예시**: `wc -l < names.txt`는 `names.txt`의 줄 수를 세고, `grep "Kim" names.txt | wc -l`은 `names.txt`에서 "Kim"이 포함된 줄만 골라 그 개수를 센다 — 앞 명령의 표준 출력이 파이프를 통해 뒤 명령의 표준 입력으로 그대로 이어지기 때문에, 중간 결과를 파일로 저장하지 않고도 두 프로그램을 조합해 새로운 작업을 만들 수 있다.
+
 ## 프로세스 제어
 
 | 명령 | 설명 |
@@ -113,6 +115,12 @@ sitemap: false
 
 - [Linux 기본](01-linux-basics.md)
 - [C++ 입출력](07-cpp-io.md)
+
+## 복습 질문
+
+- `grep "Kim" names.txt | wc -l`에서 데이터가 어떤 경로로 흐르는지 설명할 수 있는가?
+- `diff out.txt answer.txt`가 자동 채점에서 왜 유용한지 설명할 수 있는가?
+- `chmod +x program`이 필요한 상황과 `r`, `w`, `x` 권한의 차이를 설명할 수 있는가?
 
 {% endraw %}
 

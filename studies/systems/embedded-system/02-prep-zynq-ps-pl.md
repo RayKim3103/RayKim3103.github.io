@@ -79,6 +79,21 @@ PL을 사용할 때는 `.xdc` constraint 파일이 필요하다. 이 파일은 R
 - Timing constraint: clock 주기, 입출력 지연 등 시간 조건
 - Configuration constraint: FPGA 설정 방식, I/O 전압 표준 등
 
+## PS/PL 역할 배분 예시로 이해하기
+
+"버튼을 누르면 LED가 순차적으로 켜진다"는 기능을 만든다고 하면 두 갈래로 구현할 수 있다.
+
+- **PL로 구현**: 버튼 debounce, edge 검출, LED 점등 로직 전체를 Verilog RTL로 작성하고 `.xdc`로 버튼/LED 핀을 물리 핀에 고정한다. PS는 전혀 개입하지 않는다.
+- **PS로 구현**: PL에는 버튼 입력과 LED 출력을 위한 AXI-Lite register만 두고, Cortex-A9이 C 코드로 register를 polling하며 점등 순서를 계산한다.
+
+같은 기능이라도 "정확한 clock cycle 단위 timing이 중요한가(PL)"와 "복잡한 순서·조건 분기가 필요한가(PS)"라는 기준으로 구현 위치가 갈린다. 이 판단 기준은 7주차부터 PS가 AXI-Lite로 PL의 LED/7-segment register를 직접 제어하는 구조([07주차 예비](07-prep-ps-led-7-segment-axi.md))로 이어진다.
+
+## 복습 질문
+
+- PS와 PL 중 어느 쪽이 "정확한 clock cycle 단위 timing"이 필요한 작업에 적합한지 설명할 수 있는가?
+- JTAG 프로그래밍 방식과, PS가 SDIO/Flash에서 bitstream을 읽어 PL을 구성하는 방식의 차이를 설명할 수 있는가?
+- 버튼 debounce처럼 hardware-level timing이 중요한 기능을 PS의 software polling만으로 구현하면 어떤 문제가 생길 수 있는가?
+
 ## 정리
 
 2주차 예비의 핵심은 Zynq를 **소프트웨어를 실행하는 PS와 하드웨어를 구성하는 PL이 AXI로 연결된 SoC** 로 이해하는 것이다. 이후 실습에서는 PS 단독 Hello World, PL 기반 LED 제어, `.xdc` 핀 매핑, bitstream 생성과 다운로드가 이어진다.

@@ -50,9 +50,25 @@ Matrix multiplication은 작은 matrix multiply-accumulate의 반복으로 볼 �
 
 최신 GPU는 더 큰 L2 cache를 가진다. 예를 들어 A100은 40MB L2 cache를 갖지만 SM 수로 나누면 SM당 절대적으로 무한히 큰 것은 아니다. 그래도 높은 bandwidth와 cache 효과는 성능 분석에서 중요하다.
 
+## 숫자로 확인하기 — A100의 SM당 L2 cache 몫
+
+A100은 L2 cache 40MB, SM(Streaming Multiprocessor) 108개를 가진다. "SM당 절대적으로 무한히 큰 것은 아니다"라는 문장을 수로 확인하면, L2를 SM 수만큼 균등하게 나눴을 때 SM 하나가 쓸 수 있는 몫은
+
+$$
+\frac{40\text{MB}}{108} \approx 0.37\text{MB} = 379\text{KB}
+$$
+
+이는 SM 하나의 shared memory 용량(보통 최대 164KB~228KB 수준, 세대별로 다름)과 비슷한 자릿수다 — 40MB라는 절대값은 크지만, 108개 SM이 동시에 나눠 쓰면 SM 하나 몫은 shared memory 정도의 크기로 줄어든다. 그래서 "L2가 크다"는 사실이 곧 "모든 kernel의 working set이 L2에 다 들어간다"는 뜻은 아니며, 여전히 shared memory로 명시적 재사용을 관리하는 것이 중요하다.
+
 ## 정리
 
 이 강의의 핵심은 “직접 kernel 작성”과 “library 사용”의 균형이다. CUDA를 잘하려면 low-level 최적화를 이해해야 하지만, 동시에 TensorCore와 cuBLAS/cuDNN/Thrust 같은 검증된 고성능 primitive를 언제 사용할지 판단할 수 있어야 한다.
+
+## 복습 질문
+
+- A100의 L2 cache 40MB를 SM 108개로 나누면 SM당 몫이 왜 shared memory 용량과 비슷한 자릿수(약 379KB)가 되는지 계산할 수 있는가?
+- "L2 cache가 크다"는 사실이 왜 shared memory의 명시적 관리를 대체하지 못하는지 설명할 수 있는가?
+- Independent thread scheduling 이후 왜 기존의 warp-synchronous trick(예: 마지막 warp unrolling)이 `__syncwarp()` 없이는 위험해지는지 설명할 수 있는가?
 
 {% endraw %}
 

@@ -195,6 +195,22 @@ BFS(s)
 
 BFS의 level은 시작 vertex에서 edge 몇 개로 도달하는지를 나타낸다. Unweighted graph에서 최단 edge 수 경로를 찾을 수 있다.
 
+## DFS/BFS 숫자 예
+
+무방향 그래프 $$V=\{A,B,C,D,E\}$$, $$E=\{A\text{-}B, A\text{-}C, B\text{-}D, C\text{-}D, D\text{-}E\}$$(인접 리스트는 알파벳 순)를 생각하자.
+
+```text
+A --- B
+|     |
+C --- D --- E
+```
+
+**DFS(A)**: $$A\to B\to D\to C$$(막힘, $$C$$의 이웃 $$A,D$$는 모두 이미 방문 — $$C$$-$$A$$는 back edge)$$\to$$ $$D$$로 돌아와 $$E$$ 방문. 방문 순서: **A, B, D, C, E**. Discovery edge: `A-B, B-D, D-C, D-E`. Back edge: `C-A`.
+
+**BFS(A)**: level 0 = `{A}`, level 1 = `{B, C}`(둘 다 A의 이웃), level 2 = `{D}`($$B$$를 통해 먼저 발견, $$C$$-$$D$$는 이미 방문된 $$D$$로의 간선이라 무시), level 3 = `{E}`. 방문 순서: **A, B, C, D, E**.
+
+이 예시는 DFS가 "한 방향으로 끝까지 파고든 뒤 되돌아오는" 것과 BFS가 "가까운 것부터 층별로 넓게 퍼지는" 것의 차이를 보여준다 — 같은 그래프, 같은 시작점인데도 $$D$$에 도달하는 시점과 경로가 다르다.
+
 ## DFS vs BFS
 
 | 문제 | DFS | BFS |
@@ -212,6 +228,12 @@ BFS의 level은 시작 vertex에서 edge 몇 개로 도달하는지를 나타낸
 - [큐](13-queue.md)
 - [최소 신장 트리](23-minimum-spanning-trees.md)
 - [최단 경로](24-shortest-paths.md)
+
+## 복습 질문
+
+- 위 5-vertex 그래프에서 DFS(A)와 BFS(A)의 방문 순서를 직접 추적해 각각 A,B,D,C,E와 A,B,C,D,E를 얻을 수 있는가?
+- BFS의 level이 왜 "몇 개의 edge로 도달 가능한가"와 같은지 설명할 수 있는가?
+- 인접 행렬과 인접 리스트 중 sparse graph에 어느 쪽이 유리한지, 공간 복잡도로 설명할 수 있는가?
 
 {% endraw %}
 

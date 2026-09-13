@@ -81,6 +81,28 @@ Processor System 관련 포트가 포함되어 있으나 이번 실습에서는 
 
 1행과 2행을 따로 회전시킨 이유는 `reg_a~reg_d`가 1행, `reg_e~reg_h`가 2행을 담당하기 때문이다. 16문자를 4문자 단위로 이동하므로 1/4 회전이 된다.
 
+## 숫자로 확인하기 — cycle count를 실제 시간으로 환산
+
+이 모듈은 3주차와 같은 계열의 25MHz PL clock으로 구동된다(5주차에서 "25MHz clock을 12.5MHz로 분주"한다는 언급은 25MHz가 그 이전 주차들의 기본 PL clock이었음을 재확인해준다). 25MHz의 주기는 $$1/25{,}000{,}000\text{Hz} = 40\text{ns}$$다.
+
+**`delay_lcdclk` 한 주기(2000 cycle)**:
+$$
+2000 \times 40\text{ns} = 80{,}000\text{ns} = 80\mu\text{s}
+$$
+즉 `lcd_en` 관련 timing 전체가 80µs마다 한 번씩 반복된다(주파수로는 12.5kHz).
+
+**`lcd_en` High 구간(200~1800)**: 지속 cycle 수는 $$1800-200=1600$$이므로
+$$
+1600 \times 40\text{ns} = 64{,}000\text{ns} = 64\mu\text{s}
+$$
+HD44780 계열 LCD controller의 enable pulse 최소 폭은 일반적으로 수백 ns(약 450ns) 수준으로 알려져 있으므로, 이 64µs는 그보다 약 140배 넉넉하다 — 안정적으로 데이터가 latch되도록 여유 있게 설계된 것을 알 수 있다.
+
+**한 번의 전체 write 반복(`count_lcd` 6~40, 35 단계)**: 각 단계가 `delay_lcdclk` 한 주기(80µs)만큼 걸리므로
+$$
+35 \times 80\mu\text{s} = 2.8\text{ms}
+$$
+가 되어, 2행 32문자 전체를 다시 write하는 한 사이클이 약 2.8ms 걸린다. 이는 사람이 인지하기에는 순간적인 시간이므로 화면이 매끄럽게 계속 갱신되는 것처럼 보인다.
+
 ## Debouncer 고찰
 
 빠른 버튼 입력이나 불안정한 접점 때문에 LCD 문자가 깨지는 문제가 있었다. 이를 줄이기 위해 debouncer를 고려했다. Debouncer는 버튼 입력을 flip-flop으로 안정화하고, 유효한 edge만 짧게 만들어 노이즈 영향을 줄인다.
@@ -92,6 +114,12 @@ Processor System 관련 포트가 포함되어 있으나 이번 실습에서는 
 - debouncer 인스턴스 위치와 reset sequence가 LCD 초기화 sequence와 충돌했을 가능성
 
 개선 방향은 debouncer를 Text-LCD 모듈 내부 clock domain에 맞춰 인스턴스화하고, reset edge가 decoder output에도 즉시 반영되도록 always 조건을 보완하는 것이다.
+
+## 복습 질문
+
+- 25MHz clock에서 `delay_lcdclk` 2000-cycle 주기가 왜 80µs가 되는지 직접 계산할 수 있는가?
+- `lcd_en` High 구간 64µs가 HD44780 최소 enable pulse 폭(수백 ns)보다 왜 훨씬 여유 있게 설계되었는지 설명할 수 있는가?
+- `count_lcd`가 6~40을 반복하는 구조에서, 전체 refresh 주기(2.8ms)가 왜 사람 눈에 매끄럽게 보이는지 3주차 7-segment의 flicker-fusion 논의와 연결해 설명할 수 있는가?
 
 ## 정리
 

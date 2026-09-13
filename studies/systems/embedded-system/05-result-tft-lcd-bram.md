@@ -85,6 +85,24 @@ sitemap: false
 - reset 시 `Hsync`, `Vsync` 초기화
 - `Tpower=1`로 backlight on
 
+## 숫자로 확인하기 — 두 timing 표가 서로 맞물리는지 검증
+
+**Active video 해상도 일치 확인**: Horizontal timing의 active video 480 cycle과 Vertical timing의 active video 272 line은 각각 화면의 가로/세로 pixel 수와 같아야 한다. 실제로 6주차 노트에서 "TFT-LCD는 480x272 해상도"라고 밝히므로, 두 timing 표의 active 구간(480, 272)이 정확히 이 해상도와 일치한다 — timing generator가 만드는 `hDE`/`vDE` active 구간이 화면 전체 pixel을 정확히 한 번씩만 덮는다는 검증이다.
+
+**한 프레임의 총 pixel 수와 frame rate**: 한 줄은 sync+porch를 포함해 총 525 cycle, 한 frame은 286 line이므로 한 frame에 필요한 총 pixel clock 수는
+
+$$
+525 \times 286 = 150{,}150
+$$
+
+12.5MHz pixel clock에서 frame rate는
+
+$$
+\frac{12{,}500{,}000}{150{,}150} \approx 83.25\text{Hz}
+$$
+
+즉 이 TFT-LCD는 초당 약 83번 화면을 새로 그린다. 이는 일반적인 모니터 표준(60Hz)보다 높아, 화면 깜빡임이나 tearing 없이 안정적으로 보이는 데 여유가 있다.
+
 ## Quiz 확장
 
 추가 구현:
@@ -109,6 +127,12 @@ reg_B = 5'b11111 - wire_B;
 - Skeleton code에서 Blue bit width가 6bit로 처리된 부분은 RGB565와 맞지 않으므로 5bit로 수정해야 한다.
 - 사용하지 않는 AHB/PS 관련 코드가 `top.v`에 남아 있으면 가독성과 합성 결과 해석이 어려워진다.
 - `H_COUNT`, `V_COUNT` 범위를 정할 때 sync pulse와 back porch offset을 고려해야 실제 화면 위치가 정확하다.
+
+## 복습 질문
+
+- $$525 \times 286 = 150{,}150$$과 12.5MHz pixel clock으로부터 frame rate 약 83.25Hz를 직접 유도할 수 있는가?
+- Horizontal/Vertical timing 표의 active video 값(480, 272)이 실제 TFT-LCD 해상도와 왜 일치해야 하는지 설명할 수 있는가?
+- `DEimage = hDE & vDE`가 왜 AND 연산이어야 하는지, sync pulse/porch 구간에서 각각 `hDE`, `vDE`가 어떻게 되는지 설명할 수 있는가?
 
 ## 정리
 

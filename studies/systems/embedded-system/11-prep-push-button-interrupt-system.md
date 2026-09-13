@@ -76,6 +76,23 @@ PL 영역에 설계된 사용자 IP는 다음 역할을 담당한다.
 - PS가 register를 read하면 현재 interrupt 상태 제공
 - PS가 LED register를 write하면 LED 출력 갱신
 
+## Polling과 Interrupt 방식 비교
+
+같은 "버튼 입력 감지" 문제를 두 방식으로 구현한다고 하면 차이가 분명해진다.
+
+| 방식 | 동작 | 문제점/장점 |
+|---|---|---|
+| Polling | PS가 loop를 돌며 계속 button register를 read | CPU가 다른 일을 못 하고 계속 확인만 함(자원 낭비), 확인 주기보다 짧게 눌리면 놓칠 수 있음 |
+| Interrupt | 버튼이 눌릴 때만 PL이 PS에 신호를 보내 실행을 중단시킴 | CPU는 평소 다른 작업을 하다가 필요한 순간에만 반응, event를 놓치지 않음 |
+
+10주차까지의 실습(AXI/AHB register write)은 모두 PS가 능동적으로 접근을 시작하는 구조였다면, interrupt는 반대로 PL이 능동적으로 PS의 실행을 중단시키는 첫 사례다 — 이 방향 전환이 이번 주차의 핵심 개념이다.
+
+## 복습 질문
+
+- Polling 방식이 CPU 자원을 낭비하는 이유와, interrupt 방식이 이를 어떻게 해결하는지 설명할 수 있는가?
+- "PL event → PS exception 처리 → handler → PL 제어"의 9단계 흐름에서, `Core0_nIRQ`가 어느 단계에 해당하는지 설명할 수 있는가?
+- 이전 주차들(PS가 AXI로 PL을 write)과 이번 주차(PL이 PS를 interrupt)의 데이터/제어 흐름 방향이 어떻게 다른지 설명할 수 있는가?
+
 ## 정리
 
 11주차 예비의 핵심은 interrupt가 단순한 입력 신호가 아니라 **PL event -> PS exception 처리 -> handler -> PL 제어** 로 이어지는 시스템 동작이라는 점이다. 이 구조를 이해해야 결과 실습에서 AHB/APB bridge, GIC 설정, handler 코드의 역할이 분명해진다.

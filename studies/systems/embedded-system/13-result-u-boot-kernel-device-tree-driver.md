@@ -109,9 +109,26 @@ Linux에서 hardware는 파일처럼 다룬다. 예를 들어 `/dev/zynq_sevense
 | `ioremap` | physical address를 kernel virtual address로 mapping |
 | `iounmap` | address mapping 해제 |
 
+## Kernel Image 크기 관계로 구조 확인
+
+`uImage`가 `zImage`에 64byte header를 더한 것이라는 정의를 그대로 식으로 쓰면
+
+$$
+\text{size}(\text{uImage}) = \text{size}(\text{zImage}) + 64\text{byte}
+$$
+
+이 64byte header에는 U-Boot가 image를 memory에 올릴 때 필요한 정보(entry point address, load address, image 종류, checksum 등)가 들어간다 — U-Boot는 `Image`(비압축본)를 직접 다루지 않고, 압축된 `zImage`에 자기 인식용 header만 얹은 `uImage`를 표준 형식으로 사용한다. 이는 12주차의 FAT32/ext4 역할 분리와 같은 맥락으로, "부트로더가 필요한 최소 정보만 별도로 포장한다"는 임베디드 부팅의 공통 패턴이다.
+
 ## 고찰
 
 동일한 boot file을 사용해도 SD 카드에 따라 serial port 연결이나 boot 과정에서 오류가 발생할 수 있었다. 가능한 원인은 SD 카드 호환성, 보드 노후화, 파일 read 오류, UART driver 환경 차이 등으로 추정된다.
+
+## 복습 질문
+
+- `uImage = zImage + 64byte header`라는 관계에서, header에는 어떤 정보가 담겨야 U-Boot가 이를 올바르게 load할 수 있는지 설명할 수 있는가?
+- BL0/BL1/BL2 3단계 중 U-Boot가 왜 BL2에 해당하는지, 각 단계가 실행되는 메모리(iROM/iRAM/DRAM)와 함께 설명할 수 있는가?
+- Device tree가 kernel source를 수정하지 않고도 hardware 구성 변경에 대응할 수 있게 해주는 이유를 설명할 수 있는가?
+- 14주차에서 다룰 `/dev/zynq_sevenseg` device file이 이번 주차의 "chrdev table + major/minor number" 개념과 어떻게 연결되는지 설명할 수 있는가? ([14주차 결과](14-result-sevenseg-driver-8-byte-read-write.md) 참고)
 
 ## 정리
 

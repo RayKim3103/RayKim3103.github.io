@@ -66,6 +66,44 @@ physical address = base + offset
 
 Segmentation의 장점은 실제 사용하는 영역만 물리 메모리에 배치할 수 있다는 점이다. 그러나 segment 크기가 가변이라 external fragmentation이 생긴다. 빈 공간이 총량으로는 충분해도 연속된 큰 공간이 없으면 allocation이 실패할 수 있다.
 
+## 숫자로 확인하기 — Segmentation 주소 변환과 fault
+
+heap segment의 base가 `0x4000`, bounds(크기)가 `0x1000`이라고 하면, 유효한 offset은 `0`~`0xFFF`다. Virtual offset `0x500`에 접근하면
+
+$$
+\text{physical address} = \text{base} + \text{offset} = 0\text{x}4000 + 0\text{x}500 = 0\text{x}4500
+$$
+
+정상적으로 변환된다. 하지만 offset `0x1200`으로 접근하면 `0x1200 > 0x1000`이므로 bounds를 벗어나 **protection fault**가 발생한다 — segmentation fault는 바로 이 bounds 검사 실패에서 나온다.
+
+## 숫자로 확인하기 — Paging 주소 분할
+
+32비트 virtual address, page size 4KB($$2^{12}$$byte)인 시스템을 가정하면 offset 필드는 12비트, 남은 20비트가 VPN(virtual page number)이다.
+
+Virtual address `0x00403004`를 2진수로 보면 하위 12비트가 offset, 상위 20비트가 VPN이다.
+
+$$
+0\text{x}00403004 = 0000\ 0000\ 0100\ 0000\ 0011\ 0000\ 0000\ 0100_2
+$$
+
+하위 12비트 `0000\ 0000\ 0100` = `0x004`가 page 내부 offset, 상위 20비트가 VPN `0x00403`이 된다. 만약 VPN `0x00403`이 physical frame `0x00007`에 mapping되어 있다면, offset은 그대로 유지되어
+
+$$
+\text{physical address} = (0\text{x}00007 \ll 12) \,|\, 0\text{x}004 = 0\text{x}00007004
+$$
+
+가 된다 — VPN만 바뀌고 offset은 변환 전후 동일하게 유지된다는 사실이 이 계산에서 그대로 보인다.
+
+## 숫자로 확인하기 — Page Replacement (FIFO vs LRU)
+
+Physical frame 3개, page reference string `1,2,3,4,1,2,5,1,2,3,4,5`에 대해 FIFO와 LRU를 비교하면 page fault 수가 달라진다.
+
+**FIFO**(삽입 순서 큐로만 제거를 결정, hit이 나도 순서를 바꾸지 않음): `1,2,3` fault(frame:1,2,3), `4` fault·1 제거(frame:2,3,4), `1` fault·2 제거(frame:3,4,1), `2` fault·3 제거(frame:4,1,2), `5` fault·4 제거(frame:1,2,5), `1` **hit**(frame 유지), `2` **hit**(frame 유지), `3` fault·1 제거(frame:2,5,3), `4` fault·2 제거(frame:5,3,4), `5` **hit**. Fault 발생 횟수를 세면 1,2,3,4,1,2,5,3,4 = **9회**, hit은 8,9,12번째 참조(1,2,5) = 3회.
+
+**LRU**(가장 최근 사용 시점 기준으로 제거를 결정, hit마다 그 page가 최근으로 갱신됨): `1,2,3,4` fault까지는 FIFO와 동일(frame:2,3,4). `1` fault, LRU인 2 제거(frame:3,4,1). `2` fault, LRU인 3 제거(frame:4,1,2). `5` fault, LRU인 4 제거(frame:1,2,5). `1` **hit**(사용 순서를 2,5,1로 갱신). `2` **hit**(사용 순서를 5,1,2로 갱신). `3` fault, 이번엔 사용 순서상 가장 오래된 5를 제거(frame:1,2,3). `4` fault, 가장 오래된 1을 제거(frame:2,3,4). `5` fault, 가장 오래된 2를 제거(frame:3,4,5). Fault 횟수 = 1,2,3,4,5,6,7,10,11,12번째 참조 = **10회**, hit은 8,9번째(1,2)뿐 = 2회.
+
+이 특정 참조열에서는 FIFO(9회)가 LRU(10회)보다 오히려 fault가 적다 — "미래를 더 잘 근사하는 정책(LRU)이 항상 더 단순한 정책(FIFO)보다 우월한 것은 아니다"라는 반직관적인 사실을 보여준다. 두 정책 모두 hit 시점의 page 2개(`1`,`2`)는 공유하지만, 그 hit이 다음 fault의 희생양을 어떻게 바꾸는지가 갈라지는 지점이다. 알고리즘의 우열은 참조 패턴에 따라 달라지므로 항상 실제 workload로 확인해야 한다.
+
 ## Free Space Management
 
 Heap이나 물리 메모리에서 빈 공간을 관리하려면 free list가 필요하다. 각 free block은 크기와 다음 free block pointer를 가진다.
@@ -150,6 +188,9 @@ Page fault는 오류일 수도 있고, OS가 memory virtualization을 효율적�
 - PTE flag가 protection에 어떻게 쓰이는가?
 - TLB hit/miss와 page fault의 차이를 설명할 수 있는가?
 - Multi-level page table이 sparse address space에서 메모리를 줄이는 이유를 설명할 수 있는가?
+- base=0x4000, bounds=0x1000인 segment에서 offset 0x1200이 왜 protection fault를 일으키는지 계산할 수 있는가?
+- 32비트 주소 `0x00403004`에서 4KB page 기준 VPN과 offset을 직접 분리할 수 있는가?
+- 위 12-참조 예제에서 FIFO가 LRU보다 fault가 적게 나오는 것을 직접 추적해, "LRU가 항상 우월하지는 않다"는 결론을 확인할 수 있는가?
 
 {% endraw %}
 

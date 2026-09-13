@@ -87,9 +87,27 @@ Brent-Kung은 balanced binary tree pattern을 사용한다.
 - 큰 배열은 block별 scan 후 block sum을 다시 scan하고 각 block에 더한다.
 - Shared memory tree access에서 bank conflict가 생길 수 있어 padding이 필요하다.
 
+## 숫자로 확인하기 — `N=8` Kogge-Stone 연산 횟수 세기
+
+`[1,2,3,4,5,6,7,8]`에 Kogge-Stone naive scan을 적용해 실제로 몇 번의 덧셈이 일어나는지 단계별로 세어본다. Sequential scan이라면 덧셈이 정확히 $$N-1=7$$번이면 충분하다.
+
+| Step (거리 $$d$$) | 덧셈이 일어나는 index | 덧셈 횟수 |
+|---|---|---:|
+| $$d=1$$ | $$i \ge 1$$인 모든 $$i$$ (1~7) | 7 |
+| $$d=2$$ | $$i \ge 2$$인 모든 $$i$$ (2~7) | 6 |
+| $$d=4$$ | $$i \ge 4$$인 모든 $$i$$ (4~7) | 4 |
+
+$$\log_2 8 = 3$$단계 동안 총 덧셈 횟수는 $$7+6+4=17$$번으로, sequential scan의 7번보다 **약 2.4배 많은 연산**을 수행한다. $$N$$이 커질수록 이 배율은 $$O(N\log N)/O(N) = O(\log N)$$으로 계속 커진다 — $$N=8$$에서 이미 나타나는 이 "더 많은 총 작업량"이 "work-efficient하지 않다"는 문장의 실제 의미이며, 다음 노트([10. Work-Efficient Scan](10-prefix-sum-nvidia-supplement-work-efficient-scan.md))의 Blelloch scan이 해결하려는 문제다.
+
 ## Lesson
 
 강의의 마지막 메시지는 lock 기반 누적보다 병렬 알고리즘 구조를 찾는 것이 더 좋다는 것이다. Prefix sum은 단순해 보이지만 많은 병렬 알고리즘의 기반이며, scan을 잘 구현하면 여러 상위 문제를 효율적으로 풀 수 있다.
+
+## 복습 질문
+
+- `N=8` 배열에서 Kogge-Stone scan의 3단계 각각에서 덧셈이 몇 번 일어나는지, 그리고 총합 17번을 직접 셀 수 있는가?
+- 이 17번이 sequential scan의 7번보다 왜 더 많은지, 그리고 $$N$$이 커질수록 이 차이가 왜 $$O(\log N)$$ 배로 커지는지 설명할 수 있는가?
+- Inclusive scan `[1,3,6,10]`과 exclusive scan `[0,1,3,6]`의 차이를 `[1,2,3,4]` 예시로 설명할 수 있는가?
 
 ## 정리
 

@@ -50,6 +50,23 @@ sdata[tid] += sdata[tid + 1];
 
 이 방식은 instruction overhead를 줄이지만, 최신 independent thread scheduling에서는 warp 동기화 안전성을 고려해야 한다.
 
+## 숫자로 확인하기 — warp unrolling이 줄이는 instruction 수
+
+`s`가 32에서 시작해 절반씩 줄어드는 일반 tree reduction 마지막 6단계(`s=32,16,8,4,2,1`)를 생각하자.
+
+**일반 loop 방식**(매 단계 `if(tid<s)` 분기 + `__syncthreads()`): 6단계 각각 조건 분기 1개 + barrier 1개가 필요하므로 barrier만 6번, 그리고 매 barrier는 block 안의 가장 느린 warp를 기다려야 하는 비용이 있다.
+
+**Warp unrolling**(마지막 32개 thread만 남으면 `__syncthreads()` 없이 6줄을 그대로 나열):
+```cpp
+sdata[tid] += sdata[tid + 32];  // s=32
+sdata[tid] += sdata[tid + 16];  // s=16
+sdata[tid] += sdata[tid + 8];   // s=8
+sdata[tid] += sdata[tid + 4];   // s=4
+sdata[tid] += sdata[tid + 2];   // s=2
+sdata[tid] += sdata[tid + 1];   // s=1
+```
+같은 6번의 덧셈은 그대로 필요하지만, **`__syncthreads()` 6번이 전부 제거**된다 — 하나의 warp(32 thread)는 lockstep으로 실행된다는 가정 하에 barrier 없이도 순서가 보장되기 때문이다. Barrier 하나의 비용을 수십 cycle 수준으로 잡으면, 6번의 barrier 제거는 마지막 reduction 단계에서 수백 cycle의 instruction overhead를 줄이는 효과를 낸다 — 다만 Volta 이후 independent thread scheduling에서는 이 lockstep 가정이 깨질 수 있어 `__syncwarp()`로 최소한의 동기화를 다시 넣어야 안전하다.
+
 ## Template Unrolling
 
 `blockSize`를 template parameter로 넘기면 compiler가 compile time에 branch를 평가하고 불필요한 코드를 제거한다.
@@ -73,6 +90,12 @@ Brent's theorem은 각 thread가 `O(log N)` 정도의 sequential work를 하고,
 
 - Algorithmic: addressing 변경, cascading
 - Code: loop unrolling, template specialization
+
+## 복습 질문
+
+- 마지막 6단계(`s=32~1`) reduction에서 warp unrolling이 왜 `__syncthreads()` 6번을 전부 제거할 수 있는지 설명할 수 있는가?
+- Independent thread scheduling 이후 이 warp-synchronous 가정이 왜 더 이상 안전하지 않은지, `__syncwarp()`가 어떤 역할을 하는지 설명할 수 있는가?
+- Algorithmic optimization(예: algorithm cascading)과 code optimization(예: 이 warp unrolling)이 왜 다른 종류의 개선인지 구분할 수 있는가?
 
 ## 정리
 

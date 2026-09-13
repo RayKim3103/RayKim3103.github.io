@@ -53,6 +53,12 @@ Input tile과 filter를 shared memory에 저장하면 warp threads가 같은 ban
 
 Shared memory를 쓰면 tile load 완료 후 `__syncthreads()`가 필요하다. 이 barrier는 correctness에는 필수지만, 모든 thread가 가장 늦은 thread를 기다리므로 성능 overhead가 된다.
 
+## 숫자로 확인하기 — halo load에 참여하지만 compute에는 빠지는 thread 비율
+
+Output tile `16x16=256`개 thread block에서 filter `K=5`라면, load해야 할 input tile 크기는 $$(16+5-1)^2=20^2=400$$개 값이다. Block의 thread 수는 256개인데 필요한 load는 400개이므로, 단순히 "thread 하나가 load 하나씩" 담당하는 방식으로는 thread 수가 모자란다 — 반대로 이야기하면 **256개 thread 각각이 평균 $$400/256=1.5625$$개의 load를 나눠 맡아야** 한다는 뜻이고, 실제 구현에서는 일부 thread가 2개, 나머지가 1개를 load하는 방식이 된다.
+
+반대로 compute 단계에서는 output tile 256개 pixel을 정확히 256개 thread가 1대1로 담당하므로 idle thread가 없다. 즉 이 예제 자체는 "load 참여 thread 수 부족"이 문제이지, 보고서가 지적한 "load에는 참여하지만 compute에는 사용되지 않는 thread"는 반대로 **load tile이 output tile보다 훨씬 큰 경우**(예: 여러 채널을 한 번에 tiling)에 나타난다 — 그 경우 halo 영역 담당 thread는 load만 하고 자신의 output 위치가 없어 compute 단계에서 유휴 상태가 된다.
+
 ## GEMM Kernel
 
 im2col 이후 matmul은 강의안의 shared memory tiled matrix multiplication 구조를 사용했다.
@@ -79,6 +85,12 @@ im2col 이후 matmul은 강의안의 shared memory tiled matrix multiplication �
 ## Evaluation
 
 보고서는 shared memory 적용 여부, tile size, direct convolution과 im2col+GEMM의 실행 시간을 비교했다. 성능 평가는 단순 correctness가 아니라 어떤 optimization이 실제 benchmark에서 이득을 주는지 확인하는 방식으로 진행되었다.
+
+## 복습 질문
+
+- `TILE=16`, `K=5`일 때 load tile 크기(400)와 block thread 수(256)의 비율(1.5625)이 왜 "thread당 여러 값 load"를 요구하는지 설명할 수 있는가?
+- Load 참여 thread 수가 부족한 경우와, load에는 참여하지만 compute에는 참여하지 못하는 thread가 생기는 경우가 왜 반대 상황인지 구분할 수 있는가?
+- `__syncthreads()`가 correctness에는 필수지만 성능에는 왜 항상 비용인지 설명할 수 있는가?
 
 ## 정리
 

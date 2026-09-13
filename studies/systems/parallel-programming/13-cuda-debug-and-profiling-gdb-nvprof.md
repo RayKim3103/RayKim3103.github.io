@@ -73,6 +73,12 @@ Memcheck는 runtime error checker다. 특히 out-of-bounds access처럼 결과�
 - 옵션: `--leak-check full`
 - race 확인: `--tool racecheck`
 
+## 예시로 확인하기 — memcheck가 잡는 silent error
+
+`N=1000`인데 `blockDim.x=256`으로 launch하면서 `if (i < n)` boundary check를 실수로 빠뜨렸다고 하자. [04주차](04-intro-to-cuda.md)의 계산대로 마지막 block(`blockIdx.x=3`)의 `threadIdx.x=232~255`인 24개 thread는 전역 index $$i=1000{\sim}1023$$을 만들어 배열 밖 주소에 read/write를 시도한다.
+
+이 24개 thread의 out-of-bounds 접근은 결과값이 우연히 이상해 보이지 않는 이상(다른 메모리 영역을 조용히 덮어써도) 눈에 띄는 crash 없이 넘어갈 수 있다 — 이것이 "결과만 보고 찾기 어려운 silent error"의 실제 사례다. `cuda-gdb` 안에서 `set cuda memcheck on` 상태로 같은 kernel을 실행하면, 이 24개 thread가 접근하는 순간 정확히 "어떤 thread(`block 3, thread 232~255`)가 어떤 주소에 잘못 접근했는지"를 즉시 보고한다 — `if (i<n)` 한 줄을 놓치는 흔한 실수를 memcheck가 바로 이 방식으로 잡아낸다.
+
 ## Profiling
 
 성능 분석 도구:
@@ -84,6 +90,12 @@ Memcheck는 runtime error checker다. 특히 out-of-bounds access처럼 결과�
 - Visual profiler timeline
 
 최신 GPU에서는 `nvprof` 지원이 제한될 수 있으므로 Nsight 계열 도구를 함께 고려해야 한다.
+
+## 복습 질문
+
+- `N=1000`, block당 256 thread에서 `if (i<n)`을 빠뜨렸을 때 정확히 어떤 thread들(block 3의 232~255)이 out-of-bounds 접근을 하는지 설명할 수 있는가?
+- 이런 out-of-bounds 오류가 왜 "silent error"인지, 그리고 memcheck가 이를 어떻게 잡아내는지 설명할 수 있는가?
+- `-G` 옵션이 device optimization을 비활성화하는데도 debugging에만 쓰고 release build에는 쓰지 않는 이유를 설명할 수 있는가?
 
 ## 정리
 

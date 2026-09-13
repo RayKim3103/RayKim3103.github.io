@@ -84,6 +84,24 @@ Kernel은 driver의 `open` 함수를 호출하기 전후로 권한 확인, fd �
 
 Zynq PS는 Linux kernel과 user application을 실행하는 CPU다. PL에는 sevenseg 같은 사용자 정의 hardware가 있고, PS와 PL은 AXI interconnect를 통해 memory mapped 방식으로 연결된다.
 
+## 전체 흐름을 하나의 구체적 호출로 추적하기
+
+"7-segment에 값을 쓴다"는 동작을 이 흐름표에 그대로 대입하면:
+
+1. Application이 `fd = open("/dev/zynq_sevenseg")` 호출 → file descriptor(예: 3, `0/1/2`는 stdin/stdout/stderr이 이미 차지하므로 그 다음 index)를 받는다.
+2. `write(fd, &value, sizeof(value))` 호출 → kernel이 `chrdev[]`에서 major number로 driver를 찾는다.
+3. driver의 `device_fops.write`가 호출되고, 내부에서 `copy_from_user()`로 user buffer의 `value`를 kernel buffer로 복사한다.
+4. driver가 `ioremap`된 virtual address에 그 값을 write → AXI interconnect를 거쳐 PL sevenseg IP register에 실제로 도달한다.
+5. `close(fd)`로 연결을 정리한다.
+
+이 5단계가 정확히 14주차 결과에서 구현하는 `sevenseg_write`의 동작이다.
+
+## 복습 질문
+
+- `open()`이 반환하는 file descriptor가 왜 3부터 시작하는 경우가 많은지 설명할 수 있는가?
+- `copy_from_user()`가 왜 필요한지(kernel이 user memory를 직접 신뢰하지 않는 이유)를 설명할 수 있는가?
+- `ioremap`이 하는 일과, 이것이 없으면 driver가 PL register에 접근할 수 없는 이유를 설명할 수 있는가?
+
 ## 정리
 
 14주차 예비의 핵심은 Linux 위에서 hardware를 제어할 때도 결국 핵심은 address mapping과 system call 흐름이라는 점이다. Application은 `/dev` 파일만 알고, driver가 kernel 내부에서 hardware 접근의 세부사항을 책임진다.

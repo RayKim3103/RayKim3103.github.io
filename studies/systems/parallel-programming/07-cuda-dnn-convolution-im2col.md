@@ -104,6 +104,20 @@ Y = W_row * X_col
 - X_col 생성으로 memory overhead가 생긴다.
 - patch가 겹치므로 같은 input 값이 여러 번 복사될 수 있다.
 
+## 숫자로 확인하기 — im2col이 만드는 memory overhead
+
+$$32\times32$$ 입력 image 1개(channel 1개), $$5\times5$$ filter로 valid convolution을 한다고 하자.
+
+**Output 크기**: $$H_{out}=W_{out}=32-5+1=28$$, 즉 $$28\times28=784$$개의 output pixel이 나온다.
+
+**im2col 변환 후 $$X_{col}$$의 크기**: 각 output pixel마다 자신이 덮는 $$5\times5=25$$개의 input 값을 하나의 column으로 뽑아내므로
+
+$$
+X_{col}\text{ 크기} = 25 \,(\text{filter 크기}) \times 784 \,(\text{output pixel 수}) = 19{,}600\text{개 원소}
+$$
+
+원본 입력은 $$32\times32=1024$$개 원소뿐이었는데, im2col 이후에는 $$19{,}600/1024 \approx 19.1$$**배**로 늘어난다 — 인접 output pixel들이 대부분 겹치는 input window를 공유하기 때문에 같은 input 값이 최대 $$5\times5=25$$번까지 중복 저장될 수 있다. 이것이 "patch가 겹치므로 같은 input 값이 여러 번 복사될 수 있다"는 단점의 실제 배율이며, filter가 클수록(또는 stride가 작을수록) 이 중복 배율은 더 커진다.
+
 ## Pooling과 큰 네트워크
 
 Pooling은 convolution보다 단순하며, 영역 내 max 또는 average를 계산한다. VGGNet 같은 큰 네트워크는 convolution, ReLU, pooling, fully connected layer를 반복적으로 구성한다.
@@ -116,6 +130,12 @@ Pooling은 convolution보다 단순하며, 영역 내 max 또는 average를 계�
 | im2col + GEMM | convolution을 matrix multiplication으로 변환 |
 | FFT convolution | time/spatial domain convolution을 frequency domain multiply로 변환 |
 | Winograd | 곱셈 수를 줄이도록 중간값 재배치 |
+
+## 복습 질문
+
+- $$32\times32$$ 입력, $$5\times5$$ filter에서 output 크기(28x28)와 $$X_{col}$$ 크기(19,600)를 직접 계산할 수 있는가?
+- im2col의 메모리 증폭(약 19.1배)이 어디서 오는지, filter 크기와의 관계로 설명할 수 있는가?
+- Filter 크기가 커지거나 stride가 작아지면 이 증폭 배율이 왜 더 커지는지 설명할 수 있는가?
 
 ## 정리
 

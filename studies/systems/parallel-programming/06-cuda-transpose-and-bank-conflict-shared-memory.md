@@ -81,9 +81,37 @@ extern __shared__ float buffer[];
 
 이렇게 stride가 32의 배수에서 벗어나 bank mapping이 분산된다.
 
+## 숫자로 확인하기 — 32-way bank conflict와 padding 효과
+
+Shared memory tile을 `float tile[32][32]`로 선언하면 한 row의 폭은 $$32 \times 4\text{byte} = 128\text{byte} = 32\text{bank} \times 4\text{byte}$$, 즉 정확히 32개 bank 전체를 채운다. 이제 warp의 32개 thread가 같은 column을 동시에 접근한다고 하자(`tile[i][col]`, `i=0..31` 고정 `col`).
+
+`col=0`으로 고정하면 thread `i`가 접근하는 word 단위 주소는 `tile[i][0]` = $$i \times 32$$이고, bank 번호는 $$(\text{word 주소}) \bmod 32$$로 정해진다.
+
+$$
+\text{bank}(i) = (i \times 32) \bmod 32 = 0 \quad (\text{모든 } i = 0,\dots,31\text{에 대해})
+$$
+
+`col`이 0이 아닌 다른 고정값이어도 모든 thread의 주소에 똑같이 `+col`이 더해질 뿐이므로 bank 번호는 여전히 `col mod 32`로 **32개 thread 모두 동일**하다.
+
+즉 32개 thread **전부가 bank 0 하나로 몰리는 32-way bank conflict**가 발생해, 원래 1cycle에 끝날 접근이 32cycle로 직렬화된다.
+
+**Padding 적용**(`SKEW=1`로 `tile[32][33]` 선언): row 폭이 $$33 \times 4\text{byte} = 132\text{byte}$$가 되어, 같은 column 접근의 주소 간격이 $$33\times4=132\text{byte}$$로 바뀐다.
+
+$$
+\text{bank}(i) = \frac{i \times 33 \times 4}{4} \bmod 32 = (i \times 33) \bmod 32 = i \bmod 32
+$$
+
+이제 $$i=0,1,\dots,31$$에 대해 bank 번호가 $$0,1,\dots,31$$로 **서로 다른 32개 bank에 정확히 하나씩** 흩어진다 — conflict가 완전히 사라져 32cycle이 다시 1cycle로 돌아온다. `SKEW=1`이라는 단 하나의 padding column이 32-way conflict를 무충돌로 바꾸는 이유가 이 modular 연산에서 나온다.
+
 ## 정리
 
 Transpose는 memory coalescing과 bank conflict를 동시에 보여주는 대표 예제다. 좋은 CUDA kernel은 global memory access만 보는 것이 아니라, shared memory 내부 bank mapping까지 고려해야 한다. “coalescing을 만들고, bank conflict를 피하라”가 이 강의의 결론이다.
+
+## 복습 질문
+
+- `tile[32][32]`에서 같은 column을 32개 thread가 접근할 때 왜 모두 bank 0(또는 `col mod 32`)으로 몰리는지 계산할 수 있는가?
+- `SKEW=1` padding이 row 폭을 33 word로 바꾸는 것만으로 왜 32개의 서로 다른 bank로 정확히 흩어지는지, modular 연산으로 설명할 수 있는가?
+- Bank conflict가 32-way일 때와 conflict-free일 때 접근 시간이 왜 32배 차이가 나는지 설명할 수 있는가?
 
 {% endraw %}
 

@@ -51,6 +51,22 @@ L1 cache는 보통 32KB~64KB 정도라 큰 행렬 전체를 담기 어렵다. `A
 - B는 cache line을 읽어도 실제로 필요한 값은 하나뿐인 경우가 많다.
 - N이 2의 거듭제곱 배수이면 set associativity 때문에 특정 cache set에 충돌이 집중될 수 있다.
 
+## 숫자로 확인하기 — cache line이 실제로 담는 element 수
+
+Cache line 크기가 64byte이고 `float`가 4byte라면, cache line 하나에 들어가는 float 개수는
+
+$$
+64\text{byte} / 4\text{byte} = 16\text{개}
+$$
+
+`A[i][k]`처럼 row-wise로 순차 접근하면, 첫 접근에서 cache line 하나(64byte, 16개 float)를 통째로 가져오고 이후 15번의 접근은 **cache hit**이 된다 — 즉 16번 접근 중 1번만 실제 memory fetch가 필요하다(miss rate 1/16 ≈ 6.25%). 반대로 `B[k][j]`처럼 column-wise로 접근하면 매번 다른 row의 다른 위치를 읽으므로, $$N=1024$$ 정방행렬 기준 연속된 두 접근 사이의 주소 거리는
+
+$$
+N \times 4\text{byte} = 1024 \times 4 = 4096\text{byte} = 64\text{cache line}
+$$
+
+만큼 떨어져 있다 — 즉 매 접근이 새로운 cache line을 요구해 miss rate이 사실상 100%에 가깝다. 같은 `O(N^3)` 연산이라도 A는 16번 중 15번을 cache에서, B는 사실상 매번 memory에서 가져오는 셈이므로, "B가 A보다 훨씬 많은 cache miss를 만든다"는 문장이 이 숫자로 정량화된다. Transpose로 B를 row-wise 접근으로 바꾸면 B의 miss rate도 A와 동일하게 1/16 수준으로 떨어진다.
+
 ## Padding
 
 N이 cache set과 나쁘게 맞물릴 때 padding을 추가해 stride를 바꾸면 set collision peak를 줄일 수 있다. 단, padding은 capacity와 bandwidth를 조금 더 쓰는 비용이 있다.
@@ -84,6 +100,12 @@ Block size `b`를 키우면 각 tile element 재사용이 늘지만, 너무 크�
 | A | row-wise라 상대적으로 유리 | block으로 temporal locality 추가 |
 | B | column-wise라 miss 많음 | transpose 또는 blocking |
 | C | read/write 필요 | thread별 row 분할로 false sharing 완화 |
+
+## 복습 질문
+
+- 64byte cache line, 4byte float 기준으로 A의 row-wise 접근이 왜 miss rate 약 6.25%가 되는지 계산할 수 있는가?
+- $$N=1024$$일 때 B의 column-wise 연속 접근이 왜 64 cache line만큼 떨어져 있는지, 그리고 이것이 왜 사실상 매번 miss인지 설명할 수 있는가?
+- Transpose가 B의 miss rate을 A와 같은 수준으로 낮추는 이유를 설명할 수 있는가?
 
 ## 정리
 

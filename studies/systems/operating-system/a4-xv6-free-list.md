@@ -53,6 +53,20 @@ Worst-fit은 매 allocation마다 free list 전체를 검색해 가장 큰 free 
 - 같은 크기의 후보가 여러 개면 아무거나 선택해도 된다.
 - 선택 block의 previous pointer도 함께 저장해야 list 제거 또는 split이 가능하다.
 
+## 숫자로 확인하기 — Next-fit vs Worst-fit 선택 비교
+
+free list에 다음 순서로 block(header 단위 크기)이 있고, `freep`이 block1을 가리키고 있으며, 20 unit짜리 요청이 들어온다고 하자.
+
+| block | 1 | 2 | 3 | 4 |
+|---|---:|---:|---:|---:|
+| 크기(unit) | 25 | 15 | 60 | 30 |
+
+**Next-fit**(`freep` 다음부터 순회하며 처음 만나는 충분히 큰 block 선택): block1(25)부터 검사 → 25≥20이므로 **block1**을 즉시 선택하고 순회를 멈춘다. 남는 조각은 $$25-20=5$$ unit.
+
+**Worst-fit**(free list 전체를 검색해 가장 큰 block 선택): block1(25), block2(15, 부적합), block3(60), block4(30)를 모두 검사 → 20 이상인 후보(25, 60, 30) 중 최댓값인 **block3(60)**을 선택한다. 남는 조각은 $$60-20=40$$ unit.
+
+같은 요청이라도 정책에 따라 서로 다른 block이 선택되고, 남는 조각 크기도 5 unit(next-fit) vs 40 unit(worst-fit)으로 크게 다르다. worst-fit의 의도대로 "가능한 큰 잔여 block을 유지"하는 결과(40 unit짜리 큰 조각이 남음)를 이 예시가 보여준다 — 다만 이 경우 원래 60 unit 블록이 20/40으로 쪼개지면서 오히려 새로운 중간 크기 조각이 생겨, 다음 큰 요청(예: 50 unit)이 왔을 때 그 조각(40)으로는 부족해지는 상황도 함께 나타날 수 있다.
+
 ## Split과 Exact Fit
 
 선택한 block 크기가 요청 단위와 같으면 block 전체를 list에서 제거한다.
@@ -95,6 +109,12 @@ Free list에서 적절한 block을 찾지 못하면 `morecore(nunits)`를 호출
 - Header 단위와 byte 단위를 혼동하는 문제
 - Split 위치를 앞쪽으로 잡아 기존 xv6 pointer arithmetic과 어긋나는 문제
 - Debug print나 helper 수정 사항을 제출에 남기는 문제
+
+## 복습 체크포인트
+
+- 위 4-block 예제에서 next-fit이 block1(25)을 선택하고 worst-fit이 block3(60)을 선택하는 이유를 각 정책의 탐색 방식으로 설명할 수 있는가?
+- Worst-fit이 매 allocation마다 free list 전체를 순회해야 하는 이유(next-fit과의 시간 복잡도 차이)를 설명할 수 있는가?
+- Exact fit(요청 크기와 선택 block 크기가 같음)일 때와 split이 필요한 경우 각각 free list를 어떻게 갱신해야 하는지 설명할 수 있는가?
 
 {% endraw %}
 

@@ -40,6 +40,16 @@ sitemap: false
 
 동적 전력은 대략 `P ∝ C * V^2 * f`로 표현된다. voltage와 frequency를 계속 올릴 수 없게 되면서, 남는 transistor는 단일 core를 더 빠르게 하기보다 여러 core와 병렬 실행 자원으로 배치되었다.
 
+## 숫자로 확인하기 — Power Wall이 실제로 막는 것
+
+동적 전력 $$P \propto C \cdot V^2 \cdot f$$에서, 과거처럼 전압 $$V$$와 주파수 $$f$$를 각각 20% 더 올린다고 하면 전력은
+
+$$
+\frac{P_{\text{new}}}{P_{\text{old}}} = \left(\frac{V_{\text{new}}}{V_{\text{old}}}\right)^2 \times \frac{f_{\text{new}}}{f_{\text{old}}} = 1.2^2 \times 1.2 = 1.44 \times 1.2 = 1.728
+$$
+
+즉 성능을 20%(주파수) 올리려고 전압도 20% 올리면 전력은 약 **73% 증가**한다. Dennard scaling이 살아있던 시절에는 공정이 미세화되며 $$V$$가 함께 줄어 이 배율이 상쇄됐지만, power wall 이후에는 $$V$$를 더 낮추기 어려워 같은 20% 주파수 증가가 그대로 73% 전력 증가로 남는다 — 칩 냉각·전력 공급 한계 때문에 이 비용을 감당할 수 없게 된 것이 바로 "더 이상 clock을 올릴 수 없다"는 문장의 정량적 의미다. 대신 같은 transistor 예산을 core 여러 개로 나누면, 각 core의 $$f$$를 낮춰 전력은 억제하면서 총 처리량(throughput)은 core 수만큼 늘릴 수 있다 — 이것이 병렬 아키텍처로 전환한 이유다.
+
 ## 병렬 아키텍처의 등장
 
 대표 예시:
@@ -72,6 +82,12 @@ for (int i = 0; i < N; i++) {
 - Architecture-aware optimization
 - Matrix multiplication, reduction, scan, convolution 같은 핵심 kernel
 - CUDA, Triton, library, compiler 관점의 성능 최적화
+
+## 복습 질문
+
+- 전압과 주파수를 각각 20%씩 올렸을 때 동적 전력이 왜 약 73% 증가하는지 $$P \propto CV^2f$$ 식으로 계산할 수 있는가?
+- Dennard scaling이 살아있을 때와 끝난 이후, 같은 주파수 증가가 전력에 미치는 영향이 왜 달라지는지 설명할 수 있는가?
+- Master 하나가 모든 partial sum을 모으는 방식과 hierarchical(tree) reduce가 network contention 측면에서 왜 다른지 설명할 수 있는가?
 
 ## 정리
 

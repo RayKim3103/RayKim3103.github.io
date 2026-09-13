@@ -75,6 +75,17 @@ stringstream(line) >> first >> last;
 
 한 줄을 읽은 뒤 내부에서 단어, 숫자 등을 파싱할 때 유용하다.
 
+**숫자 예**: 입력 줄이 `"Jane 87 92"`(이름과 두 점수)이면
+
+```cpp
+string line = "Jane 87 92";
+string name; int s1, s2;
+stringstream(line) >> name >> s1 >> s2;
+// name == "Jane", s1 == 87, s2 == 92
+```
+
+`stringstream`이 공백을 기준으로 토큰을 끊어 각 변수의 타입(`string`, `int`, `int`)에 맞게 자동 변환한다 — `cin >>`이 표준 입력에서 하는 일을 문자열 하나에 대해 그대로 재현한 것이다.
+
 ## 리디렉션과 파이프
 
 | 명령 | 의미 |
@@ -149,6 +160,12 @@ file.write(memblock, size);
 
 - [Linux 기본](01-linux-basics.md)
 - [C++ 흐름 제어](04-cpp-control-flow.md)
+
+## 복습 질문
+
+- `"Jane 87 92"`를 `stringstream`으로 파싱하면 `name`, `s1`, `s2`에 각각 무엇이 들어가는가?
+- `cin >>`과 `getline(cin, ...)`의 차이를 공백 처리 관점에서 설명할 수 있는가?
+- `ios::app`과 `ios::trunc`의 차이를 파일을 열 때의 동작으로 설명할 수 있는가?
 
 {% endraw %}
 

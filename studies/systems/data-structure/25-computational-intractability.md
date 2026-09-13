@@ -126,6 +126,14 @@ F를 참으로 만드는 truth assignment를 찾는다.
 
 CNF는 clause들의 AND이고, 각 clause는 literal들의 OR이다. 3-SAT에서는 clause마다 3개의 literal을 가진다.
 
+**숫자 예 — 검증은 빠르지만 탐색은 느리다**: $$F = (x_1\vee x_2\vee\lnot x_3)\wedge(\lnot x_1\vee x_2\vee x_3)\wedge(x_1\vee\lnot x_2\vee x_3)$$ 에 후보 assignment $$x_1{=}T, x_2{=}F, x_3{=}T$$ 를 대입하면
+
+$$
+(T\vee F\vee F)\wedge(F\vee F\vee T)\wedge(T\vee T\vee T) = T\wedge T\wedge T = T
+$$
+
+세 clause 모두 참이 되어 **검증은 상수 시간**(clause 수에 비례)에 끝난다. 하지만 이 assignment를 "찾는" 과정은 $$n$$개 변수에 대해 $$2^n$$개 후보를 뒤져야 할 수 있다(위는 $$n=3$$이라 8가지뿐이지만, $$n=100$$이면 $$2^{100}$$가지) — **검증(polynomial)과 탐색(지수적일 수 있음)의 비대칭**이 바로 NP의 정의($$P$$와 $$NP$$가 다르다고 여겨지는 이유)를 이루는 핵심이다.
+
 ## Cook-Levin 정리
 
 Cook-Levin theorem:
@@ -172,6 +180,13 @@ graph TD
 - [성능 분석](09-performance-analysis.md)
 - [그래프](22-graphs.md)
 - [최단 경로](24-shortest-paths.md)
+
+## 복습 질문
+
+- 위 3-SAT 예시에서 $$x_1{=}T,x_2{=}F,x_3{=}T$$가 모든 clause를 만족함을 직접 대입해 확인할 수 있는가?
+- 검증(polynomial)과 탐색(지수적일 수 있음)의 비대칭이 왜 NP의 핵심 아이디어인지 설명할 수 있는가?
+- NP-complete와 NP-hard의 차이(NP 소속 여부)를 설명할 수 있는가?
+- `LSOLVE`의 등식 `Ax=b`를 두 부등식으로 바꾸어 `LP`로 reduce하는 과정을 설명할 수 있는가?
 
 {% endraw %}
 

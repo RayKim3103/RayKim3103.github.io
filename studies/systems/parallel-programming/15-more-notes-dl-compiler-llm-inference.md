@@ -72,6 +72,22 @@ Decode-only LLM inference는 크게 두 단계로 나뉜다.
 
 Context length가 길어질수록 prefill latency에서 GEMM 비중이 커지고, decode에서는 매 token마다 batch/sequence 구조 때문에 GEMV가 중요해진다.
 
+## 숫자로 확인하기 — Prefill(GEMM)과 Decode(GEMV)의 연산량 차이
+
+Hidden dimension $$d=4096$$, prompt 길이(prefill) $$L=2048$$ token인 언어 모델에서, 하나의 linear projection($$[L,d]\times[d,d]$$ 또는 $$[1,d]\times[d,d]$$)의 곱셈 횟수를 비교한다.
+
+**Prefill**(GEMM, 한 번에 $$L$$개 token 전체를 행렬로 처리):
+$$
+L \times d \times d = 2048 \times 4096 \times 4096 \approx 3.44\times10^{10}
+$$
+
+**Decode**(GEMV, 매 step마다 새 token 1개만 처리):
+$$
+1 \times d \times d = 4096 \times 4096 \approx 1.68\times10^{7}
+$$
+
+한 번의 decode step은 prefill 전체 대비 연산량이 $$3.44\times10^{10}/1.68\times10^7 \approx 2048$$배, 즉 정확히 $$L$$배 적다 — 당연한 결과다(토큰 1개 대 $$L$$개 차이이므로). 하지만 문제는 "GEMV는 weight 행렬을 한 번 읽어서 곱셈 1번만 한다"는 점이다. GEMM은 같은 weight를 $$L$$개 row에 재사용해 arithmetic intensity(연산/byte)가 높은 반면, GEMV는 weight를 읽는 memory traffic은 GEMM 한 row분과 같은데 재사용이 전혀 없어 **memory-bound**가 된다. 즉 decode 단계는 절대 연산량은 작지만 GPU를 compute-bound로 못 채워 오히려 token당 latency가 병목이 되기 쉽다 — "decode에서는 GEMV가 중요해진다"는 문장의 실제 의미는 "compute가 아니라 weight를 읽는 memory bandwidth가 decode 속도를 지배한다"는 뜻이다.
+
 ## FlashAttention
 
 Standard attention은 memory traffic이 크다. FlashAttention은 tiling과 fusion으로 attention 중간 matrix를 global memory에 크게 저장하지 않고 block 단위로 처리하여 memory traffic을 줄인다.
@@ -84,6 +100,12 @@ Standard attention은 memory traffic이 크다. FlashAttention은 tiling과 fusi
 ## vLLM과 PagedAttention
 
 vLLM은 PagedAttention으로 KV cache를 memory page처럼 관리한다. LLM serving에서 요청별 sequence 길이가 다르고 KV cache가 커지는 문제를 줄여 throughput과 memory utilization을 개선한다.
+
+## 복습 질문
+
+- $$d=4096$$, $$L=2048$$일 때 prefill(GEMM)과 decode(GEMV)의 곱셈 횟수 차이가 왜 정확히 $$L$$배인지 계산할 수 있는가?
+- Decode가 절대 연산량은 훨씬 적은데도 왜 memory-bound가 되어 오히려 latency 병목이 되는지, arithmetic intensity 관점에서 설명할 수 있는가?
+- FlashAttention의 tiling이 GEMV의 memory-bound 문제와 비슷한 종류의 문제(attention 중간 행렬의 memory traffic)를 어떻게 줄이는지 설명할 수 있는가?
 
 ## 정리
 

@@ -32,6 +32,19 @@ xv6에서 CPU scheduler는 runnable process를 고르고 `swtch()`를 호출해 
 
 Ticket은 CPU 사용량을 조정하는 priority-like 값으로 생각할 수 있다. CPU-bound process가 계속 slice를 꽉 채우면 점차 불리해지고, interactive/I/O-bound process가 상대적으로 유리해진다.
 
+## 숫자로 확인하기 — ticket 감소 정책 추적
+
+Process A(CPU-bound, syscall 없이 항상 slice를 다 씀)와 Process B(I/O-bound, slice의 절반만 쓰고 매번 양보)가 각각 ticket 10으로 시작한다고 하자. "time slice 전체를 다 쓰면 ticket을 잃는다"는 정책을 tick 단위로 추적하면:
+
+| Round | A의 동작 | A ticket | B의 동작 | B ticket |
+|---|---|---:|---|---:|
+| 0 | - | 10 | - | 10 |
+| 1 | slice 전부 사용 | 9 | slice 절반만 쓰고 양보 | 10 |
+| 2 | slice 전부 사용 | 8 | slice 절반만 쓰고 양보 | 10 |
+| 3 | slice 전부 사용 | 7 | slice 절반만 쓰고 양보 | 10 |
+
+3 round 후 A는 ticket이 $$10-3=7$$로 줄어드는 반면 B는 계속 10을 유지한다. 만약 scheduler가 "ticket이 많을수록 자주 선택"하는 방식이라면, 라운드가 반복될수록 B가 A보다 CPU를 더 자주 받게 된다 — "CPU-bound process가 계속 slice를 꽉 채우면 점차 불리해지고, interactive/I/O-bound process가 상대적으로 유리해진다"는 문장이 이 표로 정량화된다. 여기서 중요한 구현 포인트는, B가 자발적으로 양보(syscall/yield)한 round에서는 ticket을 잃지 않는다는 조건을 정확히 구분해야 한다는 것이다 — timer interrupt로 인한 강제 preemption과 voluntary yield를 혼동하면 이 표의 두 번째 열 자체가 틀어진다.
+
 ## 구현 위치
 
 주요 확인 파일은 xv6 kernel의 process와 scheduler 관련 코드다.
@@ -79,6 +92,7 @@ Scheduler는 `proc[]`을 순회하며 `RUNNABLE` process를 찾는다. Process s
 - Timer interrupt와 voluntary yield가 scheduling policy에 다르게 반영되는 이유는 무엇인가?
 - `struct proc`에 새 scheduling field를 추가할 때 초기화 위치를 찾을 수 있는가?
 - Lock을 잡은 상태로 context switch하는 xv6의 관례를 이해했는가?
+- 위 표에서 CPU-bound A의 ticket이 3 round만에 10→7로 줄어드는 이유와, I/O-bound B가 10을 유지하는 이유를 timer interrupt와 voluntary yield의 차이로 설명할 수 있는가?
 
 {% endraw %}
 

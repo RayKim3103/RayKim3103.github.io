@@ -90,6 +90,16 @@ p(z) = a0 + a1 z + a2 z^2 + ... + a(n-1) z^(n-1)
 
 `N`을 잘못 고르면 특정 패턴 key가 같은 bucket으로 몰릴 수 있다.
 
+**숫자 예 1 — division method**: table 크기 $$N=11$$(소수)일 때 $$h(k)=k\bmod11$$이면 $$h(15)=4$$, $$h(28)=6$$, $$h(7)=7$$ — 서로 다른 bucket에 고르게 흩어진다.
+
+**숫자 예 2 — 문자열의 polynomial accumulation**: 문자열 `"cat"`을 ASCII 코드(`c=99, a=97, t=116`)와 $$z=31$$로 Horner's rule 적용하면
+
+$$
+p = ((99)\times31 + 97)\times31 + 116 = (3069+97)\times31+116 = 3166\times31+116 = 98262
+$$
+
+이를 $$N=11$$로 압축하면 $$h(\text{"cat"}) = 98262 \bmod 11 = 10$$. 문자 하나하나를 곱-누적하므로 $$O(\text{문자열 길이})$$에 계산되고, 비슷한 문자열도(예: `"cat"`과 `"act"`) 전혀 다른 값으로 흩어진다.
+
 ## Hash table
 
 Hash table은 key를 hash function으로 배열 index에 매핑해 `(key, value)` entry를 저장한다.
@@ -164,6 +174,12 @@ Double hashing은 cluster를 줄이며, table size가 prime이면 모든 cell �
 
 - [균형 트리](19-balanced-trees.md)
 - [성능 분석](09-performance-analysis.md)
+
+## 복습 질문
+
+- $$N=11$$일 때 $$15, 28, 7$$의 division-method hash 값을 계산할 수 있는가?
+- `"cat"`의 polynomial hash를 Horner's rule로 직접 계산할 수 있는가?
+- Separate chaining과 linear probing 중 load factor가 1에 가까워질 때 더 급격히 성능이 나빠지는 쪽은? 그 이유는?
 
 {% endraw %}
 

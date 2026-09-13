@@ -101,6 +101,18 @@ Pipe fd를 닫지 않으면 reader가 EOF를 받지 못해 command가 끝나지 
 - 필요하면 zombie process 회수 방식을 고려해야 한다.
 - 무한 출력 프로그램을 background로 실행하면 prompt와 출력이 섞일 수 있다.
 
+## 예시로 확인하기 — `ls | wc -l`의 fd 배정 추적
+
+파이프라인이 실제로 어떤 file descriptor 번호를 거치는지 단계별로 추적하면 구현 포인트가 분명해진다. Shell 시작 시 기본 fd는 `0`=stdin, `1`=stdout, `2`=stderr이다.
+
+1. `pipe(p)` 호출 → 커널이 가장 작은 미사용 fd 두 개를 배정한다. 다른 fd가 열려 있지 않다면 보통 `p[0]=3`(read end), `p[1]=4`(write end)가 된다.
+2. 왼쪽 child(`ls`)에서 `close(1)`로 stdout(fd 1)을 닫는다 → fd 1이 비게 된다.
+3. `dup(p[1])` 호출 → 커널은 "가장 작은 미사용 fd"를 규칙으로 새 fd를 배정하므로, 방금 비운 fd 1이 `p[1]`(fd 4)의 복제본이 된다. 즉 `ls`의 `write(1, ...)`는 이제 pipe write end로 간다.
+4. 왼쪽 child는 이제 필요 없는 원본 `p[0]`(fd 3), `p[1]`(fd 4)를 모두 `close()`한다 — 그래야 pipe write end의 참조가 fd 1 하나만 남아, `ls`가 끝나고 fd 1을 닫을 때 오른쪽 child가 정확히 EOF를 받는다.
+5. 오른쪽 child(`wc -l`)에서는 대칭적으로 `close(0)` 후 `dup(p[0])`으로 fd 0을 pipe read end로 만들고, 남은 `p[0]`, `p[1]` 원본을 닫는다.
+
+이 추적에서 핵심은 "가장 작은 미사용 fd"라는 커널 규칙 때문에, `close(1)` 다음에 `dup()`을 호출하는 순서가 반드시 지켜져야 fd 1이 정확히 pipe write end로 재배정된다는 점이다. 순서를 바꾸면(`dup()`을 먼저 호출) 엉뚱한 fd 번호가 나와 redirection이 깨진다.
+
 ## 검증 포인트
 
 - `cd`, `exit`이 기존처럼 동작한다.
@@ -117,6 +129,12 @@ Pipe fd를 닫지 않으면 reader가 EOF를 받지 못해 command가 끝나지 
 - Pipe의 unused fd를 닫지 않아 process가 hang되는 문제
 - Parent shell의 stdin/stdout을 실수로 바꾸는 문제
 - Foreground/background에 따라 `wait()` 호출 여부를 구분하지 않는 문제
+
+## 복습 체크포인트
+
+- `ls | wc -l`에서 `close(1)` 다음에 `dup(p[1])`을 호출해야 하는 이유를, "가장 작은 미사용 fd" 규칙으로 설명할 수 있는가?
+- pipe의 read end와 write end 중 각 child가 사용하지 않는 쪽을 반드시 닫아야 하는 이유(EOF 전달)를 설명할 수 있는가?
+- `cd`와 `exit`을 child가 아니라 shell 자신이 처리해야 하는 이유를 `fork()`의 address space 복사와 연결해 설명할 수 있는가?
 
 {% endraw %}
 

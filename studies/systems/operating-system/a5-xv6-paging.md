@@ -66,6 +66,20 @@ Handler의 일반 흐름:
 
 RISC-V PTE에서 사용 가능한 reserved/software bit가 있다면 이를 marker로 쓸 수 있지만, skeleton의 의도를 따라야 한다.
 
+## 숫자로 확인하기 — page fault 횟수와 물리 frame 소비량 비교
+
+3개의 새 page(각 4KB)를 할당한 뒤, 그중 1개만 write하는 시나리오를 **기존 방식**과 **zero-frame 방식**으로 비교한다.
+
+**기존 방식**(`uvmalloc()`이 요청 즉시 physical frame 3개를 개별 할당): 할당 시점에 물리 frame 3개(총 12KB) 소비, page fault는 이후 read/write 접근에서 발생하지 않는다(이미 유효한 frame에 mapping되어 있으므로).
+
+**Zero-frame 방식**: 할당 시점에는 3개 page 모두 **같은** read-only zero frame 하나(4KB)에 mapping — 물리 frame 소비는 즉시 $$1 \times 4\text{KB}=4\text{KB}$$뿐이다. 이후:
+
+- Page 1을 **read**만 하면 zero frame의 0 값을 그대로 읽고 끝 → fault 없음, 추가 frame 소비 없음.
+- Page 2를 **read**만 하면 마찬가지로 fault 없음.
+- Page 3에 **write**하면 read-only 위반으로 **store page fault** 1회 발생 → handler가 새 frame(4KB)을 할당해 page 3만 독립 frame으로 remap.
+
+최종 물리 frame 소비는 zero frame(4KB, page1·2가 계속 공유) + page3 전용 frame(4KB) = **8KB**로, 기존 방식(12KB)보다 $$12-8=4\text{KB}$$, 즉 약 **33% 절감**된다. Page fault는 총 1회(page 3의 write 시점)만 발생한다 — "실제 write가 없는 page에는 physical memory를 쓰지 않는다"는 장점이 이 숫자로 확인된다. Page 개수가 많고 그중 일부만 실제로 write되는 workload일수록 절감 폭은 더 커진다.
+
 ## Validation 해석
 
 Validation은 새 page들이 처음에는 zero frame에 mapping되고, write가 일어난 page만 새 frame으로 remap되는지 확인한다. Page fault 횟수와 memory allocation 수가 예상과 맞아야 한다.
@@ -92,6 +106,8 @@ Validation은 새 page들이 처음에는 zero frame에 mapping되고, write가 
 - Store page fault에서 `scause`와 `stval`의 역할을 말할 수 있는가?
 - Zero page를 read-only로 두어야 하는 이유는 무엇인가?
 - Page fault handler가 정상 lazy allocation과 불법 접근을 어떻게 구분해야 하는가?
+- 위 3-page 예제에서 zero-frame 방식이 기존 방식 대비 물리 frame을 12KB→8KB로 줄이는 과정을 직접 계산할 수 있는가?
+- 이 예제에서 page fault가 정확히 1회만 발생하는 이유(어떤 page가, 왜 그 시점에)를 설명할 수 있는가?
 
 {% endraw %}
 

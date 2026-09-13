@@ -116,6 +116,30 @@ C++ 표준 지원이 부족한 시점에는 Boost barrier 같은 library를 사�
 - atomic, job division, synchronization overhead도 serial part처럼 작동할 수 있다.
 - 병렬 프로그래밍에서는 “얼마나 많이 나누는가”만큼 “나눌 수 없는 부분을 줄이는가”가 중요하다.
 
+## 숫자로 확인하기 — Amdahl's Law로 speedup 상한 계산
+
+프로그램의 90%($$P=0.9$$)가 병렬화 가능하고 10%($$S=0.1$$)가 순수 serial이라고 하자. Processor 수 $$N$$에 대한 speedup은
+
+$$
+\text{Speedup}(N) = \frac{1}{S + \frac{P}{N}}
+$$
+
+| $$N$$ | 계산 | Speedup |
+|---:|---|---:|
+| 1 | $$1/(0.1+0.9/1)$$ | 1.00 |
+| 4 | $$1/(0.1+0.9/4)$$ | 3.08 |
+| 16 | $$1/(0.1+0.9/16)$$ | 6.40 |
+| 64 | $$1/(0.1+0.9/64)$$ | 8.77 |
+| $$\infty$$ | $$1/S = 1/0.1$$ | **10.0** |
+
+Processor를 4개에서 16개로 4배 늘리면 speedup은 3.08→6.40(약 2.1배)로 늘지만, 16개에서 64개로 또 4배 늘려도 6.40→8.77(약 1.4배)로 개선 폭이 급격히 줄어든다. Processor를 아무리 늘려도 speedup은 $$1/S=10$$을 절대 넘지 못한다 — serial 10%가 이 프로그램이 낼 수 있는 최대 speedup을 영원히 10배로 묶어버린다. Mutex 경합, thread 생성/조인 overhead, barrier 대기 같은 synchronization 비용은 모두 이 $$S$$에 더해지는 "실질적인 serial part"로 작동하므로, 병렬 코드를 늘리는 것 못지않게 이 synchronization overhead를 줄이는 것이 중요하다.
+
+## 복습 질문
+
+- 병렬 비율 90%에서 processor 수를 4→16→64로 늘릴 때 speedup 증가폭이 왜 점점 줄어드는지 설명할 수 있는가?
+- 이 예제에서 processor를 무한히 늘려도 speedup이 10을 넘을 수 없는 이유를 수식으로 설명할 수 있는가?
+- Mutex 경합이나 barrier 대기 같은 synchronization overhead가 왜 Amdahl's Law의 serial part $$S$$에 더해지는 비용으로 볼 수 있는지 설명할 수 있는가?
+
 ## 정리
 
 Thread programming의 핵심은 shared data를 다루는 순간 correctness와 performance가 동시에 어려워진다는 점이다. mutex는 안전하지만 과하면 느리고, atomic은 가볍지만 적용 범위가 좁고, condition variable은 대기 문제를 효율적으로 해결한다. 마지막으로 Amdahl's Law는 동기화와 serial section을 줄이는 것이 성능의 본질임을 보여준다.

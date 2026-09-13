@@ -58,6 +58,17 @@ head = (head + 1) % length;
 
 `head == tail`만으로는 full과 empty를 구분할 수 없으므로 `size`를 함께 관리한다.
 
+**숫자 예 — wraparound 추적**: `length=4`인 배열에서 시작해(`head=tail=size=0`)
+
+| 연산 | 배열 내용 | `head` | `tail` | `size` |
+|---|---|---:|---:|---:|
+| `enqueue(A,B,C)` | `[A,B,C,_]` | 0 | 3 | 3 |
+| `dequeue()` → A | `[A,B,C,_]` | 1 | 3 | 2 |
+| `enqueue(D)` | `[A,B,C,D]` | 1 | 0 | 3 |
+| `enqueue(E)` | `[E,B,C,D]` | 1 | 1 | 4 |
+
+`enqueue(D)`에서 `tail`이 `3`에서 `(3+1)%4=0`으로 **wrap-around**하고, `enqueue(E)`는 `dequeue`로 비워진 index `0`(원래 `A` 자리)에 `E`를 덮어쓴다. 마지막에 `head==tail==1`이지만 `size==4==length`이므로 이는 empty가 아니라 **full** 상태다 — `size`가 없으면 이 두 상태를 구분할 수 없다.
+
 ## Enqueue
 
 ```cpp
@@ -130,6 +141,12 @@ void dequeue() {
 - [연결 리스트](11-linked-lists.md)
 - [스택](12-stack.md)
 - [그래프](22-graphs.md)
+
+## 복습 질문
+
+- `length=4` circular queue에서 위 5단계를 직접 추적해 각 단계의 `head`, `tail`, `size`를 구할 수 있는가?
+- `head==tail`인 상태가 empty일 수도 full일 수도 있는 이유와, `size`가 이를 어떻게 구분해주는지 설명할 수 있는가?
+- enqueue와 dequeue가 서로 반대쪽 끝에서 일어나야 하는 연결 리스트 큐에서, 어느 쪽을 head/tail로 정할지가 왜 일관성 있게 고정돼야 하는가?
 
 {% endraw %}
 

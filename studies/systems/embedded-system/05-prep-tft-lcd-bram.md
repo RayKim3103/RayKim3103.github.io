@@ -67,6 +67,26 @@ Green을 6비트로 더 많이 주는 이유는 사람 눈이 초록색 변화�
 | Color Bar Generator | test pattern 생성 |
 | MUX | DIP switch에 따라 BRAM image 또는 color bar 선택 |
 
+## RGB565 색상 단계 수 계산
+
+RGB565가 표현 가능한 전체 색 수는 각 색의 단계 수를 곱해서 구한다.
+
+$$
+2^5 (\text{Red}) \times 2^6 (\text{Green}) \times 2^5 (\text{Blue}) = 32 \times 64 \times 32 = 65{,}536 = 2^{16}
+$$
+
+비트 수를 직접 더해도 $$5+6+5=16$$비트로 같은 결과가 나온다. Green에 1비트를 더 준 이유(사람 눈이 초록 변화에 더 민감)가 실제로는 "같은 16비트 예산 안에서 지각적으로 가장 유리하게 배분한 것"임을 숫자로 확인할 수 있다 — 만약 5/5/6(R/G/B)처럼 Blue에 더 준다면 색 수는 동일하게 65,536이지만 사람이 체감하는 밝기 계조는 더 나빠진다.
+
+## Clock Divider 예습
+
+구동 로직 표의 "25MHz clock을 12.5MHz로 분주"는 [05주차 결과](05-result-tft-lcd-bram.md)의 `g2m.v`(posedge마다 toggle)로 구현된다. 주기로 보면 $$1/25\text{MHz}=40\text{ns}$$에서 $$1/12.5\text{MHz}=80\text{ns}$$로, 주기가 정확히 2배가 된다.
+
+## 복습 질문
+
+- RGB565에서 Red/Green/Blue 각각의 단계 수를 곱해 전체 색 수 65,536을 직접 계산할 수 있는가?
+- Green에 1비트를 더 주는 설계가 "같은 총 비트 수" 안에서 어떤 trade-off인지 설명할 수 있는가?
+- 25MHz를 12.5MHz로 나누는 `g2m.v`의 toggle 방식이 주기를 몇 배로 만드는지 설명할 수 있는가?
+
 ## 정리
 
 5주차 예비의 핵심은 TFT-LCD 출력이 **픽셀 데이터 + 수평/수직 동기 + active video 구간** 의 조합이라는 점이다. BRAM에 저장된 영상은 단순히 읽기만 하면 되는 것이 아니라, 현재 `H_COUNT`, `V_COUNT`에 맞는 address를 계산하여 적절한 시점에 RGB로 내보내야 한다.

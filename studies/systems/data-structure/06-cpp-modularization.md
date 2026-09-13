@@ -91,6 +91,8 @@ T sum(T a, T b) {
 }
 ```
 
+**숫자 예**: `sum(3, 4)`를 호출하면 컴파일러는 `T=int`로 추론해 `int sum(int, int)`를 생성하고 `7`을 반환한다. `sum(3.5, 4.2)`를 호출하면 `T=double`로 추론해 `double sum(double, double)`을 별도로 생성하고 `7.7`을 반환한다 — 같은 소스 코드 한 벌에서 컴파일 시점에 타입별로 서로 다른 함수가 만들어지는 것이 템플릿의 핵심이다.
+
 여러 타입 매개변수도 가능하다.
 
 ```cpp
@@ -200,6 +202,12 @@ public:
 - [C++ 객체지향 프로그래밍](08-cpp-oop.md)
 - [배열과 벡터](10-arrays-and-vectors.md)
 - [연결 리스트](11-linked-lists.md)
+
+## 복습 질문
+
+- `sum(3, 4)`와 `sum(3.5, 4.2)`를 호출하면 컴파일러가 각각 어떤 타입으로 템플릿을 인스턴스화하는가?
+- call by value와 call by reference의 차이를 `f(int a, int& b)` 예시로 설명할 수 있는가?
+- `private`, `protected`, `public` 상속에서 각 접근 수준이 어떻게 제한되는지 설명할 수 있는가?
 
 {% endraw %}
 

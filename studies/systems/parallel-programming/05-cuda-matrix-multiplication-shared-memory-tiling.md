@@ -96,6 +96,26 @@ Tile 크기가 `b`이면 각 tile element가 block 내부에서 `b`번 재사용
 
 예를 들어 8x8, 16x16, 32x32 tile은 모두 occupancy 100%가 가능할 수 있지만, 32x32는 block당 1024 threads라 scheduling 유연성이 떨어질 수 있다.
 
+## 숫자로 확인하기 — tiling이 줄이는 global memory traffic
+
+`TILE_WIDTH=16`으로 $$N=1024$$ 정방행렬을 곱한다고 하자.
+
+**Naive 방식**: 각 thread가 `P[row][col]` 하나를 계산하며 매 `k` 반복마다 `M`과 `N`에서 각각 1개 float를 global memory에서 읽는다. 전체 thread 수는 $$1024\times1024$$개이고 thread마다 $$1024$$번의 k-loop를 도므로, `M` 하나만 봐도 총 global memory read는
+
+$$
+1024\times1024\times1024 \approx 1.07\times10^9 \text{회}
+$$
+
+즉 같은 `M[row][k]` 값을 1024개의 서로 다른 column-thread가 각각 다시 읽는다.
+
+**Tiling 방식**(tile 크기 $$b=16$$): 같은 tile 안의 16개 thread가 shared memory에 한 번 올라온 `M` 원소를 16번 재사용하므로, global memory read는 이론상 $$1/b = 1/16$$로 줄어
+
+$$
+1.07\times10^9 / 16 \approx 6.7\times10^7 \text{회}
+$$
+
+가 된다 — **16배의 global memory traffic 감소**다. 이것이 "tile 크기가 `b`이면 global memory load가 naive 대비 대략 `b`배 줄어들 수 있다"는 문장의 실제 배수다. 다만 tile을 32x32로 더 키우면 이론상 32배 감소를 기대할 수 있지만, block당 $$32\times32=1024$$ thread를 쓰게 되어 scheduling 유연성이 떨어지는 trade-off가 함께 온다.
+
 ## Coalescing
 
 Global memory access는 warp의 thread들이 연속 주소를 읽을 때 효율적이다. Matrix multiplication에서 A와 B tile을 load할 때 `threadIdx.x`가 연속 주소를 담당하도록 배치해야 coalescing이 잘 일어난다.
@@ -103,6 +123,12 @@ Global memory access는 warp의 thread들이 연속 주소를 읽을 때 효율�
 ## Corner Turning
 
 데이터를 shared memory에 넣을 때는 coalesced read로 읽고, shared memory 내부에서 access pattern을 바꾸어 write 또는 compute에서도 효율을 얻는 방식이다. 이후 transpose 강의에서 bank conflict와 함께 더 자세히 다룬다.
+
+## 복습 질문
+
+- $$N=1024$$, `TILE_WIDTH=16`일 때 naive 방식의 global memory read 횟수(약 $$1.07\times10^9$$)를 직접 계산할 수 있는가?
+- Tiling이 이 read 횟수를 16배 줄이는 이유를, "같은 tile 안 16개 thread가 shared memory 값을 재사용한다"는 사실로 설명할 수 있는가?
+- Tile을 32x32로 키우면 이론적 traffic 감소는 커지지만 왜 scheduling 유연성이 떨어지는지 설명할 수 있는가?
 
 ## 정리
 

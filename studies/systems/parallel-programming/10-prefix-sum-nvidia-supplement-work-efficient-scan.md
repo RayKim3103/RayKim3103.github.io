@@ -62,6 +62,32 @@ physical_index = logical_index + conflict_free_offset(logical_index)
 
 이렇게 하면 stride가 bank 수와 정렬되어 생기는 conflict를 분산할 수 있다.
 
+## 숫자로 확인하기 — `N=8` Blelloch scan의 work 계산
+
+같은 `[1,2,3,4,5,6,7,8]`(0-indexed)에 Blelloch(work-efficient) scan을 적용하면 덧셈 횟수가 어떻게 $$O(N)$$이 되는지 직접 셀 수 있다.
+
+**Up-sweep**(tree 위로, $$\log_2 8=3$$ level): level마다 활성 노드 수가 절반씩 줄며 각 노드에서 덧셈 1번씩 일어난다.
+
+| Level | 활성 노드(덧셈) 수 |
+|---|---:|
+| 1 | 4 |
+| 2 | 2 |
+| 3 | 1 |
+
+Up-sweep 총 덧셈 = $$4+2+1=7$$번.
+
+**Down-sweep**(tree 아래로, 다시 3 level): 각 level마다 swap 1번 + 덧셈 1번이 활성 노드 수만큼 일어난다.
+
+| Level | 활성 노드(덧셈) 수 |
+|---|---:|
+| 1 | 1 |
+| 2 | 2 |
+| 3 | 4 |
+
+Down-sweep 총 덧셈 = $$1+2+4=7$$번.
+
+**전체 work** = $$7(\text{up-sweep}) + 7(\text{down-sweep}) = 14$$번으로, [Naive Kogge-Stone의 17번](10-prefix-sum-gpu-scan.md)보다 오히려 적고, sequential scan(7번)의 정확히 **2배** 수준이다 — 상수 배(2배) 안에 들어오는 것이 바로 "work-efficient", 즉 $$O(N)$$ work의 실제 의미다. $$N$$이 커질수록 이 차이는 극적으로 벌어진다: 예를 들어 $$N=1024$$이면 Kogge-Stone은 정확히 $$N\log_2 N - (N-1) = 1024\times10 - 1023 = 9217$$번, Blelloch는 $$2(N-1)=2046$$번으로 **약 4.5배** 차이가 난다.
+
 ## Arbitrary Size Array
 
 한 block이 처리할 수 있는 크기를 넘는 배열은 다음 순서로 처리한다.
@@ -76,6 +102,12 @@ physical_index = logical_index + conflict_free_offset(logical_index)
 ## 성능 관점
 
 보충자료는 GPU scan이 CPU scan보다 큰 speedup을 낼 수 있음을 보인다. 다만 단순히 병렬화만 해서는 충분하지 않고, work efficiency와 bank conflict 제거가 함께 필요하다.
+
+## 복습 질문
+
+- `N=8`에서 Blelloch scan의 up-sweep과 down-sweep 각각의 덧셈 횟수(7번씩, 총 14번)를 직접 셀 수 있는가?
+- $$N=1024$$에서 Kogge-Stone(9217번)과 Blelloch(2046번)의 work 차이(약 4.5배)가 왜 $$N$$이 커질수록 더 벌어지는지 설명할 수 있는가?
+- Blelloch scan의 work(14번)가 sequential scan(7번)의 정확히 2배로 "상수 배" 안에 들어오는 것이 왜 work-efficient의 정의인지 설명할 수 있는가?
 
 ## 정리
 

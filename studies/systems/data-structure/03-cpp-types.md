@@ -105,6 +105,17 @@ isLeapYear = (year % 4 == 0) && (year % 100 != 0);
 isLeapYear = isLeapYear || (year % 400 == 0);
 ```
 
+**Trace**:
+
+| `year` | `%4==0` | `%100!=0` | 1행 결과 | `%400==0` | 최종 `isLeapYear` |
+|---:|:---:|:---:|:---:|:---:|:---:|
+| 2024 | true | true | true | (평가 안 함) | **true** |
+| 2023 | false | — | false | false | **false** |
+| 1900 | true | false | false | false | **false** |
+| 2000 | true | false | false | true | **true** |
+
+1900은 4의 배수지만 100의 배수이면서 400의 배수는 아니라서 평년이고, 2000은 100의 배수이지만 400의 배수라서 윤년이다 — 이 미묘한 예외 때문에 두 줄로 나눠 계산해야 한다.
+
 ## `auto`
 
 `auto`는 초기화식의 타입을 변수 타입으로 사용한다.
@@ -131,6 +142,12 @@ const double pi = 3.14159;
 
 - [C++ 흐름 제어](04-cpp-control-flow.md)
 - [C++ 메모리](05-cpp-memory.md)
+
+## 복습 질문
+
+- Trace 표를 보지 않고 `a=1234; b=56; int c=a+b; a=b; b=c;` 실행 후 세 변수 값을 예측할 수 있는가?
+- 1900년과 2000년이 왜 각각 평년/윤년인지 윤년 판정식으로 설명할 수 있는가?
+- `string`과 숫자 타입에서 `+` 연산의 의미가 어떻게 다른지 설명할 수 있는가?
 
 {% endraw %}
 

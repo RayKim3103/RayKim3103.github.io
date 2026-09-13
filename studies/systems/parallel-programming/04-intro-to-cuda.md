@@ -73,6 +73,22 @@ int Row = threadIdx.y + blockIdx.y * blockDim.y;
 
 Boundary check는 이미지 크기가 block tile로 나누어떨어지지 않을 때 out-of-bounds 접근을 막는다.
 
+## 숫자로 확인하기 — grid/block index로 실제 thread 위치 계산
+
+`N=1000`, block당 256 thread로 `vecAddKernel<<<ceil(1000/256.0), 256>>>`를 실행하면 grid 크기는
+
+$$
+\lceil 1000/256 \rceil = \lceil 3.90625 \rceil = 4\text{개 block}
+$$
+
+총 실행되는 thread 수는 $$4 \times 256 = 1024$$개로, 실제 필요한 1000개보다 24개 많다. `blockIdx.x=3`(마지막 block), `threadIdx.x=200`인 thread의 전역 index는
+
+$$
+i = threadIdx.x + blockDim.x \times blockIdx.x = 200 + 256 \times 3 = 200+768=968
+$$
+
+이 thread는 $$968 < 1000$$이므로 `if (i < n)` 조건을 통과해 정상적으로 `C[968]`을 계산한다. 하지만 같은 마지막 block에서 `threadIdx.x=232`인 thread는 $$i = 232+768=1000$$이 되어 $$1000 < 1000$$이 거짓이므로 **아무 일도 하지 않고 즉시 종료**한다 — 마지막 block의 256개 thread 중 실제로 유효한 것은 $$1000 - 768 = 232$$개뿐이고, 나머지 24개(`threadIdx.x=232~255`)는 boundary check에 의해 조용히 버려진다. `if (i < n)` 한 줄이 없었다면 이 24개 thread가 배열 밖 주소에 write하는 out-of-bounds 오류가 됐을 것이다.
+
 ## CUDA Function Qualifier
 
 | qualifier | 호출 위치 | 실행 위치 |
@@ -101,6 +117,12 @@ Occupancy는 SM에 동시에 resident할 수 있는 active warp/thread 비율이
 - SM당 최대 threads/warps/blocks
 
 `--ptxas-options=-v`를 사용하면 register 사용량 등 kernel resource 정보를 확인할 수 있다.
+
+## 복습 질문
+
+- `N=1000`, block당 256 thread일 때 grid 크기가 왜 4가 되는지, 그리고 마지막 block에서 몇 개의 thread가 유효한지 계산할 수 있는가?
+- `blockIdx.x=3`, `threadIdx.x=232`인 thread의 전역 index가 왜 정확히 1000이 되고, `if (i<n)` 조건에서 왜 걸러지는지 설명할 수 있는가?
+- `if (i < n)` boundary check가 없다면 어떤 종류의 오류가 발생하는지 설명할 수 있는가?
 
 ## 정리
 

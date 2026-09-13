@@ -85,6 +85,19 @@ replaceArray(A, newSize)
 
 벡터가 보통 doubling 계열 전략을 쓰기 때문에 `push_back`은 amortized constant time으로 본다.
 
+**숫자 예 — doubling 전략 추적**: capacity 1에서 시작해 `push_back`을 8번 호출하면
+
+| push 번호 | capacity(전) | 재할당? | 복사 원소 수 |
+|---:|---:|:---:|---:|
+| 1 | 0 | O (0→1) | 0 |
+| 2 | 1 | O (1→2) | 1 |
+| 3 | 2 | O (2→4) | 2 |
+| 4 | 4 | X | 0 |
+| 5 | 4 | O (4→8) | 4 |
+| 6~8 | 8 | X | 0 |
+
+총 복사 횟수는 $$0+1+2+0+4+0+0+0=7$$번이고, push 자체는 8번이므로 전체 작업량은 $$8+7=15$$ — push 1회당 평균(amortized) 약 1.9회로 **상수**다. 재할당마다 복사량이 2배씩 늘지만 발생 빈도는 절반씩 줄어들어($$1,2,4,\ldots$$의 합이 전체 크기 $$n$$을 넘지 않음), 총 복사량이 $$O(n)$$을 넘지 않기 때문이다.
+
 ## 배열 vs 벡터
 
 | 기준 | 배열 | 벡터 |
@@ -100,6 +113,12 @@ replaceArray(A, newSize)
 - [C++ 메모리](05-cpp-memory.md)
 - [연결 리스트](11-linked-lists.md)
 - [성능 분석](09-performance-analysis.md)
+
+## 복습 질문
+
+- capacity 1에서 시작해 8번 `push_back`할 때 재할당이 몇 번 일어나고 총 복사 횟수가 몇 번인지 직접 추적할 수 있는가?
+- doubling 전략이 incremental(상수만큼 증가) 전략보다 amortized 성능이 좋은 이유를 설명할 수 있는가?
+- `insert`와 `erase`가 왜 최악 `O(n)`인지 뒤쪽 원소 이동으로 설명할 수 있는가?
 
 {% endraw %}
 

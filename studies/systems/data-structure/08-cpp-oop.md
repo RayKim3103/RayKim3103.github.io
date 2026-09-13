@@ -143,6 +143,15 @@ public:
 
 base pointer로 호출해도 `virtual` 함수는 derived version으로 dispatch될 수 있다.
 
+**숫자 예**: `area()`가 `virtual`이라 가정하고 `Rectangle rect; rect.set_values(4,5);`, `Triangle tri; tri.set_values(4,5);`를 만든 뒤
+
+```cpp
+Polygon* shapes[2] = {&rect, &tri};
+for (Polygon* p : shapes) cout << p->area() << "\n";
+```
+
+를 실행하면 출력은 `20`(사각형: $$4\times5$$), `10`(삼각형: $$4\times5/2$$)이다. `shapes`는 둘 다 `Polygon*` 타입이지만, `area()`가 `virtual`이면 **런타임에 실제로 가리키는 객체**(Rectangle 또는 Triangle)의 함수가 호출된다 — `virtual`이 아니었다면 두 호출 모두 `Polygon::area()`(만약 정의되어 있었다면)로 고정되어 다형성이 사라진다.
+
 ## 추상 클래스
 
 순수 가상 함수는 `= 0`으로 선언한다.
@@ -175,6 +184,12 @@ public:
 - [C++ 모듈화](06-cpp-modularization.md)
 - [스택](12-stack.md)
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
+
+## 복습 질문
+
+- `Polygon* shapes[2] = {&rect, &tri}`에서 `area()`가 `virtual`일 때와 아닐 때 출력이 왜 달라지는지 설명할 수 있는가?
+- 순수 가상 함수(`= 0`)를 가진 클래스로 왜 직접 객체를 만들 수 없는지 설명할 수 있는가?
+- `dynamic_cast`와 `static_cast`의 차이를 실패 시 동작으로 설명할 수 있는가?
 
 {% endraw %}
 

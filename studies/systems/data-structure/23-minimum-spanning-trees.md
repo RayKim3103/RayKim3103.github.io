@@ -119,6 +119,24 @@ Prim(G, s)
 
 Prim은 cut property를 직접 사용하는 greedy 알고리즘이다.
 
+## 숫자 예 — Kruskal과 Prim 비교
+
+[그래프 노트](22-graphs.md)의 그래프에 가중치를 붙이면: $$A\text{-}B{:}1,\ A\text{-}C{:}4,\ B\text{-}D{:}2,\ C\text{-}D{:}3,\ D\text{-}E{:}5$$.
+
+**Kruskal**(weight 오름차순 `1,2,3,4,5`로 정렬 후 union-find로 cycle 검사):
+
+| edge 검토 | union-find 결과 | 선택? |
+|---|---|:---:|
+| A-B (1) | 다른 component → union | O |
+| B-D (2) | 다른 component → union | O |
+| C-D (3) | 다른 component → union | O |
+| A-C (4) | **같은 component**(A,B,C,D 모두 연결됨) | X (cycle) |
+| D-E (5) | 다른 component → union | O |
+
+**Prim**(A에서 시작, 매번 U 바깥으로 나가는 최소 edge 선택): `A-B(1)` → `B-D(2)` → `C-D(3)` → `D-E(5)`.
+
+두 알고리즘 모두 같은 MST $$\{A\text{-}B, B\text{-}D, C\text{-}D, D\text{-}E\}$$, 총 weight $$1+2+3+5=11$$을 만든다(가중치가 모두 다르면 MST가 유일하므로 당연한 결과다). `A-C(4)`는 두 알고리즘 모두에서 제외되는데, Kruskal 관점에서는 cycle을 만들기 때문이고 Prim 관점에서는 애초에 그 시점에 더 싼 edge(`C-D`)가 먼저 선택되기 때문이다.
+
 ## Kruskal vs Prim
 
 | 기준 | Kruskal | Prim |
@@ -133,6 +151,12 @@ Prim은 cut property를 직접 사용하는 greedy 알고리즘이다.
 - [그래프](22-graphs.md)
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
 - [최단 경로](24-shortest-paths.md)
+
+## 복습 질문
+
+- 위 5-vertex 예제에서 Kruskal과 Prim을 각각 직접 추적해 같은 MST(weight 11)를 얻을 수 있는가?
+- `A-C(4)`가 Kruskal에서는 왜 cycle을 만들어 제외되고, Prim에서는 왜 애초에 선택되지 않는지 설명할 수 있는가?
+- Cycle property와 Cut property를 각각 Kruskal, Prim의 정당성과 연결해 설명할 수 있는가?
 
 {% endraw %}
 

@@ -70,6 +70,22 @@ xv6에는 timer interrupt마다 증가하는 global variable `ticks`가 있다. 
 
 Kernel global variable에 접근할 때는 lock이 필요한지 확인해야 한다. Process table을 순회할 때도 process lock을 적절히 잡아 inconsistent state를 읽지 않도록 해야 한다.
 
+## 숫자로 확인하기 — ticks에서 경과 시간 계산
+
+`ticks`가 100ms마다 1씩 증가한다고 했으므로, process가 생성된 시점의 `ticks` 값(`start_ticks`)과 현재 `ticks` 값의 차이로 elapsed time을 구할 수 있다.
+
+$$
+\text{elapsed(ms)} = (\text{ticks}_{\text{now}} - \text{ticks}_{\text{start}}) \times 100\text{ms}
+$$
+
+예를 들어 `start_ticks=120`일 때 process를 생성하고, `ps` 실행 시점의 `ticks`가 350이라면
+
+$$
+(350-120)\times 100\text{ms} = 23{,}000\text{ms} = 23\text{s}
+$$
+
+가 이 process의 경과 실행 시간이다. 여기서 주의할 점은 `ticks`가 "CPU에서 실제로 실행된 시간"이 아니라 "process가 생성된 이후 흘러간 벽시계 시간(wall-clock time)"이라는 것이다 — 그 사이 이 process가 `SLEEPING`으로 CPU를 전혀 못 받았어도 `ticks` 차이는 그대로 23초로 나온다. 따라서 `pstate()`가 출력하는 시간이 "CPU 사용 시간"이 아니라 "생성 후 경과 시간"이라는 점을 output 설계 시 구분해야 한다.
+
 ## ps Option 처리
 
 `ps`는 pid 또는 state option을 받을 수 있다. 예를 들어 특정 PID만 출력하거나, `S`, `R`, `X`, `Z` 같은 state 조건에 맞는 process만 출력한다.
@@ -103,6 +119,12 @@ System call argument 수가 고정되어 있다면 실제 option 개수를 알�
 - `UNUSED` slot을 출력하는 문제
 - `RUNNING` 상태가 single CPU 기준에서만 관찰되는 점을 놓치는 문제
 - `argc`와 syscall 인자 수를 혼동하는 문제
+
+## 복습 체크포인트
+
+- `start_ticks=120`, 현재 `ticks=350`일 때 경과 시간(23초)을 직접 계산할 수 있는가?
+- `ticks` 기반 경과 시간이 "CPU 사용 시간"이 아니라 "생성 후 경과한 벽시계 시간"인 이유를 `SLEEPING` 상태와 연결해 설명할 수 있는가?
+- User program의 `write(fd, ...)` 같은 일반 system call과, 이 과제의 `pstate()`가 kernel 내부 자료구조(process table)에 접근하는 방식이 왜 근본적으로 같은 trap 경로를 쓰는지 설명할 수 있는가? ([01. 운영체제 개요](01-os-overview.md)의 system call 추적 참고)
 
 {% endraw %}
 

@@ -46,6 +46,15 @@ cudaMemcpyAsync(h_out, d_out, size, cudaMemcpyDeviceToHost, stream);
 
 여러 stream 간에는 독립적으로 실행될 수 있으므로, data chunk 또는 여러 matrix를 stream별로 분배하면 overlap이 가능하다.
 
+## 숫자로 확인하기 — stream 수와 파이프라인 깊이
+
+[원본 강의 노트](12-cuda-stream-pinned-memory.md)의 8192x8192 transpose 수치(H2D/D2H 각 20ms pinned 기준, kernel 2.3ms)를 그대로 쓰면, stream 수를 1개→2개→4개로 늘렸을 때 8개 matrix를 처리하는 이상적인 총 시간이 어떻게 줄어드는지 대략적으로 짚을 수 있다.
+
+- Stream 1개(완전 순차): $$8 \times (20+2.3+20) = 8\times42.3 = 338.4\text{ms}$$
+- 여러 stream으로 8개를 연속 pipeline 처리(H2D/kernel/D2H 3단계, 병목은 20ms copy): $$(8-1)\times20 + (20+2.3+20) = 140+42.3 = 182.3\text{ms}$$ (pipeline을 채우고 비우는 시간을 더한 표준 pipeline 공식)
+
+stream 수를 늘릴수록 이득이 커지지만, GPU의 copy engine 수(보통 1~2개)나 SM 자원이 한계에 도달하면 stream을 더 늘려도 추가 overlap이 생기지 않는다 — "불필요한 global device synchronization을 줄인다"는 체크리스트 항목이 왜 중요한지가 바로 이 한계 지점 때문이다.
+
 ## 업데이트본 관점의 체크리스트
 
 - Host buffer가 pinned memory인지 확인한다.
@@ -53,6 +62,12 @@ cudaMemcpyAsync(h_out, d_out, size, cudaMemcpyDeviceToHost, stream);
 - Kernel launch에도 같은 stream을 지정해 한 data chunk의 순서를 유지한다.
 - 불필요한 global device synchronization을 줄인다.
 - NVVP 또는 profiler timeline에서 실제 overlap을 확인한다.
+
+## 복습 질문
+
+- 8개 matrix를 완전 순차(338.4ms)로 처리할 때와 pipeline(182.3ms)으로 처리할 때의 차이를 계산할 수 있는가?
+- Pipeline 시간 공식 $$(n-1)\times\text{bottleneck} + \sum\text{stage}$$에서 "bottleneck"이 왜 20ms copy 단계인지 설명할 수 있는가?
+- Stream 수를 계속 늘려도 성능 개선이 멈추는 이유를 GPU의 copy engine 개수 한계와 연결해 설명할 수 있는가?
 
 ## 정리
 

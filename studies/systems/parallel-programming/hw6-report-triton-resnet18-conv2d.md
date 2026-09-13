@@ -103,6 +103,20 @@ Linear는 input이 float16으로 들어오는 점을 고려해 compute dtype과 
 
 초기 direct convolution 구현은 너무 느려 실행 완료를 기다리기 어려웠다. im2col + GEMM으로 바꾼 뒤 Triton 결과와 PyTorch 결과를 비교했다. PyTorch가 더 빠른 이유는 NVIDIA library 기반 최적화 kernel을 사용하기 때문이다.
 
+## 숫자로 확인하기 — im2col 변환이 추가하는 memory traffic
+
+[07주차](07-cuda-dnn-convolution-im2col.md)의 계산 방식을 이 보고서의 3x3 conv(채널 64, $$56\times56$$ output)에 그대로 적용하면 im2col이 얼마나 많은 데이터를 새로 만드는지 알 수 있다.
+
+**원본 input**: $$56\times56\times64 = 200{,}704$$개 값 (편의상 output과 같은 spatial 크기로 근사).
+
+**im2col 이후 $$X_{col}$$**: 각 output pixel($$56\times56=3136$$개)마다 $$3\times3\times64=576$$개 값을 column으로 뽑으므로
+
+$$
+3136 \times 576 = 1{,}806{,}336\text{개}
+$$
+
+원본 대비 $$1{,}806{,}336/200{,}704 \approx 9$$**배**로 늘어난다 — $$3\times3=9$$라는 filter 면적이 그대로 데이터 중복 배율이 되는 것이다. 이 추가로 생성된 약 900% 많은 데이터를 다시 read/write해야 하므로, "im2col 변환과 reshape 과정에서 추가 kernel launch와 memory traffic이 발생한다"는 보고서의 분석이 이 9배 수치로 뒷받침된다. cuDNN 같은 vendor library는 종종 im2col을 실제로 메모리에 만들지 않고 GEMM 커널 내부에서 즉석으로 patch를 구성하는 "implicit GEMM"으로 이 9배 overhead 자체를 피한다 — Triton 구현이 명시적 im2col 방식을 택한 것이 PyTorch 대비 느린 이유 중 하나로 이어진다.
+
 ## Conv2d가 Torch보다 느린 이유
 
 분석된 이유:
@@ -120,6 +134,12 @@ Linear는 input이 float16으로 들어오는 점을 고려해 compute dtype과 
 - weight transpose load coalescing 개선
 - Conv2d direct 또는 implicit GEMM 방식 재설계
 - Triton autotune으로 block size, num warps, stages 탐색
+
+## 복습 질문
+
+- $$56\times56\times64$$ 입력, $$3\times3$$ filter에서 im2col의 데이터 증폭이 왜 정확히 9배(필터 면적)가 되는지 계산할 수 있는가?
+- Implicit GEMM이 explicit im2col 대비 왜 이 9배 memory traffic을 피할 수 있는지 설명할 수 있는가?
+- Triton이 CUDA 대비 shared memory를 명시적으로 제어하기 어렵다는 점이, 왜 하필 Conv2d처럼 data reuse가 중요한 연산에서 더 크게 불리하게 작용하는지 설명할 수 있는가?
 
 ## 정리
 

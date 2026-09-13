@@ -101,6 +101,28 @@ Tio = Tseek + Trotation + Ttransfer
 
 Random access에서는 seek와 rotation이 큰 비중을 차지한다. Sequential access는 head 이동과 회전 대기가 줄어 훨씬 빠르다.
 
+## 숫자로 확인하기 — HDD I/O 시간 계산
+
+7200RPM 디스크, 평균 seek time 4ms, transfer rate 100MB/s에서 4KB block 하나를 random access로 읽는 시간을 계산한다.
+
+**Rotational delay**: 7200RPM은 분당 7200바퀴이므로 1바퀴 도는 시간은
+$$
+\frac{60\text{s}}{7200} = 8.33\text{ms}
+$$
+평균적으로 목표 sector가 절반 바퀴만큼 떨어져 있다고 가정하면 평균 rotational delay는 그 절반인 **4.17ms**다.
+
+**Transfer time**: 4KB를 100MB/s로 옮기면
+$$
+\frac{4\text{KB}}{100\text{MB/s}} = \frac{4}{100{,}000}\text{s} = 0.04\text{ms}
+$$
+
+**총 I/O 시간**:
+$$
+T_{io} = T_{seek} + T_{rotation} + T_{transfer} = 4\text{ms} + 4.17\text{ms} + 0.04\text{ms} \approx 8.21\text{ms}
+$$
+
+transfer time(0.04ms)은 전체의 채 1%도 되지 않고, seek+rotation이 거의 대부분(약 99.5%)을 차지한다 — "random access에서는 seek와 rotation이 큰 비중을 차지한다"는 문장이 숫자로 확인된다. 같은 4KB를 순차 접근(sequential access)으로 읽는다면 seek·rotation 없이 transfer time 0.04ms만 걸리므로, 이 예시에서 random 대비 약 **200배** 빠르다.
+
 ## Disk Scheduling
 
 여러 disk request가 대기할 때 순서를 바꾸면 seek time과 rotational delay를 줄일 수 있다.
@@ -112,6 +134,16 @@ Shortest Seek Time First는 현재 head 위치에서 가장 가까운 track의 r
 ### SPTF
 
 Shortest Positioning Time First는 seek time뿐 아니라 rotational delay까지 포함한 positioning time이 가장 짧은 request를 고른다. 실제 disk 성능에는 rotation도 중요하므로 SSTF보다 정확한 기준이다.
+
+## 숫자로 확인하기 — SSTF의 총 이동 거리
+
+Head가 track 50에 있고, 대기 중인 request가 track `{10, 90, 55, 20, 60}` 순서로 도착했다고 하자.
+
+**FIFO 순서**(도착 순서 그대로 처리): $$50\to10\to90\to55\to20\to60$$. 이동 거리 = $$|50-10|+|10-90|+|90-55|+|55-20|+|20-60| = 40+80+35+35+40=230$$.
+
+**SSTF**(매번 현재 head 위치에서 가장 가까운 request 선택): 현재 50에서 가장 가까운 것은 55(거리5) → 55에서 가장 가까운 남은 것은 60(거리5) → 60에서 남은 것 중 90(거리30)과 20(거리40),10(거리50) 중 90이 더 가까움(거리30) → 90에서 남은 20(거리70), 10(거리80) 중 20이 더 가까움(거리70) → 마지막 10(거리10). 순서: $$50\to55\to60\to90\to20\to10$$. 이동 거리 = $$5+5+30+70+10=120$$.
+
+SSTF가 FIFO 대비 이동 거리를 $$230\to120$$, 약 **48% 절감**한다. 다만 track 10처럼 멀리 있는 request가 계속 뒤로 밀리는 것도 이 추적에서 보인다 — 만약 계속 head 근처로 새 request가 들어온다면 10은 영원히 처리되지 못하는 **starvation**이 발생할 수 있다.
 
 ## RAID
 
@@ -133,6 +165,18 @@ Data disk들과 별도 parity disk를 둔다. 하나의 disk failure는 parity�
 
 Parity block을 여러 disk에 분산한다. RAID 4의 parity disk bottleneck을 줄인다. 하나의 disk failure를 견딜 수 있고, capacity overhead는 disk 하나 분량이다.
 
+### 숫자로 확인하기 — RAID 레벨별 usable capacity
+
+1TB 디스크 4개로 구성했을 때 사용 가능한 용량을 비교하면 각 RAID의 trade-off가 분명해진다.
+
+| RAID | Usable capacity | 계산 | 견딜 수 있는 disk failure |
+|---|---:|---|:---:|
+| RAID 0 | 4TB | $$4 \times 1\text{TB}$$ (redundancy 없음) | 0개 |
+| RAID 1 | 2TB | $$4\text{TB} / 2$$ (mirroring, 절반만 사용) | 1개(미러 쌍 기준) |
+| RAID 4/5 | 3TB | $$(4-1)\times 1\text{TB}$$ (disk 1개 분량을 parity로 사용) | 1개 |
+
+RAID 0은 redundancy가 없어 전체 4TB를 다 쓰지만 disk 하나만 고장 나도 전체 데이터를 잃는다. RAID 1은 절반(2TB)만 쓰는 대신 안전하고, RAID 4/5는 disk 1개 분량(1TB)만 parity로 희생해 3TB를 확보하면서도 1개 disk failure를 견딘다 — 같은 4개 disk라도 목적(성능/용량 vs 신뢰성)에 따라 실제 usable capacity가 이렇게 갈린다.
+
 ## 복습 체크포인트
 
 - Polling과 interrupt의 장단점을 latency와 overhead 관점에서 비교할 수 있는가?
@@ -141,6 +185,9 @@ Parity block을 여러 disk에 분산한다. RAID 4의 parity disk bottleneck을
 - HDD I/O time을 seek, rotational delay, transfer time으로 나누어 계산할 수 있는가?
 - SSTF와 SPTF의 차이를 말할 수 있는가?
 - RAID 0, 1, 4, 5의 성능과 신뢰성 trade-off를 비교할 수 있는가?
+- 7200RPM, seek 4ms, transfer rate 100MB/s 조건에서 4KB random access의 총 I/O 시간을 직접 계산할 수 있는가?
+- 위 SSTF 예제에서 FIFO(230) 대비 이동 거리가 왜 120으로 줄어드는지, 그리고 어떤 request가 starvation 위험이 있는지 설명할 수 있는가?
+- 1TB 디스크 4개로 RAID 0/1/4/5를 구성했을 때 usable capacity가 각각 왜 다른지 계산할 수 있는가?
 
 {% endraw %}
 

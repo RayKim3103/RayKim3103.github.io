@@ -99,6 +99,32 @@ Software는 file descriptor와 system call만 사용하고, hardware address 접
     *(volatile unsigned long long*)sevenseg_virtual_addr;
 ```
 
+## 숫자로 확인하기 — 64비트 write 값과 clock 주파수 역산
+
+**64비트 write 값 조립**: `wr_long_value = ((unsigned long long)LED_VALUE << 32LLU) | SEG_VALUE`에 실제 값을 대입하면
+
+$$
+(0\text{x}87654321 \ll 32) \,|\, 0\text{x}20872186 = 0\text{x}8765432120872186
+$$
+
+상위 32비트(`0x87654321`)가 LED 값, 하위 32비트(`0x20872186`)가 7-segment 값으로 하나의 64bit word 안에 나란히 들어간다 — `sevenseg_write`가 8byte 단위로 한 번에 write할 수 있는 이유가 바로 이 word 안에 두 device의 값이 함께 packing되어 있기 때문이다.
+
+**LED 2초 간격에서 driving clock 역산**: `clk_led`가 50,000,000 cycle마다 pattern이 바뀌고 그 간격이 "약 2초"로 관찰되었다. 이로부터 driving clock 주파수를 역산하면
+
+$$
+\frac{50{,}000{,}000\text{ cycle}}{2\text{s}} = 25{,}000{,}000\text{Hz} = 25\text{MHz}
+$$
+
+이 값은 2, 3, 4주차에서부터 계속 사용된 PL clock 25MHz와 정확히 일치한다 — 14주차의 sevenseg RTL도 같은 25MHz clock domain에서 동작하고 있음을 이 역산으로 확인할 수 있다.
+
+**7-segment multiplexing 주파수도 동일하게 재현**: `clk_cnt`가 16384에 도달할 때마다 `com_cnt`가 증가하는 구조는 3주차 `seven_seg.v`와 동일하다. 같은 25MHz clock을 가정하면 3주차에서 유도한 것과 똑같이
+
+$$
+\frac{25{,}000{,}000}{16384 \times 8} \approx 190.7\text{Hz}
+$$
+
+의 digit 순환 주파수가 나온다([3주차 결과](03-result-7-segment.md)의 계산과 동일). 서로 다른 주차, 다른 실습 목적(RTL 단독 vs Linux driver 경유)이지만 근본 hardware multiplexing 원리는 동일하게 유지된다는 것을 확인할 수 있다.
+
 ## `sevenseg_test.c`
 
 Application은 다음 값을 사용했다.
@@ -125,6 +151,13 @@ wr_long_value = ((unsigned long long)LED_VALUE << 32LLU) | SEG_VALUE;
 ## 실험 결과 해석
 
 LED는 `0x87654321`의 하위 byte부터 순서대로 출력되므로, `21 -> 43 -> 65 -> 87` 형태의 8비트 pattern이 시간에 따라 반복된다. 7-segment에는 `0x20872186`이 4비트 단위 digit으로 표시된다.
+
+## 복습 질문
+
+- `(LED_VALUE << 32) | SEG_VALUE` 계산으로 `0x8765432120872186`이 나오는 과정을 직접 재현할 수 있는가?
+- `clk_led`의 50,000,000 cycle과 관찰된 "약 2초" 간격으로부터 driving clock이 25MHz임을 역산할 수 있는가?
+- 14주차의 sevenseg multiplexing 주파수(≈190.7Hz)가 3주차와 같은 값으로 나오는 이유를, 두 주차의 회로 구조 차이(RTL 단독 vs Linux driver 경유)와 함께 설명할 수 있는가?
+- `0x87654321`을 signed int로 잘못 다루면 어떤 문제가 생길 수 있는지, `unsigned long long` casting이 왜 필요한지 설명할 수 있는가?
 
 ## 정리
 

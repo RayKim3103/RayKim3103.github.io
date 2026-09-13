@@ -56,6 +56,22 @@ Vector processor는 하나의 instruction으로 여러 데이터를 동시에 �
 
 Compiler가 vectorization을 자동 수행할 수도 있고, `<immintrin.h>` 같은 intrinsic을 직접 사용할 수도 있다.
 
+## 숫자로 확인하기 — SIMD 폭이 처리량에 미치는 영향
+
+2GHz로 동작하는 CPU가 매 cycle 하나의 vector FMA(fused multiply-add, 곱셈+덧셈 1쌍)를 실행할 수 있다고 하면, ISA별 32bit float 처리량(GFLOP/s)은
+
+$$
+\text{GFLOP/s} = f(\text{Hz}) \times \text{lane 수} \times 2(\text{FMA당 연산 수})
+$$
+
+| ISA | register 폭 | lane 수(32bit) | GFLOP/s (2GHz 기준) |
+|---|---:|---:|---:|
+| SSE | 128bit | 4 | $$2\times10^9 \times 4 \times 2 = 16$$ |
+| AVX2 | 256bit | 8 | $$2\times10^9 \times 8 \times 2 = 32$$ |
+| AVX-512 | 512bit | 16 | $$2\times10^9 \times 16 \times 2 = 64$$ |
+
+같은 clock, 같은 core 수라도 AVX-512는 SSE 대비 정확히 **4배**의 이론적 처리량을 낸다 — register 폭이 4배(128→512bit)이기 때문이다. 다만 이는 모든 lane이 dependency 없이 항상 채워질 때의 이론치이며, "조건문과 Predication"에서 다루듯 lane마다 branch가 갈리면 이 처리량을 그대로 얻지 못한다.
+
 ## 조건문과 Predication
 
 SIMD 구조에서 lane마다 branch 방향이 다르면 모든 lane을 같은 instruction stream으로 처리하기 어렵다. 이때 predication으로 조건별 결과를 mask 처리할 수 있지만, 실제 계산 자원 활용률이 떨어질 수 있다. 이 개념은 CUDA warp divergence와 직접 연결된다.
@@ -70,6 +86,12 @@ SIMD 구조에서 lane마다 branch 방향이 다르면 모든 lane을 같은 in
 | ILP | Instruction Level Parallelism |
 | TLP | Thread Level Parallelism |
 | DLP | Data Level Parallelism |
+
+## 복습 질문
+
+- 2GHz 기준으로 SSE(16GFLOP/s)와 AVX-512(64GFLOP/s)의 처리량 차이가 정확히 4배인 이유를 register 폭으로 설명할 수 있는가?
+- 이 이론적 GFLOP/s가 실제로는 왜 항상 달성되지 않는지, warp divergence·predication과 연결해 설명할 수 있는가?
+- ILP, TLP, DLP가 각각 프로그래머 관점에서 "자동으로 얻어지는 정도"가 왜 다른지 설명할 수 있는가?
 
 ## 정리
 

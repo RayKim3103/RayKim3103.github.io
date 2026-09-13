@@ -25,6 +25,30 @@ Softmax 예시에서 naive PyTorch 구현은 여러 operator로 나뉘어 input�
 - Triton fusion: 필요한 데이터를 한 번 읽고 최종 결과를 저장하는 형태로 감소
 - Memory-bound kernel에서는 memory traffic 감소가 곧 큰 speedup으로 연결된다.
 
+## 숫자로 확인하기 — softmax fusion이 줄이는 memory traffic
+
+$$N=4096$$ 크기의 정방행렬(row마다 softmax)에서, naive PyTorch 구현이 대략 $$5N^2+2N$$번의 load/store를 수행한다고 하면
+
+$$
+5N^2+2N = 5\times4096^2 + 2\times4096 = 5\times16{,}777{,}216 + 8192 = 83{,}894{,}272
+$$
+
+약 8390만 번의 memory 접근이 필요하다. 이는 max 계산, exp 계산, 합계 계산, 나눗셈 등 softmax의 각 단계가 별도 kernel로 나뉘어 매번 input/중간 결과를 global memory에 다시 쓰고 읽기 때문이다.
+
+Triton fusion으로 필요한 데이터를 한 번만 읽고 최종 결과만 쓰는 형태로 바꾸면, 이론적 최소 memory 접근은
+
+$$
+2N^2 = 2\times16{,}777{,}216 = 33{,}554{,}432
+$$
+
+(입력을 한 번 읽고 출력을 한 번 쓰는 정도) 수준까지 줄어든다. 비율로 보면
+
+$$
+\frac{83{,}894{,}272}{33{,}554{,}432} \approx 2.5
+$$
+
+즉 이 예시에서 fusion은 memory traffic을 이론상 **약 2.5배** 줄인다. Reduction/scan처럼 memory-bound인 연산에서는 memory traffic이 곧 실행 시간을 지배하므로, 이 2.5배 traffic 감소가 거의 그대로 실행 시간 단축으로 이어질 수 있다.
+
 ## CUDA Software Stack 속 Triton
 
 Application은 보통 CUDA library(cuBLAS, cuDNN), CUDA runtime API, device API 등을 통해 GPU를 사용한다. Triton은 CUDA보다 높은 수준에서 GPU kernel을 작성하지만, PyTorch보다 낮은 수준에서 block, index, mask, tile size를 직접 설계할 수 있는 위치에 있다.
@@ -68,6 +92,12 @@ Triton은 kernel parameter를 실험하며 shape별 최적 configuration을 찾�
 ## PyTorch Integration
 
 Triton은 PyTorch와 함께 custom operator처럼 사용될 수 있다. Liger Kernel, PyTorch tutorial 등에서 transformer/LLM 연산을 Triton으로 최적화하는 예시를 제공한다.
+
+## 복습 질문
+
+- $$N=4096$$일 때 naive softmax의 약 8390만 번 memory 접근이 어디서 나오는지($$5N^2+2N$$) 설명할 수 있는가?
+- Fusion 이후 이론적 접근 횟수가 왜 $$2N^2$$ 수준(입력 1회 read + 출력 1회 write)까지 줄어드는지 설명할 수 있는가?
+- Memory-bound kernel에서 memory traffic 감소가 왜 거의 그대로 실행 시간 단축으로 이어지는지 설명할 수 있는가?
 
 ## 정리
 

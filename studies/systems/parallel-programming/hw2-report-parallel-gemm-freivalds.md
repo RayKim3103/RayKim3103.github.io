@@ -43,6 +43,16 @@ Block size 결정 관점:
 - local A, local B, local C가 cache에 들어가야 함
 - 실험적으로 `16 x 16` block size가 좋은 성능을 보임
 
+## 숫자로 확인하기 — 16x16 block이 L1 cache에 들어가는지 검증
+
+`float` 기준 block size `b=16`일 때, 한 번의 block 계산에 필요한 A tile, B tile, C tile을 모두 SRAM에 올린다고 하면 필요한 총 용량은
+
+$$
+3 \times (16\times16\times4\text{byte}) = 3\times1024\text{byte} = 3072\text{byte} \approx 3\text{KB}
+$$
+
+Core당 L1d cache를 약 32KiB로 가정하면, 이 3KB는 32KiB의 약 $$3/32 \approx 9.4\%$$만 차지한다 — 여유가 충분해 A/B/C 세 tile이 동시에 L1에 상주할 수 있다는 뜻이다. 만약 block size를 두 배인 `b=32`로 올리면 필요한 용량은 $$3\times(32\times32\times4)=12{,}288\text{byte}=12\text{KB}$$로 늘어 32KiB의 약 37.5%를 차지하게 되고, 여기에 다른 데이터(예: thread별 임시 변수, 다른 core와 공유하는 L2 압박)까지 고려하면 eviction이 발생하기 시작할 여지가 커진다 — 보고서가 "실험적으로 16x16이 좋았다"고 밝힌 이유를 이 용량 계산이 뒷받침한다.
+
 ## Freivalds / GEMV 구현 전략
 
 Freivalds는 `A * (B * v) == C * v`를 검사한다. 핵심 계산은 GEMV다.
@@ -82,6 +92,12 @@ Freivalds는 `A * (B * v) == C * v`를 검사한다. 핵심 계산은 GEMV다.
 - false sharing 회피를 위해 local matrix/vector 사용
 - loop unrolling으로 compiler SIMD 유도
 - copy overhead와 cache hit gain 사이 균형 필요
+
+## 복습 질문
+
+- `b=16`일 때 A/B/C tile 합계가 왜 3KB가 되고, 32KiB L1 대비 약 9.4%만 차지하는지 계산할 수 있는가?
+- `b=32`로 두 배 키우면 필요 용량이 왜 4배(12KB)로 늘어나는지, 그리고 그것이 왜 eviction 위험을 높이는지 설명할 수 있는가?
+- Row-wise 병렬화가 column-wise보다 race condition과 locality 양쪽에서 왜 유리한지 설명할 수 있는가?
 
 ## 정리
 

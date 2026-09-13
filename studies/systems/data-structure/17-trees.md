@@ -80,6 +80,16 @@ Unix/Linux 파일 시스템은 디렉터리와 파일이 계층적으로 배치�
 
 수식 `(5 * (3 + 2)) - (6 * 4)`는 operator를 internal node, operand를 leaf로 하는 binary expression tree로 표현할 수 있다.
 
+```text
+          -
+        /   \
+       *     *
+      / \   / \
+     5   + 6   4
+        / \
+       3   2
+```
+
 ## 이진 트리 성질
 
 강의에서는 각 internal node가 정확히 두 child를 갖는 proper/full 성격의 이진 트리 성질을 다룬다.
@@ -171,6 +181,16 @@ inOrder(v)
 
 이진 탐색 트리에서는 in-order traversal이 key를 오름차순으로 방문한다.
 
+**숫자 예 — 위 expression tree 순회**:
+
+| 순회 | 방문 순서 |
+|---|---|
+| Pre-order | `- * 5 + 3 2 * 6 4` |
+| In-order | `5 * 3 + 2 - 6 * 4` |
+| Post-order | `5 3 2 + * 6 4 * -` |
+
+Post-order 결과 `5 3 2 + * 6 4 * -`는 정확히 [스택 노트](12-stack.md)에서 다룬 **후위 표기식**이다. 스택으로 계산하면 `3+2=5` → `5*5=25` → `6*4=24` → `25-24=1`이 나오며, 이는 원래 수식 $$(5\times(3+2))-(6\times4)=5\times5-24=1$$과 정확히 일치한다 — 후위 표기식이 곧 expression tree의 post-order traversal임을 확인한 것이다.
+
 ## 트리 균형 형태
 
 | 형태 | 의미 |
@@ -185,6 +205,12 @@ inOrder(v)
 
 - [이진 탐색 트리](18-binary-search-trees.md)
 - [힙과 우선순위 큐](20-heaps-and-priority-queues.md)
+
+## 복습 질문
+
+- `(5*(3+2))-(6*4)` expression tree의 pre/in/post-order 결과를 직접 구할 수 있는가?
+- post-order traversal이 왜 후위 표기식과 정확히 대응하는지 설명할 수 있는가?
+- 배열 기반 이진 트리에서 `A[0]`을 비워두면 왜 부모/자식 인덱스 계산이 단순해지는가?
 
 {% endraw %}
 

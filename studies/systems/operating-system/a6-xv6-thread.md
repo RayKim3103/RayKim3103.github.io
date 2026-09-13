@@ -78,6 +78,22 @@ Stack 관련 주의:
 - Guard page는 stack overflow 탐지에 도움을 준다.
 - Stack pointer는 ABI에 맞게 정렬해야 한다.
 
+## 숫자로 확인하기 — thread stack 주소 배치
+
+Page 크기 4KB, `NPROC=64`라고 하면 예약해야 할 stack 영역은 $$NPROC+1=65$$ page다. Address space의 top(예: user stack이 시작하는 주소 `TRAPFRAME` 바로 아래)을 기준으로 각 thread와 guard page를 아래 방향으로 배치하면:
+
+$$
+\text{thread}_i\text{의 stack top} = \text{TOP} - (i+1) \times (\text{guard page} + \text{stack page}) = \text{TOP} - (i+1) \times 8\text{KB}
+$$
+
+즉 thread 0의 stack은 `TOP-8KB`부터, thread 1은 `TOP-16KB`부터, thread 2는 `TOP-24KB`부터 시작하는 식으로 **한 thread당 8KB(guard page 4KB + stack page 4KB)씩 아래로 밀려난다**. 전체 65개 slot을 이렇게 배치하면 필요한 주소 범위는
+
+$$
+65 \times 8\text{KB} = 520\text{KB}
+$$
+
+이다. 만약 guard page 없이 stack page만 다닥다닥 붙여 배치했다면, 한 thread가 자기 stack 아래로 넘치는(overflow) 순간 바로 옆 thread의 stack을 조용히 손상시킬 수 있다 — guard page가 그 접근을 즉시 page fault로 만들어 버그를 눈에 띄게 하는 역할을 한다는 것이 이 배치 계산에서 드러난다.
+
 ## thread_join()
 
 `thread_join()`은 특정 thread가 종료될 때까지 기다리고 return value를 받아온다. 기존 `wait()`와 비슷하지만 process가 아니라 같은 address space를 공유하는 thread를 대상으로 한다.
@@ -134,6 +150,12 @@ PDF는 이전 과제에서는 single CPU라 process lock 효과가 거의 보이
 - `wait()`와 `thread_join()`의 자원 회수 범위를 혼동하는 문제
 - Thread 하나의 exit에서 shared page table을 해제하는 문제
 - Mutex를 non-atomic load/store만으로 구현하는 문제
+
+## 복습 체크포인트
+
+- 위 예제에서 thread 2의 stack이 왜 `TOP-24KB`에서 시작하는지, 8KB 간격이 어디서 나오는지 계산할 수 있는가?
+- Guard page가 없다면 stack overflow가 왜 다른 thread의 stack을 조용히 손상시킬 수 있는지 설명할 수 있는가?
+- `fork()`(주소 공간 복사)와 `tfork()`(주소 공간 공유) 중 어느 쪽이 이번 thread stack 배치 문제와 관련 있는지, 그리고 그 이유를 설명할 수 있는가?
 
 {% endraw %}
 

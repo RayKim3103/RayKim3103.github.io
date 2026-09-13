@@ -34,6 +34,16 @@ Custom kernel 작성은 비용이 있지만, operator fusion이나 특정 shape 
 - 직접 구현한 Triton kernel의 병목은 무엇인가?
 - PyTorch가 사용하는 cuBLAS, cuDNN, CUTLASS 같은 library kernel과 어떤 차이가 있는가?
 
+## 숫자로 확인하기 — ResNet18에서 Conv2d가 차지하는 연산 비중
+
+ResNet18의 첫 7x7 conv(입력 채널 3, 출력 채널 64, $$112\times112$$ output 기준)와, 이후 반복되는 3x3 conv block 하나(채널 64, $$56\times56$$ output)의 곱셈 수를 비교하면 왜 Conv2d 최적화가 우선순위 1순위인지 알 수 있다.
+
+**7x7 conv 1개**: $$112\times112 \times 64\times3 \times 7\times7 = 112^2\times64\times3\times49 \approx 1.18\times10^8$$
+
+**3x3 conv 1개**(채널 64→64): $$56\times56\times64\times64\times3\times3 \approx 1.16\times10^8$$
+
+반면 ResNet18의 최종 `Linear`(512→1000)는 batch 1 기준 $$512\times1000 \approx 5.12\times10^5$$번의 곱셈뿐이다. 즉 conv layer 하나(3x3, 약 $$1.16\times10^8$$)가 전체 network의 마지막 Linear layer보다 **약 226배** 많은 연산을 차지하고, ResNet18 전체에는 이런 conv layer가 20개 가까이 있다 — "Conv2d가 가장 큰 비중을 차지하므로 최적화 우선순위가 높다"는 문장이 이 비교에서 정량적으로 확인된다. 보고서가 direct convolution 대신 im2col+GEMM을 택한 이유도, 이 압도적인 conv 연산량을 이미 고도로 최적화된 GEMM 패턴으로 처리하려는 시도다.
+
 ## 채점 및 규칙
 
 - Final assignment라 late submission 없음
@@ -47,6 +57,12 @@ Custom kernel 작성은 비용이 있지만, operator fusion이나 특정 shape 
 - [Triton Introduction - Triton DSL과 Kernel Fusion](11-triton-introduction-dsl-kernel-fusion.md)
 - [More Notes - DL Compiler와 LLM Inference](15-more-notes-dl-compiler-llm-inference.md)
 - [CUDA DNN - Convolution과 im2col](07-cuda-dnn-convolution-im2col.md)
+
+## 복습 질문
+
+- $$112\times112$$ output, 채널 3→64, $$7\times7$$ filter인 첫 conv의 곱셈 수(약 1.18억)를 직접 계산할 수 있는가?
+- 3x3 conv 하나가 최종 Linear layer보다 왜 약 226배 많은 연산을 차지하는지 설명할 수 있는가?
+- ResNet18에 conv layer가 20개 가까이 있다는 사실이 "Conv2d 최적화 우선순위가 가장 높다"는 결론과 어떻게 연결되는지 설명할 수 있는가?
 
 ## 정리
 
