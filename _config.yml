@@ -60,7 +60,7 @@ menu:
   - title:             Undergraduate Studies
     url:               /studies/
   - title:             Graduate Studies
-    url:               /grad-studies/
+    url:               /grad_studies/
   - title:             Reading Paper
     url:               /papers/
   # - title:             Publications
